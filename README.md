@@ -1,4 +1,11 @@
-# ludoApp
+# LudoApp
 Project to build social network for boardgames
 
-Creating issues e steps
+# Description
+Project to build social network for boardgames
+
+# Main goals
+
+
+
+Creating issues and steps...

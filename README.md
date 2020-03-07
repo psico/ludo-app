@@ -5,6 +5,10 @@ Developed by João Gabriel
 Project to build social network for boardgames
 
 # Main goals
-
+* Record match
+* Player level
+* Social integration
+* Achievements
+* Schedule match
 
 Creating issues and steps...

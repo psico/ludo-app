@@ -168,6 +168,8 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+/.pnp
+.pnp.js
 
 # TypeScript v1 declaration files
 typings/
@@ -552,3 +554,12 @@ gradle-app.setting
 .idea/**/markdown-navigator/
 
 # End of https://www.gitignore.io/api/node,java,react,java-web,firebase,webstorm,reactnative,intellij+all
+
+# testing
+/coverage
+
+# misc
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

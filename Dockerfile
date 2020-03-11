@@ -5,12 +5,12 @@
 
 #https://dev.to/peterj/run-a-react-app-in-a-docker-container-kjn
 
-FROM nginx:11 AS builder
+FROM nginx:alpine AS builder
 WORKDIR /app
 COPY . .
 RUN yarn run build
 
-FROM nginx
+FROM nginx:alpine
 RUN yarn global add serve
 WORKDIR /app
 COPY --from=builder /app/build .

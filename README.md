@@ -1,8 +1,10 @@
 # LudoApp
 Developed by João Gabriel
 
+![Image of Yaktocat](public/ludo512.png)
+
 # Description
-Project to build social network for boardgames
+Project to build social network for boardgames, register matches and challenge yourself in search of achievements
 
 # Main goals
 * Record match

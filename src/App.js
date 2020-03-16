@@ -1,5 +1,5 @@
 import React from "react";
-import { withStyles } from "@material-ui/core/styles";
+import {withStyles} from "@material-ui/core/styles";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ImageIcon from "@material-ui/icons/Image";
 import WorkIcon from "@material-ui/icons/Work";
@@ -19,6 +19,8 @@ import {
 } from "@material-ui/core";
 import Header from "./Header";
 import Footer from "./Footer";
+import {BrowserRouter, Switch, Route} from "react-router-dom";
+import Community from "./Community";
 
 const styles = () => ({
     root: {
@@ -61,11 +63,18 @@ const styles = () => ({
     }
 });
 
-const App = ({ classes }) => (
-    <div>
-        <Header />
-        <Footer />
-    </div>
+const App = ({classes}) => (
+    <BrowserRouter>
+        <div>
+            <Header/>
+            <Switch>
+                <Route path="/">
+                    <Community/>
+                </Route>
+            </Switch>
+            <Footer/>
+        </div>
+    </BrowserRouter>
 );
 
 // const App = ({ classes }) => (

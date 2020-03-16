@@ -21,6 +21,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import Community from "./Community";
+import "./index.css";
 
 const styles = () => ({
     root: {
@@ -65,15 +66,15 @@ const styles = () => ({
 
 const App = ({classes}) => (
     <BrowserRouter>
-        <div>
-            <Header/>
-            <Switch>
-                <Route path="/">
-                    <Community/>
-                </Route>
-            </Switch>
-            <Footer/>
-        </div>
+        <Header/>
+        <body>
+        <Switch>
+            <Route path="/">
+                <Community/>
+            </Route>
+        </Switch>
+        </body>
+        <Footer/>
     </BrowserRouter>
 );
 

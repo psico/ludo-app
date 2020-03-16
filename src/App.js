@@ -17,6 +17,8 @@ import {
     ListItemText,
     IconButton
 } from "@material-ui/core";
+import Header from "./Header";
+import Footer from "./Footer";
 
 const styles = () => ({
     root: {
@@ -61,69 +63,76 @@ const styles = () => ({
 
 const App = ({ classes }) => (
     <div>
-        <div className={classes.background} />
-        <Grid container className={classes.root}>
-            <Grid item xs={12}>
-                <Card className={classes.card}>
-                    <Grid container>
-                        <LeftContainer classes={classes} />
-                        <RightContainer classes={classes} />
-                    </Grid>
-                </Card>
-            </Grid>
-        </Grid>
+        <Header />
+        <Footer />
     </div>
 );
 
-const list = [
-    { id: 1, name: "Diego", text: "Lorem ipsum", image: <ImageIcon /> },
-    { id: 2, name: "Robson", text: "Lorem ipsum", image: <WorkIcon /> },
-    { id: 3, name: "Cleiton", text: "Lorem ipsum", image: <BeachAccessIcon /> }
-];
-
-const LeftContainer = ({ classes }) => (
-    <Grid item xs={3}>
-        <CardHeader
-            className={classes.rightBorder}
-            avatar={
-                <Avatar aria-label="Recipe" className={classes.avatar}>
-                    H
-                </Avatar>
-            }
-        />
-        <Paper className={classes.paper} elevation={0}>
-            <Typography className={classes.information} variant="subheader">
-                Acesse nossa comunidade no Discord e fique por dentro das novidades!
-            </Typography>
-        </Paper>
-        <List>
-            {list.map(item => (
-                <ListItem>
-                    <Avatar>{item.image}</Avatar>
-                    <ListItemText primary={item.name} secondary={item.text} />
-                </ListItem>
-            ))}
-        </List>
-    </Grid>
-);
-
-const RightContainer = ({ classes }) => (
-    <Grid className={classes.heightAdjust} item xs={9}>
-        <CardHeader
-            avatar={
-                <Avatar aria-label="Recipe" className={classes.avatar}>
-                    <ImageIcon />
-                </Avatar>
-            }
-            action={
-                <IconButton>
-                    <MoreVertIcon />
-                </IconButton>
-            }
-            title="Diego"
-        />
-        <CardContent className={[classes.rightContainer, classes.content]} />
-    </Grid>
-);
+// const App = ({ classes }) => (
+//     <div>
+//         <div className={classes.background} />
+//         <Grid container className={classes.root}>
+//             <Grid item xs={12}>
+//                 <Card className={classes.card}>
+//                     <Grid container>
+//                         <LeftContainer classes={classes} />
+//                         <RightContainer classes={classes} />
+//                     </Grid>
+//                 </Card>
+//             </Grid>
+//         </Grid>
+//     </div>
+// );
+//
+// const list = [
+//     { id: 1, name: "Diego", text: "Lorem ipsum", image: <ImageIcon /> },
+//     { id: 2, name: "Robson", text: "Lorem ipsum", image: <WorkIcon /> },
+//     { id: 3, name: "Cleiton", text: "Lorem ipsum", image: <BeachAccessIcon /> }
+// ];
+//
+// const LeftContainer = ({ classes }) => (
+//     <Grid item xs={3}>
+//         <CardHeader
+//             className={classes.rightBorder}
+//             avatar={
+//                 <Avatar aria-label="Recipe" className={classes.avatar}>
+//                     H
+//                 </Avatar>
+//             }
+//         />
+//         <Paper className={classes.paper} elevation={0}>
+//             <Typography className={classes.information} variant="subheader">
+//                 Acesse nossa comunidade no Discord e fique por dentro das novidades!
+//             </Typography>
+//         </Paper>
+//         <List>
+//             {list.map(item => (
+//                 <ListItem>
+//                     <Avatar>{item.image}</Avatar>
+//                     <ListItemText primary={item.name} secondary={item.text} />
+//                 </ListItem>
+//             ))}
+//         </List>
+//     </Grid>
+// );
+//
+// const RightContainer = ({ classes }) => (
+//     <Grid className={classes.heightAdjust} item xs={9}>
+//         <CardHeader
+//             avatar={
+//                 <Avatar aria-label="Recipe" className={classes.avatar}>
+//                     <ImageIcon />
+//                 </Avatar>
+//             }
+//             action={
+//                 <IconButton>
+//                     <MoreVertIcon />
+//                 </IconButton>
+//             }
+//             title="Diego"
+//         />
+//         <CardContent className={[classes.rightContainer, classes.content]} />
+//     </Grid>
+// );
 
 export default withStyles(styles)(App);

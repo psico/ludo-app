@@ -16,7 +16,7 @@ const LogoHeader = () => (
 );
 
 const InfoHeader = () => (
-    <div>
+    <div className="infoHeader">
         Info header
     </div>
 );

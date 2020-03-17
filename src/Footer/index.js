@@ -10,10 +10,11 @@ const Footer = () => (
         showLabels
         className="footer"
     >
-        <BottomNavigationAction label="Recents" value="recents"/>
-        <BottomNavigationAction label="Favorites" value="favorites"/>
-        <BottomNavigationAction label="Nearby" value="nearby" />
-        <BottomNavigationAction label="Folder" value="folder" />
+        <BottomNavigationAction label="Community" value="community"/>
+        <BottomNavigationAction label="Friends" value="friends"/>
+        <BottomNavigationAction label="Add Match" value="add-match"/>
+        <BottomNavigationAction label="Games" value="games" />
+        <BottomNavigationAction label="My Profile" value="my-profile" />
     </BottomNavigation>
 );
 

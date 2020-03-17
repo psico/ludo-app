@@ -1,9 +1,22 @@
 import React from "react";
-import "./header.css";
+import style from "./header.css";
 
-const Header = ({ classes }) => (
+const Header = () => (
     <div>
-        Headers here
+        <LogoHeader/>
+        <InfoHeader/>
+    </div>
+);
+
+const LogoHeader = () => (
+    <div className={style.logoHeader}>
+        Logo Header
+    </div>
+);
+
+const InfoHeader = () => (
+    <div>
+        Info header
     </div>
 );
 

@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./header.css";
+import "./header.css";
 
 const Header = () => (
     <div>
@@ -9,7 +9,8 @@ const Header = () => (
 );
 
 const LogoHeader = () => (
-    <div className={style.logoHeader}>
+    <div className="logoHeader">
+        Logo Header<br />
         Logo Header
     </div>
 );

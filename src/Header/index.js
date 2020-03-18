@@ -1,6 +1,10 @@
 import React from "react";
 import "./header.css";
-import {AppBar, Toolbar, useScrollTrigger, Slide} from '@material-ui/core';
+import {AppBar, Toolbar, useScrollTrigger, Slide, IconButton, Typography, InputBase} from '@material-ui/core';
+import {Menu as MenuIcon, Search as SearchIcon} from '@material-ui/icons';
+import logo from '../ludo192.png';
+
+console.log(logo);
 
 const HideOnScroll = (props) => {
     const {children, window} = props;
@@ -27,8 +31,28 @@ const LogoHeader = (props) => (
     <HideOnScroll {...props}>
         <AppBar>
             <Toolbar>
-                Logo Header<br/>
-                Logo Header
+                <IconButton
+                    edge="start"
+                    className=""
+                    color="inherit"
+                    aria-label="open drawer"
+                >
+                    <img src={logo} alt="logo ludoApp" height="40"/>
+                </IconButton>
+                <Typography className="" variant="h6" noWrap>
+                    LudoApp
+                </Typography>
+                <div className="">
+                    <div className="">
+                        <SearchIcon/>
+                    </div>
+                    <InputBase
+                        placeholder="Search…"
+                        classes=""
+                        inputProps={{'aria-label': 'search'}}
+                    />
+                </div>
+                <div className=""/>
             </Toolbar>
         </AppBar>
     </HideOnScroll>

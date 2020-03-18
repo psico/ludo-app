@@ -2,7 +2,7 @@ import React from "react";
 import "./header.css";
 import {AppBar, Toolbar, useScrollTrigger, Slide, IconButton, Typography, InputBase} from '@material-ui/core';
 import {Menu as MenuIcon, Search as SearchIcon} from '@material-ui/icons';
-import logo from '../ludo192.png';
+import logo from './ludo192.png';
 
 console.log(logo);
 

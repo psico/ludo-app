@@ -1,5 +1,4 @@
 import React from "react";
-import "./header.css";
 import useStyles from "./styledComponent";
 import {
     AppBar,
@@ -27,7 +26,7 @@ const HideOnScroll = (props) => {
             {children}
         </Slide>
     );
-}
+};
 
 const Header = (props) => (
     <div>

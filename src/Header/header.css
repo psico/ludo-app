@@ -9,13 +9,13 @@
 /*    background: #7159C1;*/
 /*}*/
 
-.infoHeader {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    position: relative;
-    height: 30px;
-    width: 100%;
-    top: 0;
-    background: #a464ff;
-}
+/*.infoHeader {*/
+/*    position: sticky;*/
+/*    top: 150px;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    font-family: sans-serif;*/
+/*    height: 200px;*/
+/*    width: 100%;*/
+/*    background: #a464ff;*/
+/*}*/

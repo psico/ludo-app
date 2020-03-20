@@ -66,6 +66,15 @@ const useStyles = makeStyles(theme => ({
             width: '20ch',
         },
     },
+    infoHeader: {
+        position: "sticky",
+        top: "64px",
+        margin: 0,
+        padding: 0,
+        height: "200px",
+        width: "100%",
+        background: "#a464ff"
+    }
 }));
 
 const HideOnScroll = (props) => {
@@ -127,11 +136,15 @@ const LogoHeader = (props) => {
     )
 };
 
-const InfoHeader = () => (
-    <div className="infoHeader">
-        Info header
-    </div>
-);
+const InfoHeader = () => {
+    const classes = useStyles();
+
+    return (
+        <div className={classes.infoHeader}>
+            Info header
+        </div>
+    );
+};
 
 
 export default Header;

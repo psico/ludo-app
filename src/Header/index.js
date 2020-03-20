@@ -14,12 +14,16 @@ import logo from './ludo192.png';
 
 console.log(logo);
 
-const Header = (props) => (
-    <div>
-        <LogoHeader {...props}/>
-        <InfoHeader/>
-    </div>
-);
+const Header = (props) => {
+    const classes = useStyles();
+
+    return (
+        <div className={classes.infoHeader}>
+            <LogoHeader {...props}/>
+            <InfoHeader/>
+        </div>
+    );
+};
 
 const LogoHeader = (props) => {
     const classes = useStyles();
@@ -60,10 +64,8 @@ const LogoHeader = (props) => {
 };
 
 const InfoHeader = () => {
-    const classes = useStyles();
-
     return (
-        <div className={classes.infoHeader}>
+        <div>
             Info header
         </div>
     );

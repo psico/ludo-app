@@ -53,14 +53,16 @@ const useStyles = makeStyles(theme => ({
             width: '20ch',
         },
     },
-    infoHeader: {
+    positionHeader: {
         position: "sticky",
         top: "64px",
         margin: 0,
         padding: 0,
+    },
+    infoHeader: {
         height: "40px",
         width: "100%",
-        background: "#a464ff"
+        background: "#8c9bef"
     }
 }));
 

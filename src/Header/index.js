@@ -18,7 +18,7 @@ const Header = (props) => {
     const classes = useStyles();
 
     return (
-        <div className={classes.infoHeader}>
+        <div className={classes.positionHeader}>
             <LogoHeader {...props}/>
             <InfoHeader/>
         </div>
@@ -64,8 +64,10 @@ const LogoHeader = (props) => {
 };
 
 const InfoHeader = () => {
+    const classes = useStyles();
+
     return (
-        <div>
+        <div className={classes.infoHeader}>
             <div>Info header</div>Info header
         </div>
     );

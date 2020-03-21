@@ -66,7 +66,7 @@ const LogoHeader = (props) => {
 const InfoHeader = () => {
     return (
         <div>
-            Info header
+            <div>Info header</div>Info header
         </div>
     );
 };

@@ -58,7 +58,7 @@ const useStyles = makeStyles(theme => ({
         top: "64px",
         margin: 0,
         padding: 0,
-        height: "200px",
+        height: "40px",
         width: "100%",
         background: "#a464ff"
     }

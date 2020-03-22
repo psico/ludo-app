@@ -11,6 +11,7 @@ import {
 } from '@material-ui/core';
 import {Search as SearchIcon} from '@material-ui/icons';
 import logo from './ludo192.png';
+import InfoHeader from "./InfoHeader";
 
 console.log(logo);
 
@@ -63,17 +64,6 @@ const LogoHeader = (props) => {
             </AppBar>
         </HideOnScroll>
     )
-};
-
-const InfoHeader = () => {
-    const classes = useStyles();
-
-    return (
-        <div className={classes.infoHeader}>
-            <div>Info header</div>
-            Info header
-        </div>
-    );
 };
 
 const HideOnScroll = (props) => {

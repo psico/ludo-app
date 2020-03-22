@@ -61,11 +61,17 @@ const useStyles = makeStyles(theme => ({
         padding: 0,
     },
     infoHeader: {
-        verticalAlign: "top",
-        height: "40px",
-        width: "100%",
-        background: "#8c9bef"
-    }
+        display: 'flex',
+        '& > *': {
+            margin: theme.spacing(1),
+        },
+        background: "#8c9bef",
+        paddingLeft: "16px",
+    },
+    small: {
+        width: theme.spacing(3),
+        height: theme.spacing(3),
+    },
 }));
 
 export default useStyles;

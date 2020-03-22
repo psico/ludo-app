@@ -54,12 +54,14 @@ const useStyles = makeStyles(theme => ({
         },
     },
     positionHeader: {
+        // display: "flex",
         position: "sticky",
         top: "64px",
         margin: 0,
         padding: 0,
     },
     infoHeader: {
+        verticalAlign: "top",
         height: "40px",
         width: "100%",
         background: "#8c9bef"

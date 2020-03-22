@@ -19,8 +19,9 @@ const Header = (props) => {
 
     return (
         <div className={classes.positionHeader}>
-            <LogoHeader {...props}/>
-            <InfoHeader/>
+            <div>
+                <LogoHeader {...props}/>
+            </div>
         </div>
     );
 };
@@ -58,6 +59,7 @@ const LogoHeader = (props) => {
                     </div>
                     <div className={classes.grow}/>
                 </Toolbar>
+                <InfoHeader/>
             </AppBar>
         </HideOnScroll>
     )
@@ -68,7 +70,8 @@ const InfoHeader = () => {
 
     return (
         <div className={classes.infoHeader}>
-            <div>Info header</div>Info header
+            <div>Info header</div>
+            Info header
         </div>
     );
 };

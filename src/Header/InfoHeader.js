@@ -1,7 +1,7 @@
 import React from "react";
 import Avatar from '@material-ui/core/Avatar';
 import useStyles from "./styledComponent";
-import jg from './tempImage.jpg';
+import jg from '../temp-images/tempImage.jpg';
 
 const InfoHeader = () => {
     const classes = useStyles();

@@ -1,9 +1,6 @@
 import React from "react";
 import useStyles from "./styledComponent";
-import logo from './ludo192.png';
 import LogoHeader from "./LogoHeader";
-
-console.log(logo);
 
 const Header = (props) => {
     const classes = useStyles();

@@ -64,16 +64,14 @@ const styles = () => ({
     // }
 });
 
-const App = ({classes}) => (
+const App = () => (
     <BrowserRouter>
         <Header/>
-        <body>
         <Switch>
             <Route path="/">
                 <Community/>
             </Route>
         </Switch>
-        </body>
         <Footer/>
     </BrowserRouter>
 );

@@ -8,6 +8,10 @@
     bottom: 0;
 }
 
-.footer > button {
-    background: #00d90d;
+.footer > div {
+    width: 100%;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    background-color: #3f51b5;
 }

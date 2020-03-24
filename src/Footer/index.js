@@ -12,7 +12,7 @@ const Footer = () => (
         <BottomNavigationAction label="Community" value="community" icon={<Home/>}/>
         <BottomNavigationAction label="Friends" value="friends" icon={<Group/>}/>
         <BottomNavigationAction label="Add Match" value="add-match"
-                                icon={<AddCircleOutline fontSize="large" color="action"/>}/>
+                                icon={<AddCircleOutline fontSize="default"/>}/>
         <BottomNavigationAction label="Dashboard" value="dashboard" icon={<Dashboard/>}/>
         <BottomNavigationAction label="My Profile" value="my-profile" icon={<AccountCircle/>}/>
         </div>

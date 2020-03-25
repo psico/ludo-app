@@ -1,5 +1,5 @@
 import React from "react";
-import useStyles from "./styledComponent";
+import useStyles from "./css";
 import LogoHeader from "./LogoHeader";
 
 const Header = (props) => {

@@ -1,4 +1,4 @@
-import useStyles from "./styledComponent";
+import useStyles from "./css";
 import {AppBar, IconButton, InputBase, Slide, Toolbar, Typography, useScrollTrigger} from "@material-ui/core";
 import logo from "./ludo192.png";
 import {Search as SearchIcon} from "@material-ui/icons";

@@ -69,25 +69,23 @@ const styles = () => ({
 const App = () => {
     const classes = useStyles();
 
-    return(
+    return (
         <BrowserRouter>
-            <div className={classes.root}>
-                <Grid container spacing={12}>
-                    <Grid item xs={12}>
-                        <Header/>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Switch>
-                            <Route path="/">
-                                <Community/>
-                            </Route>
-                        </Switch>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Footer/>
-                    </Grid>
+            <Grid container className={classes.root}>
+                <Grid item xs={12}>
+                    <Header/>
                 </Grid>
-            </div>
+                <Grid item xs={12}>
+                    <Switch>
+                        <Route path="/">
+                            <Community/>
+                        </Route>
+                    </Switch>
+                </Grid>
+                <Grid item xs={12}>
+                    <Footer/>
+                </Grid>
+            </Grid>
         </BrowserRouter>
     );
 };

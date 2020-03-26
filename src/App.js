@@ -22,6 +22,8 @@ import Footer from "./Footer";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import Community from "./Community";
 import "./index.css";
+import useStyles from "./css";
+import Grid from '@material-ui/core/Grid';
 
 const styles = () => ({
     // root: {
@@ -64,17 +66,31 @@ const styles = () => ({
     // }
 });
 
-const App = () => (
-    <BrowserRouter>
-        <Header/>
-        <Switch>
-            <Route path="/">
-                <Community/>
-            </Route>
-        </Switch>
-        <Footer/>
-    </BrowserRouter>
-);
+const App = () => {
+    const classes = useStyles();
+
+    return(
+        <BrowserRouter>
+            <div className={classes.root}>
+                <Grid container spacing={12}>
+                    <Grid item xs={12}>
+                        <Header/>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Switch>
+                            <Route path="/">
+                                <Community/>
+                            </Route>
+                        </Switch>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Footer/>
+                    </Grid>
+                </Grid>
+            </div>
+        </BrowserRouter>
+    );
+};
 
 // const App = ({ classes }) => (
 //     <div>

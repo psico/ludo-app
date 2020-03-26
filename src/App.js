@@ -4,7 +4,6 @@ import Header from "./Header";
 import Footer from "./Footer";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import Community from "./Community";
-import "./index.css";
 import useStyles from "./css";
 import Grid from '@material-ui/core/Grid';
 
@@ -32,4 +31,4 @@ const App = () => {
     );
 };
 
-export default withStyles(styles)(App);
+export default withStyles()(App);

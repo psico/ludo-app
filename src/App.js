@@ -72,17 +72,17 @@ const App = () => {
     return (
         <BrowserRouter>
             <Grid container className={classes.root}>
-                <Grid item xs={12}>
+                <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                     <Header/>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                     <Switch>
                         <Route path="/">
                             <Community/>
                         </Route>
                     </Switch>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                     <Footer/>
                 </Grid>
             </Grid>

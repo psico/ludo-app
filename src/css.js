@@ -2,7 +2,7 @@ import {
     makeStyles
 } from '@material-ui/core';
 
-const mainStyles = makeStyles(theme => ({
+const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
         margin: 0,
@@ -17,4 +17,4 @@ const mainStyles = makeStyles(theme => ({
     },
 }));
 
-export default mainStyles;
+export default useStyles;

@@ -4,11 +4,11 @@ import Header from "./Header";
 import Footer from "./Footer";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import Community from "./Community";
-import useStyles from "./css";
+import mainStyles from "./css";
 import Grid from '@material-ui/core/Grid';
 
 const App = () => {
-    const classes = useStyles();
+    const classes = mainStyles();
 
     return (
         <BrowserRouter>

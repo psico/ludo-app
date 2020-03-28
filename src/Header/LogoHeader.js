@@ -1,4 +1,4 @@
-import useStyles from "./css";
+import componentStyles from "./css";
 import {AppBar, IconButton, InputBase, Slide, Toolbar, Typography, useScrollTrigger} from "@material-ui/core";
 import logo from "./ludo192.png";
 import {Search as SearchIcon} from "@material-ui/icons";
@@ -6,7 +6,7 @@ import InfoHeader from "./InfoHeader";
 import React from "react";
 
 const LogoHeader = (props) => {
-    const classes = useStyles();
+    const classes = componentStyles();
 
     return (
         <HideOnScroll {...props}>

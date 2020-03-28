@@ -1,9 +1,9 @@
 import React from "react";
-import useStyles from "./css";
+import componentStyles from "./css";
 import LogoHeader from "./LogoHeader";
 
 const Header = (props) => {
-    const classes = useStyles();
+    const classes = componentStyles();
 
     return (
         <div className={classes.positionHeader}>

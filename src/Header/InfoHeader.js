@@ -1,13 +1,13 @@
 import React from "react";
 import Avatar from '@material-ui/core/Avatar';
-import useStyles from "./css";
+import componentStyles from "./css";
 import jg from '../temp-images/tempImage.jpg';
 import lvl from "../temp-images/lvl-coronel.png";
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { lighten, withStyles } from '@material-ui/core/styles';
 
 const InfoHeader = () => {
-    const classes = useStyles();
+    const classes = componentStyles();
     const [completed] = React.useState(30);
 
     const BorderLinearProgress = withStyles({

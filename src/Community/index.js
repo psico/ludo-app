@@ -1,10 +1,10 @@
 import React from "react";
-import useStyles from "../css";
+import mainStyles from "../css";
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
-const Community = ({classes}) => {
-        const mainClasse = useStyles();
+const Community = () => {
+        const mainClasse = mainStyles();
 
         return (
             <div className={mainClasse.root}>

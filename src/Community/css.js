@@ -6,7 +6,7 @@ const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
         margin: 0,
-        padding: 0,
+        paddingTop: "120px",
         fontFamily: "sans-serif",
         background: "#dfdfdf",
     },

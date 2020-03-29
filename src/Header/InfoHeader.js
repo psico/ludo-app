@@ -1,10 +1,9 @@
 import React from "react";
-import Avatar from '@material-ui/core/Avatar';
 import componentStyles from "./css";
-import jg from '../temp-images/tempImage.jpg';
 import lvl from "../temp-images/lvl-coronel.png";
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { lighten, withStyles } from '@material-ui/core/styles';
+import UserAvatar from "../UserAvatar";
 
 const InfoHeader = () => {
     const classes = componentStyles();
@@ -24,7 +23,7 @@ const InfoHeader = () => {
 
     return (
         <div className={classes.infoHeader}>
-            <Avatar variant="rounded" alt="João Gabriel" src={jg} className={classes.small} />
+            <UserAvatar/>
             <img src={lvl} alt="user lvl" height="25"/>
             <h5>
                 <div>Level 30 - Dice Explorer</div>

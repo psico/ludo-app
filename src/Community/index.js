@@ -12,7 +12,7 @@ const Community = () => {
                 <Grid container spacing={3}>
                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                         <Paper className={componentClasses.paper}>
-                            <UserAvatar/>
+                            <UserAvatar showName={true}/>
                         </Paper>
                     </Grid>
                 </Grid>

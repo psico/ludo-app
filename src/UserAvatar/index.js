@@ -9,7 +9,7 @@ const UserAvatar = (props) => {
         idUser: props.idUser,
         name: "João Gabriel",
         srcImage: jg,
-        showName: true,
+        showName: props.showName,
         showImage: true
     });
 
@@ -22,8 +22,9 @@ const UserAvatar = (props) => {
     // });
 
     return (
-        <div>
+        <div className={classes.infoHeader}>
             <Avatar variant="rounded" alt={user.name} src={user.srcImage} className={classes.small}/>
+            {user.showName === true && <div>{user.name}</div>}
         </div>
     );
 };

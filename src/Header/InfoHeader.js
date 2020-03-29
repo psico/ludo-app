@@ -23,7 +23,7 @@ const InfoHeader = () => {
 
     return (
         <div className={classes.infoHeader}>
-            <UserAvatar/>
+            <UserAvatar showName={false} />
             <img src={lvl} alt="user lvl" height="25"/>
             <h5>
                 <div>Level 30 - Dice Explorer</div>

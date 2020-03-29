@@ -65,8 +65,10 @@ const componentStyles = makeStyles(theme => ({
         '& > *': {
             margin: theme.spacing(1),
         },
-        background: "#8c9bef",
-        paddingLeft: "16px",
+        fontSize: "12px",
+        fontWeight: "bold",
+        // background: "#8c9bef",
+        // paddingLeft: "16px",
     },
     small: {
         width: theme.spacing(3),

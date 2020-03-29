@@ -9,7 +9,12 @@ const Community = () => {
 
         return (
             <div className={componentClasses.root}>
-                <Grid container spacing={3}>
+                <Grid container spacing={0}>
+                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
+                        <Paper className={componentClasses.paper}>
+                            <UserAvatar showName={true}/>
+                        </Paper>
+                    </Grid>
                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                         <Paper className={componentClasses.paper}>
                             <UserAvatar showName={true}/>

@@ -22,9 +22,9 @@ const UserAvatar = (props) => {
     // });
 
     return (
-        <div className={classes.infoHeader}>
+        <div className={classes.root}>
             <Avatar variant="rounded" alt={user.name} src={user.srcImage} className={classes.small}/>
-            {user.showName === true && <div>{user.name}</div>}
+            {user.showName === true && <div className={classes.textAvatar}>{user.name}</div>}
         </div>
     );
 };

@@ -4,6 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import UserAvatar from "../UserAvatar";
 import zombicide from "../temp-images/zombicide.jpg";
+import Comments from "../Comments";
 
 const Community = () => {
         const componentClasses = useStyles();
@@ -18,7 +19,7 @@ const Community = () => {
                                     <UserAvatar showName={true}/>
                                     <hr />
                                     <Grid container spacing={0}>
-                                        {/*<Comment />*/}
+                                        <Comments postId={10}/>
                                     </Grid>
                                     <hr />
                                         {/*<LikeAction />*/}

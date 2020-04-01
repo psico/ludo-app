@@ -17,6 +17,11 @@ const Community = () => {
                                 <Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.vl}>
                                     <UserAvatar showName={true}/>
                                     <hr />
+                                    <Grid container spacing={0}>
+                                        {/*<Comment />*/}
+                                    </Grid>
+                                    <hr />
+                                        {/*<LikeAction />*/}
                                 </Grid>
                                 <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
                                     <img src={zombicide} alt="logo ludoApp" height="300"/>

@@ -1,7 +1,7 @@
 import React from "react";
 import useStyles from "./css";
 
-const Community = () => {
+const Comments = () => {
     const componentClasses = useStyles();
 
     return (
@@ -11,4 +11,4 @@ const Community = () => {
     )
 };
 
-export default Community;
+export default Comments;

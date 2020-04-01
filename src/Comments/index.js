@@ -1,12 +1,12 @@
 import React from "react";
 import useStyles from "./css";
 
-const Comments = () => {
+const Comments = (props) => {
     const componentClasses = useStyles();
 
     return (
         <div>
-            comments
+            comments {props.postId}
         </div>
     )
 };

@@ -16,6 +16,9 @@ const useStyles = makeStyles(theme => ({
     },
     item: {
         paddingBottom: "10px"
+    },
+    vl: {
+        borderRight: "1px solid gray",
     }
 }));
 

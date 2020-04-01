@@ -3,6 +3,7 @@ import useStyles from "./css";
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import UserAvatar from "../UserAvatar";
+import zombicide from "../temp-images/zombicide.jpg";
 
 const Community = () => {
         const componentClasses = useStyles();
@@ -12,7 +13,15 @@ const Community = () => {
                 <Grid container spacing={0}>
                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
                         <Paper className={componentClasses.paper}>
-                            <UserAvatar showName={true}/>
+                            <Grid container spacing={0}>
+                                <Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.vl}>
+                                    <UserAvatar showName={true}/>
+                                    <hr />
+                                </Grid>
+                                <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+                                    <img src={zombicide} alt="logo ludoApp" height="300"/>
+                                </Grid>
+                            </Grid>
                         </Paper>
                     </Grid>
                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>

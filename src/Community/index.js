@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import UserAvatar from "../UserAvatar";
 import zombicide from "../temp-images/zombicide.jpg";
 import Comments from "../Comments";
+import Likes from "../Likes";
 
 const Community = () => {
         const componentClasses = useStyles();
@@ -22,7 +23,7 @@ const Community = () => {
                                         <Comments postId={10}/>
                                     </Grid>
                                     <hr />
-                                        {/*<LikeAction />*/}
+                                        <Likes postId={10}/>
                                 </Grid>
                                 <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
                                     <img src={zombicide} alt="logo ludoApp" height="300"/>

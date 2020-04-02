@@ -9,11 +9,12 @@ const useStyles = makeStyles(theme => ({
         fontFamily: "sans-serif",
         textAlign: 'left'
     },
-    paper: {
-        padding: theme.spacing(1)
+    icon: {
+        textAlign: 'left',
+        paddingTop: "7px"
     },
     item: {
-        paddingBottom: "10px"
+        textAlign: 'left'
     }
 }));
 

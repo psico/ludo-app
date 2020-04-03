@@ -4,7 +4,11 @@ import {
 
 const useStyles = makeStyles(theme => ({
     root: {
+        display: "flex",
+        flexDirection: "column",
         flexGrow: 1,
+        width: "100%",
+        maxWidth: "921px",
         margin: 0,
         paddingTop: "115px",
         fontFamily: "sans-serif",

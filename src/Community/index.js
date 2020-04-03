@@ -16,7 +16,7 @@ const Community = () => {
                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
                         <Paper className={componentClasses.paper}>
                             <Grid container spacing={0}>
-                                <Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.vl}>
+                                <Grid item xs={12} sm={12} md={6} lg={6} xl={6} className={componentClasses.vl}>
                                     <UserAvatar showName={true}/>
                                     <hr />
                                     <Grid container spacing={0}>
@@ -25,7 +25,7 @@ const Community = () => {
                                     <hr />
                                         <Likes postId={10}/>
                                 </Grid>
-                                <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+                                <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                                     <img src={zombicide} alt="logo ludoApp" height="300"/>
                                 </Grid>
                             </Grid>

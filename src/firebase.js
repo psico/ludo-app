@@ -1,3 +1,5 @@
+import firebase from "firebase";
+
 const firebaseConfig = {
     apiKey: "AIzaSyCGb39lkfIWcaMIu9NBy8wpF57JUwnPs0g",
     authDomain: "ludoapp-b612.firebaseapp.com",
@@ -8,3 +10,6 @@ const firebaseConfig = {
     appId: "1:723114001632:web:4737b4c1bca3d8c58dfc85",
     measurementId: "G-WSMPGC1PCR"
 };
+
+firebase.initializeApp(firebaseConfig);
+export default firebase;

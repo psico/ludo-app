@@ -1,5 +1,6 @@
 import React from "react";
 import useStyles from "./css";
+import firebase from "./firebase";
 import Grid from '@material-ui/core/Grid';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import {withStyles} from "@material-ui/core/styles";

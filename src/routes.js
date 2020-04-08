@@ -5,7 +5,7 @@ import Community from "./Community";
 
 const routes = [
     { name: "Login", path: "/login", exact: true, main: () => <Login /> },
-    { name: "Community", path: "/Community", exact: true, main: () => <Community /> }
+    { name: "Community", path: "/community", exact: true, main: () => <Community /> }
 ];
 
 export default routes;

@@ -9,6 +9,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Login from "./Login";
 import Community from "./Community";
+import routes from "./routes";
 
 const App = () => {
     const classes = useStyles();
@@ -25,10 +26,14 @@ const App = () => {
                       alignItems="center">
                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                         <Switch>
-                            <Route path="/">
-                                {/*<Community/>*/}
-                                <Login/>
-                            </Route>
+                            {routes.map(route => (
+                                <Route
+                                    key={route.path}
+                                    path={route.path}
+                                    exact={route.exact}
+                                    component={route.main}
+                                />
+                            ))}
                         </Switch>
                     </Grid>
                 </Grid>

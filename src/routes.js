@@ -1,10 +1,11 @@
 import React from "react";
-// import Login from "./Login";
+import Login from "./Login";
+import Community from "./Community";
 // import Join from "./Join";
 
 const routes = [
-    // { name: "Join", path: "/", exact: true, main: () => <Join /> },
-    // { name: "Login", path: "/login", exact: true, main: () => <Login /> }
+    { name: "Login", path: "/login", exact: true, main: () => <Login /> },
+    { name: "Community", path: "/Community", exact: true, main: () => <Community /> }
 ];
 
 export default routes;

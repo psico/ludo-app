@@ -1,13 +1,14 @@
 import React, { useState, useContext } from "react";
 import useStyles from "./css";
 import Grid from "@material-ui/core/Grid";
+import Button from '@material-ui/core/Button';
 import {AuthContext} from "../App";
 
 const Login = () => {
     const componentClasses = useStyles();
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    // const [email, setEmail] = useState("");
+    // const [password, setPassword] = useState("");
     const [error, setErrors] = useState("");
 
     const Auth = useContext(AuthContext);
@@ -23,30 +24,31 @@ const Login = () => {
                 <div>
                     <h1>Login</h1>
                     <form onSubmit={e => handleForm(e)}>
-                        <input
-                            value={email}
-                            onChange={e => setEmail(e.target.value)}
-                            name="email"
-                            type="email"
-                            placeholder="email"
-                        />
-                        <input
-                            onChange={e => setPassword(e.target.value)}
-                            name="password"
-                            value={password}
-                            type="password"
-                            placeholder="password"
-                        />
+                        {/*<input*/}
+                        {/*    value={email}*/}
+                        {/*    onChange={e => setEmail(e.target.value)}*/}
+                        {/*    name="email"*/}
+                        {/*    type="email"*/}
+                        {/*    placeholder="email"*/}
+                        {/*/>*/}
+                        {/*<input*/}
+                        {/*    onChange={e => setPassword(e.target.value)}*/}
+                        {/*    name="password"*/}
+                        {/*    value={password}*/}
+                        {/*    type="password"*/}
+                        {/*    placeholder="password"*/}
+                        {/*/>*/}
                         <hr/>
-                        <button className="googleBtn" type="button">
+                        <Button variant="contained" color="primary" type="button">
                             <img
                                 src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
                                 alt="logo"
+                                height={20}
                             />
-                            Login With Google
-                        </button>
-                        <button type="submit">Login</button>
-                        <span>{error}</span>
+                             Login With Google
+                        </Button>
+                        {/*<button type="submit">Login</button>*/}
+                        {/*<span>{error}</span>*/}
                     </form>
                 </div>
             </Grid>

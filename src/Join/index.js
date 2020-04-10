@@ -33,9 +33,17 @@ const Login = () => {
     return (
         <div className={componentClasses.root}>
             <Grid container spacing={0}>
-                <div>
-                    <h1>Login</h1>
+
                     <form onSubmit={e => handleForm(e)}>
+                        <Button variant="contained" color="primary" type="button">
+                            <img
+                                src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                                alt="logo"
+                                height={20}
+                            />
+                            Login With Google
+                        </Button>
+                        <h3>Login</h3>
                         <input
                             value={email}
                             onChange={e => setEmail(e.target.value)}
@@ -51,18 +59,9 @@ const Login = () => {
                             placeholder="password"
                         />
                         <hr/>
-                        <Button variant="contained" color="primary" type="button">
-                            <img
-                                src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-                                alt="logo"
-                                height={20}
-                            />
-                             Login With Google
-                        </Button>
-                        <button type="submit">Join</button>
+                        <Button variant="contained" color="primary" type="submit">Join</Button>
                         <span>{error}</span>
                     </form>
-                </div>
             </Grid>
         </div>
     );

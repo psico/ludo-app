@@ -2,16 +2,19 @@ import {
     makeStyles
 } from '@material-ui/core';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
     root: {
         display: "flex",
         flexDirection: "column",
         flexGrow: 1,
         alignItems: "center",
         justifyContent: "center",
+        width: "100%",
+        maxWidth: "921px",
         margin: 0,
+        paddingTop: "115px",
         fontFamily: "sans-serif",
-        textAlign: 'left'
+        background: "#dfdfdf",
     },
     item: {
         textAlign: 'left'

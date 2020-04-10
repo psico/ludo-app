@@ -47,7 +47,7 @@ const Login = () => {
                             />
                              Login With Google
                         </Button>
-                        {/*<button type="submit">Login</button>*/}
+                        {/*<button type="submit">Join</button>*/}
                         {/*<span>{error}</span>*/}
                     </form>
                 </div>

@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import useStyles from "./css";
 import Grid from "@material-ui/core/Grid";
 import { AuthContext } from "../App";
+import firebase from "../firebase";
 
 
 const Login = () => {
@@ -14,6 +15,19 @@ const Login = () => {
     const Auth = useContext(AuthContext);
     const handleForm = e => {
         e.preventDefault();
+
+        firebase
+            .auth()
+            .signInWithEmailAndPassword(email,password)
+            .then(res => {
+                if (res.user) {
+                    Auth.setLoggedIn(true);
+                }
+            })
+            .catch(e => {
+                setErrors(e.message);
+            });
+
         console.log(Auth);
         Auth.setLoggedIn(true);
     };
@@ -21,6 +35,7 @@ const Login = () => {
     return (
         <div className={componentClasses.root}>
             <Grid container spacing={0}>
+                <h1>Is Logged? {Auth.isLoggedIn.toString()}</h1>
                 <h1>Login</h1>
                 <form onSubmit={e => handleForm(e)}>
                     <input

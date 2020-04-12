@@ -35,13 +35,12 @@ const Join = () => {
             <Grid container spacing={0}>
 
                     <form onSubmit={e => handleForm(e)}>
-                        <Button variant="contained" color="primary" type="button">
+                        <Button variant="contained" type="button">
                             <img
                                 src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
                                 alt="logo"
                                 height={20}
-                            />
-                            Login With Google
+                            />&nbsp;Login With Google
                         </Button>
                         <h3>Login</h3>
                         <input

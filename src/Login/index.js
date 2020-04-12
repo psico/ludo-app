@@ -1,7 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, {useState, useContext} from "react";
 import useStyles from "./css";
 import Grid from "@material-ui/core/Grid";
-import { AuthContext } from "../App";
+import Button from '@material-ui/core/Button';
+import {AuthContext} from "../App";
 import firebase from "../firebase";
 
 
@@ -18,8 +19,10 @@ const Login = () => {
 
         firebase
             .auth()
-            .signInWithEmailAndPassword(email,password)
+            .signInWithEmailAndPassword(email, password)
             .then(res => {
+                console.log(res.user);
+                //@TODO every time this turn in true
                 if (res.user) {
                     Auth.setLoggedIn(true);
                 }
@@ -35,9 +38,16 @@ const Login = () => {
     return (
         <div className={componentClasses.root}>
             <Grid container spacing={0}>
-                <h1>Is Logged? {Auth.isLoggedIn.toString()}</h1>
-                <h1>Login</h1>
                 <form onSubmit={e => handleForm(e)}>
+                    <h1>Login</h1>
+                    <Button variant="contained" type="button">
+                        <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                            alt="logo"
+                            height={20}
+                        />&nbsp;Login With Google
+                    </Button>
+                    <hr/>
                     <input
                         value={email}
                         onChange={e => setEmail(e.target.value)}
@@ -52,15 +62,8 @@ const Login = () => {
                         type="password"
                         placeholder="password"
                     />
-                    <hr/>
-                    <button className="googleBtn" type="button">
-                        <img
-                            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-                            alt="logo"
-                        />
-                        Login With Google
-                    </button>
-                    <button type="submit">Login</button>
+
+                    <Button variant="contained" type="submit">Login</Button>
                     <span>{error}</span>
                 </form>
             </Grid>

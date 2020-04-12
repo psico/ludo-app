@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import {AuthContext} from "../App";
 import firebase from "../firebase";
 
-const Login = () => {
+const Join = () => {
     const componentClasses = useStyles();
 
     const [email, setEmail] = useState("");
@@ -67,4 +67,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Join;

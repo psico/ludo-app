@@ -5,7 +5,7 @@ import Join from "./Join";
 
 
 const routes = [
-    { name: "Login", path: "/login", exact: true, main: () => <Login /> },
+    { name: "Login", path: "/", exact: true, main: () => <Login /> },
     { name: "Join", path: "/join", exact: true, main: () => <Join /> }
 ];
 

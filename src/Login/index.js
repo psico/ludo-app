@@ -60,7 +60,7 @@ const Login = () => {
             <Grid container spacing={0}>
                 <form onSubmit={e => handleForm(e)}>
                     <h1>Login</h1>
-                    <Button variant="contained" type="button">
+                    <Button onClick={() => signInWithGoogle()} variant="contained" type="button">
                         <img
                             src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
                             alt="logo"

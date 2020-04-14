@@ -14,6 +14,7 @@ const Login = () => {
     const [error, setErrors] = useState("");
 
     const Auth = useContext(AuthContext);
+
     const handleForm = e => {
         e.preventDefault();
 
@@ -33,6 +34,25 @@ const Login = () => {
 
         console.log(Auth);
         Auth.setLoggedIn(true);
+    };
+
+    const signInWithGoogle = () => {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        firebase
+            .auth()
+            .setPersistence(firebase.auth.Auth.Persistence.SESSION)
+            .then(() => {
+                firebase
+                    .auth()
+                    .signInWithPopup(provider)
+                    .then(result => {
+                        console.log(result);
+                        // history.push('/reports')
+                        Auth.setLoggedIn(true);
+                    })
+                    .catch(e => setErrors(e.message))
+            })
+
     };
 
     return (

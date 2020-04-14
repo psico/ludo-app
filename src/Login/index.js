@@ -4,9 +4,10 @@ import Grid from "@material-ui/core/Grid";
 import Button from '@material-ui/core/Button';
 import {AuthContext} from "../App";
 import firebase from "../firebase";
+import { withRouter } from 'react-router-dom'
 
 
-const Login = () => {
+const Login = ({history}) => {
     const componentClasses = useStyles();
 
     const [email, setEmail] = useState("");
@@ -26,7 +27,7 @@ const Login = () => {
                 //@TODO every time this turn in true
                 if (res.user) {
                     Auth.setLoggedIn(true);
-                    // history.push('/community');
+                    history.push('/community');
                 }
             })
             .catch(e => {
@@ -49,7 +50,7 @@ const Login = () => {
                     .then(result => {
                         console.log(result);
                         Auth.setLoggedIn(true);
-                        // history.push('/community');
+                        history.push('/community');
                     })
                     .catch(e => setErrors(e.message))
             })
@@ -92,4 +93,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default withRouter(Login);

@@ -3,10 +3,12 @@ import useStyles from "./css";
 import Grid from '@material-ui/core/Grid';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import {withStyles} from "@material-ui/core/styles";
+import ProtectedRouteHoc from "./ProtectedRoutHoc";
 
 import Header from "./Header";
 import Footer from "./Footer";
 import routes from "./routes";
+import protectedRoutes from "./protectedRoutes";
 
 export const AuthContext = React.createContext(null);
 
@@ -28,6 +30,16 @@ const App = () => {
                           alignItems="center">
                         <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                             <Switch>
+                                {protectedRoutes.map(route => (
+                                    <ProtectedRouteHoc
+                                        key={route.path}
+                                        isLoggedIn={isLoggedIn}
+                                        path={route.path}
+                                        component={route.main}
+                                        exact={route.exact}
+                                        public={route.public}
+                                    />
+                                ))}
                                 {routes.map(route => (
                                     <Route
                                         key={route.path}

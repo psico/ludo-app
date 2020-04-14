@@ -26,6 +26,7 @@ const Login = () => {
                 //@TODO every time this turn in true
                 if (res.user) {
                     Auth.setLoggedIn(true);
+                    history.push('/community')
                 }
             })
             .catch(e => {
@@ -47,8 +48,8 @@ const Login = () => {
                     .signInWithPopup(provider)
                     .then(result => {
                         console.log(result);
-                        // history.push('/reports')
                         Auth.setLoggedIn(true);
+                        history.push('/community');
                     })
                     .catch(e => setErrors(e.message))
             })

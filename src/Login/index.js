@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import {AuthContext} from "../App";
 import firebase from "../firebase";
 import { withRouter } from 'react-router-dom'
+import LoginGoogle from "../LoginGoogle";
 
 
 const Login = ({history}) => {
@@ -38,37 +39,12 @@ const Login = ({history}) => {
         Auth.setLoggedIn(true);
     };
 
-    const signInWithGoogle = () => {
-        const provider = new firebase.auth.GoogleAuthProvider();
-        firebase
-            .auth()
-            .setPersistence(firebase.auth.Auth.Persistence.SESSION)
-            .then(() => {
-                firebase
-                    .auth()
-                    .signInWithPopup(provider)
-                    .then(result => {
-                        console.log(result);
-                        Auth.setLoggedIn(true);
-                        history.push('/community');
-                    })
-                    .catch(e => setErrors(e.message))
-            })
-
-    };
-
     return (
         <div className={componentClasses.root}>
             <Grid container spacing={0}>
                 <form onSubmit={e => handleForm(e)}>
                     <h1>Login</h1>
-                    <Button onClick={() => signInWithGoogle()} variant="contained" type="button">
-                        <img
-                            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-                            alt="logo"
-                            height={20}
-                        />&nbsp;Login With Google
-                    </Button>
+                    <LoginGoogle/>
                     <hr/>
                     <input
                         value={email}

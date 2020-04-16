@@ -8,12 +8,12 @@ const ProtectedRouteHoc = ({component: Component, isLoggedIn, ...rest}) => {
             <Route
                 {...rest}
                 render={props => {
-                    return <Component {...props}></Component>;
+                    return (<Component {...props} />);
                 }}
             />
         );
     }
-    return <Redirect to={{pathname: '/login'}}/>;
+    return <Redirect to={{pathname: '/'}}/>;
 };
 
 ProtectedRouteHoc.propTypes = {

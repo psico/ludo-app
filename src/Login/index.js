@@ -22,21 +22,22 @@ const Login = ({history}) => {
 
         firebase
             .auth()
-            .signInWithEmailAndPassword(email, password)
-            .then(res => {
-                console.log(res.user);
-                //@TODO every time this turn in true
-                if (res.user) {
-                    Auth.setLoggedIn(true);
-                    history.push('/community');
-                }
-            })
-            .catch(e => {
-                setErrors(e.message);
+            .setPersistence(firebase.auth.Auth.Persistence.SESSION)
+            .then(() => {
+                firebase
+                    .auth()
+                    .signInWithEmailAndPassword(email, password)
+                    .then(res => {
+                        console.log(res.user);
+                        if (res.user) {
+                            Auth.setLoggedIn(true);
+                            history.push('/community');
+                        }
+                    })
+                    .catch(e => {
+                        setErrors(e.message);
+                    });
             });
-
-        console.log(Auth);
-        Auth.setLoggedIn(true);
     };
 
     return (

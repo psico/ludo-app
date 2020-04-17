@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import useStyles from "./css";
 import Grid from '@material-ui/core/Grid';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
-import {withStyles} from "@material-ui/core/styles";
 import ProtectedRouteHoc from "./ProtectedRoutHoc";
 
 import Header from "./Header";
@@ -59,4 +58,4 @@ const App = () => {
     );
 };
 
-export default withStyles()(App);
+export default App;

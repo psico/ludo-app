@@ -15,6 +15,12 @@ const useStyles = makeStyles(theme => ({
         textAlign: 'center',
         color: theme.palette.text.secondary,
     },
+    footer: {
+        position: "fixed",
+        width: "100%",
+        bottom: 0,
+        backgroundColor: "#3f51b5"
+    }
 }));
 
 export default useStyles;

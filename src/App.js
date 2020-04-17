@@ -18,7 +18,6 @@ const App = () => {
 
     return (
         <AuthContext.Provider value={{isLoggedIn, setLoggedIn}}>
-            Is logged in? {JSON.stringify(isLoggedIn)}
             <BrowserRouter>
                 <Grid container className={classes.root}>
                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>

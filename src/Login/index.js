@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import Button from '@material-ui/core/Button';
 import {AuthContext} from "../App";
 import firebase from "../firebase";
-import { withRouter } from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 import LoginGoogle from "../LoginGoogle";
 
 
@@ -30,7 +30,8 @@ const Login = ({history}) => {
                     .then(res => {
                         console.log(res.user);
                         if (res.user) {
-                            Auth.setLoggedIn(true);
+                            // Auth.setLoggedIn(true);
+                            Auth.setAuth(res.user);
                             history.push('/community');
                         }
                     })
@@ -41,12 +42,15 @@ const Login = ({history}) => {
     };
 
     return (
-        <div className={componentClasses.root}>
-            <Grid container spacing={0}>
-                <form onSubmit={e => handleForm(e)}>
-                    <h1>Login</h1>
+        <Grid container spacing={0} className={componentClasses.root}>
+            <form onSubmit={e => handleForm(e)}>
+                <h1>Login</h1>
+                <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
                     <LoginGoogle/>
+                </Grid>
+                <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                     <hr/>
+                    <h3>E-mail login</h3>
                     <input
                         value={email}
                         onChange={e => setEmail(e.target.value)}
@@ -63,10 +67,10 @@ const Login = ({history}) => {
                     />
 
                     <Button variant="contained" type="submit">Login</Button>
-                    <span>{error}</span>
-                </form>
-            </Grid>
-        </div>
+                </Grid>
+                <span>{error}</span>
+            </form>
+        </Grid>
     );
 };
 

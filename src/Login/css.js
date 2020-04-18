@@ -17,7 +17,8 @@ const useStyles = makeStyles(() => ({
         background: "#dfdfdf",
     },
     item: {
-        textAlign: 'left'
+        textAlign: 'left',
+        paddingBottom: '10px'
     }
 }));
 

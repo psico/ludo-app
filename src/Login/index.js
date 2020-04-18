@@ -6,7 +6,7 @@ import {AuthContext} from "../App";
 import firebase from "../firebase";
 import {withRouter} from 'react-router-dom'
 import LoginGoogle from "../LoginGoogle";
-
+import LoginFacebook from "../LoginFacebook";
 
 const Login = ({history}) => {
     const componentClasses = useStyles();
@@ -45,6 +45,9 @@ const Login = ({history}) => {
         <Grid container spacing={0} className={componentClasses.root}>
             <form onSubmit={e => handleForm(e)}>
                 <h1>Login</h1>
+                <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
+                    <LoginFacebook/>
+                </Grid>
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
                     <LoginGoogle/>
                 </Grid>

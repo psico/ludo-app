@@ -3,9 +3,12 @@ import Button from '@material-ui/core/Button';
 import {AuthContext} from "../App";
 import firebase from "../firebase";
 import {withRouter} from 'react-router-dom'
+import useStyles from "./css";
 
 
 const LoginGoogle = ({history}) => {
+
+    const componentClasses = useStyles();
 
     const Auth = useContext(AuthContext);
 
@@ -31,7 +34,11 @@ const LoginGoogle = ({history}) => {
     };
 
     return (
-        <Button onClick={() => signInWithGoogle()} variant="contained" type="button">
+        <Button onClick={() => signInWithGoogle()}
+                variant="contained" type="button"
+                classes={{
+                    root: componentClasses.root
+                }}>
             <img
                 src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
                 alt="logo"

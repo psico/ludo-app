@@ -4,7 +4,7 @@ import {
 
 const useStyles = makeStyles(() => ({
     root: {
-        background: "#ffffff",
+        background: "#3b5998",
     }
 }));
 

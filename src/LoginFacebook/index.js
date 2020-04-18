@@ -14,8 +14,8 @@ const LoginFacebook = ({history}) => {
 
     const [error, setErrors] = useState("");
 
-    const signInWithGoogle = () => {
-        const provider = new firebase.auth.GoogleAuthProvider();
+    const signInWithFacebook = () => {
+        const provider = new firebase.auth.FacebookAuthProvider();
         firebase
             .auth()
             .setPersistence(firebase.auth.Auth.Persistence.SESSION)
@@ -34,16 +34,16 @@ const LoginFacebook = ({history}) => {
     };
 
     return (
-        <Button onClick={() => signInWithGoogle()}
+        <Button onClick={() => signInWithFacebook()}
                 variant="contained" type="button"
                 classes={{
                     root: componentClasses.root
                 }}>
             <img
-                src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Facebook_icon_2013.svg"
                 alt="logo"
                 height={20}
-            />&nbsp;Login With Google
+            />&nbsp;Login With Facebook
         </Button>
 
     );

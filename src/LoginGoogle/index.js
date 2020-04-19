@@ -34,17 +34,20 @@ const LoginGoogle = ({history}) => {
     };
 
     return (
-        <Button onClick={() => signInWithGoogle()}
-                variant="contained" type="button"
-                classes={{
-                    root: componentClasses.root
-                }}>
-            <img
-                src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-                alt="logo"
-                height={20}
-            />&nbsp;Login With Google
-        </Button>
+        <div>
+            <Button onClick={() => signInWithGoogle()}
+                    variant="contained" type="button"
+                    classes={{
+                        root: componentClasses.root
+                    }}>
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                    alt="logo"
+                    height={20}
+                />&nbsp;Login With Google
+            </Button>
+            <span>{error}</span>
+        </div>
 
     );
 };

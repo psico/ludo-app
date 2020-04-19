@@ -34,18 +34,20 @@ const LoginFacebook = ({history}) => {
     };
 
     return (
-        <Button onClick={() => signInWithFacebook()}
-                variant="contained" type="button"
-                classes={{
-                    root: componentClasses.root
-                }}>
-            <img
-                src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Facebook_icon_2013.svg"
-                alt="logo"
-                height={20}
-            />&nbsp;Login With Facebook
-        </Button>
-
+        <div>
+            <Button onClick={() => signInWithFacebook()}
+                    variant="contained" type="button"
+                    classes={{
+                        root: componentClasses.root
+                    }}>
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Facebook_icon_2013.svg"
+                    alt="logo"
+                    height={20}
+                />&nbsp;Login With Facebook
+            </Button>
+            <span>{error}</span>
+        </div>
     );
 };
 

@@ -41,7 +41,7 @@ const LoginTwitter = ({history}) => {
                         root: componentClasses.root
                     }}>
                 <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Facebook_icon_2013.svg"
+                    src="https://cdn.worldvectorlogo.com/logos/twitter.svg"
                     alt="logo"
                     height={20}
                 />&nbsp;Login With Twitter

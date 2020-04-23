@@ -4,7 +4,8 @@ import Grid from "@material-ui/core/Grid";
 import Button from '@material-ui/core/Button';
 import {AuthContext} from "../App";
 import firebase from "../firebase";
-import {withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import LoginGoogle from "../LoginGoogle";
 import LoginFacebook from "../LoginFacebook";
 import LoginTwitter from "../LoginTwitter";
@@ -15,6 +16,7 @@ const Login = ({history}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setErrors] = useState("");
+    const { t, i18n } = useTranslation();
 
     const Auth = useContext(AuthContext);
 
@@ -45,7 +47,7 @@ const Login = ({history}) => {
     return (
         <Grid container spacing={0} className={componentClasses.root}>
             <form onSubmit={e => handleForm(e)}>
-                <h1>Login</h1>
+                <h1>{t('login')}</h1>
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
                     <LoginFacebook/>
                 </Grid>

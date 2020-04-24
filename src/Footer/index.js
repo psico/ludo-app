@@ -4,22 +4,24 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import {Home, Group, Dashboard, AccountCircle, AddCircleOutline} from '@material-ui/icons';
 import useStyles from "./css";
 import {AuthContext} from "../App";
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
     const componentClasses = useStyles();
     const {isLoggedIn} = useContext(AuthContext);
+    const { t } = useTranslation();
 
     return (
         <span>
         {
             isLoggedIn ?
                 <BottomNavigation classes={{root: componentClasses.root}}>
-                    <BottomNavigationAction label="Community" value="community" icon={<Home/>}/>
-                    <BottomNavigationAction label="Friends" value="friends" icon={<Group/>}/>
-                    <BottomNavigationAction label="Add Match" value="add-match"
+                    <BottomNavigationAction label={t('community')} value="community" icon={<Home/>}/>
+                    <BottomNavigationAction label={t('friends')} value="friends" icon={<Group/>}/>
+                    <BottomNavigationAction label={t('add-match')} value="add-match"
                                             icon={<AddCircleOutline fontSize="default"/>}/>
-                    <BottomNavigationAction label="Dashboard" value="dashboard" icon={<Dashboard/>}/>
-                    <BottomNavigationAction label="My Profile" value="my-profile" icon={<AccountCircle/>}/>
+                    <BottomNavigationAction label={t('dashboard')} value="dashboard" icon={<Dashboard/>}/>
+                    <BottomNavigationAction label={t('my-profile')} value="my-profile" icon={<AccountCircle/>}/>
 
                 </BottomNavigation>
                 :

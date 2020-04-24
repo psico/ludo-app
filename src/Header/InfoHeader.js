@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React, {useContext} from "react";
 import componentStyles from "./css";
 import lvl from "../temp-images/lvl-coronel.png";
 import LinearProgress from '@material-ui/core/LinearProgress';
-import { lighten, withStyles } from '@material-ui/core/styles';
+import {lighten, withStyles} from '@material-ui/core/styles';
 import UserAvatar from "../UserAvatar";
-import { AuthContext } from "../App";
+import {AuthContext} from "../App";
 
 const InfoHeader = () => {
     const classes = componentStyles();
@@ -24,22 +24,28 @@ const InfoHeader = () => {
         },
     })(LinearProgress);
 
-    console.log('aaaa- ',isLoggedIn);
+    console.log('aaaa- ', isLoggedIn);
 
     return (
-        <div className={classes.infoHeader}>
-            <UserAvatar showName={false} />
-            <img src={lvl} alt="user lvl" height="25"/>
-            <h5>
-                <div>Level 30 - Dice Explorer {isLoggedIn}</div>
-                <BorderLinearProgress
-                    className={classes.margin}
-                    variant="determinate"
-                    color="secondary"
-                    value={completed}
-                />
-            </h5>
-        </div>
+        <span>
+        {isLoggedIn ?
+            <div className={classes.infoHeader}>
+                <UserAvatar showName={false}/>
+                <img src={lvl} alt="user lvl" height="25"/>
+                <h5>
+                    <div>Level 30 - Dice Explorer {isLoggedIn}</div>
+                    <BorderLinearProgress
+                        className={classes.margin}
+                        variant="determinate"
+                        color="secondary"
+                        value={completed}
+                    />
+                </h5>
+            </div>
+            :
+            <span />
+        }
+        </span>
     );
 };
 

@@ -3,10 +3,12 @@ import {AppBar, IconButton, InputBase, Slide, Toolbar, Typography, useScrollTrig
 import logo from "./ludo192.png";
 import {Search as SearchIcon} from "@material-ui/icons";
 import InfoHeader from "./InfoHeader";
-import React from "react";
+import React, {useContext} from "react";
+import {AuthContext} from "../App";
 
 const LogoHeader = (props) => {
     const classes = componentStyles();
+    const {isLoggedIn} = useContext(AuthContext);
 
     return (
         <HideOnScroll {...props}>
@@ -23,19 +25,22 @@ const LogoHeader = (props) => {
                     <Typography className={classes.title} variant="h6" noWrap>
                         LudoApp
                     </Typography>
-                    <div className={classes.search}>
-                        <div className={classes.searchIcon}>
-                            <SearchIcon/>
+                    {isLoggedIn ?
+                        <div className={classes.search}>
+                            <div className={classes.searchIcon}>
+                                <SearchIcon/>
+                            </div>
+                            <InputBase
+                                placeholder="Search…"
+                                classes={{
+                                    root: classes.inputRoot,
+                                    input: classes.inputInput,
+                                }}
+                                inputProps={{'aria-label': 'search'}}
+                            />
                         </div>
-                        <InputBase
-                            placeholder="Search…"
-                            classes={{
-                                root: classes.inputRoot,
-                                input: classes.inputInput,
-                            }}
-                            inputProps={{'aria-label': 'search'}}
-                        />
-                    </div>
+                        : <span/>
+                    }
                     <div className={classes.grow}/>
                 </Toolbar>
                 <InfoHeader/>

@@ -8,6 +8,11 @@ const resources = {
         translation: {
             "Welcome to React": "Welcome to React and react-i18next",
             "login": "Login",
+            "community": "Community",
+            "friends": "Friends",
+            "add-match": "Add Match",
+            "dashboard": "Dashboard",
+            "my-profile": "My Profile"
         }
     }
 };

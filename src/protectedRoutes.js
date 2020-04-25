@@ -3,6 +3,7 @@ import Community from "./Community";
 
 const protectedRoutes = [
     {name: 'Community', path: '/community', exact: true, main: props => <Community {...props} />, public: false},
+    {name: 'Add Match', path: '/addMatch', exact: true, main: props => <Community {...props} />, public: false},
 ];
 
 export default protectedRoutes;

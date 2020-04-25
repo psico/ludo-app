@@ -12,6 +12,7 @@ const resources = {
             "friends": "Friends",
             "match": "Match",
             "add-match": "Add Match",
+            "play-match": "Play Match",
             "dashboard": "Dashboard",
             "my-profile": "My Profile"
         }

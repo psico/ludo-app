@@ -24,10 +24,10 @@ const AddMatch = ({}) => {
     return (
         <Grid container spacing={0} className={componentClasses.root}>
             <form onSubmit={e => handleForm(e)}>
-                <h1>{t('login')}</h1>
+                <h1>{t('add-match')}</h1>
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
                 </Grid>
-                <Button variant="contained" type="submit">Login</Button>
+                <Button variant="contained" type="submit">{t('play-match')}</Button>
             </form>
         </Grid>
     );

@@ -25,17 +25,33 @@ const Footer = ({history}) => {
                 value={value}
                 onChange={handleChange}
                 classes={{
-                    root: componentClasses.root
+                    root: componentClasses.root,
                 }}>
-                <BottomNavigationAction label={t('community')} value="community" icon={<Home/>}
+                <BottomNavigationAction label={t('community')} value="community"
+                                        icon={<Home htmlColor="white"/>}
                                         classes={{
                                             selected: componentClasses.selected
                                         }}/>
-                <BottomNavigationAction label={t('friends')} value="friends" icon={<Group/>}/>
+                <BottomNavigationAction label={t('friends')} value="friends"
+                                        icon={<Group htmlColor="white"/>}
+                                        classes={{
+                                            selected: componentClasses.selected
+                                        }}/>
                 <BottomNavigationAction label={t('add-match')} value="addMatch"
-                                        icon={<AddCircleOutline fontSize="default"/>}/>
-                <BottomNavigationAction label={t('dashboard')} value="dashboard" icon={<Dashboard/>}/>
-                <BottomNavigationAction label={t('my-profile')} value="my-profile" icon={<AccountCircle/>}/>
+                                        icon={<AddCircleOutline fontSize="default" htmlColor="white"/>}
+                                        classes={{
+                                            selected: componentClasses.selected
+                                        }}/>
+                <BottomNavigationAction label={t('dashboard')} value="dashboard"
+                                        icon={<Dashboard htmlColor="white"/>}
+                                        classes={{
+                                            selected: componentClasses.selected
+                                        }}/>
+                <BottomNavigationAction label={t('my-profile')} value="my-profile"
+                                        icon={<AccountCircle htmlColor="white"/>}
+                                        classes={{
+                                            selected: componentClasses.selected
+                                        }}/>
 
             </BottomNavigation>
             :

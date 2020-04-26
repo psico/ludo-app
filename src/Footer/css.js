@@ -9,7 +9,7 @@ const useStyles = makeStyles(() => ({
         background: "#3f51b5"
     },
     selected: {
-        color: "#ffffff"
+        color: "white"
     }
 }));
 

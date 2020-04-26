@@ -7,6 +7,9 @@ const useStyles = makeStyles(() => ({
         display: "flex",
         justifyContent: "center",
         background: "#3f51b5"
+    },
+    selected: {
+        color: "#ffffff"
     }
 }));
 

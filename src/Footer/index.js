@@ -24,8 +24,13 @@ const Footer = ({history}) => {
             <BottomNavigation
                 value={value}
                 onChange={handleChange}
-                classes={{root: componentClasses.root}}>
-                <BottomNavigationAction label={t('community')} value="community" icon={<Home/>}/>
+                classes={{
+                    root: componentClasses.root
+                }}>
+                <BottomNavigationAction label={t('community')} value="community" icon={<Home/>}
+                                        classes={{
+                                            selected: componentClasses.selected
+                                        }}/>
                 <BottomNavigationAction label={t('friends')} value="friends" icon={<Group/>}/>
                 <BottomNavigationAction label={t('add-match')} value="addMatch"
                                         icon={<AddCircleOutline fontSize="default"/>}/>

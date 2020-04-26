@@ -8,13 +8,20 @@ import {useTranslation} from 'react-i18next';
 
 const Footer = () => {
     const componentClasses = useStyles();
+    const [value, setValue] = React.useState(0);
     const {isLoggedIn} = useContext(AuthContext);
     const {t} = useTranslation();
 
     return (
         <span>
         {isLoggedIn ?
-            <BottomNavigation classes={{root: componentClasses.root}}>
+            <BottomNavigation
+                value={value}
+                onChange={(event, newValue) => {
+                    setValue(newValue);
+                }}
+                showLabels
+                classes={{root: componentClasses.root}}>
                 <BottomNavigationAction label={t('community')} value="community" icon={<Home/>}/>
                 <BottomNavigationAction label={t('friends')} value="friends" icon={<Group/>}/>
                 <BottomNavigationAction label={t('add-match')} value="add-match"

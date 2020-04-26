@@ -5,8 +5,9 @@ import {Home, Group, Dashboard, AccountCircle, AddCircleOutline} from '@material
 import useStyles from "./css";
 import {AuthContext} from "../App";
 import {useTranslation} from 'react-i18next';
+import {withRouter} from 'react-router-dom';
 
-const Footer = () => {
+const Footer = ({history}) => {
     const componentClasses = useStyles();
     const [value, setValue] = React.useState('community');
     const {isLoggedIn} = useContext(AuthContext);
@@ -14,6 +15,7 @@ const Footer = () => {
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
+        history.push('/' + newValue);
     };
 
     return (
@@ -25,7 +27,7 @@ const Footer = () => {
                 classes={{root: componentClasses.root}}>
                 <BottomNavigationAction label={t('community')} value="community" icon={<Home/>}/>
                 <BottomNavigationAction label={t('friends')} value="friends" icon={<Group/>}/>
-                <BottomNavigationAction label={t('add-match')} value="add-match"
+                <BottomNavigationAction label={t('add-match')} value="addMatch"
                                         icon={<AddCircleOutline fontSize="default"/>}/>
                 <BottomNavigationAction label={t('dashboard')} value="dashboard" icon={<Dashboard/>}/>
                 <BottomNavigationAction label={t('my-profile')} value="my-profile" icon={<AccountCircle/>}/>
@@ -38,4 +40,4 @@ const Footer = () => {
     )
 };
 
-export default Footer;
+export default withRouter(Footer);

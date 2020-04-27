@@ -2,7 +2,7 @@ import {
     makeStyles
 } from '@material-ui/core';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
     root: {
         display: "flex",
         flexDirection: "column",
@@ -13,11 +13,19 @@ const useStyles = makeStyles(() => ({
         maxWidth: "921px",
         margin: 0,
         paddingTop: "115px",
-        fontFamily: "sans-serif"
+        fontFamily: "sans-serif",
+    },
+    paper: {
+        padding: theme.spacing(1),
+        textAlign: 'center',
+        width: "921px"
     },
     item: {
         textAlign: 'left',
         paddingBottom: '10px'
+    },
+    vl: {
+        borderRight: "1px solid gray",
     }
 }));
 

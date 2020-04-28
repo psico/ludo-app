@@ -38,7 +38,6 @@ const AddMatch = ({}) => {
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                                         <TextField
                                             required
-                                            id="outlined-required"
                                             label={t('host')}
                                             InputProps={{
                                                 readOnly: true,
@@ -50,31 +49,41 @@ const AddMatch = ({}) => {
                                             variant="outlined"
                                             helperText={t('the-host-cannot-be-changed')}
                                             placeholder={t('search-match-game')}
+                                            fullWidth={true}
+                                            InputLabelProps={{
+                                                shrink: true,
+                                            }}
                                         />
                                     </Grid>
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                                         <TextField
                                             required
-                                            id="outlined-required"
                                             label={t('game')}
                                             variant="outlined"
                                             placeholder={t('search-match-game')}
+                                            fullWidth={true}
+                                            InputLabelProps={{
+                                                shrink: true,
+                                            }}
                                         />
                                     </Grid>
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                                         <TextField
                                             required
-                                            id="outlined-required"
                                             label={t('players')}
                                             variant="outlined"
                                             placeholder={t('search-match-players')}
+                                            fullWidth={true}
+                                            InputLabelProps={{
+                                                shrink: true,
+                                            }}
                                         />
                                     </Grid>
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                                        <ButtonGroup variant="contained" color="primary">
+                                        <ButtonGroup variant="contained" color="primary" fullWidth={true} disableRipple={true}>
+                                            <Button>{t('play-now')}</Button>
                                             <Button>{t('schedule')}</Button>
                                             <Button>{t('register-match')}</Button>
-                                            <Button>{t('play-now')}</Button>
                                         </ButtonGroup>
                                     </Grid>
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>

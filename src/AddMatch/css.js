@@ -14,6 +14,10 @@ const useStyles = makeStyles(theme => ({
         margin: 0,
         paddingTop: "115px",
         fontFamily: "sans-serif",
+        '& .MuiTextField-root': {
+            margin: theme.spacing(1),
+            width: '25ch',
+        },
     },
     paper: {
         padding: theme.spacing(1),

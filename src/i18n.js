@@ -9,12 +9,17 @@ const resources = {
             "Welcome to React": "Welcome to React and react-i18next",
             "login": "Login",
             "community": "Community",
+            "dashboard": "Dashboard",
+            "my-profile": "My Profile",
             "friends": "Friends",
+            "game": "Game",
+            "players": "Players",
             "match": "Match",
             "add-match": "Add Match",
             "play-match": "Play Match",
-            "dashboard": "Dashboard",
-            "my-profile": "My Profile"
+            "search-match-game": "Search match game",
+            "search-match-players": "Search match players",
+            "game-rules-manual": "Game rules manual"
         }
     }
 };

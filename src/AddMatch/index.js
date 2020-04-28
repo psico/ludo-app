@@ -8,6 +8,7 @@ import {useTranslation} from 'react-i18next';
 import Paper from "@material-ui/core/Paper";
 import UserAvatar from "../UserAvatar";
 import TextField from '@material-ui/core/TextField';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 const AddMatch = ({}) => {
     const componentClasses = useStyles();
@@ -35,15 +36,53 @@ const AddMatch = ({}) => {
                                     <h3>{t('add-match')}</h3>
                                     <hr/>
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                                        {t('host')}: <UserAvatar showName={true}/>
-                                        <hr/>
-                                        {t('game')}: <TextField label={t('search-match-game')} type="search" />
-                                        {t('players')}: <TextField label={t('search-match-players')} type="search" />
+                                        <TextField
+                                            required
+                                            id="outlined-required"
+                                            label={t('host')}
+                                            InputProps={{
+                                                readOnly: true,
+                                                startAdornment: (
+                                                    <UserAvatar showName={false}/>
+                                                ),
+                                            }}
+                                            defaultValue="João Gabriel"
+                                            variant="outlined"
+                                            helperText={t('the-host-cannot-be-changed')}
+                                            placeholder={t('search-match-game')}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                                        <TextField
+                                            required
+                                            id="outlined-required"
+                                            label={t('game')}
+                                            variant="outlined"
+                                            placeholder={t('search-match-game')}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                                        <TextField
+                                            required
+                                            id="outlined-required"
+                                            label={t('players')}
+                                            variant="outlined"
+                                            placeholder={t('search-match-players')}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                                        <ButtonGroup variant="contained" color="primary">
+                                            <Button>{t('schedule')}</Button>
+                                            <Button>{t('register-match')}</Button>
+                                            <Button>{t('play-now')}</Button>
+                                        </ButtonGroup>
+                                    </Grid>
+                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                                         <Button variant="contained">{t('game-rules-manual')}</Button>
                                     </Grid>
-                                    <Button variant="contained" type="submit">{t('schedule')}</Button>
-                                    <Button variant="contained" type="submit">{t('register-match')}</Button>
-                                    <Button variant="contained" type="submit">{t('play-now')}</Button>
+                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                                        <Button variant="contained" type="submit">{t('save')}</Button>
+                                    </Grid>
                                 </form>
                             </Grid>
                         </Grid>

@@ -6,27 +6,30 @@ import { initReactI18next } from "react-i18next";
 const resources = {
     en: {
         translation: {
-            "Welcome to React": "Welcome to React and react-i18next",
-            "login": "Login",
+            //One word
             "community": "Community",
             "dashboard": "Dashboard",
-            "schedule": "Schedule",
-            "my-profile": "My Profile",
             "friends": "Friends",
             "game": "Game",
-            "players": "Players",
+            "login": "Login",
+            "my-profile": "My Profile",
             "match": "Match",
+            "players": "Players",
+            "schedule": "Schedule",
             "save": "Save",
 
+            //Two words
             "add-match": "Add match",
             "play-match": "Play match",
             "play-now": "Play now",
 
+            //Three words
+            "game-rules-manual": "Game rules manual",
             "register-match": "Register match",
             "search-match-game": "Search match game",
             "search-match-players": "Search match players",
-            "game-rules-manual": "Game rules manual",
 
+            //Many words
             "the-host-cannot-be-changed": "The host cannot be changed"
         }
     }

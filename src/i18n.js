@@ -16,13 +16,18 @@ const resources = {
             "game": "Game",
             "players": "Players",
             "match": "Match",
+            "save": "Save",
+
             "add-match": "Add match",
             "play-match": "Play match",
             "play-now": "Play now",
+
             "register-match": "Register match",
             "search-match-game": "Search match game",
             "search-match-players": "Search match players",
-            "game-rules-manual": "Game rules manual"
+            "game-rules-manual": "Game rules manual",
+
+            "the-host-cannot-be-changed": "The host cannot be changed"
         }
     }
 };

@@ -13,11 +13,7 @@ const useStyles = makeStyles(theme => ({
         maxWidth: "921px",
         margin: 0,
         paddingTop: "115px",
-        fontFamily: "sans-serif",
-        '& .MuiTextField-root': {
-            margin: theme.spacing(1),
-            width: '25ch',
-        },
+        fontFamily: "sans-serif"
     },
     paper: {
         padding: theme.spacing(1),
@@ -26,6 +22,8 @@ const useStyles = makeStyles(theme => ({
     },
     item: {
         textAlign: 'left',
+        // justifyContent: "center",
+        alignItems: "center",
         paddingBottom: '10px'
     },
     vl: {

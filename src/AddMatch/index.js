@@ -35,7 +35,7 @@ const AddMatch = ({}) => {
                                 <form noValidate onSubmit={e => handleForm(e)}>
                                     <h3>{t('add-match')}</h3>
                                     <hr/>
-                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
                                         <TextField
                                             required
                                             label={t('host')}
@@ -55,7 +55,7 @@ const AddMatch = ({}) => {
                                             }}
                                         />
                                     </Grid>
-                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
                                         <TextField
                                             required
                                             label={t('game')}
@@ -67,7 +67,10 @@ const AddMatch = ({}) => {
                                             }}
                                         />
                                     </Grid>
-                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                                    <Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>
+                                        <Button variant="contained">{t('register-a-new-game')}</Button>
+                                    </Grid>
+                                    <Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>
                                         <TextField
                                             required
                                             label={t('players')}
@@ -79,17 +82,20 @@ const AddMatch = ({}) => {
                                             }}
                                         />
                                     </Grid>
-                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                                    <Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>
+                                        {t('players')}
+                                    </Grid>
+                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
                                         <ButtonGroup variant="contained" color="primary" fullWidth={true} disableRipple={true}>
                                             <Button>{t('play-now')}</Button>
                                             <Button>{t('schedule')}</Button>
                                             <Button>{t('register-match')}</Button>
                                         </ButtonGroup>
                                     </Grid>
-                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
                                         <Button variant="contained">{t('game-rules-manual')}</Button>
                                     </Grid>
-                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
                                         <Button variant="contained" type="submit">{t('save')}</Button>
                                     </Grid>
                                 </form>

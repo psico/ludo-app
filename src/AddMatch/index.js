@@ -10,7 +10,7 @@ import UserAvatar from "../UserAvatar";
 import TextField from '@material-ui/core/TextField';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 
-const AddMatch = ({}) => {
+const AddMatch = ({history}) => {
     const componentClasses = useStyles();
 
     const {t} = useTranslation();
@@ -68,7 +68,7 @@ const AddMatch = ({}) => {
                                         />
                                     </Grid>
                                     <Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>
-                                        <Button variant="contained">{t('register-a-new-game')}</Button>
+                                        <Button variant="contained" onClick={() => history.push('/gameRegister')}>{t('register-a-new-game')}</Button>
                                     </Grid>
                                     <Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>
                                         <TextField

@@ -30,7 +30,8 @@ const resources = {
             "search-match-players": "Search match players",
 
             //Many words
-            "the-host-cannot-be-changed": "The host cannot be changed"
+            "the-host-cannot-be-changed": "The host cannot be changed",
+            "register-a-new-game": "Register a new game"
         }
     }
 };

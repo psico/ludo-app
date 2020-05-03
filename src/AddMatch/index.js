@@ -9,10 +9,22 @@ import Paper from "@material-ui/core/Paper";
 import UserAvatar from "../UserAvatar";
 import TextField from '@material-ui/core/TextField';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+// import fetch from 'cross-fetch';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
+function sleep(delay = 0) {
+    return new Promise((resolve) => {
+        setTimeout(resolve, delay);
+    });
+}
+
 
 const AddMatch = ({}) => {
     const componentClasses = useStyles();
-
+    const [open, setOpen] = React.useState(false);
+    const [options, setOptions] = React.useState([]);
+    const loading = open && options.length === 0;
     const {t} = useTranslation();
 
     const handleForm = e => {
@@ -24,6 +36,34 @@ const AddMatch = ({}) => {
 
             });
     };
+
+    React.useEffect(() => {
+        let active = true;
+
+        if (!loading) {
+            return undefined;
+        }
+
+        (async () => {
+            const response = await fetch('https://country.register.gov.uk/records.json?page-size=5000');
+            await sleep(1e3); // For demo purposes.
+            const countries = await response.json();
+
+            if (active) {
+                setOptions(Object.keys(countries).map((key) => countries[key].item[0]));
+            }
+        })();
+
+        return () => {
+            active = false;
+        };
+    }, [loading]);
+
+    React.useEffect(() => {
+        if (!open) {
+            setOptions([]);
+        }
+    }, [open]);
 
     return (
         <div className={componentClasses.root}>
@@ -56,15 +96,46 @@ const AddMatch = ({}) => {
                                         />
                                     </Grid>
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
-                                        <TextField
-                                            required
-                                            label={t('game')}
-                                            variant="outlined"
-                                            placeholder={t('search-match-game')}
-                                            fullWidth={true}
-                                            InputLabelProps={{
-                                                shrink: true,
+                                        {/*<TextField*/}
+                                        {/*    required*/}
+                                        {/*    label={t('game')}*/}
+                                        {/*    variant="outlined"*/}
+                                        {/*    placeholder={t('search-match-game')}*/}
+                                        {/*    fullWidth={true}*/}
+                                        {/*    InputLabelProps={{*/}
+                                        {/*        shrink: true,*/}
+                                        {/*    }}*/}
+                                        {/*/>*/}
+                                        <Autocomplete
+                                            id="asynchronous-demo"
+                                            style={{ width: 300 }}
+                                            open={open}
+                                            onOpen={() => {
+                                                setOpen(true);
                                             }}
+                                            onClose={() => {
+                                                setOpen(false);
+                                            }}
+                                            getOptionSelected={(option, value) => option.name === value.name}
+                                            getOptionLabel={(option) => option.name}
+                                            options={options}
+                                            loading={loading}
+                                            renderInput={(params) => (
+                                                <TextField
+                                                    {...params}
+                                                    label="Asynchronous"
+                                                    variant="outlined"
+                                                    InputProps={{
+                                                        ...params.InputProps,
+                                                        endAdornment: (
+                                                            <React.Fragment>
+                                                                {loading ? <CircularProgress color="inherit" size={20} /> : null}
+                                                                {params.InputProps.endAdornment}
+                                                            </React.Fragment>
+                                                        ),
+                                                    }}
+                                                />
+                                            )}
                                         />
                                     </Grid>
                                     {/* @TODO This function will be necessary in future */}

@@ -13,12 +13,6 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 // import fetch from 'cross-fetch';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-function sleep(delay = 0) {
-    return new Promise((resolve) => {
-        setTimeout(resolve, delay);
-    });
-}
-
 
 const AddMatch = ({}) => {
     const componentClasses = useStyles();
@@ -46,7 +40,6 @@ const AddMatch = ({}) => {
 
         (async () => {
             const response = await fetch('https://country.register.gov.uk/records.json?page-size=5000');
-            await sleep(1e3); // For demo purposes.
             const countries = await response.json();
 
             if (active) {

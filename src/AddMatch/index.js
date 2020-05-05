@@ -12,6 +12,7 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 // import fetch from 'cross-fetch';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import {xml2js} from "xml-js";
 
 
 const AddMatch = ({}) => {
@@ -44,9 +45,7 @@ const AddMatch = ({}) => {
 
             const response = await fetch('https://boardgamegeek.com/xmlapi/search?search=catan');
             const countries = await response.text();
-            console.log('c- ', countries);
-            const xml = await (new window.DOMParser()).parseFromString(countries, "text/xml")
-            console.log('d- ', xml);
+            console.log('c- ', xml2js(countries, {compact: true, spaces: 4}));
 
             // if (active) {
             //     setOptions(Object.keys(countries).map((key) => countries[key].item[0]));

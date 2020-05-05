@@ -39,12 +39,18 @@ const AddMatch = ({}) => {
         }
 
         (async () => {
-            const response = await fetch('https://country.register.gov.uk/records.json?page-size=5000');
-            const countries = await response.json();
+            // const response = await fetch('https://country.register.gov.uk/records.json?page-size=5000');
+            // const countries = await response.json();
 
-            if (active) {
-                setOptions(Object.keys(countries).map((key) => countries[key].item[0]));
-            }
+            const response = await fetch('https://boardgamegeek.com/xmlapi/search?search=catan');
+            const countries = await response.text();
+            console.log('c- ', countries);
+            const xml = await (new window.DOMParser()).parseFromString(countries, "text/xml")
+            console.log('d- ', xml);
+
+            // if (active) {
+            //     setOptions(Object.keys(countries).map((key) => countries[key].item[0]));
+            // }
         })();
 
         return () => {

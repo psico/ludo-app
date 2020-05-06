@@ -128,9 +128,15 @@ const AddMatch = ({}) => {
                                             loading={loading}
                                             renderInput={(params) => (
                                                 <TextField
+                                                    required
                                                     {...params}
-                                                    label="Asynchronous"
+                                                    label={t('game')}
                                                     variant="outlined"
+                                                    placeholder={t('search-match-game')}
+                                                    fullWidth={true}
+                                                    InputLabelProps={{
+                                                        shrink: true,
+                                                    }}
                                                     InputProps={{
                                                         ...params.InputProps,
                                                         endAdornment: (

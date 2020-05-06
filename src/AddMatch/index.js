@@ -40,20 +40,9 @@ const AddMatch = ({}) => {
         }
 
         (async () => {
-            // const response = await fetch('https://country.register.gov.uk/records.json?page-size=5000');
-            // const countries = await response.json();
-            // console.log(countries);
-            // console.log(countries["AD"].item[0]);
-            //
-            // if (active) {
-            //     setOptions(Object.keys(countries).map((key) => countries[key].item[0]));
-            // }
-
             const response = await fetch('https://boardgamegeek.com/xmlapi/search?search=catan');
             const boardgamesXml = await response.text();
             const boardgames = xml2js(boardgamesXml, {compact: true, spaces: 4});
-            console.log('c- ', boardgames.boardgames.boardgame);
-            console.log('c- ', boardgames.boardgames.boardgame[0]);
 
             if (active) {
                 setOptions(Object.keys(boardgames.boardgames.boardgame).map((key) => boardgames.boardgames.boardgame[key]));
@@ -81,7 +70,8 @@ const AddMatch = ({}) => {
                                 <form noValidate onSubmit={e => handleForm(e)}>
                                     <h3>{t('add-match')}</h3>
                                     <hr/>
-                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
+                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
+                                          className={componentClasses.item}>
                                         <TextField
                                             required
                                             label={t('host')}
@@ -101,20 +91,11 @@ const AddMatch = ({}) => {
                                             }}
                                         />
                                     </Grid>
-                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
-                                        {/*<TextField*/}
-                                        {/*    required*/}
-                                        {/*    label={t('game')}*/}
-                                        {/*    variant="outlined"*/}
-                                        {/*    placeholder={t('search-match-game')}*/}
-                                        {/*    fullWidth={true}*/}
-                                        {/*    InputLabelProps={{*/}
-                                        {/*        shrink: true,*/}
-                                        {/*    }}*/}
-                                        {/*/>*/}
+                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
+                                          className={componentClasses.item}>
                                         <Autocomplete
                                             id="asynchronous-demo"
-                                            style={{ width: 300 }}
+                                            style={{width: 300}}
                                             open={open}
                                             onOpen={() => {
                                                 setOpen(true);
@@ -141,7 +122,8 @@ const AddMatch = ({}) => {
                                                         ...params.InputProps,
                                                         endAdornment: (
                                                             <React.Fragment>
-                                                                {loading ? <CircularProgress color="inherit" size={20} /> : null}
+                                                                {loading ? <CircularProgress color="inherit"
+                                                                                             size={20}/> : null}
                                                                 {params.InputProps.endAdornment}
                                                             </React.Fragment>
                                                         ),
@@ -169,17 +151,21 @@ const AddMatch = ({}) => {
                                     <Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>
                                         {t('players')}
                                     </Grid>
-                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
-                                        <ButtonGroup variant="contained" color="primary" fullWidth={true} disableRipple={true}>
+                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
+                                          className={componentClasses.item}>
+                                        <ButtonGroup variant="contained" color="primary" fullWidth={true}
+                                                     disableRipple={true}>
                                             <Button>{t('play-now')}</Button>
                                             <Button>{t('schedule')}</Button>
                                             <Button>{t('register-match')}</Button>
                                         </ButtonGroup>
                                     </Grid>
-                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
+                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
+                                          className={componentClasses.item}>
                                         <Button variant="contained">{t('game-rules-manual')}</Button>
                                     </Grid>
-                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
+                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
+                                          className={componentClasses.item}>
                                         <Button variant="contained" type="submit">{t('save')}</Button>
                                     </Grid>
                                 </form>

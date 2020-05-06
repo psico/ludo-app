@@ -42,14 +42,22 @@ const AddMatch = ({}) => {
         (async () => {
             // const response = await fetch('https://country.register.gov.uk/records.json?page-size=5000');
             // const countries = await response.json();
-
-            const response = await fetch('https://boardgamegeek.com/xmlapi/search?search=catan');
-            const countries = await response.text();
-            console.log('c- ', xml2js(countries, {compact: true, spaces: 4}));
-
+            // console.log(countries);
+            // console.log(countries["AD"].item[0]);
+            //
             // if (active) {
             //     setOptions(Object.keys(countries).map((key) => countries[key].item[0]));
             // }
+
+            const response = await fetch('https://boardgamegeek.com/xmlapi/search?search=catan');
+            const boardgamesXml = await response.text();
+            const boardgames = xml2js(boardgamesXml, {compact: true, spaces: 4});
+            console.log('c- ', boardgames.boardgames.boardgame);
+            console.log('c- ', boardgames.boardgames.boardgame[0]);
+
+            if (active) {
+                setOptions(Object.keys(boardgames.boardgames.boardgame).map((key) => boardgames.boardgames.boardgame[key]));
+            }
         })();
 
         return () => {
@@ -114,8 +122,8 @@ const AddMatch = ({}) => {
                                             onClose={() => {
                                                 setOpen(false);
                                             }}
-                                            getOptionSelected={(option, value) => option.name === value.name}
-                                            getOptionLabel={(option) => option.name}
+                                            getOptionSelected={(option, value) => option.name._text === value.name._text}
+                                            getOptionLabel={(option) => option.name._text}
                                             options={options}
                                             loading={loading}
                                             renderInput={(params) => (

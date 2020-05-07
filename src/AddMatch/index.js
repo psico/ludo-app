@@ -22,7 +22,7 @@ const AddMatch = ({}) => {
     const [options, setOptions] = React.useState([]);
     const loading = open && options.length === 0;
     const {t} = useTranslation();
-    const [gameMoment, setGameMoment] = React.useState('now');
+    const [gameMoment, setGameMoment] = React.useState('play-now');
 
     const handleChange = (event, newGameMoment) => {
         setGameMoment(newGameMoment);
@@ -161,7 +161,7 @@ const AddMatch = ({}) => {
                                           className={componentClasses.item}>
                                         <ToggleButtonGroup size="small" value={gameMoment} exclusive onChange={handleChange}>
                                             [
-                                            <ToggleButton key={1} value="now">
+                                            <ToggleButton key={1} value="play-now">
                                                 {t('play-now')}
                                             </ToggleButton>,
                                             <ToggleButton key={2} value="schedule">

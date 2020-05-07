@@ -13,6 +13,8 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 // import fetch from 'cross-fetch';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {xml2js} from "xml-js";
+import ToggleButton from '@material-ui/lab/ToggleButton';
+import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 
 
 const AddMatch = ({}) => {
@@ -21,6 +23,11 @@ const AddMatch = ({}) => {
     const [options, setOptions] = React.useState([]);
     const loading = open && options.length === 0;
     const {t} = useTranslation();
+    const [gameMoment, setGameMoment] = React.useState('now');
+
+    const handleChange = (event, newGameMoment) => {
+        setGameMoment(newGameMoment);
+    };
 
     const handleForm = e => {
         e.preventDefault();
@@ -153,12 +160,26 @@ const AddMatch = ({}) => {
                                     </Grid>
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
                                           className={componentClasses.item}>
-                                        <ButtonGroup variant="contained" color="primary" fullWidth={true}
-                                                     disableRipple={true}>
-                                            <Button>{t('play-now')}</Button>
-                                            <Button>{t('schedule')}</Button>
-                                            <Button>{t('register-match')}</Button>
-                                        </ButtonGroup>
+                                        {/*<ButtonGroup variant="contained" color="primary" fullWidth={true}*/}
+                                        {/*             disableRipple={true}>*/}
+                                        {/*    <Button>{t('play-now')}</Button>*/}
+                                        {/*    <Button>{t('schedule')}</Button>*/}
+                                        {/*    <Button>{t('register-match')}</Button>*/}
+                                        {/*</ButtonGroup>*/}
+
+                                        <ToggleButtonGroup size="small" value={gameMoment} exclusive onChange={handleChange}>
+                                            [
+                                            <ToggleButton key={1} value="now">
+                                                {t('play-now')}
+                                            </ToggleButton>,
+                                            <ToggleButton key={2} value="schedule">
+                                                {t('schedule')}
+                                            </ToggleButton>,
+                                            <ToggleButton key={3} value="register-match">
+                                                {t('register-match')}
+                                            </ToggleButton>,
+                                            ]
+                                        </ToggleButtonGroup>
                                     </Grid>
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
                                           className={componentClasses.item}>

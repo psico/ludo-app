@@ -8,7 +8,6 @@ import {useTranslation} from 'react-i18next';
 import Paper from "@material-ui/core/Paper";
 import UserAvatar from "../UserAvatar";
 import TextField from '@material-ui/core/TextField';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 // import fetch from 'cross-fetch';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -160,13 +159,6 @@ const AddMatch = ({}) => {
                                     </Grid>
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
                                           className={componentClasses.item}>
-                                        {/*<ButtonGroup variant="contained" color="primary" fullWidth={true}*/}
-                                        {/*             disableRipple={true}>*/}
-                                        {/*    <Button>{t('play-now')}</Button>*/}
-                                        {/*    <Button>{t('schedule')}</Button>*/}
-                                        {/*    <Button>{t('register-match')}</Button>*/}
-                                        {/*</ButtonGroup>*/}
-
                                         <ToggleButtonGroup size="small" value={gameMoment} exclusive onChange={handleChange}>
                                             [
                                             <ToggleButton key={1} value="now">

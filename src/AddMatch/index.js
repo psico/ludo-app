@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import useStyles from "./css";
 import Grid from "@material-ui/core/Grid";
 import Button from '@material-ui/core/Button';
@@ -8,19 +8,13 @@ import {useTranslation} from 'react-i18next';
 import Paper from "@material-ui/core/Paper";
 import UserAvatar from "../UserAvatar";
 import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
-// import fetch from 'cross-fetch';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import {xml2js} from "xml-js";
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
+import SearchGame from "../SearchGame";
 
 
 const AddMatch = ({}) => {
     const componentClasses = useStyles();
-    const [open, setOpen] = React.useState(false);
-    const [options, setOptions] = React.useState([]);
-    const loading = open && options.length === 0;
     const {t} = useTranslation();
     const [gameMoment, setGameMoment] = React.useState('play-now');
 
@@ -38,33 +32,6 @@ const AddMatch = ({}) => {
             });
     };
 
-    useEffect(() => {
-        let active = true;
-
-        if (!loading) {
-            return undefined;
-        }
-
-        (async () => {
-            const response = await fetch('https://boardgamegeek.com/xmlapi/search?search=catan');
-            const boardgamesXml = await response.text();
-            const boardgames = xml2js(boardgamesXml, {compact: true, spaces: 4});
-
-            if (active) {
-                setOptions(Object.keys(boardgames.boardgames.boardgame).map((key) => boardgames.boardgames.boardgame[key]));
-            }
-        })();
-
-        return () => {
-            active = false;
-        };
-    }, [loading]);
-
-    React.useEffect(() => {
-        if (!open) {
-            setOptions([]);
-        }
-    }, [open]);
 
     return (
         <div className={componentClasses.root}>
@@ -99,44 +66,7 @@ const AddMatch = ({}) => {
                                     </Grid>
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
                                           className={componentClasses.item}>
-                                        <Autocomplete
-                                            id="asynchronous-demo"
-                                            style={{width: 300}}
-                                            open={open}
-                                            onOpen={() => {
-                                                setOpen(true);
-                                            }}
-                                            onClose={() => {
-                                                setOpen(false);
-                                            }}
-                                            getOptionSelected={(option, value) => option.name._text === value.name._text}
-                                            getOptionLabel={(option) => option.name._text}
-                                            options={options}
-                                            loading={loading}
-                                            renderInput={(params) => (
-                                                <TextField
-                                                    required
-                                                    {...params}
-                                                    label={t('game')}
-                                                    variant="outlined"
-                                                    placeholder={t('search-match-game')}
-                                                    fullWidth={true}
-                                                    InputLabelProps={{
-                                                        shrink: true,
-                                                    }}
-                                                    InputProps={{
-                                                        ...params.InputProps,
-                                                        endAdornment: (
-                                                            <React.Fragment>
-                                                                {loading ? <CircularProgress color="inherit"
-                                                                                             size={20}/> : null}
-                                                                {params.InputProps.endAdornment}
-                                                            </React.Fragment>
-                                                        ),
-                                                    }}
-                                                />
-                                            )}
-                                        />
+                                        <SearchGame/>
                                     </Grid>
                                     {/* @TODO This function will be necessary in future */}
                                     {/*<Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>*/}
@@ -159,7 +89,8 @@ const AddMatch = ({}) => {
                                     </Grid>
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
                                           className={componentClasses.item}>
-                                        <ToggleButtonGroup size="small" value={gameMoment} exclusive onChange={handleChange}>
+                                        <ToggleButtonGroup size="small" value={gameMoment} exclusive
+                                                           onChange={handleChange}>
                                             [
                                             <ToggleButton key={1} value="play-now">
                                                 {t('play-now')}

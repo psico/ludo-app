@@ -10,7 +10,7 @@ import UserAvatar from "../UserAvatar";
 import TextField from '@material-ui/core/TextField';
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
-import SearchGame from "../SearchGame";
+import SearchGame from "../GameSearch";
 
 
 const AddMatch = ({}) => {

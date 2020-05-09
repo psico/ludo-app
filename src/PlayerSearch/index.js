@@ -65,9 +65,9 @@ const PlayersSearch = ({}) => {
                     <TextField
                         required
                         {...params}
-                        label={t('game')}
+                        label={t('players')}
                         variant="outlined"
-                        placeholder={t('search-match-game')}
+                        placeholder={t('search-match-players')}
                         fullWidth={true}
                         InputLabelProps={{
                             shrink: true,

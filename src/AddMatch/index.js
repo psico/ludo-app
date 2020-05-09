@@ -10,7 +10,8 @@ import UserAvatar from "../UserAvatar";
 import TextField from '@material-ui/core/TextField';
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
-import SearchGame from "../GameSearch";
+import GameSearch from "../GameSearch";
+import PlayersSearch from "../PlayerSearch";
 
 
 const AddMatch = ({}) => {
@@ -66,26 +67,14 @@ const AddMatch = ({}) => {
                                     </Grid>
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
                                           className={componentClasses.item}>
-                                        <SearchGame/>
+                                        <GameSearch/>
                                     </Grid>
                                     {/* @TODO This function will be necessary in future */}
                                     {/*<Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>*/}
                                     {/*    <Button variant="contained" onClick={() => history.push('/gameRegister')}>{t('register-a-new-game')}</Button>*/}
                                     {/*</Grid>*/}
                                     <Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>
-                                        <TextField
-                                            required
-                                            label={t('players')}
-                                            variant="outlined"
-                                            placeholder={t('search-match-players')}
-                                            fullWidth={true}
-                                            InputLabelProps={{
-                                                shrink: true,
-                                            }}
-                                        />
-                                    </Grid>
-                                    <Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>
-                                        {t('players')}
+                                        <PlayersSearch/>
                                     </Grid>
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
                                           className={componentClasses.item}>

@@ -1,13 +1,14 @@
-import React, {useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import {withRouter} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
 import TextField from "@material-ui/core/TextField";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import {xml2js} from "xml-js";
+import Grid from "@material-ui/core/Grid";
 // import fetch from 'cross-fetch';
 
-const SearchPlayer = ({}) => {
+const PlayersSearch = ({}) => {
     const [open, setOpen] = useState(false);
     const [options, setOptions] = useState([]);
     const loading = open && options.length === 0;
@@ -43,45 +44,50 @@ const SearchPlayer = ({}) => {
     }, [open]);
 
     return (
-        <Autocomplete
-            id="asynchronous-demo"
-            style={{width: 300}}
-            open={open}
-            onOpen={() => {
-                setOpen(true);
-            }}
-            onClose={() => {
-                setOpen(false);
-            }}
-            getOptionSelected={(option, value) => option.name._text === value.name._text}
-            getOptionLabel={(option) => option.name._text}
-            options={options}
-            loading={loading}
-            renderInput={(params) => (
-                <TextField
-                    required
-                    {...params}
-                    label={t('game')}
-                    variant="outlined"
-                    placeholder={t('search-match-game')}
-                    fullWidth={true}
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                    InputProps={{
-                        ...params.InputProps,
-                        endAdornment: (
-                            <React.Fragment>
-                                {loading ? <CircularProgress color="inherit"
-                                                             size={20}/> : null}
-                                {params.InputProps.endAdornment}
-                            </React.Fragment>
-                        ),
-                    }}
-                />
-            )}
-        />
+        <div>
+            <Autocomplete
+                id="asynchronous-demo"
+                style={{width: 300}}
+                open={open}
+                onOpen={() => {
+                    setOpen(true);
+                }}
+                onClose={() => {
+                    setOpen(false);
+                }}
+                getOptionSelected={(option, value) => option.name._text === value.name._text}
+                getOptionLabel={(option) => option.name._text}
+                options={options}
+                loading={loading}
+                renderInput={(params) => (
+                    <TextField
+                        required
+                        {...params}
+                        label={t('game')}
+                        variant="outlined"
+                        placeholder={t('search-match-game')}
+                        fullWidth={true}
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                        InputProps={{
+                            ...params.InputProps,
+                            endAdornment: (
+                                <React.Fragment>
+                                    {loading ? <CircularProgress color="inherit"
+                                                                 size={20}/> : null}
+                                    {params.InputProps.endAdornment}
+                                </React.Fragment>
+                            ),
+                        }}
+                    />
+                )}
+            />
+            <Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>
+                {t('players')}
+            </Grid>
+        </div>
     );
 };
 
-export default withRouter(SearchPlayer);
+export default withRouter(PlayersSearch);

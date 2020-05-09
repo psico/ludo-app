@@ -6,9 +6,11 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import {xml2js} from "xml-js";
 import Grid from "@material-ui/core/Grid";
+import useStyles from "./css";
 // import fetch from 'cross-fetch';
 
 const PlayersSearch = ({}) => {
+    const componentClasses = useStyles();
     const [open, setOpen] = useState(false);
     const [options, setOptions] = useState([]);
     const loading = open && options.length === 0;

@@ -24,8 +24,6 @@ const InfoHeader = () => {
         },
     })(LinearProgress);
 
-    console.log('aaaa- ', isLoggedIn);
-
     return (
         <span>
         {isLoggedIn ?

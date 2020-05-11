@@ -14,7 +14,7 @@ import GameSearch from "../GameSearch";
 import PlayersSearch from "../PlayerSearch";
 
 
-const AddMatch = ({}) => {
+const AddMatch = () => {
     const componentClasses = useStyles();
     const {t} = useTranslation();
     const [gameMoment, setGameMoment] = React.useState('play-now');

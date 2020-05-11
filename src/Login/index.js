@@ -16,7 +16,7 @@ const Login = ({history}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setErrors] = useState("");
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
 
     const Auth = useContext(AuthContext);
 

@@ -9,7 +9,7 @@ import Grid from "@material-ui/core/Grid";
 import useStyles from "./css";
 // import fetch from 'cross-fetch';
 
-const PlayersSearch = ({}) => {
+const PlayersSearch = () => {
     const componentClasses = useStyles();
     const [open, setOpen] = useState(false);
     const [options, setOptions] = useState([]);

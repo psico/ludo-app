@@ -6,7 +6,7 @@ import {withRouter} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
 import Paper from "@material-ui/core/Paper";
 
-const GameRegister = ({}) => {
+const GameRegister = () => {
     const componentClasses = useStyles();
 
     const {t} = useTranslation();

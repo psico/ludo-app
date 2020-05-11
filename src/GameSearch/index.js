@@ -7,7 +7,7 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import {xml2js} from "xml-js";
 // import fetch from 'cross-fetch';
 
-const GameSearch = ({}) => {
+const GameSearch = () => {
     // const componentClasses = useStyles();
     const [open, setOpen] = useState(false);
     const [options, setOptions] = useState([]);

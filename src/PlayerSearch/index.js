@@ -25,12 +25,12 @@ const PlayersSearch = () => {
         }
 
         (async () => {
-            const response = await fetch('https://boardgamegeek.com/xmlapi/search?search=catan');
-            const boardgamesXml = await response.text();
-            const boardgames = xml2js(boardgamesXml, {compact: true, spaces: 4});
+            // const response = await fetch('https://boardgamegeek.com/xmlapi/search?search=catan');
+            // const boardgamesXml = await response.text();
+            // const boardgames = xml2js(boardgamesXml, {compact: true, spaces: 4});
 
             if (active) {
-                setOptions(Object.keys(boardgames.boardgames.boardgame).map((key) => boardgames.boardgames.boardgame[key]));
+                // setOptions(Object.keys(boardgames.boardgames.boardgame).map((key) => boardgames.boardgames.boardgame[key]));
             }
         })();
 
@@ -48,7 +48,7 @@ const PlayersSearch = () => {
     return (
         <div>
             <Autocomplete
-                id="asynchronous-demo"
+                id="asynchronous-player-search"
                 style={{width: 300}}
                 open={open}
                 onOpen={() => {

@@ -25,12 +25,21 @@ const PlayersSearch = () => {
         }
 
         (async () => {
-            firebase.firestore().collection("userInfo")
+            // firebase.firestore().collection("usersInfo")
+            //     .get()
+            //     .then(querySnapshot => {
+            //         const data = querySnapshot.docs.map(doc => doc.data());
+            //         console.log(data);
+            //     });
+
+            firebase.firestore().collection("usersInfo").doc("NEais3m33GEr8VrOipaU")
                 .get()
                 .then(querySnapshot => {
-                    const data = querySnapshot.docs.map(doc => doc.data());
-                    console.log(data);
+                    // querySnapshot.data()
+                    // const data = querySnapshot.docs.map(doc => doc.data());
+                    console.log(querySnapshot.data());
                 });
+
             // const response = await fetch('https://boardgamegeek.com/xmlapi/search?search=catan');
             // const boardgamesXml = await response.text();
             // const boardgames = xml2js(boardgamesXml, {compact: true, spaces: 4});

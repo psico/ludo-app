@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from "react";
+import useStyles from "./css";
 import {withRouter} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
 import TextField from "@material-ui/core/TextField";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import {xml2js} from "xml-js";
 import Grid from "@material-ui/core/Grid";
-import useStyles from "./css";
+import firebase from "../firebase";
 // import fetch from 'cross-fetch';
 
 const PlayersSearch = () => {
@@ -25,6 +25,12 @@ const PlayersSearch = () => {
         }
 
         (async () => {
+            firebase.firestore().collection("userInfo")
+                .get()
+                .then(querySnapshot => {
+                    const data = querySnapshot.docs.map(doc => doc.data());
+                    console.log(data);
+                });
             // const response = await fetch('https://boardgamegeek.com/xmlapi/search?search=catan');
             // const boardgamesXml = await response.text();
             // const boardgames = xml2js(boardgamesXml, {compact: true, spaces: 4});

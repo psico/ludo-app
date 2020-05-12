@@ -45,7 +45,7 @@ const GameSearch = () => {
 
     return (
         <Autocomplete
-            id="asynchronous-demo"
+            id="asynchronous-game-search"
             style={{width: 300}}
             open={open}
             onOpen={() => {

@@ -31,13 +31,21 @@ const PlayersSearch = () => {
             //         const data = querySnapshot.docs.map(doc => doc.data());
             //         console.log(data);
             //     });
-
-            firebase.firestore().collection("usersInfo").doc("NEais3m33GEr8VrOipaU")
+            let friendPlayers;
+            firebase.firestore()
+                .collection("usersInfo")
                 .get()
                 .then(querySnapshot => {
                     // querySnapshot.data()
-                    // const data = querySnapshot.docs.map(doc => doc.data());
-                    console.log(querySnapshot.data());
+                    const data = querySnapshot.docs.map(doc => {
+                        console.log(doc.data().userInfo.uid);
+                        console.log("0IhNFZFa7QMwBY6yZT8l24L1AX32");
+
+                        if (doc.data().userInfo.uid === "0IhNFZFa7QMwBY6yZT8l24L1AX32") {
+                            friendPlayers = doc.data().userInfo.friends;
+                            console.log(friendPlayers);
+                        }
+                    });
                 });
 
             // const response = await fetch('https://boardgamegeek.com/xmlapi/search?search=catan');

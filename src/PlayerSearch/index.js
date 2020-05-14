@@ -25,27 +25,17 @@ const PlayersSearch = () => {
         }
 
         (async () => {
-            // firebase.firestore().collection("usersInfo")
-            //     .get()
-            //     .then(querySnapshot => {
-            //         const data = querySnapshot.docs.map(doc => doc.data());
-            //         console.log(data);
-            //     });
-            let friendPlayers;
-            firebase.firestore()
+            const friendPlayers = await firebase.firestore()
                 .collection("usersInfo")
                 .get()
                 .then(querySnapshot => {
                     // querySnapshot.data()
-                    const data = querySnapshot.docs.map(doc => {
-                        console.log(doc.data().userInfo.uid);
-                        console.log("0IhNFZFa7QMwBY6yZT8l24L1AX32");
-
+                    let data = querySnapshot.docs.map(doc => {
                         if (doc.data().userInfo.uid === "0IhNFZFa7QMwBY6yZT8l24L1AX32") {
-                            friendPlayers = doc.data().userInfo.friends;
-                            console.log(friendPlayers);
+                            return doc.data().userInfo.friends;
                         }
                     });
+                    return data[0];
                 });
 
             // const response = await fetch('https://boardgamegeek.com/xmlapi/search?search=catan');
@@ -53,7 +43,8 @@ const PlayersSearch = () => {
             // const boardgames = xml2js(boardgamesXml, {compact: true, spaces: 4});
 
             if (active) {
-                // setOptions(Object.keys(boardgames.boardgames.boardgame).map((key) => boardgames.boardgames.boardgame[key]));
+                console.log('c- ', friendPlayers);
+                setOptions(Object.keys(friendPlayers).map((key) => friendPlayers[key]));
             }
         })();
 
@@ -80,8 +71,8 @@ const PlayersSearch = () => {
                 onClose={() => {
                     setOpen(false);
                 }}
-                getOptionSelected={(option, value) => option.name._text === value.name._text}
-                getOptionLabel={(option) => option.name._text}
+                getOptionSelected={(option, value) => option.name === value.name}
+                getOptionLabel={(option) => option.name}
                 options={options}
                 loading={loading}
                 renderInput={(params) => (

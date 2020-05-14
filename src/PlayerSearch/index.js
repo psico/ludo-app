@@ -7,7 +7,6 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import Grid from "@material-ui/core/Grid";
 import firebase from "../firebase";
-// import fetch from 'cross-fetch';
 
 const PlayersSearch = () => {
     const componentClasses = useStyles();
@@ -37,10 +36,6 @@ const PlayersSearch = () => {
                     });
                     return data[0];
                 });
-
-            // const response = await fetch('https://boardgamegeek.com/xmlapi/search?search=catan');
-            // const boardgamesXml = await response.text();
-            // const boardgames = xml2js(boardgamesXml, {compact: true, spaces: 4});
 
             if (active) {
                 console.log('c- ', friendPlayers);

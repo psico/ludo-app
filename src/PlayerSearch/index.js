@@ -12,6 +12,7 @@ const PlayersSearch = () => {
     const componentClasses = useStyles();
     const [open, setOpen] = useState(false);
     const [options, setOptions] = useState([]);
+    const [players, setPlayers] = useState({name: 'João Gabriel', uid: 'asdfasfasfd'})
     const loading = open && options.length === 0;
 
     const {t} = useTranslation();
@@ -66,7 +67,14 @@ const PlayersSearch = () => {
                 onClose={() => {
                     setOpen(false);
                 }}
-                getOptionSelected={(option, value) => option.name === value.name}
+                getOptionSelected={(option, value) => {
+                    if (option.name === value.name) {
+                        console.log('clicou1 - ', option.name)
+                        console.log('clicou2 - ', value.name)
+                        return true
+                    }
+                }
+                }
                 getOptionLabel={(option) => option.name}
                 options={options}
                 loading={loading}
@@ -96,6 +104,7 @@ const PlayersSearch = () => {
             />
             <Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>
                 {t('players')}
+                {players}
             </Grid>
         </div>
     );

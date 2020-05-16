@@ -69,8 +69,7 @@ const PlayersSearch = () => {
                 }}
                 getOptionSelected={(option, value) => {
                     if (option.name === value.name) {
-                        console.log('clicou1 - ', option.name)
-                        console.log('clicou2 - ', value.name)
+                        setPlayers([...players, {name: option.name, uid: option.name}]);
                         return true
                     }
                 }

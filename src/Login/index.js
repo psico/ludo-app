@@ -59,7 +59,7 @@ const Login = ({history}) => {
                 </Grid>
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                     <hr/>
-                    <h3>E-mail login</h3>
+                    <h3>{t('email-login')}</h3>
                     <input
                         value={email}
                         onChange={e => setEmail(e.target.value)}
@@ -75,8 +75,8 @@ const Login = ({history}) => {
                         placeholder="password"
                     />
 
-                    <Button variant="contained" type="submit">Login</Button>
-                    <Button variant="contained" type="submit">Join</Button>
+                    <Button variant="contained" type="submit">{t('login')}</Button>
+                    <Button variant="contained" type="submit">{t('join')}</Button>
                 </Grid>
                 <span>{error}</span>
             </form>

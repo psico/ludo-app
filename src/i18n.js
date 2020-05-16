@@ -21,6 +21,7 @@ const resources = {
 
             //Two words
             "add-match": "Add match",
+            "email-login": "E-mail login",
             "play-match": "Play match",
             "play-now": "Play now",
 

@@ -12,7 +12,7 @@ const PlayersSearch = () => {
     const componentClasses = useStyles();
     const [open, setOpen] = useState(false);
     const [options, setOptions] = useState([]);
-    const [players, setPlayers] = useState({name: 'João Gabriel', uid: 'asdfasfasfd'})
+    const [players, setPlayers] = useState([{name: 'João Gabriel', uid: 'asdfasfasfd'}]);
     const loading = open && options.length === 0;
 
     const {t} = useTranslation();
@@ -104,7 +104,7 @@ const PlayersSearch = () => {
             />
             <Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>
                 {t('players')}
-                {players}
+                {players.map(data => <div key={data.uid}>{data.name}</div>)}
             </Grid>
         </div>
     );

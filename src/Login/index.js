@@ -76,7 +76,10 @@ const Login = ({history}) => {
                     />
 
                     <Button variant="contained" type="submit">{t('login')}</Button>
-                    <Button variant="contained" type="submit">{t('join')}</Button>
+                    <Button variant="contained" type="button" onClick={(e)=>{
+                        e.preventDefault();
+                        history.push('/join');
+                    }}>{t('join')}</Button>
                 </Grid>
                 <span>{error}</span>
             </form>

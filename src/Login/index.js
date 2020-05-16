@@ -76,6 +76,7 @@ const Login = ({history}) => {
                     />
 
                     <Button variant="contained" type="submit">Login</Button>
+                    <Button variant="contained" type="submit">Join</Button>
                 </Grid>
                 <span>{error}</span>
             </form>

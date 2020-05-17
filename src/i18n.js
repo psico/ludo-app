@@ -24,6 +24,7 @@ const resources = {
             "email-login": "E-mail login",
             "play-match": "Play match",
             "play-now": "Play now",
+            "create-login": "Create login",
 
             //Three words
             "game-rules-manual": "Game rules manual",

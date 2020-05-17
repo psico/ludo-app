@@ -52,7 +52,7 @@ const Join = () => {
                     </Grid>
                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                         <hr/>
-                        <h3>{t('email-login')}</h3>
+                        <h3>{t('create-login')}</h3>
                         <input
                             value={email}
                             onChange={e => setEmail(e.target.value)}

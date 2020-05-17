@@ -75,8 +75,8 @@ const Login = ({history}) => {
                         placeholder="password"
                     />
 
-                    <Button variant="contained" type="submit">{t('login')}</Button>
-                    <Button variant="contained" type="button" onClick={(e)=>{
+                    <Button variant="contained" color="primary" type="submit">{t('login')}</Button>
+                    <Button variant="contained" color="primary" type="button" onClick={(e)=>{
                         e.preventDefault();
                         history.push('/join');
                     }}>{t('join')}</Button>

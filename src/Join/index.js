@@ -31,8 +31,6 @@ const Join = () => {
             .catch(e => {
                 setErrors(e.message);
             });
-        console.log(Auth);
-        Auth.setLoggedIn(true);
     };
 
     return (

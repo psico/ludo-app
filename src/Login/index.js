@@ -32,7 +32,7 @@ const Login = ({history}) => {
                     .signInWithEmailAndPassword(email, password)
                     .then(res => {
                         console.log(res.user);
-                        if (res.user) {
+                        if (!res.user.email.isEmpty) {
                             // Auth.setLoggedIn(true);
                             Auth.setAuth(res.user);
                             history.push('/community');

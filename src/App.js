@@ -9,14 +9,21 @@ import Footer from "./Footer";
 import routes from "./routes";
 import protectedRoutes from "./protectedRoutes";
 
-export const AuthContext = React.createContext(null);
+export const AuthContext = React.createContext({
+    displayName: null,
+    email: null,
+    emailVerified: null,
+    uid: null,
+    photoURL: null,
+    isLoggedIn: false
+});
 
 const App = () => {
-    const [isLoggedIn, setLoggedIn] = useState(false);
+    const [userInfo, setUserInfo] = useState(false);
     const classes = useStyles();
 
     return (
-        <AuthContext.Provider value={{isLoggedIn, setLoggedIn}}>
+        <AuthContext.Provider value={{userInfo, setUserInfo}}>
             <BrowserRouter>
                 <Grid container className={classes.root}>
                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
@@ -31,7 +38,7 @@ const App = () => {
                                 {protectedRoutes.map(route => (
                                     <ProtectedRouteHoc
                                         key={route.path}
-                                        isLoggedIn={isLoggedIn}
+                                        isLoggedIn={userInfo.isLoggedIn}
                                         path={route.path}
                                         component={route.main}
                                         exact={route.exact}

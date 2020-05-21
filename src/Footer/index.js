@@ -10,7 +10,7 @@ import {withRouter} from 'react-router-dom';
 const Footer = ({history}) => {
     const componentClasses = useStyles();
     const [value, setValue] = React.useState('community');
-    const {isLoggedIn} = useContext(AuthContext);
+    const {userInfo} = useContext(AuthContext);
     const {t} = useTranslation();
 
     const handleChange = (event, newValue) => {
@@ -20,7 +20,7 @@ const Footer = ({history}) => {
 
     return (
         <span>
-        {isLoggedIn ?
+        {userInfo.isLoggedIn ?
             <BottomNavigation
                 value={value}
                 onChange={handleChange}

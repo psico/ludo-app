@@ -8,7 +8,7 @@ import {AuthContext} from "../App";
 
 const LogoHeader = (props) => {
     const classes = componentStyles();
-    const {isLoggedIn} = useContext(AuthContext);
+    const {userInfo} = useContext(AuthContext);
 
     return (
         <HideOnScroll {...props}>
@@ -25,7 +25,7 @@ const LogoHeader = (props) => {
                     <Typography className={classes.title} variant="h6" noWrap>
                         LudoApp
                     </Typography>
-                    {isLoggedIn ?
+                    {userInfo.isLoggedIn ?
                         <div className={classes.search}>
                             <div className={classes.searchIcon}>
                                 <SearchIcon/>

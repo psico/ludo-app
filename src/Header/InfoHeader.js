@@ -10,7 +10,7 @@ const InfoHeader = () => {
     const classes = componentStyles();
     const [completed] = React.useState(30);
 
-    const {isLoggedIn} = useContext(AuthContext);
+    const {userInfo} = useContext(AuthContext);
 
     const BorderLinearProgress = withStyles({
         root: {
@@ -26,12 +26,12 @@ const InfoHeader = () => {
 
     return (
         <span>
-        {isLoggedIn ?
+        {userInfo.isLoggedIn ?
             <div className={classes.infoHeader}>
                 <UserAvatar showName={false}/>
                 <img src={lvl} alt="user lvl" height="25"/>
                 <h5>
-                    <div>Level 30 - Dice Explorer {isLoggedIn}</div>
+                    <div>Level 30 - Dice Explorer {userInfo.isLoggedIn}</div>
                     <BorderLinearProgress
                         className={classes.margin}
                         variant="determinate"

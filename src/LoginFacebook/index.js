@@ -25,7 +25,14 @@ const LoginFacebook = ({history}) => {
                     .signInWithPopup(provider)
                     .then(result => {
                         console.log(result);
-                        Auth.setLoggedIn(true);
+                        Auth.setUserInfo({
+                            displayName: result.displayName,
+                            email: result.email,
+                            emailVerified: result.emailVerified,
+                            uid: result.uid,
+                            photoURL: result.photoURL,
+                            isLoggedIn: true
+                        });
                         history.push('/community');
                     })
                     .catch(e => setErrors(e.message))

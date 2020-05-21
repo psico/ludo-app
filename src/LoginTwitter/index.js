@@ -24,7 +24,6 @@ const LoginTwitter = ({history}) => {
                     .auth()
                     .signInWithPopup(provider)
                     .then(result => {
-                        console.log(result);
                         Auth.setUserInfo({
                             displayName: result.displayName,
                             email: result.email,

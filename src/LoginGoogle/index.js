@@ -24,8 +24,6 @@ const LoginGoogle = ({history}) => {
                     .auth()
                     .signInWithPopup(provider)
                     .then(result => {
-                        console.log(result.user);
-                        console.log(Auth);
                         Auth.setUserInfo({
                             displayName: result.displayName,
                             email: result.email,

@@ -28,7 +28,7 @@ const resources = {
 
             //Three words
             "game-rules-manual": "Game rules manual",
-            "login-with-coogle": "Login With Google",
+            "login-with-google": "Login With Google",
             "register-match": "Register match",
             "search-match-game": "Search match game",
             "search-match-players": "Search match players",

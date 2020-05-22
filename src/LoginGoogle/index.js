@@ -51,7 +51,7 @@ const LoginGoogle = ({history}) => {
                     src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
                     alt="logo"
                     height={20}
-                />&nbsp;{t('login-with-coogle')}
+                />&nbsp;{t('login-with-google')}
             </Button>
             <span>{error}</span>
         </div>

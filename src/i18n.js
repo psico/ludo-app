@@ -30,6 +30,7 @@ const resources = {
             "game-rules-manual": "Game rules manual",
             "login-with-facebook": "Login With Facebook",
             "login-with-google": "Login With Google",
+            "login-with-twitter": "Login With Twitter",
             "register-match": "Register match",
             "search-match-game": "Search match game",
             "search-match-players": "Search match players",

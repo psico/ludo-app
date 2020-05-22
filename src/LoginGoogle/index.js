@@ -4,15 +4,16 @@ import {AuthContext} from "../App";
 import firebase from "../firebase";
 import {withRouter} from 'react-router-dom'
 import useStyles from "./css";
+import {useTranslation} from "react-i18next";
 
 
 const LoginGoogle = ({history}) => {
 
     const componentClasses = useStyles();
 
-    const Auth = useContext(AuthContext);
-
     const [error, setErrors] = useState("");
+    const Auth = useContext(AuthContext);
+    const { t } = useTranslation();
 
     const signInWithGoogle = () => {
         const provider = new firebase.auth.GoogleAuthProvider();
@@ -50,7 +51,7 @@ const LoginGoogle = ({history}) => {
                     src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
                     alt="logo"
                     height={20}
-                />&nbsp;Login With Google
+                />&nbsp;{t('login-with-coogle')}
             </Button>
             <span>{error}</span>
         </div>

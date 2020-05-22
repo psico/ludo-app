@@ -28,9 +28,11 @@ const resources = {
 
             //Three words
             "game-rules-manual": "Game rules manual",
+            "login-with-coogle": "Login With Google",
             "register-match": "Register match",
             "search-match-game": "Search match game",
             "search-match-players": "Search match players",
+
 
             //Many words
             "the-host-cannot-be-changed": "The host cannot be changed",

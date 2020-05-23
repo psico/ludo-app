@@ -25,12 +25,16 @@ const LoginGoogle = ({history}) => {
                     .auth()
                     .signInWithPopup(provider)
                     .then(result => {
+                        console.log("cccccccc");
+                        console.log(result);
+                        console.log(result.user.displayName);
+
                         Auth.setUserInfo({
-                            displayName: result.displayName,
-                            email: result.email,
-                            emailVerified: result.emailVerified,
-                            uid: result.uid,
-                            photoURL: result.photoURL,
+                            displayName: result.user.displayName,
+                            email: result.user.email,
+                            emailVerified: result.user.emailVerified,
+                            uid: result.user.uid,
+                            photoURL: result.user.photoURL,
                             isLoggedIn: true
                         });
                         history.push('/community');

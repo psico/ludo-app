@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import useStyles from "./css";
 import Grid from "@material-ui/core/Grid";
 import Button from '@material-ui/core/Button';
@@ -12,12 +12,15 @@ import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import GameSearch from "../GameSearch";
 import PlayersSearch from "../PlayerSearch";
+import {AuthContext} from "../App";
 
 
 const AddMatch = () => {
     const componentClasses = useStyles();
     const {t} = useTranslation();
     const [gameMoment, setGameMoment] = React.useState('play-now');
+
+    const {userInfo} = useContext(AuthContext);
 
     const handleChange = (event, newGameMoment) => {
         setGameMoment(newGameMoment);
@@ -55,7 +58,7 @@ const AddMatch = () => {
                                                     <UserAvatar showName={false}/>
                                                 ),
                                             }}
-                                            defaultValue="João Gabriel"
+                                            defaultValue={userInfo.displayName}
                                             variant="outlined"
                                             helperText={t('the-host-cannot-be-changed')}
                                             placeholder={t('search-match-game')}

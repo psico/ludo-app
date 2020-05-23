@@ -14,7 +14,7 @@ const PlayersSearch = () => {
     const [open, setOpen] = useState(false);
     const [options, setOptions] = useState([]);
     const [players, setPlayers] = useState([{name: 'João Gabriel', uid: 'asdfasfasfd'}]);
-    let [friendPlayers, setFriendPlayers] = useState([]);
+    // let [friendPlayers, setFriendPlayers] = useState([]);
     const loading = open && options.length === 0;
 
     const {t} = useTranslation();
@@ -71,10 +71,12 @@ const PlayersSearch = () => {
 
 
             console.log("start")
+            let friendPlayers;
             var usersInfoRef = firebase.firestore().collection('usersInfo');
             try {
-                var usersInfoSnapShot = await usersInfoRef.where("userInfo.uid", "==", "0IhNFZFa7QMwBY6yZT8l24L1AX32").get();
+                var usersInfoSnapShot = await usersInfoRef.where("userInfo.uid", "==", userInfo.uid).get();
                 console.log(usersInfoSnapShot.docs[0].data());
+                friendPlayers = usersInfoSnapShot.docs[0].data();
                 // usersInfoSnapShot.forEach(doc => {
                 //     console.log(doc.data());
                 //     // console.log(doc.id, '=>', doc.data().name);
@@ -100,17 +102,17 @@ const PlayersSearch = () => {
             //         });
 
 
-            // if (friendPlayers !== undefined && friendPlayers !== null && friendPlayers.length !== 0) {
-            //     if (active) {
-            //         setOptions(Object.keys(friendPlayers).map((key) => friendPlayers[key]));
-            //     }
-            // }
+            if (friendPlayers !== undefined && friendPlayers !== null && friendPlayers.length !== 0) {
+                if (active) {
+                    setOptions(Object.keys(friendPlayers).map((key) => friendPlayers[key]));
+                }
+            }
         })();
 
         return () => {
             active = false;
         };
-    }, [loading, userInfo.uid, friendPlayers]);
+    }, [loading, userInfo.uid]);
 
     useEffect(() => {
         if (!open) {

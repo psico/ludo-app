@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import useStyles from "./css";
 import {withRouter} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
@@ -7,6 +7,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import Grid from "@material-ui/core/Grid";
 import firebase from "../firebase";
+import {AuthContext} from "../App";
 
 const PlayersSearch = () => {
     const componentClasses = useStyles();
@@ -16,6 +17,7 @@ const PlayersSearch = () => {
     const loading = open && options.length === 0;
 
     const {t} = useTranslation();
+    const {userInfo} = useContext(AuthContext);
 
     useEffect(() => {
         let active = true;
@@ -31,7 +33,7 @@ const PlayersSearch = () => {
                 .then(querySnapshot => {
                     // querySnapshot.data()
                     let data = querySnapshot.docs.map(doc => {
-                        if (doc.data().userInfo.uid === "0IhNFZFa7QMwBY6yZT8l24L1AX32") {
+                        if (doc.data().userInfo.uid === userInfo.uid) {
                             return doc.data().userInfo.friends;
                         }
                     });

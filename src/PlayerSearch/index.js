@@ -14,10 +14,46 @@ const PlayersSearch = () => {
     const [open, setOpen] = useState(false);
     const [options, setOptions] = useState([]);
     const [players, setPlayers] = useState([{name: 'João Gabriel', uid: 'asdfasfasfd'}]);
+    let [friendPlayers, setFriendPlayers] = useState([]);
     const loading = open && options.length === 0;
 
     const {t} = useTranslation();
     const {userInfo} = useContext(AuthContext);
+
+    // useEffect(() => {
+    //     let active = true;
+    //
+    //     if (!loading) {
+    //         return undefined;
+    //     }
+    //
+    //     (async () => {
+    //         console.log('ddd ', friendPlayers.length);
+    //
+    //         if (friendPlayers === undefined || friendPlayers === null || friendPlayers.length === 0) {
+    //             firebase.firestore()
+    //                 .collection("usersInfo")
+    //                 .get()
+    //                 .then(querySnapshot => {
+    //                     querySnapshot.docs.map(doc => {
+    //                         if (doc.data().userInfo.uid === userInfo.uid) {
+    //                             setFriendPlayers(doc.data().userInfo.friends);
+    //                         }
+    //                     });
+    //                 });
+    //         }
+    //
+    //         if (friendPlayers !== undefined && friendPlayers !== null && friendPlayers.length !== 0) {
+    //             if (active) {
+    //                 setOptions(Object.keys(friendPlayers).map((key) => friendPlayers[key]));
+    //             }
+    //         }
+    //     })();
+    //
+    //     return () => {
+    //         active = false;
+    //     };
+    // }, [loading, userInfo.uid, friendPlayers]);
 
     useEffect(() => {
         let active = true;
@@ -27,29 +63,55 @@ const PlayersSearch = () => {
         }
 
         (async () => {
-            const friendPlayers = await firebase.firestore()
-                .collection("usersInfo")
-                .get()
-                .then(querySnapshot => {
-                    // querySnapshot.data()
-                    let data = querySnapshot.docs.map(doc => {
-                        if (doc.data().userInfo.uid === userInfo.uid) {
-                            return doc.data().userInfo.friends;
-                        }
-                    });
-                    return data[0];
-                });
+            console.log('chamo essa porra');
 
-            if (active) {
-                console.log('c- ', friendPlayers);
-                setOptions(Object.keys(friendPlayers).map((key) => friendPlayers[key]));
+            // const response = await fetch('https://country.register.gov.uk/records.json?page-size=5000');
+            // await sleep(1e3); // For demo purposes.
+            // const countries = await response.json();
+
+
+            console.log("start")
+            var usersInfoRef = firebase.firestore().collection('usersInfo');
+            try {
+                var usersInfoSnapShot = await usersInfoRef.get();
+                console.log(usersInfoSnapShot.docs);
+                console.log(usersInfoSnapShot.docs[0].data());
+                // usersInfoSnapShot.forEach(doc => {
+                //     console.log(doc.data());
+                //     // console.log(doc.id, '=>', doc.data().name);
+                // });
+                console.log("end")
             }
+            catch (err) {
+                console.log('Error getting documents', err);
+            }
+
+
+
+            // firebase.firestore()
+            //         .collection("usersInfo")
+            //         .get()
+            //         .then(querySnapshot => {
+            //             querySnapshot.docs.map(doc => {
+            //                 if (doc.data().userInfo.uid === userInfo.uid) {
+            //                     setFriendPlayers(doc.data().userInfo.friends);
+            //                     setOptions(Object.keys(friendPlayers).map((key) => friendPlayers[key]));
+            //                 }
+            //             });
+            //         });
+
+
+            // if (friendPlayers !== undefined && friendPlayers !== null && friendPlayers.length !== 0) {
+            //     if (active) {
+            //         setOptions(Object.keys(friendPlayers).map((key) => friendPlayers[key]));
+            //     }
+            // }
         })();
 
         return () => {
             active = false;
         };
-    }, [loading]);
+    }, [loading, userInfo.uid, friendPlayers]);
 
     useEffect(() => {
         if (!open) {

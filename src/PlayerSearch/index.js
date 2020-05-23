@@ -73,8 +73,7 @@ const PlayersSearch = () => {
             console.log("start")
             var usersInfoRef = firebase.firestore().collection('usersInfo');
             try {
-                var usersInfoSnapShot = await usersInfoRef.get();
-                console.log(usersInfoSnapShot.docs);
+                var usersInfoSnapShot = await usersInfoRef.where("userInfo.uid", "==", "0IhNFZFa7QMwBY6yZT8l24L1AX32").get();
                 console.log(usersInfoSnapShot.docs[0].data());
                 // usersInfoSnapShot.forEach(doc => {
                 //     console.log(doc.data());

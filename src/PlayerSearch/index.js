@@ -20,41 +20,6 @@ const PlayersSearch = () => {
     const {t} = useTranslation();
     const {userInfo} = useContext(AuthContext);
 
-    // useEffect(() => {
-    //     let active = true;
-    //
-    //     if (!loading) {
-    //         return undefined;
-    //     }
-    //
-    //     (async () => {
-    //         console.log('ddd ', friendPlayers.length);
-    //
-    //         if (friendPlayers === undefined || friendPlayers === null || friendPlayers.length === 0) {
-    //             firebase.firestore()
-    //                 .collection("usersInfo")
-    //                 .get()
-    //                 .then(querySnapshot => {
-    //                     querySnapshot.docs.map(doc => {
-    //                         if (doc.data().userInfo.uid === userInfo.uid) {
-    //                             setFriendPlayers(doc.data().userInfo.friends);
-    //                         }
-    //                     });
-    //                 });
-    //         }
-    //
-    //         if (friendPlayers !== undefined && friendPlayers !== null && friendPlayers.length !== 0) {
-    //             if (active) {
-    //                 setOptions(Object.keys(friendPlayers).map((key) => friendPlayers[key]));
-    //             }
-    //         }
-    //     })();
-    //
-    //     return () => {
-    //         active = false;
-    //     };
-    // }, [loading, userInfo.uid, friendPlayers]);
-
     useEffect(() => {
         let active = true;
 
@@ -63,44 +28,25 @@ const PlayersSearch = () => {
         }
 
         (async () => {
-            console.log('chamo essa porra');
 
             // const response = await fetch('https://country.register.gov.uk/records.json?page-size=5000');
             // await sleep(1e3); // For demo purposes.
             // const countries = await response.json();
 
 
-            console.log("start")
+            console.log("start");
+            console.log(friendPlayers);
             let friendPlayers;
-            var usersInfoRef = firebase.firestore().collection('usersInfo');
+            let usersInfoRef = firebase.firestore().collection('usersInfo');
             try {
                 var usersInfoSnapShot = await usersInfoRef.where("userInfo.uid", "==", userInfo.uid).get();
                 console.log(usersInfoSnapShot.docs[0].data());
                 friendPlayers = usersInfoSnapShot.docs[0].data();
-                // usersInfoSnapShot.forEach(doc => {
-                //     console.log(doc.data());
-                //     // console.log(doc.id, '=>', doc.data().name);
-                // });
                 console.log("end")
             }
             catch (err) {
                 console.log('Error getting documents', err);
             }
-
-
-
-            // firebase.firestore()
-            //         .collection("usersInfo")
-            //         .get()
-            //         .then(querySnapshot => {
-            //             querySnapshot.docs.map(doc => {
-            //                 if (doc.data().userInfo.uid === userInfo.uid) {
-            //                     setFriendPlayers(doc.data().userInfo.friends);
-            //                     setOptions(Object.keys(friendPlayers).map((key) => friendPlayers[key]));
-            //                 }
-            //             });
-            //         });
-
 
             if (friendPlayers !== undefined && friendPlayers !== null && friendPlayers.length !== 0) {
                 if (active) {

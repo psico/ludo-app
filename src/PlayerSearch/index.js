@@ -21,10 +21,9 @@ const PlayersSearch = () => {
         (async () => {
             let usersInfoRef = firebase.firestore().collection('usersInfo');
             try {
-                let usersInfoSnapShot = await usersInfoRef.where("userInfo.uid", "==", userInfo.uid).get();
+                let usersInfoSnapShot = await usersInfoRef.where("uid", "==", userInfo.uid).get();
 
-                setFriendPlayers(Object.entries(usersInfoSnapShot.docs[0].data().userInfo.friends));
-
+                setFriendPlayers(usersInfoSnapShot.docs[0].data().friends);
             } catch (err) {
                 console.log('Error getting documents', err);
             }
@@ -51,9 +50,9 @@ const PlayersSearch = () => {
                     id: 'filled-age-native-simple',
                 }}
             >
-                <option aria-label="None" value="" />
-                {friendPlayers.map( (value,key) => {
-                    return (<option key={value.name} value={value.name}>{value.name}</option>);
+                <option key={0} aria-label="None" value="" />
+                {friendPlayers.map( (value) => {
+                    return (<option key={value.uid} value={value.uid}>{value.name}</option>);
                 })}
             </Select>
             <Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>

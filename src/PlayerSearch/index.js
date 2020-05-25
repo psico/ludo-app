@@ -17,7 +17,7 @@ const PlayersSearch = () => {
     const [open, setOpen] = useState(false);
     const [options, setOptions] = useState([]);
     const [players, setPlayers] = useState([{name: 'João Gabriel', uid: 'asdfasfasfd'}]);
-    const [friendPlayers, setFriendPlayers] = useState([]);
+    const [friendPlayers, setFriendPlayers] = useState([{name: 'João Gabriel', uid: 'asdfasfasfd'}]);
     // const [friendPlayersReq, setFriendPlayersReq] = useState(false);
     const loading = open && options.length === 0;
     const [state, setState] = React.useState({
@@ -37,13 +37,18 @@ const PlayersSearch = () => {
             let usersInfoRef = firebase.firestore().collection('usersInfo');
             try {
                 let usersInfoSnapShot = await usersInfoRef.where("userInfo.uid", "==", userInfo.uid).get();
-                console.log(friendPlayers);
+                // console.log([usersInfoSnapShot.docs[0].data().userInfo.friends]);
+                // friendPlayers = [usersInfoSnapShot.docs[0].data().userInfo.friends];
                 console.log(usersInfoSnapShot.docs[0].data().userInfo.friends);
+                console.log(usersInfoSnapShot.docs[0].data().userInfo.friends.parse);
+                console.log(Object.entries(usersInfoSnapShot.docs[0].data().userInfo.friends));
+                console.log([usersInfoSnapShot.docs[0].data().userInfo.friends]);
+                // friendPlayers = [{name:'teste'}, {name:'teste2'}];
                 // console.log(usersInfoSnapShot);
                 // console.log(usersInfoSnapShot.docs);
                 // console.log(usersInfoSnapShot.docs[0]);
-                // setOptions(Object.keys(friendPlayers).map((key) => friendPlayers[key]));
-                setFriendPlayers(usersInfoSnapShot.docs[0].data().userInfo.friends);
+                // setOptions(Object.keys(friendPlayers[0]).map((key) => friendPlayers[0][key]));
+                setFriendPlayers(Object.entries(usersInfoSnapShot.docs[0].data().userInfo.friends));
                 // setFriendPlayersReq(true);
                 console.log("end")
             } catch (err) {

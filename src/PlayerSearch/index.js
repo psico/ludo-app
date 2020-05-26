@@ -21,9 +21,22 @@ const PlayersSearch = () => {
         (async () => {
             let usersInfoRef = firebase.firestore().collection('usersInfo');
             try {
-                let usersInfoSnapShot = await usersInfoRef.where("uid", "==", userInfo.uid).get();
+                const usersInfoSnapShot = await usersInfoRef
+                    .where("uid", "==", userInfo.uid)
+                    .get();
 
-                setFriendPlayers(usersInfoSnapShot.docs[0].data().friends);
+                const orderFriends = usersInfoSnapShot.docs[0].data().friends
+                    .sort(function (a, b) {
+                        if (a.name < b.name) {
+                            return -1;
+                        }
+                        if (a.name > b.name) {
+                            return 1;
+                        }
+                        return 0;
+                    });
+
+                setFriendPlayers(orderFriends);
             } catch (err) {
                 console.log('Error getting documents', err);
             }

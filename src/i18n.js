@@ -21,12 +21,15 @@ const resources = {
 
             //Two words
             "add-match": "Add match",
+            "create-login": "Create login",
             "email-login": "E-mail login",
+            "friends-list": "Friends list",
             "play-match": "Play match",
             "play-now": "Play now",
-            "create-login": "Create login",
+
 
             //Three words
+            "choose-the-players": "Choose the players",
             "game-rules-manual": "Game rules manual",
             "login-with-facebook": "Login With Facebook",
             "login-with-google": "Login With Google",

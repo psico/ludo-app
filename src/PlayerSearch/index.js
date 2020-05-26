@@ -33,24 +33,20 @@ const PlayersSearch = () => {
 
     return (
         <div>
-            <InputLabel htmlFor="filled-age-native-simple" id="demo-mutiple-name-label">{t('choose-the-players')}</InputLabel>
+            <InputLabel htmlFor="label">{t('choose-the-players')}</InputLabel>
             <Select
-                labelId="demo-mutiple-name-label"
-                id="demo-mutiple-name-label"
                 native
+                value={players.uid}
                 onChange={(option) => {
-
                     setPlayers([...players, JSON.parse(option.target.value)]);
-                }
-                }
-                // label="Age"
-                key="select-friends"
+                }}
+                label={t('choose-the-players')}
                 variant="outlined"
                 inputProps={{
-                    name: 'age',
-                    id: 'filled-age-native-simple',
+                    name: t('choose-the-players'),
+                    id: 'label',
                 }}>
-                {/*<option key={0}>{t('friends-list')}</option>*/}
+                {/*<option aria-label="None" value="">{t('friends-list')}</option>*/}
                 {friendPlayers.map((value) => {
                     return (<option key={value.uid} value={JSON.stringify(value)}>{value.name}</option>);
                 })}

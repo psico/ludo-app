@@ -17,7 +17,7 @@ const PlayersSearch = () => {
     const {t} = useTranslation();
     const {userInfo} = useContext(AuthContext);
 
-    useEffect( () => {
+    useEffect(() => {
         (async () => {
             let usersInfoRef = firebase.firestore().collection('usersInfo');
             try {
@@ -29,30 +29,28 @@ const PlayersSearch = () => {
             }
 
         })();
-    },[]);
+    }, [userInfo]);
 
     return (
         <div>
             <InputLabel htmlFor="filled-age-native-simple">Age</InputLabel>
             <Select
                 native
-                onChange={(option, value) => {
-                    // if (option.name === value.name) {
-                    //     setPlayers([...players, {name: option.name, uid: option.name}]);
-                    //     return true
-                    // }
+                onChange={(option) => {
+
+                    setPlayers([...players, JSON.parse(option.target.value)]);
                 }
                 }
                 // label="Age"
+                key="select-friends"
                 variant="outlined"
                 inputProps={{
                     name: 'age',
                     id: 'filled-age-native-simple',
-                }}
-            >
-                <option key={0} aria-label="None" value="" />
-                {friendPlayers.map( (value) => {
-                    return (<option key={value.uid} value={value.uid}>{value.name}</option>);
+                }}>
+                <option key={0} aria-label="None" value=""/>
+                {friendPlayers.map((value) => {
+                    return (<option key={value.uid} value={JSON.stringify(value)}>{value.name}</option>);
                 })}
             </Select>
             <Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>

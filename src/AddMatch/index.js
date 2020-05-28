@@ -76,9 +76,6 @@ const AddMatch = () => {
                                     {/*<Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>*/}
                                     {/*    <Button variant="contained" onClick={() => history.push('/gameRegister')}>{t('register-a-new-game')}</Button>*/}
                                     {/*</Grid>*/}
-                                    <Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>
-                                        <PlayersSearch/>
-                                    </Grid>
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
                                           className={componentClasses.item}>
                                         <ToggleButtonGroup size="small" value={gameMoment} exclusive
@@ -96,6 +93,10 @@ const AddMatch = () => {
                                             ]
                                         </ToggleButtonGroup>
                                     </Grid>
+                                    <Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>
+                                        <PlayersSearch/>
+                                    </Grid>
+
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
                                           className={componentClasses.item}>
                                         <Button variant="contained">{t('game-rules-manual')}</Button>

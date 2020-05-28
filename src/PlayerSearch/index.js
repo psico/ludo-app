@@ -74,7 +74,7 @@ const PlayersSearch = () => {
             </Select>
             <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item} variant="outlined">
                 <h3>{t('players')}</h3>
-                {players.length > 0
+                {players.length > 1
                     ? players.map(data => <div key={'div_' + data.uid}>{data.name}</div>)
                     : <div>Nenhum jogador selecionado</div>
                 }

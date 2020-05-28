@@ -19,6 +19,8 @@ const PlayersSearch = () => {
 
     useEffect(() => {
         (async () => {
+            setPlayers([{name: userInfo.name, uid: userInfo.uid}]);
+
             let usersInfoRef = firebase.firestore().collection('usersInfo');
             try {
                 const usersInfoSnapShot = await usersInfoRef
@@ -51,7 +53,9 @@ const PlayersSearch = () => {
                 native
                 value={players.uid}
                 onChange={(option) => {
-                    setPlayers([...players, JSON.parse(option.target.value)]);
+                    if (option.target.value !== "") {
+                        setPlayers([...players, JSON.parse(option.target.value)]);
+                    }
                 }}
                 label={t('choose-the-players')}
                 variant="outlined"
@@ -59,15 +63,18 @@ const PlayersSearch = () => {
                     name: t('choose-the-players'),
                     id: 'label',
                 }}>
-                {/*<option aria-label="None" value="">{t('friends-list')}</option>*/}
+                <option aria-label={t('friends-list')} value="">{t('friends-list')}</option>
                 {friendPlayers.map((value) => {
                     return (<option key={'option_' + value.uid} value={JSON.stringify(value)}>{value.name}</option>);
                 })}
                 className={componentClasses.item}
             </Select>
-            <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
-                {t('players')}
-                {players.map(data => <div key={'div_' + data.uid}>{data.name}</div>)}
+            <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item} variant="outlined">
+                <h3>{t('players')}</h3>
+                {players.length > 0
+                    ? players.map(data => <div key={'div_' + data.uid}>{data.name}</div>)
+                    : <div>Nenhum jogador selecionado</div>
+                }
             </Grid>
         </Grid>
     );

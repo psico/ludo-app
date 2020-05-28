@@ -54,7 +54,10 @@ const PlayersSearch = () => {
                 value={players.uid}
                 onChange={(option) => {
                     if (option.target.value !== "") {
-                        setPlayers([...players, JSON.parse(option.target.value)]);
+                        let objPlayer = JSON.parse(option.target.value);
+                        if (!(players.find(element => element.uid === objPlayer.uid))) {
+                            setPlayers([...players, objPlayer]);
+                        }
                     }
                 }}
                 label={t('choose-the-players')}

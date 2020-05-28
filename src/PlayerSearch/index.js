@@ -45,7 +45,7 @@ const PlayersSearch = () => {
     }, [userInfo]);
 
     return (
-        <div>
+        <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
             <InputLabel htmlFor="label">{t('choose-the-players')}</InputLabel>
             <Select
                 native
@@ -61,14 +61,15 @@ const PlayersSearch = () => {
                 }}>
                 {/*<option aria-label="None" value="">{t('friends-list')}</option>*/}
                 {friendPlayers.map((value) => {
-                    return (<option key={value.uid} value={JSON.stringify(value)}>{value.name}</option>);
+                    return (<option key={'option_' + value.uid} value={JSON.stringify(value)}>{value.name}</option>);
                 })}
+                className={componentClasses.item}
             </Select>
-            <Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>
+            <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
                 {t('players')}
-                {players.map(data => <div key={data.uid}>{data.name}</div>)}
+                {players.map(data => <div key={'div_' + data.uid}>{data.name}</div>)}
             </Grid>
-        </div>
+        </Grid>
     );
 };
 

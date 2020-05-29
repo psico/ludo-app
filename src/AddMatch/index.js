@@ -29,11 +29,18 @@ const AddMatch = () => {
     const handleForm = e => {
         e.preventDefault();
 
-        firebase
-            .setPersistence(firebase.auth.Auth.Persistence.SESSION)
-            .then(() => {
+        let teste = firebase.firestore().collection("teste").doc("teste2");
 
-            });
+        let setWithOptions = teste.set({
+            teste4: "opa aki"
+        }, {merge: true});
+
+
+        // firebase
+        //     .setPersistence(firebase.auth.Auth.Persistence.SESSION)
+        //     .then(() => {
+        //
+        //     });
     };
 
 

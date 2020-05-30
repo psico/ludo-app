@@ -29,18 +29,13 @@ const AddMatch = () => {
     const handleForm = e => {
         e.preventDefault();
 
-        let teste = firebase.firestore().collection("teste").doc("teste2");
+        let match = firebase.firestore().collection("match").doc(userInfo.uid);
 
-        let setWithOptions = teste.set({
-            teste4: "opa aki"
-        }, {merge: true});
+        let setWithOptions = match.set({
+            key: [{"gameMoment": gameMoment}]
+        });
 
-
-        // firebase
-        //     .setPersistence(firebase.auth.Auth.Persistence.SESSION)
-        //     .then(() => {
-        //
-        //     });
+        console.log(setWithOptions);
     };
 
 

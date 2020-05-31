@@ -18,9 +18,11 @@ import {AuthContext} from "../App";
 const AddMatch = () => {
     const componentClasses = useStyles();
     const {t} = useTranslation();
-    const [gameMoment, setGameMoment] = React.useState('play-now');
-
     const {userInfo} = useContext(AuthContext);
+    const [gameMoment, setGameMoment] = React.useState('play-now');
+    const [gameMomentSelect, setGameMomentSelect] = React.useState();
+    // const [callback , setCallback ] = React.useState();
+
 
     const handleChange = (event, newGameMoment) => {
         setGameMoment(newGameMoment);
@@ -31,13 +33,18 @@ const AddMatch = () => {
 
         let match = firebase.firestore().collection("matches").doc();
 
-        let setWithOptions = match.set({
+        match.set({
             "uid": userInfo.uid,
             "gameMoment": gameMoment
         }, {merge:true});
 
-        console.log(setWithOptions);
+        console.log(gameMomentSelect);
     };
+
+    let callback = (count) => {
+        // do something with value in parent component, like save to state
+        setGameMomentSelect(count);
+    }
 
 
     return (
@@ -73,7 +80,7 @@ const AddMatch = () => {
                                     </Grid>
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
                                           className={componentClasses.item}>
-                                        <GameSearch/>
+                                        <GameSearch parentCallback={callback} />
                                     </Grid>
                                     {/* @TODO This function will be necessary in future */}
                                     {/*<Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>*/}

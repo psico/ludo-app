@@ -7,7 +7,7 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import {xml2js} from "xml-js";
 // import fetch from 'cross-fetch';
 
-const GameSearch = () => {
+const GameSearch = ({ parentCallback }) => {
     // const componentClasses = useStyles();
     const [open, setOpen] = useState(false);
     const [options, setOptions] = useState([]);
@@ -54,7 +54,11 @@ const GameSearch = () => {
             onClose={() => {
                 setOpen(false);
             }}
-            getOptionSelected={(option, value) => option.name._text === value.name._text}
+            getOptionSelected={(option, value) => {
+                console.log('aki');
+                parentCallback("pegou o valor");
+                return option.name._text === value.name._text
+            }}
             getOptionLabel={(option) => option.name._text}
             options={options}
             loading={loading}

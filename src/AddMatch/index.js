@@ -29,10 +29,11 @@ const AddMatch = () => {
     const handleForm = e => {
         e.preventDefault();
 
-        let match = firebase.firestore().collection("match").doc("match_list").get(userInfo.uid);
+        let match = firebase.firestore().collection("matches").doc();
 
-        let setWithOptions = match.add({
-            key: [{"gameMoment": gameMoment}]
+        let setWithOptions = match.set({
+            "uid": userInfo.uid,
+            "gameMoment": gameMoment
         }, {merge:true});
 
         console.log(setWithOptions);

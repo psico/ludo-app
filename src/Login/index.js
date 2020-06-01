@@ -30,11 +30,20 @@ const Login = ({history}) => {
                 firebase
                     .auth()
                     .signInWithEmailAndPassword(email, password)
-                    .then(res => {
-                        console.log(res.user);
-                        if (!res.user.email.isEmpty) {
+                    .then(result => {
+                        console.log(result.user);
+                        if (!result.user.email.isEmpty) {
                             // Auth.setLoggedIn(true);
-                            Auth.setAuth(res.user);
+                            // Auth.setAuth(res.user);
+
+                            Auth.setUserInfo({
+                                displayName: result.user.displayName,
+                                email: result.user.email,
+                                emailVerified: result.user.emailVerified,
+                                uid: result.user.uid,
+                                photoURL: result.user.photoURL,
+                                isLoggedIn: true
+                            });
                             history.push('/community');
                         }
                     })

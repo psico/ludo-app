@@ -19,26 +19,33 @@ const AddMatch = () => {
     const componentClasses = useStyles();
     const {t} = useTranslation();
     const {userInfo} = useContext(AuthContext);
+    const [match, setMatch] = React.useState({
+        "uid": null,
+        "gameMoment": ""
+    });
     const [gameMoment, setGameMoment] = React.useState('play-now');
     const [gameMomentSelect, setGameMomentSelect] = React.useState();
     // const [callback , setCallback ] = React.useState();
 
 
-    const handleChange = (event, newGameMoment) => {
-        setGameMoment(newGameMoment);
+    const toggleChange = (event, newGameMoment) => {
+        setMatch({
+            ...match,
+            "gameMoment": newGameMoment
+        });
     };
 
     const handleForm = e => {
         e.preventDefault();
 
-        let match = firebase.firestore().collection("matches").doc();
+        let matches = firebase.firestore().collection("matches").doc();
 
-        match.set({
-            "uid": userInfo.uid,
-            "gameMoment": gameMoment
+        matches.set({
+            ...match,
+            "uid": userInfo.uid
         }, {merge:true});
 
-        console.log(gameMomentSelect);
+        // console.log(gameMomentSelect);
     };
 
     let callback = (count) => {
@@ -89,7 +96,7 @@ const AddMatch = () => {
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
                                           className={componentClasses.item}>
                                         <ToggleButtonGroup size="small" value={gameMoment} exclusive
-                                                           onChange={handleChange}>
+                                                           onChange={toggleChange}>
                                             [
                                             <ToggleButton key={1} value="play-now">
                                                 {t('play-now')}

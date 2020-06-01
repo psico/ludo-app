@@ -23,7 +23,7 @@ const AddMatch = () => {
         "uid": null,
         "gameMoment": "play-now"
     });
-    const [gameMomentSelect, setGameMomentSelect] = React.useState();
+    // const [gameMomentSelect, setGameMomentSelect] = React.useState();
 
 
     const toggleChange = (event, newGameMoment) => {
@@ -46,9 +46,15 @@ const AddMatch = () => {
         // console.log(gameMomentSelect);
     };
 
-    let callback = (count) => {
-        // do something with value in parent component, like save to state
-        setGameMomentSelect(count);
+    let gameCallback = (gameData) => {
+        setMatch({
+            ...match,
+            "game": {
+                "name": gameData.name._text,
+                "yearpublished": gameData.yearpublished._text,
+                "objectid": gameData._attributes.objectid
+            }
+        });
     }
 
 
@@ -85,7 +91,7 @@ const AddMatch = () => {
                                     </Grid>
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
                                           className={componentClasses.item}>
-                                        <GameSearch parentCallback={callback} />
+                                        <GameSearch parentCallback={gameCallback} />
                                     </Grid>
                                     {/* @TODO This function will be necessary in future */}
                                     {/*<Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>*/}

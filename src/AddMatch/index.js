@@ -21,11 +21,9 @@ const AddMatch = () => {
     const {userInfo} = useContext(AuthContext);
     const [match, setMatch] = React.useState({
         "uid": null,
-        "gameMoment": ""
+        "gameMoment": "play-now"
     });
-    const [gameMoment, setGameMoment] = React.useState('play-now');
     const [gameMomentSelect, setGameMomentSelect] = React.useState();
-    // const [callback , setCallback ] = React.useState();
 
 
     const toggleChange = (event, newGameMoment) => {
@@ -95,7 +93,7 @@ const AddMatch = () => {
                                     {/*</Grid>*/}
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
                                           className={componentClasses.item}>
-                                        <ToggleButtonGroup size="small" value={gameMoment} exclusive
+                                        <ToggleButtonGroup size="small" value={match.gameMoment} exclusive
                                                            onChange={toggleChange}>
                                             [
                                             <ToggleButton key={1} value="play-now">

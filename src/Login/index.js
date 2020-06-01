@@ -33,7 +33,7 @@ const Login = ({history}) => {
                     .then(result => {
                         if (!result.user.email.isEmpty) {
                             Auth.setUserInfo({
-                                displayName: result.user.displayName,
+                                displayName: result.user.displayName ? result.user.displayName : result.user.email,
                                 email: result.user.email,
                                 emailVerified: result.user.emailVerified,
                                 uid: result.user.uid,

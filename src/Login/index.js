@@ -31,11 +31,7 @@ const Login = ({history}) => {
                     .auth()
                     .signInWithEmailAndPassword(email, password)
                     .then(result => {
-                        console.log(result.user);
                         if (!result.user.email.isEmpty) {
-                            // Auth.setLoggedIn(true);
-                            // Auth.setAuth(res.user);
-
                             Auth.setUserInfo({
                                 displayName: result.user.displayName,
                                 email: result.user.email,

@@ -9,17 +9,17 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 // import NativeSelect from '@material-ui/core/NativeSelect';
 
-const PlayersSearch = () => {
+const PlayersSearch = ({ parentCallback }) => {
     const componentClasses = useStyles();
-    const [players, setPlayers] = useState([{}]);
-    const [friendPlayers, setFriendPlayers] = useState([{}]);
+    const [players, setPlayers] = useState([]);
+    const [friendPlayers, setFriendPlayers] = useState([]);
 
     const {t} = useTranslation();
     const {userInfo} = useContext(AuthContext);
 
     useEffect(() => {
         (async () => {
-            setPlayers([{name: userInfo.name, uid: userInfo.uid}]);
+            setPlayers([{name: userInfo.displayName, uid: userInfo.uid}]);
 
             let usersInfoRef = firebase.firestore().collection('usersInfo');
             try {
@@ -53,10 +53,11 @@ const PlayersSearch = () => {
                 native
                 value={players.uid}
                 onChange={(option) => {
-                    if (option.target.value !== "") {
+                    if (option.target.value !== "" && option.target.value !== undefined) {
                         let objPlayer = JSON.parse(option.target.value);
                         if (!(players.find(element => element.uid === objPlayer.uid))) {
                             setPlayers([...players, objPlayer]);
+                            parentCallback(players);
                         }
                     }
                 }}

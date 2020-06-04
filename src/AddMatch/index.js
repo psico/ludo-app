@@ -23,8 +23,6 @@ const AddMatch = () => {
         "uid": null,
         "gameMoment": "play-now"
     });
-    // const [gameMomentSelect, setGameMomentSelect] = React.useState();
-
 
     const toggleChange = (event, newGameMoment) => {
         setMatch({
@@ -38,12 +36,12 @@ const AddMatch = () => {
 
         let matches = firebase.firestore().collection("matches").doc();
 
-        matches.set({
+        setMatch({
             ...match,
             "uid": userInfo.uid
-        }, {merge:true});
+        })
 
-        // console.log(gameMomentSelect);
+        matches.set(match, {merge:true});
     };
 
     let gameCallback = (gameData) => {
@@ -57,6 +55,12 @@ const AddMatch = () => {
         });
     }
 
+    let playersSearchCallback = (gameData) => {
+        setMatch({
+            ...match,
+            "players": [...gameData]
+        });
+    }
 
     return (
         <div className={componentClasses.root}>
@@ -115,7 +119,7 @@ const AddMatch = () => {
                                         </ToggleButtonGroup>
                                     </Grid>
                                     <Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>
-                                        <PlayersSearch/>
+                                        <PlayersSearch parentCallback={playersSearchCallback} />
                                     </Grid>
 
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}

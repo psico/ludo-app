@@ -13,6 +13,7 @@ const useStyles = makeStyles(theme => ({
         maxWidth: "921px",
         margin: 0,
         paddingTop: "115px",
+        paddingBottom: "50px",
         fontFamily: "sans-serif"
     },
     paper: {

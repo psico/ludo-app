@@ -13,6 +13,7 @@ const useStyles = makeStyles(() => ({
         maxWidth: "921px",
         margin: 0,
         paddingTop: "115px",
+        paddingBottom: "80px",
         fontFamily: "sans-serif",
         background: "#dfdfdf",
     },

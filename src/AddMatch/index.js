@@ -13,6 +13,7 @@ import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import GameSearch from "../GameSearch";
 import PlayersSearch from "../PlayerSearch";
 import {AuthContext} from "../App";
+import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 
 
 const AddMatch = () => {
@@ -132,7 +133,7 @@ const AddMatch = () => {
 
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
                                           className={componentClasses.item}>
-                                        <Button variant="contained">{t('game-rules-manual')}</Button>
+                                        <Button variant="contained" startIcon={<CloudDownloadIcon />}>{t('game-rules-manual')}</Button>
                                     </Grid>
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                                         {readyForm ?

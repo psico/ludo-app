@@ -126,8 +126,7 @@ const AddMatch = () => {
                                           className={componentClasses.item}>
                                         <Button variant="contained">{t('game-rules-manual')}</Button>
                                     </Grid>
-                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
-                                          className={componentClasses.item}>
+                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                                         <Button variant="contained" type="submit" color="primary">{t('save')}</Button>
                                     </Grid>
                                 </form>

@@ -21,8 +21,10 @@ const AddMatch = () => {
     const {userInfo} = useContext(AuthContext);
     const [match, setMatch] = React.useState({
         "uid": null,
-        "gameMoment": "play-now"
+        "gameMoment": "play-now",
+        "game": null
     });
+    const [readyForm, setReadyForm] = React.useState(false);
 
     const toggleChange = (event, newGameMoment) => {
         setMatch({
@@ -41,8 +43,14 @@ const AddMatch = () => {
             "uid": userInfo.uid
         })
 
-        matches.set(match, {merge:true});
+        matches.set(match, {merge: true});
     };
+
+    let formValidation = () => {
+        if (match.game !== null) {
+            setReadyForm(true);
+        }
+    }
 
     let gameCallback = (gameData) => {
         setMatch({
@@ -95,7 +103,7 @@ const AddMatch = () => {
                                     </Grid>
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
                                           className={componentClasses.item}>
-                                        <GameSearch parentCallback={gameCallback} />
+                                        <GameSearch parentCallback={gameCallback}/>
                                     </Grid>
                                     {/* @TODO This function will be necessary in future */}
                                     {/*<Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>*/}
@@ -119,7 +127,7 @@ const AddMatch = () => {
                                         </ToggleButtonGroup>
                                     </Grid>
                                     <Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>
-                                        <PlayersSearch parentCallback={playersSearchCallback} />
+                                        <PlayersSearch parentCallback={playersSearchCallback}/>
                                     </Grid>
 
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
@@ -127,7 +135,13 @@ const AddMatch = () => {
                                         <Button variant="contained">{t('game-rules-manual')}</Button>
                                     </Grid>
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                                        <Button variant="contained" type="submit" color="primary">{t('save')}</Button>
+                                        {readyForm ?
+                                            <Button variant="contained" type="submit"
+                                                    color="primary">{t('save')}</Button>
+                                            :
+                                            <Button variant="contained" type="submit" color="primary"
+                                                    disabled>{t('save')}</Button>
+                                        }
                                     </Grid>
                                 </form>
                             </Grid>

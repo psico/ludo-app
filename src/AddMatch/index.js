@@ -48,12 +48,14 @@ const AddMatch = () => {
     };
 
     let formValidation = () => {
-        if (match.game !== null) {
+        if (match.gameMoment !== null) {
             setReadyForm(true);
         }
     }
 
     let gameCallback = (gameData) => {
+        console.log("gameCallback");
+        console.log(gameData);
         setMatch({
             ...match,
             "game": {
@@ -62,6 +64,7 @@ const AddMatch = () => {
                 "objectId": gameData._attributes.objectid
             }
         });
+        formValidation();
     }
 
     let playersSearchCallback = (gameData) => {

@@ -55,8 +55,10 @@ const GameSearch = ({ parentCallback }) => {
                 setOpen(false);
             }}
             getOptionSelected={(option, value) => {
-                parentCallback(option);
-                return option.name._text === value.name._text
+                if (option.name._text === value.name._text) {
+                    parentCallback(option);
+                    return option.name._text === value.name._text
+                }
             }}
             getOptionLabel={(option) => option.name._text}
             options={options}

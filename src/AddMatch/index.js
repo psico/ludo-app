@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect } from "react";
 import useStyles from "./css";
 import Grid from "@material-ui/core/Grid";
 import Button from '@material-ui/core/Button';
@@ -27,6 +27,11 @@ const AddMatch = () => {
     });
     const [readyForm, setReadyForm] = React.useState(false);
 
+    useEffect(() => {
+        console.log('Do something after counter has changed');
+        formValidation();
+    }, [match]);
+
     const toggleChange = (event, newGameMoment) => {
         setMatch({
             ...match,
@@ -48,14 +53,14 @@ const AddMatch = () => {
     };
 
     let formValidation = () => {
-        if (match.gameMoment !== null) {
+        console.log("formValidation");
+        console.log(match);
+        if (match.game !== null) {
             setReadyForm(true);
         }
     }
 
     let gameCallback = (gameData) => {
-        console.log("gameCallback");
-        console.log(gameData);
         setMatch({
             ...match,
             "game": {
@@ -64,7 +69,6 @@ const AddMatch = () => {
                 "objectId": gameData._attributes.objectid
             }
         });
-        formValidation();
     }
 
     let playersSearchCallback = (gameData) => {

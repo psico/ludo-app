@@ -29,7 +29,12 @@ const useStyles = makeStyles(theme => ({
     },
     vl: {
         borderRight: "1px solid gray",
-    }
+    },
+    modal: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
 }));
 
 export default useStyles;

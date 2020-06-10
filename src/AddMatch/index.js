@@ -53,10 +53,23 @@ const AddMatch = () => {
     };
 
     let formValidation = () => {
+        let boolValidation = true;
         console.log("formValidation");
         console.log(match);
-        if (match.game !== null) {
+        if (match.uid === null) {
+            boolValidation = false;
+        }
+        if (match.game === null) {
+            boolValidation = false;
+        }
+        if (match.gameMoment === null) {
+            boolValidation = false;
+        }
+
+        if (boolValidation === true) {
             setReadyForm(true);
+        } else {
+            setReadyForm(false);
         }
     }
 

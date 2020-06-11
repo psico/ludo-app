@@ -14,9 +14,6 @@ import GameSearch from "../GameSearch";
 import PlayersSearch from "../PlayerSearch";
 import {AuthContext} from "../App";
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
 
 
 const AddMatch = () => {
@@ -29,7 +26,6 @@ const AddMatch = () => {
         "game": null
     });
     const [readyForm, setReadyForm] = React.useState(false);
-    const [open, setOpen] = React.useState(false);
 
     useEffect(() => {
         console.log('Do something after counter has changed');
@@ -74,7 +70,6 @@ const AddMatch = () => {
             setReadyForm(true);
         } else {
             setReadyForm(false);
-            setOpen(true);
         }
     }
 
@@ -98,25 +93,6 @@ const AddMatch = () => {
 
     return (
         <div className={componentClasses.root}>
-            <Modal
-                aria-labelledby="transition-modal-title"
-                aria-describedby="transition-modal-description"
-                className={componentClasses.modal}
-                open={open}
-                // onClose={handleClose}
-                closeAfterTransition
-                BackdropComponent={Backdrop}
-                BackdropProps={{
-                    timeout: 500,
-                }}
-            >
-                <Fade in={open}>
-                    <div className={componentClasses.paper}>
-                        <h2 id="transition-modal-title">Transition modal</h2>
-                        <p id="transition-modal-description">react-transition-group animates me.</p>
-                    </div>
-                </Fade>
-            </Modal>
             <Grid container spacing={0}>
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
                     <Paper className={componentClasses.paper}>

@@ -22,15 +22,6 @@ function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-// const useStyles = makeStyles((theme) => ({
-//     root: {
-//         width: '100%',
-//         '& > * + *': {
-//             marginTop: theme.spacing(2),
-//         },
-//     },
-// }));
-
 const AddMatch = () => {
     const componentClasses = useStyles();
     const {t} = useTranslation();
@@ -41,10 +32,15 @@ const AddMatch = () => {
         "game": null
     });
     const [readyForm, setReadyForm] = React.useState(false);
-    const [open, setOpen] = React.useState(false);
+    const [snackbar, setSnackbar] = React.useState({open: false, text: ""});
 
-    const handleClick = () => {
-        setOpen(true);
+    useEffect(() => {
+        console.log('Do something after counter has changed');
+        formValidation();
+    }, [match]);
+
+    const handleClick = (text) => {
+        setSnackbar({ ...snackbar, open: true, text: text });
     };
 
     const handleClose = (event, reason) => {
@@ -52,13 +48,8 @@ const AddMatch = () => {
             return;
         }
 
-        setOpen(false);
+        setSnackbar({ ...snackbar, open: false });
     };
-
-    useEffect(() => {
-        console.log('Do something after counter has changed');
-        formValidation();
-    }, [match]);
 
     const toggleChange = (event, newGameMoment) => {
         setMatch({
@@ -98,6 +89,7 @@ const AddMatch = () => {
             setReadyForm(true);
         } else {
             setReadyForm(false);
+            handleClick("My mensage");
         }
     }
 
@@ -121,12 +113,9 @@ const AddMatch = () => {
 
     return (
         <div className={componentClasses.root}>
-            <Button variant="outlined" onClick={handleClick}>
-                Open success snackbar
-            </Button>
-            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+            <Snackbar open={snackbar.open} autoHideDuration={600} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="success">
-                    This is a success message!
+                    {snackbar.text}
                 </Alert>
             </Snackbar>
             <Grid container spacing={0}>

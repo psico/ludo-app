@@ -14,13 +14,6 @@ import GameSearch from "../GameSearch";
 import PlayersSearch from "../PlayerSearch";
 import {AuthContext} from "../App";
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
-import Snackbar from '@material-ui/core/Snackbar';
-import MuiAlert from '@material-ui/lab/Alert';
-
-
-function Alert(props) {
-    return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
 
 const AddMatch = () => {
     const componentClasses = useStyles();
@@ -32,24 +25,11 @@ const AddMatch = () => {
         "game": null
     });
     const [readyForm, setReadyForm] = React.useState(false);
-    const [snackbar, setSnackbar] = React.useState({open: false, text: ""});
 
     useEffect(() => {
         console.log('Do something after counter has changed');
         formValidation();
     }, [match]);
-
-    const handleClick = (text) => {
-        setSnackbar({ ...snackbar, open: true, text: text });
-    };
-
-    const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
-
-        setSnackbar({ ...snackbar, open: false });
-    };
 
     const toggleChange = (event, newGameMoment) => {
         setMatch({
@@ -71,7 +51,7 @@ const AddMatch = () => {
 
             matches.set(match, {merge: true});
         } else {
-            handleClick(t('fill-in-the-required-fields'));
+            // handleClick(t('fill-in-the-required-fields'));
         }
     };
 
@@ -116,11 +96,6 @@ const AddMatch = () => {
 
     return (
         <div className={componentClasses.root}>
-            <Snackbar open={snackbar.open} autoHideDuration={600} onClose={handleClose}>
-                <Alert onClose={handleClose} severity="success">
-                    {snackbar.text}
-                </Alert>
-            </Snackbar>
             <Grid container spacing={0}>
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
                     <Paper className={componentClasses.paper}>

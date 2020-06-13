@@ -61,14 +61,18 @@ const AddMatch = () => {
     const handleForm = e => {
         e.preventDefault();
 
-        let matches = firebase.firestore().collection("matches").doc();
+        if (readyForm === true) {
+            let matches = firebase.firestore().collection("matches").doc();
 
-        setMatch({
-            ...match,
-            "uid": userInfo.uid
-        })
+            setMatch({
+                ...match,
+                "uid": userInfo.uid
+            })
 
-        matches.set(match, {merge: true});
+            matches.set(match, {merge: true});
+        } else {
+            handleClick("My mensage");
+        }
     };
 
     let formValidation = () => {
@@ -89,7 +93,6 @@ const AddMatch = () => {
             setReadyForm(true);
         } else {
             setReadyForm(false);
-            handleClick("My mensage");
         }
     }
 

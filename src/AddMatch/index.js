@@ -71,7 +71,7 @@ const AddMatch = () => {
 
             matches.set(match, {merge: true});
         } else {
-            handleClick("My mensage");
+            handleClick(t('fill-in-the-required-fields'));
         }
     };
 

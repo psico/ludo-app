@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import firebase from "../firebase";
 import {withRouter} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
+import {handleClick} from '../ShowSnackbar';
 import Paper from "@material-ui/core/Paper";
 import UserAvatar from "../UserAvatar";
 import TextField from '@material-ui/core/TextField';
@@ -51,7 +52,7 @@ const AddMatch = () => {
 
             matches.set(match, {merge: true});
         } else {
-            // handleClick(t('fill-in-the-required-fields'));
+            handleClick(t('fill-in-the-required-fields'));
         }
     };
 

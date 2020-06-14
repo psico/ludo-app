@@ -52,7 +52,8 @@ const AddMatch = () => {
 
             matches.set(match, {merge: true});
         } else {
-            handleClick(t('fill-in-the-required-fields'));
+            handleClick();
+            // ShowSnackbar({text:t('fill-in-the-required-fields'), open:true});
         }
     };
 
@@ -160,7 +161,7 @@ const AddMatch = () => {
                                         <Button variant="contained" startIcon={<CloudDownloadIcon />}>{t('game-rules-manual')}</Button>
                                     </Grid>
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                                        {readyForm ?
+                                        {1===1 ?
                                             <Button variant="contained" type="submit"
                                                     color="primary">{t('save')}</Button>
                                             :

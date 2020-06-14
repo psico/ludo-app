@@ -6,31 +6,35 @@ function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-export function handleClick(text) {
-    ShowSnackbar(text)
-}
+export function handleClick(props) {
 
-export const ShowSnackbar = ({text}) => {
-    const [snackbar, setSnackbar] = React.useState({open: false, text: text});
+// }
 
-    const handleClick = (text) => {
-        setSnackbar({ ...snackbar, open: true, text: text });
-    };
+    const ShowSnackbar = (props) => {
+        console.log(props);
+        const [snackbar, setSnackbar] = React.useState({open: props.open, text: props.text});
 
-    const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
+        // const handleClick = (text) => {
+        //     setSnackbar({ ...snackbar, open: true, text: text });
+        // };
 
-        setSnackbar({ ...snackbar, open: false });
-    };
+        const handleClose = (event, reason) => {
+            if (reason === 'clickaway') {
+                return;
+            }
 
-    return (
-        <Snackbar open={snackbar.open} autoHideDuration={600} onClose={handleClose}>
-            <Alert onClose={handleClose} severity="success">
-                {snackbar.text}
-            </Alert>
-        </Snackbar>
-    );
+            setSnackbar({...snackbar, open: false});
+        };
+
+        return (
+            <Snackbar open={snackbar.open} autoHideDuration={600} onClose={handleClose}>
+                <Alert onClose={handleClose} severity="success">
+                    {snackbar.text}
+                </Alert>
+            </Snackbar>
+        );
+    }
+
+    ShowSnackbar(props);
 }
 

@@ -18,6 +18,14 @@ export const AuthContext = React.createContext({
     isLoggedIn: false
 });
 
+export const Snackbar = React.createContext({
+    open: false,
+    text: 'Default Mensage',
+    severity: 'info',
+    showSnackbar: () => { },
+    closeSnackbar: () => { }
+})
+
 const App = () => {
     const [userInfo, setUserInfo] = useState(false);
     const classes = useStyles();

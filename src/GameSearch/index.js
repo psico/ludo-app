@@ -5,10 +5,8 @@ import TextField from "@material-ui/core/TextField";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import {xml2js} from "xml-js";
-// import fetch from 'cross-fetch';
 
 const GameSearch = ({ parentCallback }) => {
-    // const componentClasses = useStyles();
     const [open, setOpen] = useState(false);
     const [options, setOptions] = useState([]);
     const loading = open && options.length === 0;

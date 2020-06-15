@@ -28,7 +28,20 @@ export const Snackbar = React.createContext({
 
 const App = () => {
     const [userInfo, setUserInfo] = useState(false);
+    const [snackbar, setSnackbar] = useState({open: false,text: 'Default Mensage'});
     const classes = useStyles();
+
+    const showSnackbar = (text) => {
+        setSnackbar({...snackbar, open: true, text: text});
+    };
+
+    const closeSnackbar = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setSnackbar({...snackbar, open: false});
+    };
 
     return (
         <AuthContext.Provider value={{userInfo, setUserInfo}}>

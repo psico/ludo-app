@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import firebase from "../firebase";
 import {withRouter} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
-import {handleClick} from '../ShowSnackbar';
+// import {handleClick} from '../ShowSnackbar';
 import Paper from "@material-ui/core/Paper";
 import UserAvatar from "../UserAvatar";
 import TextField from '@material-ui/core/TextField';
@@ -27,11 +27,6 @@ const AddMatch = () => {
     });
     const [readyForm, setReadyForm] = React.useState(false);
 
-    useEffect(() => {
-        console.log('Do something after counter has changed');
-        formValidation();
-    }, [match]);
-
     const toggleChange = (event, newGameMoment) => {
         setMatch({
             ...match,
@@ -52,7 +47,7 @@ const AddMatch = () => {
 
             matches.set(match, {merge: true});
         } else {
-            handleClick();
+            // handleClick();
             // ShowSnackbar({text:t('fill-in-the-required-fields'), open:true});
         }
     };
@@ -95,6 +90,11 @@ const AddMatch = () => {
             "players": [...gameData]
         });
     }
+
+    useEffect(() => {
+        console.log('Do something after counter has changed');
+        formValidation();
+    }, [match, formValidation]);
 
     return (
         <div className={componentClasses.root}>

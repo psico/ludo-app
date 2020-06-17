@@ -8,6 +8,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import routes from "./routes";
 import protectedRoutes from "./protectedRoutes";
+import ShowSnackbar from "./ShowSnackbar";
 
 export const AuthContext = React.createContext({
     displayName: null,
@@ -88,6 +89,7 @@ const App = () => {
                                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={classes.footer}>
                                     <Footer/>
                                 </Grid>
+                                <ShowSnackbar {...{snackbar, setSnackbar}} />
                             </Grid>
                         </BrowserRouter>
                         )

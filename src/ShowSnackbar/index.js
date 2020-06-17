@@ -24,10 +24,12 @@ const ShowSnackbar = (props) => {
     // };
 
     return (
-        <Snackbar open={snackbar.open} autoHideDuration={600} onClose={handleClose}>
-            <Alert onClose={handleClose} severity="success">
-                {snackbar.text}
+        <Snackbar open={props.open} autoHideDuration={600} onClose={props.closeSnackbar}>
+            <Alert onClose={props.closeSnackbar} severity="success">
+                {props.text}
             </Alert>
         </Snackbar>
     );
 }
+
+export default ShowSnackbar;

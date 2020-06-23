@@ -5,9 +5,11 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import {lighten, withStyles} from '@material-ui/core/styles';
 import UserAvatar from "../UserAvatar";
 import {AuthContext} from "../App";
+import {useTranslation} from "react-i18next";
 
 const InfoHeader = () => {
     const classes = componentStyles();
+    const {t} = useTranslation();
     const [completed] = React.useState(30);
 
     const {userInfo} = useContext(AuthContext);
@@ -29,7 +31,7 @@ const InfoHeader = () => {
         {userInfo.isLoggedIn ?
             <div className={classes.infoHeader}>
                 <UserAvatar showName={false}/>
-                <img src={lvl} alt="user lvl" height="25"/>
+                <img src={lvl} alt={t('user-level')} height="25"/>
                 <h5>
                     <div>Level 30 - Dice Explorer {userInfo.isLoggedIn}</div>
                     <BorderLinearProgress

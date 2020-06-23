@@ -16,8 +16,9 @@ const resources = {
             "my-profile": "My Profile",
             "match": "Match",
             "players": "Players",
-            "schedule": "Schedule",
             "save": "Save",
+            "schedule": "Schedule",
+            "search...": "Search...",
 
             //Two words
             "add-match": "Add match",

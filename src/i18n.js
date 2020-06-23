@@ -27,6 +27,7 @@ const resources = {
             "logo-ludoapp": "Logo LudoApp",
             "play-match": "Play match",
             "play-now": "Play now",
+            "user-level": "User level",
 
 
             //Three words

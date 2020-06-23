@@ -24,6 +24,7 @@ const resources = {
             "create-login": "Create login",
             "email-login": "E-mail login",
             "friends-list": "Friends list",
+            "logo-ludoapp": "Logo LudoApp",
             "play-match": "Play match",
             "play-now": "Play now",
 

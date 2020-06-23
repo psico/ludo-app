@@ -6,9 +6,11 @@ import UserAvatar from "../UserAvatar";
 import zombicide from "../temp-images/zombicide.jpg";
 import Comments from "../Comments";
 import Likes from "../Likes";
+import {useTranslation} from "react-i18next";
 
 const Community = () => {
         const componentClasses = useStyles();
+        const {t} = useTranslation();
 
         return (
             <div className={componentClasses.root}>
@@ -21,7 +23,7 @@ const Community = () => {
                                     <hr />
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                                    <img src={zombicide} alt="logo ludoApp" height="300"/>
+                                    <img src={zombicide} alt={t('logo-ludoapp')} height="300"/>
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                                     <Grid container spacing={0}>

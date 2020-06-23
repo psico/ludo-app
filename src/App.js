@@ -43,7 +43,6 @@ const App = () => {
                                         component={route.main}
                                         exact={route.exact}
                                         public={route.public}
-                                        {...{snackbar, setSnackbar, showSnackbar, closeSnackbar}}
                                     />
                                 ))}
                                 {routes.map(route => (
@@ -52,7 +51,6 @@ const App = () => {
                                         path={route.path}
                                         exact={route.exact}
                                         component={route.main}
-                                        {...{snackbar, setSnackbar, showSnackbar, closeSnackbar}}
                                     />
                                 ))}
                             </Switch>
@@ -61,7 +59,6 @@ const App = () => {
                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={classes.footer}>
                         <Footer/>
                     </Grid>
-                    <ShowSnackbar {...{snackbar, setSnackbar}} />
                 </Grid>
             </BrowserRouter>
 

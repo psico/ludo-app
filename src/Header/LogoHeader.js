@@ -5,9 +5,11 @@ import {Search as SearchIcon} from "@material-ui/icons";
 import InfoHeader from "./InfoHeader";
 import React, {useContext} from "react";
 import {AuthContext} from "../App";
+import {useTranslation} from "react-i18next";
 
 const LogoHeader = (props) => {
     const classes = componentStyles();
+    const {t} = useTranslation();
     const {userInfo} = useContext(AuthContext);
 
     return (
@@ -20,7 +22,7 @@ const LogoHeader = (props) => {
                         color="inherit"
                         aria-label="open drawer"
                     >
-                        <img src={logo} alt="logo ludoApp" height="40"/>
+                        <img src={logo} alt={t('logo-ludoapp')} height="40"/>
                     </IconButton>
                     <Typography className={classes.title} variant="h6" noWrap>
                         LudoApp
@@ -31,7 +33,7 @@ const LogoHeader = (props) => {
                                 <SearchIcon/>
                             </div>
                             <InputBase
-                                placeholder="Search…"
+                                placeholder={t('search...')}
                                 classes={{
                                     root: classes.inputRoot,
                                     input: classes.inputInput,

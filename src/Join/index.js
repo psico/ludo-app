@@ -54,13 +54,13 @@ const Join = () => {
                         <input
                             value={email}
                             onChange={e => setEmail(e.target.value)}
-                            name="email"
+                            name={t('email')}
                             type="email"
                             placeholder="email"
                         />
                         <input
                             onChange={e => setPassword(e.target.value)}
-                            name="password"
+                            name={t('password')}
                             value={password}
                             type="password"
                             placeholder="password"

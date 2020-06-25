@@ -17,9 +17,16 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function CustomizedSnackbars() {
+export default function ShowSnackbar () {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
+
+    /*
+    error
+    warning
+    info
+    success
+     */
 
     const handleClick = () => {
         setOpen(true);
@@ -43,10 +50,6 @@ export default function CustomizedSnackbars() {
                     This is a success message!
                 </Alert>
             </Snackbar>
-            <Alert severity="error">This is an error message!</Alert>
-            <Alert severity="warning">This is a warning message!</Alert>
-            <Alert severity="info">This is an information message!</Alert>
-            <Alert severity="success">This is a success message!</Alert>
         </div>
     );
 }

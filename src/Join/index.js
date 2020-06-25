@@ -65,7 +65,7 @@ const Join = () => {
                             type="password"
                             placeholder="password"
                         />
-                        <Button variant="contained" color="primary" type="submit">Join</Button>
+                        <Button variant="contained" color="primary" type="submit">{t('join')}</Button>
                     </Grid>
                     <span>{error}</span>
                 </form>

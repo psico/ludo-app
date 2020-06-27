@@ -14,6 +14,7 @@ import GameSearch from "../GameSearch";
 import PlayersSearch from "../PlayerSearch";
 import {AuthContext} from "../App";
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
+import ShowSnackbar from "../ShowSnackbar";
 
 const AddMatch = () => {
     const componentClasses = useStyles();
@@ -25,6 +26,7 @@ const AddMatch = () => {
         "game": null
     });
     const [readyForm, setReadyForm] = React.useState(false);
+    const snackbarRef = React.createRef();
 
     const toggleChange = (event, newGameMoment) => {
         setMatch({
@@ -35,7 +37,7 @@ const AddMatch = () => {
 
     const handleForm = e => {
         e.preventDefault();
-
+        console.log(snackbarRef);
         if (readyForm === true) {
             let matches = firebase.firestore().collection("matches").doc();
 
@@ -97,6 +99,7 @@ const AddMatch = () => {
 
     return (
         <div className={componentClasses.root}>
+            <ShowSnackbar ref = {snackbarRef} />
             <Grid container spacing={0}>
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
                     <Paper className={componentClasses.paper}>

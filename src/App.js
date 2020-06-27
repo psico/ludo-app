@@ -8,6 +8,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import routes from "./routes";
 import protectedRoutes from "./protectedRoutes";
+import ShowSnackbar from "./ShowSnackbar";
 
 export const AuthContext = React.createContext({
     displayName: null,
@@ -21,6 +22,7 @@ export const AuthContext = React.createContext({
 const App = () => {
     const [userInfo, setUserInfo] = useState(false);
     const classes = useStyles();
+    const snackbarRef = React.createRef();
 
     return (
         <AuthContext.Provider value={{userInfo, setUserInfo}}>
@@ -55,6 +57,8 @@ const App = () => {
                                 ))}
                             </Switch>
                         </Grid>
+                        {/*<button onClick = {_showSnackbarHandler}>Click To Open Snackbar</button>*/}
+                        <ShowSnackbar ref = {snackbarRef} />
                     </Grid>
                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={classes.footer}>
                         <Footer/>

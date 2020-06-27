@@ -41,7 +41,7 @@ const ShowSnackbar =  React.forwardRef((props, ref) => {
     };
 
     return (
-        <div className={classes.root}>
+        <div className={classes.root} ref={ref}>
             {/*<Button variant="outlined" onClick={handleClick}>*/}
             {/*    Open success snackbar*/}
             {/*</Button>*/}

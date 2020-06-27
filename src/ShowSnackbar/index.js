@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function ShowSnackbar () {
+const ShowSnackbar =  React.forwardRef((props, ref) => {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
 
@@ -42,9 +42,9 @@ export default function ShowSnackbar () {
 
     return (
         <div className={classes.root}>
-            <Button variant="outlined" onClick={handleClick}>
-                Open success snackbar
-            </Button>
+            {/*<Button variant="outlined" onClick={handleClick}>*/}
+            {/*    Open success snackbar*/}
+            {/*</Button>*/}
             <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="success">
                     This is a success message!
@@ -52,4 +52,6 @@ export default function ShowSnackbar () {
             </Snackbar>
         </div>
     );
-}
+});
+
+export default ShowSnackbar;

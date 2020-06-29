@@ -1,57 +1,29 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
-import Snackbar from '@material-ui/core/Snackbar';
-import MuiAlert from '@material-ui/lab/Alert';
-import { makeStyles } from '@material-ui/core/styles';
 
-function Alert(props) {
-    return <MuiAlert elevation={6} variant="filled" {...props} />;
+import React, { PureComponent } from 'react';
+import Styles from './snackbar.module.css'
+
+export default class ShowSnackbar extends PureComponent {
+    message = ''
+
+    state = {
+        isActive: false,
+    }
+
+    openSnackBar = (message = 'Something went wrong...') => {
+        this.message = message;
+        this.setState({ isActive: true }, () => {
+            setTimeout(() => {
+                this.setState({ isActive: false });
+            }, 3000);
+        });
+    }
+
+    render() {
+        const { isActive } = this.state;
+        return (
+            <div className = {isActive ? [Styles.snackbar, Styles.show].join(" ") : Styles.snackbar}>
+                {this.message}
+            </div>
+        )
+    }
 }
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        width: '100%',
-        '& > * + *': {
-            marginTop: theme.spacing(2),
-        },
-    },
-}));
-
-const ShowSnackbar =  React.forwardRef((props, ref) => {
-    const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
-
-    /*
-    error
-    warning
-    info
-    success
-     */
-
-    const handleClick = () => {
-        setOpen(true);
-    };
-
-    const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
-
-        setOpen(false);
-    };
-
-    return (
-        <div className={classes.root} ref={ref}>
-            {/*<Button variant="outlined" onClick={handleClick}>*/}
-            {/*    Open success snackbar*/}
-            {/*</Button>*/}
-            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-                <Alert onClose={handleClose} severity="success">
-                    This is a success message!
-                </Alert>
-            </Snackbar>
-        </div>
-    );
-});
-
-export default ShowSnackbar;

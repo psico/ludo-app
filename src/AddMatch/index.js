@@ -38,7 +38,7 @@ const AddMatch = () => {
     const handleForm = e => {
         e.preventDefault();
         console.log(snackbarRef);
-        snackbarRef.current.openSnackBar('Button Pressed...');
+        snackbarRef.current.handleClick('Button Pressed...');
         if (readyForm === true) {
             let matches = firebase.firestore().collection("matches").doc();
 

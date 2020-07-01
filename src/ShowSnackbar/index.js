@@ -7,13 +7,12 @@ function Alert(props) {
 }
 
 export default class ShowSnackbar extends PureComponent {
-    message = 'teste';
+    message = '';
     state = {
         open: false,
     };
 
     handleClick = (message) => {
-        // setOpen(true);
         this.message = message;
         this.setState({
             open: true

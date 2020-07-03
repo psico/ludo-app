@@ -70,14 +70,14 @@ const Login = ({history}) => {
                         onChange={e => setEmail(e.target.value)}
                         name="email"
                         type="email"
-                        placeholder="email"
+                        placeholder={t('email')}
                     />
                     <input
                         onChange={e => setPassword(e.target.value)}
                         name="password"
                         value={password}
                         type="password"
-                        placeholder="password"
+                        placeholder={t('password')}
                     />
 
                     <Button variant="contained" color="primary" type="submit">{t('login')}</Button>

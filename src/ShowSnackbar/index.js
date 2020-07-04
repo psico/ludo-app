@@ -30,7 +30,7 @@ export default class ShowSnackbar extends PureComponent {
 
     render() {
         return (
-            <Snackbar open={this.state.open} autoHideDuration={6000} onClose={this.handleClose}>
+            <Snackbar open={this.state.open} autoHideDuration={2000} onClose={this.handleClose}>
                 <MuiAlert elevation={6} variant="filled" onClose={this.handleClose} severity={this.state.severity}>
                     {this.state.message}
                 </MuiAlert>

@@ -7,15 +7,17 @@ function Alert(props) {
 }
 
 export default class ShowSnackbar extends PureComponent {
-    message = '';
     state = {
         open: false,
+        message: '',
+        severity: "success"
     };
 
-    handleClick = (message) => {
-        this.message = message;
+    handleClick = (message, severity = "success") => {
         this.setState({
-            open: true
+            open: true,
+            message: message,
+            severity: severity
         });
     };
 
@@ -33,8 +35,8 @@ export default class ShowSnackbar extends PureComponent {
     render() {
         return (
             <Snackbar open={this.state.open} autoHideDuration={6000} onClose={this.handleClose}>
-                <Alert onClose={this.handleClose} severity="success">
-                    {this.message}
+                <Alert onClose={this.handleClose} severity={this.state.severity}>
+                    {this.state.message}
                 </Alert>
             </Snackbar>
         )

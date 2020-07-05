@@ -161,7 +161,7 @@ const AddMatch = () => {
                                         <Button variant="contained" startIcon={<CloudDownloadIcon />}>{t('game-rules-manual')}</Button>
                                     </Grid>
                                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                                        {1===1 ?
+                                        {readyForm ?
                                             <Button variant="contained" type="submit"
                                                     color="primary">{t('save')}</Button>
                                             :

@@ -37,8 +37,6 @@ const AddMatch = () => {
 
     const handleForm = e => {
         e.preventDefault();
-        console.log(snackbarRef);
-        snackbarRef.current.handleClick('Button Pressed...');
         if (readyForm === true) {
             let matches = firebase.firestore().collection("matches").doc();
 
@@ -49,8 +47,7 @@ const AddMatch = () => {
 
             matches.set(match, {merge: true});
         } else {
-            // handleClick();
-            // ShowSnackbar({text:t('fill-in-the-required-fields'), open:true});
+            snackbarRef.current.handleClick(t('fill-in-the-required-fields'), 'warning');
         }
     };
 

@@ -51,26 +51,26 @@ const AddMatch = () => {
         }
     };
 
-    let formValidation = () => {
-        let boolValidation = true;
-        // console.log("formValidation");
-        // console.log(match);
-        if (match.uid === null) {
-            boolValidation = false;
-        }
-        if (match.game === null) {
-            boolValidation = false;
-        }
-        if (match.gameMoment === null) {
-            boolValidation = false;
-        }
-
-        if (boolValidation === true) {
-            setReadyForm(true);
-        } else {
-            setReadyForm(false);
-        }
-    }
+    // let formValidation = () => {
+    //     let boolValidation = true;
+    //     // console.log("formValidation");
+    //     // console.log(match);
+    //     if (match.uid === null) {
+    //         boolValidation = false;
+    //     }
+    //     if (match.game === null) {
+    //         boolValidation = false;
+    //     }
+    //     if (match.gameMoment === null) {
+    //         boolValidation = false;
+    //     }
+    //
+    //     if (boolValidation === true) {
+    //         setReadyForm(true);
+    //     } else {
+    //         setReadyForm(false);
+    //     }
+    // }
 
     let gameCallback = (gameData) => {
         setMatch({
@@ -91,9 +91,29 @@ const AddMatch = () => {
     }
 
     useEffect(() => {
-        console.log('Do something after counter has changed');
+        // console.log('Do something after counter has changed');
+        const formValidation = () => {
+            let boolValidation = true;
+            // console.log("formValidation");
+            // console.log(match);
+            if (match.uid === null) {
+                boolValidation = false;
+            }
+            if (match.game === null) {
+                boolValidation = false;
+            }
+            if (match.gameMoment === null) {
+                boolValidation = false;
+            }
+
+            if (boolValidation === true) {
+                setReadyForm(true);
+            } else {
+                setReadyForm(false);
+            }
+        };
         formValidation();
-    }, [match, formValidation]);
+    }, [match]);
 
     return (
         <div className={componentClasses.root}>

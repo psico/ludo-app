@@ -27,18 +27,20 @@ const PlayersSearch = ({ parentCallback }) => {
                     .where("uid", "==", userInfo.uid)
                     .get();
 
-                const orderFriends = usersInfoSnapShot.docs[0].data().friends
-                    .sort(function (a, b) {
-                        if (a.name < b.name) {
-                            return -1;
-                        }
-                        if (a.name > b.name) {
-                            return 1;
-                        }
-                        return 0;
-                    });
+                if (usersInfoSnapShot.docs.length !== 0) {
+                    const orderFriends = usersInfoSnapShot.docs[0].data().friends
+                        .sort(function (a, b) {
+                            if (a.name < b.name) {
+                                return -1;
+                            }
+                            if (a.name > b.name) {
+                                return 1;
+                            }
+                            return 0;
+                        });
 
-                setFriendPlayers(orderFriends);
+                    setFriendPlayers(orderFriends);
+                }
             } catch (err) {
                 console.log('Error getting documents', err);
             }

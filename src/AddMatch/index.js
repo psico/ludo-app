@@ -53,8 +53,8 @@ const AddMatch = () => {
 
     let formValidation = () => {
         let boolValidation = true;
-        console.log("formValidation");
-        console.log(match);
+        // console.log("formValidation");
+        // console.log(match);
         if (match.uid === null) {
             boolValidation = false;
         }
@@ -83,10 +83,10 @@ const AddMatch = () => {
         });
     }
 
-    let playersSearchCallback = (gameData) => {
+    let playersSearchCallback = (playersData) => {
         setMatch({
             ...match,
-            "players": [...gameData]
+            "players": [...playersData]
         });
     }
 

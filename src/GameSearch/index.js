@@ -9,6 +9,7 @@ import {xml2js} from "xml-js";
 const GameSearch = ({ parentCallback }) => {
     const [open, setOpen] = useState(false);
     const [options, setOptions] = useState([]);
+    const [currentValue, setCurrentValue] = useState({});
     const loading = open && options.length === 0;
 
     const {t} = useTranslation();
@@ -51,12 +52,10 @@ const GameSearch = ({ parentCallback }) => {
             }}
             onClose={() => {
                 setOpen(false);
+
             }}
-            getOptionSelected={(option, value) => {
-                if (option.name._text === value.name._text) {
-                    parentCallback(option);
-                    return option.name._text === value.name._text
-                }
+            onChange={(event, values) => {
+                parentCallback(values);
             }}
             getOptionLabel={(option) => option.name._text}
             options={options}

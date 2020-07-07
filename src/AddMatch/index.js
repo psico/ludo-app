@@ -41,8 +41,7 @@ const AddMatch = () => {
             let matches = firebase.firestore().collection("matches").doc();
 
             setMatch({
-                ...match,
-                "uid": userInfo.uid
+                ...match
             })
 
             matches.set(match, {merge: true});
@@ -52,7 +51,6 @@ const AddMatch = () => {
     };
 
     let gameCallback = (gameData) => {
-        console.log(gameData);
         setMatch({
             ...match,
             "game": {
@@ -74,15 +72,20 @@ const AddMatch = () => {
         // console.log('Do something after counter has changed');
         const formValidation = () => {
             let boolValidation = true;
-            // console.log("formValidation");
-            // console.log(match);
-            if (match.uid === null) {
-                boolValidation = false;
-            }
+            console.log("formValidation");
+            console.log(match);
+            // if (match.uid === null) {
+            //     console.log("uid formValidation");
+            //     boolValidation = false;
+            // }
+            match.uid = userInfo.uid;
+
             if (match.game === null) {
+                console.log("game formValidation");
                 boolValidation = false;
             }
             if (match.gameMoment === null) {
+                console.log("gameMoment formValidation");
                 boolValidation = false;
             }
 

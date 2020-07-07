@@ -40,6 +40,8 @@ const AddMatch = () => {
         if (readyForm === true) {
             let matches = firebase.firestore().collection("matches").doc();
 
+            match.uid = userInfo.uid;
+
             setMatch({
                 ...match
             })
@@ -69,23 +71,13 @@ const AddMatch = () => {
     }
 
     useEffect(() => {
-        // console.log('Do something after counter has changed');
         const formValidation = () => {
             let boolValidation = true;
-            console.log("formValidation");
-            console.log(match);
-            // if (match.uid === null) {
-            //     console.log("uid formValidation");
-            //     boolValidation = false;
-            // }
-            match.uid = userInfo.uid;
 
             if (match.game === null) {
-                console.log("game formValidation");
                 boolValidation = false;
             }
             if (match.gameMoment === null) {
-                console.log("gameMoment formValidation");
                 boolValidation = false;
             }
 

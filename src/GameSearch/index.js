@@ -9,7 +9,6 @@ import {xml2js} from "xml-js";
 const GameSearch = ({ parentCallback }) => {
     const [open, setOpen] = useState(false);
     const [options, setOptions] = useState([]);
-    const [currentValue, setCurrentValue] = useState({});
     const loading = open && options.length === 0;
 
     const {t} = useTranslation();

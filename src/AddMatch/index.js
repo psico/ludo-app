@@ -52,6 +52,7 @@ const AddMatch = () => {
     };
 
     let gameCallback = (gameData) => {
+        console.log(gameData);
         setMatch({
             ...match,
             "game": {

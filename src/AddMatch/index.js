@@ -35,10 +35,10 @@ const AddMatch = () => {
         });
     };
 
-    const handleForm = e => {
+    const handleForm = async e => {
         e.preventDefault();
         if (readyForm === true) {
-            let matches = firebase.firestore().collection("matches").doc();
+            let matches = await firebase.firestore().collection("matches").doc();
 
             match.uid = userInfo.uid;
 
@@ -46,7 +46,7 @@ const AddMatch = () => {
                 ...match
             })
 
-            matches.set(match, {merge: true});
+            await matches.set(match, {merge: true});
 
             snackbarRef.current.handleClick(t('successfully-registered-match'), 'success');
         } else {

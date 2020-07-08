@@ -16,7 +16,7 @@ import {AuthContext} from "../App";
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 import ShowSnackbar from "../ShowSnackbar";
 
-const AddMatch = () => {
+const AddMatch = ({history}) => {
     const componentClasses = useStyles();
     const {t} = useTranslation();
     const {userInfo} = useContext(AuthContext);
@@ -48,7 +48,8 @@ const AddMatch = () => {
 
             await matches.set(match, {merge: true});
 
-            snackbarRef.current.handleClick(t('successfully-registered-match'), 'success');
+            // snackbarRef.current.handleClick(t('successfully-registered-match'), 'success');
+            history.push('/community');
         } else {
             snackbarRef.current.handleClick(t('fill-in-the-required-fields'), 'warning');
         }

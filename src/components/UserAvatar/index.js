@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import Avatar from '@material-ui/core/Avatar';
 import componentStyles from "./css";
-import {AuthContext} from "../App";
+import {AuthContext} from "../../App";
 
 const UserAvatar = (props) => {
     const classes = componentStyles();

@@ -1,6 +1,6 @@
 import React from "react";
 import useStyles from "./css";
-import UserAvatar from "../UserAvatar";
+import UserAvatar from "../components/UserAvatar";
 import Grid from "@material-ui/core/Grid";
 
 const Comments = (props) => {

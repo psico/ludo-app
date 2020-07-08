@@ -6,7 +6,7 @@ import firebase from "../../firebase";
 import {withRouter} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
 import Paper from "@material-ui/core/Paper";
-import UserAvatar from "../../UserAvatar";
+import UserAvatar from "../../components/UserAvatar";
 import TextField from '@material-ui/core/TextField';
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';

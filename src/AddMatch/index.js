@@ -47,6 +47,8 @@ const AddMatch = () => {
             })
 
             matches.set(match, {merge: true});
+
+            snackbarRef.current.handleClick(t('successfully-registered-match'), 'success');
         } else {
             snackbarRef.current.handleClick(t('fill-in-the-required-fields'), 'warning');
         }

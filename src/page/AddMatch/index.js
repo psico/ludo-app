@@ -2,19 +2,19 @@ import React, {useContext, useEffect } from "react";
 import useStyles from "./css";
 import Grid from "@material-ui/core/Grid";
 import Button from '@material-ui/core/Button';
-import firebase from "../firebase";
+import firebase from "../../firebase";
 import {withRouter} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
 import Paper from "@material-ui/core/Paper";
-import UserAvatar from "../UserAvatar";
+import UserAvatar from "../../UserAvatar";
 import TextField from '@material-ui/core/TextField';
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
-import GameSearch from "../GameSearch";
-import PlayersSearch from "../PlayerSearch";
-import {AuthContext} from "../App";
+import GameSearch from "../../GameSearch";
+import PlayersSearch from "../../PlayerSearch";
+import {AuthContext} from "../../App";
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
-import ShowSnackbar from "../ShowSnackbar";
+import ShowSnackbar from "../../ShowSnackbar";
 
 const AddMatch = ({history}) => {
     const componentClasses = useStyles();

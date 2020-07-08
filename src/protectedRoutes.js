@@ -1,6 +1,6 @@
 import React from 'react';
 import Community from "./Community";
-import AddMatch from "./AddMatch";
+import AddMatch from "./page/AddMatch";
 import GameRegister from "./GameRegister";
 
 const protectedRoutes = [

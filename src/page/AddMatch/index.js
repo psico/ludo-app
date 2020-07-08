@@ -11,7 +11,7 @@ import TextField from '@material-ui/core/TextField';
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import GameSearch from "../../GameSearch";
-import PlayersSearch from "../../PlayerSearch";
+import PlayersSearch from "../../components/PlayerSearch";
 import {AuthContext} from "../../App";
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 import ShowSnackbar from "../../ShowSnackbar";

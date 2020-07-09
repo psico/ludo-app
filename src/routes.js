@@ -1,7 +1,7 @@
 import React from "react";
 
 import Login from "./page/Login";
-import Join from "./Join";
+import Join from "./page/Join";
 
 
 const routes = [

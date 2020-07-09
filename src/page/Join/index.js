@@ -2,12 +2,12 @@ import React, {useState, useContext} from "react";
 import useStyles from "./css";
 import Grid from "@material-ui/core/Grid";
 import Button from '@material-ui/core/Button';
-import {AuthContext} from "../App";
-import firebase from "../firebase";
+import {AuthContext} from "../../App";
+import firebase from "../../firebase";
 import { useTranslation } from 'react-i18next';
-import LoginFacebook from "../LoginFacebook";
-import LoginTwitter from "../LoginTwitter";
-import LoginGoogle from "../LoginGoogle";
+import LoginFacebook from "../../LoginFacebook";
+import LoginTwitter from "../../LoginTwitter";
+import LoginGoogle from "../../LoginGoogle";
 
 const Join = () => {
     const componentClasses = useStyles();

@@ -2,10 +2,10 @@ import React from "react";
 import useStyles from "./css";
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import UserAvatar from "../components/UserAvatar";
-import zombicide from "../temp-images/zombicide.jpg";
-import Comments from "../Comments";
-import Likes from "../Likes";
+import UserAvatar from "../../components/UserAvatar";
+import zombicide from "../../temp-images/zombicide.jpg";
+import Comments from "../../Comments";
+import Likes from "../../Likes";
 import {useTranslation} from "react-i18next";
 
 const Community = () => {

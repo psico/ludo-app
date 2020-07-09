@@ -1,5 +1,5 @@
 import React from 'react';
-import Community from "./Community";
+import Community from "./page/Community";
 import AddMatch from "./page/AddMatch";
 import GameRegister from "./GameRegister";
 

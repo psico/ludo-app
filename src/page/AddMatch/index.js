@@ -14,7 +14,7 @@ import GameSearch from "../../GameSearch";
 import PlayersSearch from "../../components/PlayerSearch";
 import {AuthContext} from "../../App";
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
-import ShowSnackbar from "../../ShowSnackbar";
+import ShowSnackbar from "../../components/ShowSnackbar";
 
 const AddMatch = ({history}) => {
     const componentClasses = useStyles();

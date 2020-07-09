@@ -19,10 +19,6 @@ const Community = () => {
             uid: null
         }]);
 
-        useEffect(() => {
-            // searchDataComunity().then(r => r);
-        });
-
         const searchDataComunity = async () => {
             let dataCommunityRef = await firebase.firestore().collection('matches');
             try {
@@ -32,12 +28,16 @@ const Community = () => {
 
                 if (dataCommunitySnapShot.docs.length !== 0) {
                     setCommumnityList([...communityList, dataCommunitySnapShot.docs[0].data()]);
-                    // console.log(communityList);
+                    console.log(communityList);
                 }
             } catch (err) {
                 console.log('Error getting documents', err);
             }
         }
+
+        useEffect(() => {
+            searchDataComunity().then(r => r);
+        }, [communityList]);
 
         return (
             <div className={componentClasses.root}>

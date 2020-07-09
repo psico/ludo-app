@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import useStyles from "./css";
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -7,10 +7,32 @@ import zombicide from "../../temp-images/zombicide.jpg";
 import Comments from "../../Comments";
 import Likes from "../../Likes";
 import {useTranslation} from "react-i18next";
+import firebase from "../../firebase";
 
 const Community = () => {
         const componentClasses = useStyles();
         const {t} = useTranslation();
+
+        useEffect(() => {
+            searchDataComunity();
+        });
+
+        const searchDataComunity = async () => {
+            let dataCommunityRef = await firebase.firestore().collection('matches');
+            try {
+                const dataCommunitySnapShot = await dataCommunityRef
+                    // .where("uid", "==", userInfo.uid)
+                    .get();
+
+                if (dataCommunitySnapShot.docs.length !== 0) {
+                    console.log(dataCommunitySnapShot.docs[0].data());
+                    // const orderFriends = usersInfoSnapShot.docs[0].data();
+
+                }
+            } catch (err) {
+                console.log('Error getting documents', err);
+            }
+        }
 
         return (
             <div className={componentClasses.root}>
@@ -20,7 +42,7 @@ const Community = () => {
                             <Grid container spacing={0}>
                                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                                     <UserAvatar showName={true}/>
-                                    <hr />
+                                    <hr/>
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                                     <img src={zombicide} alt={t('logo-ludoapp')} height="300"/>
@@ -29,8 +51,8 @@ const Community = () => {
                                     <Grid container spacing={0}>
                                         <Comments postId={10}/>
                                     </Grid>
-                                    <hr />
-                                        <Likes postId={10}/>
+                                    <hr/>
+                                    <Likes postId={10}/>
                                 </Grid>
                             </Grid>
                         </Paper>

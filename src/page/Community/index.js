@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import useStyles from "./css";
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -12,9 +12,15 @@ import firebase from "../../firebase";
 const Community = () => {
         const componentClasses = useStyles();
         const {t} = useTranslation();
+        const [communityList, setCommumnityList] = useState([{
+            game: {},
+            gameMoment: null,
+            players: [{}],
+            uid: null
+        }]);
 
         useEffect(() => {
-            searchDataComunity();
+            // searchDataComunity().then(r => r);
         });
 
         const searchDataComunity = async () => {
@@ -25,9 +31,8 @@ const Community = () => {
                     .get();
 
                 if (dataCommunitySnapShot.docs.length !== 0) {
-                    console.log(dataCommunitySnapShot.docs[0].data());
-                    // const orderFriends = usersInfoSnapShot.docs[0].data();
-
+                    setCommumnityList([...communityList, dataCommunitySnapShot.docs[0].data()]);
+                    // console.log(communityList);
                 }
             } catch (err) {
                 console.log('Error getting documents', err);

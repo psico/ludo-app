@@ -1,7 +1,7 @@
 import React, {useState, useContext} from "react";
 import Button from '@material-ui/core/Button';
-import {AuthContext} from "../App";
-import firebase from "../firebase";
+import {AuthContext} from "../../App";
+import firebase from "../../firebase";
 import {withRouter} from 'react-router-dom'
 import useStyles from "./css";
 import {useTranslation} from "react-i18next";

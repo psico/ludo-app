@@ -36,7 +36,9 @@ const Community = () => {
         }
 
         useEffect(() => {
-            searchDataComunity().then(r => r);
+            return () => {
+                searchDataComunity().then(r => r);
+            }
         }, [communityList]);
 
         return (

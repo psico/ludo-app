@@ -22,14 +22,16 @@ const Community = () => {
         const searchDataComunity = async () => {
             let dataCommunityRef = await firebase.firestore().collection('matches');
             try {
-                const dataCommunitySnapShot = await dataCommunityRef
-                    // .where("uid", "==", userInfo.uid)
-                    .get();
+                // const dataCommunitySnapShot = await dataCommunityRef
+                //     // .where("uid", "==", userInfo.uid)
+                //     .get();
 
-                if (dataCommunitySnapShot.docs.length !== 0) {
-                    setCommumnityList([...communityList, dataCommunitySnapShot.docs[0].data()]);
-                    console.log(communityList);
-                }
+                const dataCommunitySnapShot = await dataCommunityRef.get();
+                dataCommunitySnapShot.forEach(doc =>{
+                    setCommumnityList([...communityList, doc.data()]);
+                    console.log(doc.data());
+                });
+
             } catch (err) {
                 console.log('Error getting documents', err);
             }

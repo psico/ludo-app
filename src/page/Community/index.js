@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import UserAvatar from "../../components/UserAvatar";
 import zombicide from "../../temp-images/zombicide.jpg";
 import Comments from "../../components/Comments";
-import Likes from "../../Likes";
+import Likes from "../../components/Likes";
 import {useTranslation} from "react-i18next";
 import firebase from "../../firebase";
 

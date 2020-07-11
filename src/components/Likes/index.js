@@ -2,7 +2,7 @@ import useStyles from "./css";
 import Grid from "@material-ui/core/Grid";
 import React from "react";
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
-import UserAvatar from "../components/UserAvatar";
+import UserAvatar from "../UserAvatar";
 
 const Likes = () => {
     const componentClasses = useStyles();

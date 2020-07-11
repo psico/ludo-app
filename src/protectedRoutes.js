@@ -1,7 +1,7 @@
 import React from 'react';
 import Community from "./page/Community";
 import AddMatch from "./page/AddMatch";
-import GameRegister from "./GameRegister";
+import GameRegister from "./page/GameRegister";
 
 const protectedRoutes = [
     {name: 'Community', path: '/community', exact: true, main: props => <Community {...props} />, public: false},

@@ -5,9 +5,9 @@ import Button from '@material-ui/core/Button';
 import {AuthContext} from "../../App";
 import firebase from "../../firebase";
 import { useTranslation } from 'react-i18next';
-import LoginFacebook from "../../LoginFacebook";
+import LoginFacebook from "../../components/LoginFacebook";
 import LoginTwitter from "../../LoginTwitter";
-import LoginGoogle from "../../LoginGoogle";
+import LoginGoogle from "../../components/LoginGoogle";
 
 const Join = () => {
     const componentClasses = useStyles();

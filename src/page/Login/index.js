@@ -6,8 +6,8 @@ import {AuthContext} from "../../App";
 import firebase from "../../firebase";
 import {withRouter} from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import LoginGoogle from "../../LoginGoogle";
-import LoginFacebook from "../../LoginFacebook";
+import LoginGoogle from "../../components/LoginGoogle";
+import LoginFacebook from "../../components/LoginFacebook";
 import LoginTwitter from "../../LoginTwitter";
 
 const Login = ({history}) => {

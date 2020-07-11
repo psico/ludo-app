@@ -12,12 +12,7 @@ import firebase from "../../firebase";
 const Community = () => {
         const componentClasses = useStyles();
         const {t} = useTranslation();
-        const [communityList, setCommumnityList] = useState([{
-            game: {},
-            gameMoment: null,
-            players: [{}],
-            uid: null
-        }]);
+        const [communityList, setCommumnityList] = useState([]);
 
         const searchDataComunity = async () => {
             let dataCommunityRef = await firebase.firestore().collection('matches');
@@ -27,9 +22,9 @@ const Community = () => {
                 //     .get();
 
                 const dataCommunitySnapShot = await dataCommunityRef.get();
-                dataCommunitySnapShot.forEach(doc =>{
+                dataCommunitySnapShot.forEach(doc => {
                     setCommumnityList([...communityList, doc.data()]);
-                    console.log(doc.data());
+                    // console.log(doc.data());
                 });
 
             } catch (err) {
@@ -43,6 +38,7 @@ const Community = () => {
             }
         }, [communityList]);
 
+
         return (
             <div className={componentClasses.root}>
                 <Grid container spacing={0}>
@@ -54,6 +50,10 @@ const Community = () => {
                                     <hr/>
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+                                    {communityList.map(data => {
+                                        console.log(data.game.name);
+                                        // return data.game;
+                                    })}
                                     <img src={zombicide} alt={t('logo-ludoapp')} height="300"/>
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>

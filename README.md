@@ -1,5 +1,5 @@
 # LudoApp
-Developed by João Gabriel
+Developed by João Gabriel - Github [psico](https://github.com/psico)
 
 ![Image](public/ludo512.png)
 

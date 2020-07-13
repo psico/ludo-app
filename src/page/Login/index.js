@@ -8,7 +8,7 @@ import {withRouter} from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import LoginGoogle from "../../components/LoginGoogle";
 import LoginFacebook from "../../components/LoginFacebook";
-import LoginTwitter from "../../LoginTwitter";
+import LoginTwitter from "../../components/LoginTwitter";
 
 const Login = ({history}) => {
     const componentClasses = useStyles();

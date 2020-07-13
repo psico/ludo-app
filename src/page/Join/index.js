@@ -6,7 +6,7 @@ import {AuthContext} from "../../App";
 import firebase from "../../firebase";
 import { useTranslation } from 'react-i18next';
 import LoginFacebook from "../../components/LoginFacebook";
-import LoginTwitter from "../../LoginTwitter";
+import LoginTwitter from "../../components/LoginTwitter";
 import LoginGoogle from "../../components/LoginGoogle";
 
 const Join = () => {

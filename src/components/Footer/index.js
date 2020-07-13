@@ -3,7 +3,7 @@ import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import {Home, Group, Dashboard, AccountCircle, AddCircleOutline} from '@material-ui/icons';
 import useStyles from "./css";
-import {AuthContext} from "../App";
+import {AuthContext} from "../../App";
 import {useTranslation} from 'react-i18next';
 import {withRouter} from 'react-router-dom';
 

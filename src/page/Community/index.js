@@ -14,28 +14,50 @@ const Community = () => {
         const {t} = useTranslation();
         const [communityList, setCommumnityList] = useState([]);
 
-        const searchDataComunity = async () => {
-            let dataCommunityRef = await firebase.firestore().collection('matches');
-            try {
-                // const dataCommunitySnapShot = await dataCommunityRef
-                //     // .where("uid", "==", userInfo.uid)
-                //     .get();
-
-                const dataCommunitySnapShot = await dataCommunityRef.get();
-                dataCommunitySnapShot.forEach(doc => {
-                    setCommumnityList([...communityList, doc.data()]);
-                    // console.log(doc.data());
-                });
-
-            } catch (err) {
-                console.log('Error getting documents', err);
-            }
-        }
+        // const searchDataComunity = async () => {
+        //     let dataCommunityRef = await firebase.firestore().collection('matches');
+        //     try {
+        //         // const dataCommunitySnapShot = await dataCommunityRef
+        //         //     // .where("uid", "==", userInfo.uid)
+        //         //     .get();
+        //         let list = [];
+        //         const dataCommunitySnapShot = await dataCommunityRef.get();
+        //         dataCommunitySnapShot.forEach(doc => {
+        //             // list = [...list, doc.data()];
+        //             setCommumnityList([...communityList, doc.data()]);
+        //             console.log(doc.data());
+        //         });
+        //
+        //         return list;
+        //     } catch (err) {
+        //         console.log('Error getting documents', err);
+        //     }
+        // }
+        // searchDataComunity();
 
         useEffect(() => {
-            return () => {
-                searchDataComunity().then(r => r);
+            const searchDataComunity = async () => {
+                let dataCommunityRef = await firebase.firestore().collection('matches');
+                try {
+                    // const dataCommunitySnapShot = await dataCommunityRef
+                    //     // .where("uid", "==", userInfo.uid)
+                    //     .get();
+                    // let list = [];
+                    const dataCommunitySnapShot = await dataCommunityRef.get();
+                    dataCommunitySnapShot.forEach(doc => {
+                        // list = [...list, doc.data()];
+                        setCommumnityList([...communityList, doc.data()]);
+                        console.log(doc.data());
+                    });
+
+                    // return list;
+                } catch (err) {
+                    console.log('Error getting documents', err);
+                }
             }
+
+            document.addEventListener('readystate', searchDataComunity)
+            return () => document.removeEventListener('readystate', searchDataComunity)
         }, [communityList]);
 
 
@@ -50,10 +72,13 @@ const Community = () => {
                                     <hr/>
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                                    {communityList.map(data => {
-                                        console.log(data.game.name);
-                                        // return data.game;
-                                    })}
+                                    {
+                                        communityList.map(data => {
+                                            if (data.game !== undefined) {
+                                                console.log(data.game);
+                                            }
+                                            // return data.game;
+                                        })}
                                     <img src={zombicide} alt={t('logo-ludoapp')} height="300"/>
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>

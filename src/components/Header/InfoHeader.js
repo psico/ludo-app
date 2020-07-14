@@ -1,10 +1,10 @@
 import React, {useContext} from "react";
 import componentStyles from "./css";
-import lvl from "../temp-images/lvl-coronel.png";
+import lvl from "../../temp-images/lvl-coronel.png";
 import LinearProgress from '@material-ui/core/LinearProgress';
 import {lighten, withStyles} from '@material-ui/core/styles';
-import UserAvatar from "../components/UserAvatar";
-import {AuthContext} from "../App";
+import UserAvatar from "../UserAvatar";
+import {AuthContext} from "../../App";
 import {useTranslation} from "react-i18next";
 
 const InfoHeader = () => {

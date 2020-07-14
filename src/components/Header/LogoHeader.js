@@ -4,7 +4,7 @@ import logo from "./ludo192.png";
 import {Search as SearchIcon} from "@material-ui/icons";
 import InfoHeader from "./InfoHeader";
 import React, {useContext} from "react";
-import {AuthContext} from "../App";
+import {AuthContext} from "../../App";
 import {useTranslation} from "react-i18next";
 
 const LogoHeader = (props) => {

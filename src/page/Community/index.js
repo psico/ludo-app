@@ -33,10 +33,10 @@ const Community = () => {
         }, [setCommumnityList]);
 
         return (
-            <div>
+            <div className={componentClasses.root}>
                 {communityList.map(value => {
                     return (
-                        <div className={componentClasses.root}>
+                        <div>
                             <Grid container spacing={0}>
                                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
                                     <Paper className={componentClasses.paper}>
@@ -56,11 +56,6 @@ const Community = () => {
                                                 <Likes postId={10}/>
                                             </Grid>
                                         </Grid>
-                                    </Paper>
-                                </Grid>
-                                <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                                    <Paper className={componentClasses.paper}>
-                                        <UserAvatar showName={true}/>
                                     </Paper>
                                 </Grid>
                             </Grid>

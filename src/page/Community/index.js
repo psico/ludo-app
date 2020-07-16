@@ -28,40 +28,46 @@ const Community = () => {
 
         useEffect(() => {
             communityListItems().then(data => {
-                console.log(data);
                 setCommumnityList(data);
             });
         }, [setCommumnityList]);
 
         return (
-            <div className={componentClasses.root}>
-                <Grid container spacing={0}>
-                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
-                        <Paper className={componentClasses.paper}>
+            <div>
+                {communityList.map(value => {
+                    return (
+                        <div className={componentClasses.root}>
                             <Grid container spacing={0}>
+                                <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
+                                    <Paper className={componentClasses.paper}>
+                                        <Grid container spacing={0}>
+                                            <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                                                <UserAvatar showName={true}/>
+                                                <hr/>
+                                            </Grid>
+                                            <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+                                                <img src={zombicide} alt={t('logo-ludoapp')} height="300"/>
+                                            </Grid>
+                                            <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+                                                <Grid container spacing={0}>
+                                                    <Comments postId={10}/>
+                                                </Grid>
+                                                <hr/>
+                                                <Likes postId={10}/>
+                                            </Grid>
+                                        </Grid>
+                                    </Paper>
+                                </Grid>
                                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                                    <UserAvatar showName={true}/>
-                                    <hr/>
-                                </Grid>
-                                <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                                    <img src={zombicide} alt={t('logo-ludoapp')} height="300"/>
-                                </Grid>
-                                <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                                    <Grid container spacing={0}>
-                                        <Comments postId={10}/>
-                                    </Grid>
-                                    <hr/>
-                                    <Likes postId={10}/>
+                                    <Paper className={componentClasses.paper}>
+                                        <UserAvatar showName={true}/>
+                                    </Paper>
                                 </Grid>
                             </Grid>
-                        </Paper>
-                    </Grid>
-                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                        <Paper className={componentClasses.paper}>
-                            <UserAvatar showName={true}/>
-                        </Paper>
-                    </Grid>
-                </Grid>
+                        </div>
+                    )
+                })
+                }
             </div>
         );
     }

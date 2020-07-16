@@ -42,6 +42,7 @@ const Community = () => {
                                     <Paper className={componentClasses.paper}>
                                         <Grid container spacing={0}>
                                             <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                                                {value.game ? value.game.name : ''}
                                                 <UserAvatar showName={true}/>
                                                 <hr/>
                                             </Grid>

@@ -14,8 +14,6 @@ const Community = () => {
         const {t} = useTranslation();
         const [communityList, setCommumnityList] = useState([]);
 
-        // let dataCommunityRef = firebase.firestore().collection('matches');
-
         const communityListItems = () => {
             return firebase.firestore().collection('matches')
                 .get()
@@ -23,113 +21,16 @@ const Community = () => {
                     let list = [];
                     dataCommunitySnapShot.forEach(doc => {
                         list = [...list, doc.data()];
-                        // setCommumnityList([...communityList, doc.data()]);
-                        // console.log(doc.data());
                     });
                     return list;
                 });
         };
 
-        // firebase.firestore().collection('matches').dataCommunityRef.get()
         useEffect(() => {
-            const unsubscribe = communityListItems().then(data => {
+            communityListItems().then(data => {
                 console.log(data);
             });
-            // console.log(unsubscribe);
-            // return unsubscribe;
         });
-
-        // useEffect(() => {
-        //
-        //
-        //     if (communityList === undefined ) {
-        //         try {
-        //
-        //             let list = [];
-        //             dataCommunityRef.get().then(dataCommunitySnapShot => {
-        //                 dataCommunitySnapShot.forEach(doc => {
-        //                     list = [...list, doc.data()];
-        //                     // setCommumnityList([...communityList, doc.data()]);
-        //                     // console.log(doc.data());
-        //                 });
-        //                 setCommumnityList(list);
-        //             });
-        //
-        //         } catch (err) {
-        //             console.log('Error getting documents', err);
-        //         }
-        //     }
-        //     console.log("Hello" . communityList);
-        //     return () => {
-        //         console.log("Hello Montou");
-        //     }
-        // }, [communityList]);
-
-        // const searchDataComunity = async () => {
-        //     let dataCommunityRef = await firebase.firestore().collection('matches');
-        //     try {
-        //
-        //         let list = [];
-        //         const dataCommunitySnapShot = await dataCommunityRef.get();
-        //         dataCommunitySnapShot.forEach(doc => {
-        //             list = [...list, doc.data()];
-        //             // setCommumnityList([...communityList, doc.data()]);
-        //             // console.log(doc.data());
-        //         });
-        //
-        //         return list;
-        //     } catch (err) {
-        //         console.log('Error getting documents', err);
-        //     }
-        // }
-        // searchDataComunity();
-
-        // const searchDataComunity = async () => {
-        //     let dataCommunityRef = await firebase.firestore().collection('matches');
-        //     try {
-        //         // const dataCommunitySnapShot = await dataCommunityRef
-        //         //     // .where("uid", "==", userInfo.uid)
-        //         //     .get();
-        //         let list = [];
-        //         const dataCommunitySnapShot = await dataCommunityRef.get();
-        //         dataCommunitySnapShot.forEach(doc => {
-        //             // list = [...list, doc.data()];
-        //             setCommumnityList([...communityList, doc.data()]);
-        //             console.log(doc.data());
-        //         });
-        //
-        //         return list;
-        //     } catch (err) {
-        //         console.log('Error getting documents', err);
-        //     }
-        // }
-        // searchDataComunity();
-
-        // useEffect(() => {
-        //     const searchDataComunity = async () => {
-        //         let dataCommunityRef = await firebase.firestore().collection('matches');
-        //         try {
-        //             // const dataCommunitySnapShot = await dataCommunityRef
-        //             //     // .where("uid", "==", userInfo.uid)
-        //             //     .get();
-        //             // let list = [];
-        //             const dataCommunitySnapShot = await dataCommunityRef.get();
-        //             dataCommunitySnapShot.forEach(doc => {
-        //                 // list = [...list, doc.data()];
-        //                 setCommumnityList([...communityList, doc.data()]);
-        //                 console.log(doc.data());
-        //             });
-        //
-        //             // return list;
-        //         } catch (err) {
-        //             console.log('Error getting documents', err);
-        //         }
-        //     }
-        //
-        //     document.addEventListener('readystate', searchDataComunity)
-        //     return () => document.removeEventListener('readystate', searchDataComunity)
-        // }, [communityList]);
-
 
         return (
             <div className={componentClasses.root}>

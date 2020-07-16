@@ -29,8 +29,9 @@ const Community = () => {
         useEffect(() => {
             communityListItems().then(data => {
                 console.log(data);
+                setCommumnityList(data);
             });
-        });
+        }, [setCommumnityList]);
 
         return (
             <div className={componentClasses.root}>

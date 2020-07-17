@@ -8,6 +8,7 @@ import Comments from "../../components/Comments";
 import Likes from "../../components/Likes";
 import {useTranslation} from "react-i18next";
 import firebase from "../../firebase";
+import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 
 const Community = () => {
         const componentClasses = useStyles();
@@ -43,7 +44,26 @@ const Community = () => {
                                         <Grid container spacing={0}>
                                             <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                                                 {value.game ? value.game.name : ''}
-                                                <UserAvatar showName={true}/>
+                                                <Grid container spacing={0}>
+                                                    <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
+                                                        <UserAvatar showName={true}/>
+                                                    </Grid>
+                                                    <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
+                                                        <UserAvatar showImage={true} showName={false}/>
+                                                    </Grid>
+                                                    <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
+                                                        <UserAvatar showImage={true} showName={false}/>
+                                                    </Grid>
+                                                    <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
+                                                        <UserAvatar showImage={true} showName={false}/>
+                                                    </Grid>
+                                                    <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
+                                                        <UserAvatar showImage={true} showName={false}/>
+                                                    </Grid>
+                                                    <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
+                                                        <UserAvatar showImage={true} showName={false}/>
+                                                    </Grid>
+                                                </Grid>
                                                 <hr/>
                                             </Grid>
                                             <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>

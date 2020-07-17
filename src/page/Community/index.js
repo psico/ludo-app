@@ -9,6 +9,7 @@ import Likes from "../../components/Likes";
 import {useTranslation} from "react-i18next";
 import firebase from "../../firebase";
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
+import ShareIcon from '@material-ui/icons/Share';
 
 const Community = () => {
         const componentClasses = useStyles();
@@ -73,8 +74,19 @@ const Community = () => {
                                                 <Grid container spacing={0}>
                                                     <Comments postId={10}/>
                                                 </Grid>
-                                                <hr/>
-                                                <Likes postId={10}/>
+                                            </Grid>
+                                            <Grid item xs={12} sm={12} md={6} lg={6} xl={6} container spacing={0}>
+                                                <Grid>
+                                                    <ShareIcon />
+                                                </Grid>
+                                                <Grid>
+                                                    <ThumbUpAltIcon />
+                                                </Grid>
+                                            </Grid>
+                                            <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+                                                <Grid container spacing={0}>
+                                                    {/*<Comments postId={10}/>*/}
+                                                </Grid>
                                             </Grid>
                                         </Grid>
                                     </Paper>

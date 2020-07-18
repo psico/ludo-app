@@ -45,23 +45,18 @@ const Community = () => {
                                             <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                                                 {value.game ? value.game.name : ''}
                                                 <Grid container spacing={0}>
-                                                    <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
+                                                    <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+                                                        {/*<Grid>*/}
                                                         <UserAvatar showName={true}/>
+                                                        {/*</Grid>*/}
                                                     </Grid>
-                                                    <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
+                                                    <Grid item xs={12} sm={12} md={6} lg={6} xl={6} container spacing={0}>
+                                                        {/*<Grid>*/}
                                                         <UserAvatar showImage={true} showName={false}/>
-                                                    </Grid>
-                                                    <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
+                                                        {/*</Grid>*/}
+                                                        {/*<Grid>*/}
                                                         <UserAvatar showImage={true} showName={false}/>
-                                                    </Grid>
-                                                    <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
-                                                        <UserAvatar showImage={true} showName={false}/>
-                                                    </Grid>
-                                                    <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
-                                                        <UserAvatar showImage={true} showName={false}/>
-                                                    </Grid>
-                                                    <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
-                                                        <UserAvatar showImage={true} showName={false}/>
+                                                        {/*</Grid>*/}
                                                     </Grid>
                                                 </Grid>
                                                 <hr/>
@@ -76,10 +71,10 @@ const Community = () => {
                                             </Grid>
                                             <Grid item xs={12} sm={12} md={6} lg={6} xl={6} container spacing={0}>
                                                 <Grid>
-                                                    <ShareIcon />
+                                                    <ShareIcon/>
                                                 </Grid>
                                                 <Grid>
-                                                    <ThumbUpAltIcon />
+                                                    <ThumbUpAltIcon/>
                                                 </Grid>
                                             </Grid>
                                             <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>

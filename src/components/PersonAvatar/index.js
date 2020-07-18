@@ -1,17 +1,19 @@
-import React, {useContext} from "react";
+import React from "react";
 import Avatar from '@material-ui/core/Avatar';
 import componentStyles from "./css";
-import {AuthContext} from "../../App";
 
 const PersonAvatar = (props) => {
     const classes = componentStyles();
-    const {personInfo} = useContext(AuthContext);
-    const {showName} = props;
+    const {
+        showName,
+        displayName,
+        photoURL
+    } = props;
 
     return (
         <div className={classes.root}>
-            <Avatar variant="rounded" alt={personInfo.displayName} src={personInfo.photoURL} className={classes.small}/>
-            {showName === true && <div className={classes.textAvatar}>{personInfo.displayName}</div>}
+            <Avatar variant="rounded" alt={displayName} src={photoURL} className={classes.small}/>
+            {showName === true && <div className={classes.textAvatar}>{displayName}</div>}
         </div>
     );
 };

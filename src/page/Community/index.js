@@ -37,56 +37,49 @@ const Community = () => {
             <div className={componentClasses.root}>
                 {communityList.map(value => {
                     return (
-                        <div>
-                            <Grid container spacing={0}>
-                                <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
-                                    <Paper className={componentClasses.paper}>
+                        <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item} container
+                              spacing={0}>
+                            <Paper className={componentClasses.paper}>
+                                <Grid container spacing={0}>
+                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                                        {value.game ? value.game.name : ''}
                                         <Grid container spacing={0}>
-                                            <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                                                {value.game ? value.game.name : ''}
-                                                <Grid container spacing={0}>
-                                                    <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                                                        {/*<Grid>*/}
-                                                        <UserAvatar showName={true}/>
-                                                        {/*</Grid>*/}
-                                                    </Grid>
-                                                    <Grid item xs={12} sm={12} md={6} lg={6} xl={6} container spacing={0}>
-                                                        {/*<Grid>*/}
-                                                        <UserAvatar showImage={true} showName={false}/>
-                                                        {/*</Grid>*/}
-                                                        {/*<Grid>*/}
-                                                        <UserAvatar showImage={true} showName={false}/>
-                                                        {/*</Grid>*/}
-                                                    </Grid>
-                                                </Grid>
-                                                <hr/>
-                                            </Grid>
                                             <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                                                <img src={zombicide} alt={t('logo-ludoapp')} height="300"/>
-                                            </Grid>
-                                            <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                                                <Grid container spacing={0}>
-                                                    <Comments postId={10}/>
-                                                </Grid>
+                                                <UserAvatar showName={true}/>
                                             </Grid>
                                             <Grid item xs={12} sm={12} md={6} lg={6} xl={6} container spacing={0}>
-                                                <Grid>
-                                                    <ShareIcon/>
-                                                </Grid>
-                                                <Grid>
-                                                    <ThumbUpAltIcon/>
-                                                </Grid>
-                                            </Grid>
-                                            <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                                                <Grid container spacing={0}>
-                                                    {/*<Comments postId={10}/>*/}
-                                                </Grid>
+                                                <UserAvatar showImage={true} showName={false}/>
+                                                <UserAvatar showImage={true} showName={false}/>
+                                                <UserAvatar showImage={true} showName={false}/>
+                                                <UserAvatar showImage={true} showName={false}/>
+                                                <UserAvatar showImage={true} showName={false}/>
+                                                <UserAvatar showImage={true} showName={false}/>
+                                                <UserAvatar showImage={true} showName={false}/>
+                                                <UserAvatar showImage={true} showName={false}/>
                                             </Grid>
                                         </Grid>
-                                    </Paper>
+                                        <hr/>
+                                    </Grid>
+                                    <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+                                        <img src={zombicide} alt={t('logo-ludoapp')} height="300"/>
+                                    </Grid>
+                                    <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+                                        <Grid container spacing={0}>
+                                            <Comments postId={10}/>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                                        <Grid item xs={12} sm={12} md={6} lg={6} xl={6} container spacing={0}>
+                                            <ShareIcon/>
+                                            <ThumbUpAltIcon/>
+                                        </Grid>
+                                        <Grid item xs={12} sm={12} md={6} lg={6} xl={6} container spacing={0}>
+                                            {/*<Comments postId={10}/>*/}
+                                        </Grid>
+                                    </Grid>
                                 </Grid>
-                            </Grid>
-                        </div>
+                            </Paper>
+                        </Grid>
                     )
                 })
                 }

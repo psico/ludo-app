@@ -36,8 +36,8 @@ const Community = () => {
 
         return (
             <div className={componentClasses.root}>
-                {communityList ?
-                    communityList.map(value => {
+                {communityList &&
+                communityList.map(value => {
                         return (
                             <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item} container
                                   spacing={0}>
@@ -50,19 +50,22 @@ const Community = () => {
                                                     <UserAvatar showName={true}/>
                                                 </Grid>
                                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6} container spacing={0}>
-                                                    {/*{*/}
-                                                    {/*    value.players.map(player => {*/}
-                                                    {/*        <PersonAvatar showImage={true} showName={false} />*/}
-                                                    {/*    })*/}
-                                                    {/*}*/}
-                                                    <UserAvatar showImage={true} showName={false}/>
-                                                    <UserAvatar showImage={true} showName={false}/>
-                                                    <UserAvatar showImage={true} showName={false}/>
-                                                    <UserAvatar showImage={true} showName={false}/>
-                                                    <UserAvatar showImage={true} showName={false}/>
-                                                    <UserAvatar showImage={true} showName={false}/>
-                                                    <UserAvatar showImage={true} showName={false}/>
-                                                    <UserAvatar showImage={true} showName={false}/>
+                                                    {
+                                                        value.players &&
+                                                        value.players.map(player =>
+                                                                <PersonAvatar
+                                                                    displayName={player.name}
+                                                                    showName={false}/>
+                                                            )
+                                                    }
+                                                    {/*<UserAvatar showImage={true} showName={false}/>*/}
+                                                    {/*<UserAvatar showImage={true} showName={false}/>*/}
+                                                    {/*<UserAvatar showImage={true} showName={false}/>*/}
+                                                    {/*<UserAvatar showImage={true} showName={false}/>*/}
+                                                    {/*<UserAvatar showImage={true} showName={false}/>*/}
+                                                    {/*<UserAvatar showImage={true} showName={false}/>*/}
+                                                    {/*<UserAvatar showImage={true} showName={false}/>*/}
+                                                    {/*<UserAvatar showImage={true} showName={false}/>*/}
                                                 </Grid>
                                             </Grid>
                                             <hr/>
@@ -89,7 +92,6 @@ const Community = () => {
                             </Grid>
                         )
                     })
-                    : <Grid>Nothing to Show</Grid>
                 }
             </div>
         );

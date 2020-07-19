@@ -48,6 +48,7 @@ const Community = () => {
                                             <Grid container spacing={0}>
                                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                                                     <UserAvatar showName={true}/>
+                                                    {/*<PersonAvatar displayName={value.uid} showName={true}/>*/}
                                                 </Grid>
                                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6} container spacing={0}>
                                                     {
@@ -58,14 +59,6 @@ const Community = () => {
                                                                     showName={false}/>
                                                             )
                                                     }
-                                                    {/*<UserAvatar showImage={true} showName={false}/>*/}
-                                                    {/*<UserAvatar showImage={true} showName={false}/>*/}
-                                                    {/*<UserAvatar showImage={true} showName={false}/>*/}
-                                                    {/*<UserAvatar showImage={true} showName={false}/>*/}
-                                                    {/*<UserAvatar showImage={true} showName={false}/>*/}
-                                                    {/*<UserAvatar showImage={true} showName={false}/>*/}
-                                                    {/*<UserAvatar showImage={true} showName={false}/>*/}
-                                                    {/*<UserAvatar showImage={true} showName={false}/>*/}
                                                 </Grid>
                                             </Grid>
                                             <hr/>

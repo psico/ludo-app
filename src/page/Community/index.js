@@ -37,9 +37,12 @@ const Community = () => {
         return (
             <div className={componentClasses.root}>
                 {communityList &&
-                communityList.map(value => {
+                communityList.map((value, index) => {
                         return (
-                            <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item} container
+                            <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
+                                  className={componentClasses.item}
+                                  key={"community_"+index}
+                                  container
                                   spacing={0}>
                                 <Paper className={componentClasses.paper}>
                                     <Grid container spacing={0}>
@@ -53,8 +56,9 @@ const Community = () => {
                                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6} container spacing={0}>
                                                     {
                                                         value.players &&
-                                                        value.players.map(player =>
+                                                        value.players.map((player,key) =>
                                                                 <PersonAvatar
+                                                                    key={"person_"+key}
                                                                     displayName={player.name}
                                                                     showName={false}/>
                                                             )

@@ -56,9 +56,9 @@ const Community = () => {
                                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6} container spacing={0}>
                                                     {
                                                         value.players &&
-                                                        value.players.map((player,key) =>
+                                                        value.players.map((player,index) =>
                                                                 <PersonAvatar
-                                                                    key={"person_"+key}
+                                                                    key={"person_"+index}
                                                                     displayName={player.name}
                                                                     showName={false}/>
                                                             )

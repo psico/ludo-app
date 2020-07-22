@@ -46,13 +46,15 @@ const Community = () => {
                               container
                               spacing={0}>
                             <Paper className={componentClasses.paper}>
+                                <Grid container>
                                  {value.game ? value.game.name : ''}
-                                <Grid container spacing={0}>
+                                </Grid>
+                                <Grid container className={componentClasses.hLine}>
                                     <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                                         <UserAvatar showName={true}/>
                                         {/*<PersonAvatar displayName={value.uid} showName={true}/>*/}
                                     </Grid>
-                                    <Grid item xs={12} sm={12} md={6} lg={6} xl={6} container spacing={0}>
+                                    <Grid item xs={12} sm={12} md={6} lg={6} xl={6} container>
                                         {
                                             value.players &&
                                             value.players.map((player, index) =>
@@ -64,10 +66,7 @@ const Community = () => {
                                         }
                                     </Grid>
                                 </Grid>
-                                <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                                    <hr/>
-                                </Grid>
-                                <Grid container spacing={0}>
+                                <Grid container className={componentClasses.hLine}>
                                     <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                                         <img src={zombicide} alt={t('logo-ludoapp')} height="300"/>
                                     </Grid>
@@ -77,17 +76,14 @@ const Community = () => {
                                         </Grid>
                                     </Grid>
                                 </Grid>
-                                <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                                    <hr/>
-                                </Grid>
-                                <Grid container spacing={0}>
+                                <Grid container >
                                     <Grid item xs={6} sm={6} md={3} lg={3} xl={3}>
                                         <ThumbUpAltIcon/> Like
                                     </Grid>
                                     <Grid item xs={6} sm={6} md={3} lg={3} xl={3}>
                                         <ShareIcon/> Share
                                     </Grid>
-                                    <Grid item xs={12} sm={12} md={6} lg={6} xl={6} container spacing={0}>
+                                    <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                                         <CommentInput match={value.id}/>
                                     </Grid>
                                 </Grid>

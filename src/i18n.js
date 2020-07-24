@@ -43,6 +43,7 @@ const resources = {
             "search-match-game": "Search match game",
             "search-match-players": "Search match players",
             "successfully-registered-match": "Successfully registered match",
+            "write-a-comment": "Write a comment",
 
 
             //Many words

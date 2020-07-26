@@ -9,15 +9,21 @@ const CommentInput = (props) => {
     const {t} = useTranslation();
     const [comment, setComment] = useState("");
 
+    const handleForm = async e => {
+
+    }
+
     return (
         <div className={componentClasses.root}>
-            <Input
-                value={comment}
-                onChange={e => setComment(e.target.value)}
-                fullWidth="true"
-                placeholder={t("write-a-comment")}
-                endAdornment={<MessageIcon position="end">Kg</MessageIcon>}
-            />
+            <form noValidate onSubmit={e => handleForm(e)}>
+                <Input
+                    value={comment}
+                    onChange={e => setComment(e.target.value)}
+                    fullWidth="true"
+                    placeholder={t("write-a-comment")}
+                    endAdornment={<MessageIcon position="end">Kg</MessageIcon>}
+                />
+            </form>
         </div>
     )
 };

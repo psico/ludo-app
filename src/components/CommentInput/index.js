@@ -20,7 +20,7 @@ const CommentInput = (props) => {
                 <Input
                     value={comment}
                     onChange={e => setComment(e.target.value)}
-                    fullWidth="true"
+                    fullWidth={true}
                     placeholder={t("write-a-comment")}
                     endAdornment={<MessageIcon position="end">Kg</MessageIcon>}
                 />

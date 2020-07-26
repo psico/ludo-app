@@ -10,7 +10,8 @@ const CommentInput = (props) => {
     const [comment, setComment] = useState("");
 
     const handleForm = async e => {
-
+        e.preventDefault();
+        console.log(comment);
     }
 
     return (

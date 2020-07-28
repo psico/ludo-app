@@ -15,8 +15,7 @@ const CommentInput = (props) => {
 
     const handleForm = async e => {
         e.preventDefault();
-        console.log(comment);
-        console.log(props);
+
         if (comment !== "") {
             let matchesRef = await firebase.firestore().collection("matches").doc(props.match);
             let doc = await matchesRef.get();
@@ -26,9 +25,9 @@ const CommentInput = (props) => {
                 comment
             });
 
-            snackbarRef.current.handleClick("save", 'success');
+            snackbarRef.current.handleClick(t('comment-saved'), 'success');
         } else {
-            snackbarRef.current.handleClick("test", 'warning');
+            snackbarRef.current.handleClick(t('write-a-comment'), 'warning');
         }
     }
 

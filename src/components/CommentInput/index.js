@@ -3,7 +3,6 @@ import useStyles from "./css";
 import {useTranslation} from "react-i18next";
 import Input from '@material-ui/core/Input';
 import MessageIcon from '@material-ui/icons/Message';
-// import ShowSnackbar from "../../components/ShowSnackbar";
 import firebase from "../../firebase";
 import ShowSnackbar from "../ShowSnackbar";
 import {AuthContext} from "../../App";

@@ -23,8 +23,9 @@ const Community = () => {
                 .then(dataCommunitySnapShot => {
                     let list = [];
                     dataCommunitySnapShot.forEach(doc => {
-                        list = [...list, doc.data()];
+                        list = [...list, {id: doc.id, ...doc.data()}];
                     });
+
                     return list;
                 });
         };
@@ -47,7 +48,7 @@ const Community = () => {
                               spacing={0}>
                             <Paper className={componentClasses.paper}>
                                 <Grid container>
-                                 {value.game ? value.game.name : ''}
+                                    {value.game ? value.game.name : ''}
                                 </Grid>
                                 <Grid container className={componentClasses.hLine}>
                                     <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
@@ -76,7 +77,7 @@ const Community = () => {
                                         </Grid>
                                     </Grid>
                                 </Grid>
-                                <Grid container >
+                                <Grid container>
                                     <Grid item xs={6} sm={6} md={3} lg={3} xl={3}>
                                         <ThumbUpAltIcon/> Like
                                     </Grid>

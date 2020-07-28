@@ -23,6 +23,7 @@ const resources = {
 
             //Two words
             "add-match": "Add match",
+            "comment-saved": "Comment saved",
             "create-login": "Create login",
             "email-login": "E-mail login",
             "friends-list": "Friends list",

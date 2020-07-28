@@ -20,9 +20,19 @@ const CommentInput = (props) => {
             let matchesRef = await firebase.firestore().collection("matches").doc(props.match);
             let doc = await matchesRef.get();
 
+            let arrComment;
+            if (doc.data().comments) {
+                arrComment = [
+                    ...doc.data().comments,
+                    comment
+                ];
+            } else {
+                arrComment = [comment];
+            }
+
             await matchesRef.set({
                 ...doc.data(),
-                comment
+                comments: arrComment
             });
 
             snackbarRef.current.handleClick(t('comment-saved'), 'success');

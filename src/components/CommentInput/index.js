@@ -47,6 +47,7 @@ const CommentInput = (props) => {
             });
 
             snackbarRef.current.handleClick(t('comment-saved'), 'success');
+            setComment("");
         } else {
             snackbarRef.current.handleClick(t('write-a-comment'), 'warning');
         }

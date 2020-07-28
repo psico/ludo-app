@@ -11,7 +11,6 @@ const CommentInput = (props) => {
     const componentClasses = useStyles();
     const {t} = useTranslation();
     const [comment, setComment] = useState("");
-    const [match, setMatch] = React.useState({});
     const snackbarRef = React.createRef();
 
     const handleForm = async e => {
@@ -21,23 +20,13 @@ const CommentInput = (props) => {
         if (comment !== "") {
             let matchesRef = await firebase.firestore().collection("matches").doc(props.match);
             let doc = await matchesRef.get();
-            // console.log();
+
             await matchesRef.set({
                 ...doc.data(),
                 comment
             });
 
-            // match.uid = userInfo.uid;
-
-            // setMatch({
-            //     ...matches,
-            //     "comment": comment
-            // });
-
-            // await matches.set(match, {merge: true});
-
-            // snackbarRef.current.handleClick("salvo?", 'success');
-            // history.push('/community');
+            snackbarRef.current.handleClick("save", 'success');
         } else {
             snackbarRef.current.handleClick("test", 'warning');
         }

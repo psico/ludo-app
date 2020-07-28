@@ -11,16 +11,18 @@ import {AuthContext} from "../../App";
 const CommentInput = (props) => {
     const componentClasses = useStyles();
     const {t} = useTranslation();
-    const [comment, setComment] = useState("");
-    const snackbarRef = React.createRef();
     const {userInfo} = useContext(AuthContext);
+    const snackbarRef = React.createRef();
+    const [comment, setComment] = useState("");
 
     const handleForm = async e => {
         e.preventDefault();
 
         if (comment !== "") {
-            let matchesRef = await firebase.firestore().collection("matches").doc(props.match);
-            let doc = await matchesRef.get();
+            const matchesRef = await firebase.firestore()
+                .collection("matches")
+                .doc(props.match);
+            const doc = await matchesRef.get();
 
             let arrComment;
             if (doc.data().comments) {

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import useStyles from "./css";
 import {useTranslation} from "react-i18next";
 import Input from '@material-ui/core/Input';
@@ -6,12 +6,14 @@ import MessageIcon from '@material-ui/icons/Message';
 // import ShowSnackbar from "../../components/ShowSnackbar";
 import firebase from "../../firebase";
 import ShowSnackbar from "../ShowSnackbar";
+import {AuthContext} from "../../App";
 
 const CommentInput = (props) => {
     const componentClasses = useStyles();
     const {t} = useTranslation();
     const [comment, setComment] = useState("");
     const snackbarRef = React.createRef();
+    const {userInfo} = useContext(AuthContext);
 
     const handleForm = async e => {
         e.preventDefault();
@@ -24,10 +26,18 @@ const CommentInput = (props) => {
             if (doc.data().comments) {
                 arrComment = [
                     ...doc.data().comments,
-                    comment
+                    {
+                        uid: userInfo.uid,
+                        name: userInfo.displayName,
+                        comment: comment
+                    }
                 ];
             } else {
-                arrComment = [comment];
+                arrComment = [{
+                    uid: userInfo.uid,
+                    name: userInfo.displayName,
+                    comment: comment
+                }];
             }
 
             await matchesRef.set({

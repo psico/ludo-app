@@ -48,6 +48,7 @@ const resources = {
 
 
             //Many words
+            "no-comments-made-you-can-be-the-first": "No comments made, you can be the first",
             "the-host-cannot-be-changed": "The host cannot be changed",
             "register-a-new-game": "Register a new game",
             "fill-in-the-required-fields": "Fill in the required fields"

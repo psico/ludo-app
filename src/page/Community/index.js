@@ -41,16 +41,16 @@ const Community = () => {
                 {communityList &&
                 communityList.map((value, index) => {
                     return (
-                        <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
-                              className={componentClasses.item}
-                              key={"community_" + index}
-                              container
-                              spacing={0}>
-                            <Paper className={componentClasses.paper}>
-                                <Grid container>
+                        <Paper className={componentClasses.paper}>
+                            <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
+                                  className={componentClasses.item}
+                                  key={"community_" + index}
+                                  container
+                                  spacing={0}>
+                                <Grid container xs={12} sm={12} md={12} lg={12} xl={12}>
                                     {value.game ? value.game.name : ''}
                                 </Grid>
-                                <Grid container className={componentClasses.hLine}>
+                                <Grid container className={componentClasses.hLine} xs={12} sm={12} md={12} lg={12} xl={12}>
                                     <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                                         <UserAvatar showName={true}/>
                                         {/*<PersonAvatar displayName={value.uid} showName={true}/>*/}
@@ -67,17 +67,17 @@ const Community = () => {
                                         }
                                     </Grid>
                                 </Grid>
-                                <Grid container className={componentClasses.hLine}>
+                                <Grid container className={componentClasses.hLine} xs={12} sm={12} md={12} lg={12} xl={12}>
                                     <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                                         <img src={zombicide} alt={t('logo-ludoapp')} height="300"/>
                                     </Grid>
                                     <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                                        <Grid container spacing={0}>
-                                            <Comments arrComments={value.comments} />
+                                        <Grid container spacing={0} item xs={12} sm={12} md={6} lg={6} xl={6}>
+                                            <Comments arrComments={value.comments}/>
                                         </Grid>
                                     </Grid>
                                 </Grid>
-                                <Grid container>
+                                <Grid container xs={12} sm={12} md={12} lg={12} xl={12}>
                                     <Grid item xs={6} sm={6} md={3} lg={3} xl={3}>
                                         <ThumbUpAltIcon/> Like
                                     </Grid>
@@ -88,8 +88,8 @@ const Community = () => {
                                         <CommentInput match={value.id}/>
                                     </Grid>
                                 </Grid>
-                            </Paper>
-                        </Grid>
+                            </Grid>
+                        </Paper>
                     )
                 })
                 }

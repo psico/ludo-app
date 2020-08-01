@@ -41,10 +41,9 @@ const Community = () => {
                 {communityList &&
                 communityList.map((value, index) => {
                     return (
-                        <Paper className={componentClasses.paper}>
+                        <Paper className={componentClasses.paper} key={"community_" + index}>
                             <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
                                   className={componentClasses.item}
-                                  key={"community_" + index}
                                   container
                                   spacing={0}>
                                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>

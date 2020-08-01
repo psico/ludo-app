@@ -14,7 +14,9 @@ const Comments = (props) => {
                 {
                     props.arrComments ?
                         props.arrComments.map((comment, index) =>
-                            <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
+                            <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
+                                  className={componentClasses.item}
+                                  key={"comment_" + index}>
                                 <PersonAvatar
                                     key={"person_comment_" + index}
                                     displayName={comment.name}

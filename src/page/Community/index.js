@@ -47,10 +47,10 @@ const Community = () => {
                                   key={"community_" + index}
                                   container
                                   spacing={0}>
-                                <Grid container xs={12} sm={12} md={12} lg={12} xl={12}>
+                                <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                                     {value.game ? value.game.name : ''}
                                 </Grid>
-                                <Grid container className={componentClasses.hLine} xs={12} sm={12} md={12} lg={12} xl={12}>
+                                <Grid container className={componentClasses.hLine}>
                                     <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                                         <UserAvatar showName={true}/>
                                         {/*<PersonAvatar displayName={value.uid} showName={true}/>*/}
@@ -67,7 +67,7 @@ const Community = () => {
                                         }
                                     </Grid>
                                 </Grid>
-                                <Grid container className={componentClasses.hLine} xs={12} sm={12} md={12} lg={12} xl={12}>
+                                <Grid container className={componentClasses.hLine}>
                                     <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                                         <img src={zombicide} alt={t('logo-ludoapp')} height="300"/>
                                     </Grid>
@@ -77,7 +77,7 @@ const Community = () => {
                                         </Grid>
                                     </Grid>
                                 </Grid>
-                                <Grid container xs={12} sm={12} md={12} lg={12} xl={12}>
+                                <Grid container>
                                     <Grid item xs={6} sm={6} md={3} lg={3} xl={3}>
                                         <ThumbUpAltIcon/> Like
                                     </Grid>

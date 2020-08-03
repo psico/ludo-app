@@ -3,7 +3,7 @@ import useStyles from "./css";
 import {withRouter} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
 import Grid from "@material-ui/core/Grid";
-import firebase from "../../firebase";
+import firebase from "firebase"
 import {AuthContext} from "../../App";
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';

@@ -2,7 +2,7 @@ import React, {useContext, useEffect } from "react";
 import useStyles from "./css";
 import Grid from "@material-ui/core/Grid";
 import Button from '@material-ui/core/Button';
-import firebase from "../../firebase";
+import firebase from "firebase"
 import {withRouter} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
 import Paper from "@material-ui/core/Paper";

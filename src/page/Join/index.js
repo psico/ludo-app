@@ -3,7 +3,7 @@ import useStyles from "./css";
 import Grid from "@material-ui/core/Grid";
 import Button from '@material-ui/core/Button';
 import {AuthContext} from "../../App";
-import firebase from "../../firebase";
+import firebase from "firebase"
 import { useTranslation } from 'react-i18next';
 import LoginFacebook from "../../components/LoginFacebook";
 import LoginTwitter from "../../components/LoginTwitter";

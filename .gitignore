@@ -564,4 +564,4 @@ gradle-app.setting
 .env.test.local
 .env.production.local
 
-firebase.json
+/firebase.js

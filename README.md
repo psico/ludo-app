@@ -1,5 +1,6 @@
 # LudoApp
 [![npm version][package-badge]][package-url]
+![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Fpsico_jg)
 
 Developed by João Gabriel - Github [psico](https://github.com/psico)
 

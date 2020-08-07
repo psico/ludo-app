@@ -1,4 +1,6 @@
 # LudoApp
+[![npm version][package-badge]][package-url]
+
 Developed by João Gabriel - Github [psico](https://github.com/psico)
 
 ![Image](public/ludo512.png)
@@ -71,3 +73,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 docker build --rm -f Dockerfile -t ludo-app:latest .
 
 docker pull nginx
+
+[package-badge]: https://img.shields.io/npm/v/npm

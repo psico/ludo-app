@@ -1,5 +1,5 @@
 # LudoApp
-[![npm version][package-badge]][package-url]
+![npm](https://img.shields.io/npm/v/npm)
 ![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Fpsico_jg)
 
 Developed by João Gabriel - Github [psico](https://github.com/psico)
@@ -75,6 +75,3 @@ docker build --rm -f Dockerfile -t ludo-app:latest .
 
 docker pull nginx
 
-
-[package-badge]: https://img.shields.io/npm/v/npm
-[package-url]: https://yarnpkg.com/en/package/react-native-web

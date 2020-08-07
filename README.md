@@ -1,5 +1,5 @@
 # LudoApp
-[![npm version][package-badge]][package-url]
+[package-badge]
 
 Developed by João Gabriel - Github [psico](https://github.com/psico)
 

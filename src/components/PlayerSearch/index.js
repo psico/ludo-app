@@ -79,7 +79,7 @@ const PlayersSearch = ({ parentCallback }) => {
                 <h3>{t('players')}</h3>
                 {players.length > 1
                     ? players.map(data => <div key={'div_' + data.uid}>{data.name}</div>)
-                    : <div>Nenhum jogador selecionado</div>
+                    : <div>{t('no-players-selected')}</div>
                 }
             </Grid>
         </Grid>

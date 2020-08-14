@@ -40,6 +40,7 @@ const resources = {
             "login-with-facebook": "Login With Facebook",
             "login-with-google": "Login With Google",
             "login-with-twitter": "Login With Twitter",
+            "no-players-selected": "No players selected",
             "register-match": "Register match",
             "search-match-game": "Search match game",
             "search-match-players": "Search match players",
@@ -48,7 +49,7 @@ const resources = {
 
 
             //Many words
-            "no-comments-made-you-can-be-the-first": "No comments made, you can be the first",
+            "no-comments-made-you-can-be-the-first": "No comments made, you can be the first ",
             "the-host-cannot-be-changed": "The host cannot be changed",
             "register-a-new-game": "Register a new game",
             "fill-in-the-required-fields": "Fill in the required fields"

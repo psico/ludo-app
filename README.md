@@ -75,3 +75,4 @@ docker build --rm -f Dockerfile -t ludo-app:latest .
 
 docker pull nginx
 
+*This article can also be read in [Brazilian Portuguese](README-pt-BR.md).*

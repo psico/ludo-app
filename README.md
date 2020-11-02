@@ -9,6 +9,10 @@
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome!" />
   </a>
 </p>
+<p align="center">
+    <img src="public/ludo512.png" alt="React Native is released under the MIT license." />
+
+</p>
 
 <!--
 ![npm](https://img.shields.io/npm/v/npm)
@@ -19,7 +23,9 @@
 [![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=)](https://github.com/psico)
 [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/jo%C3%A3o-gabriel-dos-santos-rodrigues-34378323/?locale=en_US)](https://www.linkedin.com/in/jo%C3%A3o-gabriel-dos-santos-rodrigues-34378323/?locale=en_US)
 
+<!--
 ![Image](public/ludo512.png)
+-->
 
 # Description
 Project to build social network for boardgames, register matches and challenge yourself in search of achievements

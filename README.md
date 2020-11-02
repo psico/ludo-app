@@ -2,16 +2,15 @@
   LudoApp
 </h1>
 <p align="center">
-  <a href="https://github.com/facebook/react-native/blob/master/LICENSE">
-    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="React Native is released under the MIT license." />
+  <a href="https://github.com/psico/ludo-app/blob/master/LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="LudoApp the MIT license." />
   </a>
-  <a href="https://reactnative.dev/docs/contributing">
+  <a href="https://github.com/psico/ludo-app">
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome!" />
   </a>
 </p>
 <p align="center">
-    <img src="public/ludo512.png" alt="React Native is released under the MIT license." />
-
+    <img src="public/ludo512.png" alt="LudoApp Logo" />
 </p>
 
 <!--
@@ -27,10 +26,10 @@
 ![Image](public/ludo512.png)
 -->
 
-# Description
+## Description
 Project to build social network for boardgames, register matches and challenge yourself in search of achievements
 
-# Main goals
+## Main goals
 * Record match
 * Player level
 * Social integration

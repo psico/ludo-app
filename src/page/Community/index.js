@@ -12,6 +12,7 @@ import Comments from "../../components/Comments";
 import PersonAvatar from "../../components/PersonAvatar";
 import CommentInput from "../../components/CommentInput";
 import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { gql } from '@apollo/client';
 
 const Community = () => {
         const componentClasses = useStyles();
@@ -24,16 +25,46 @@ const Community = () => {
                 cache: new InMemoryCache()
             });
 
-            return firebase.firestore().collection('matches')
-                .get()
-                .then(dataCommunitySnapShot => {
-                    let list = [];
-                    dataCommunitySnapShot.forEach(doc => {
-                        list = [...list, {id: doc.id, ...doc.data()}];
-                    });
-console.log(list);
-                    return list;
-                });
+            return client
+            .query({
+                query: gql`
+                    query qualeur {
+                        matches {
+                            uid,
+                            game {
+                                name
+                                objectId
+                                yearPublished
+                            }
+                            gameMoment
+                            players {
+                                name
+                            }
+                        }
+                    }
+                `
+            })
+            .then(result => {
+                console.log("deu certo");
+                console.log(result)
+            })
+            .catch(result => {
+                console.log("deu erro");
+                console.log(result)
+            });
+
+
+
+//             return firebase.firestore().collection('matches')
+//                 .get()
+//                 .then(dataCommunitySnapShot => {
+//                     let list = [];
+//                     dataCommunitySnapShot.forEach(doc => {
+//                         list = [...list, {id: doc.id, ...doc.data()}];
+//                     });
+// console.log(list);
+//                     return list;
+//                 });
         };
 
         useEffect(() => {

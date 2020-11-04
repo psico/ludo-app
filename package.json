@@ -11,6 +11,8 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
+    "browserslist": "^4.14.6",
+    "caniuse-lite": "^1.0.30001154",
     "firebase": "^7.24.0",
     "graphql": "^15.4.0",
     "i18next": "^19.8.3",

@@ -10,7 +10,7 @@
   </a>
 </p>
 <p align="center">
-    <img src="public/ludo512.png" alt="LudoApp Logo" />
+    <img  heith="300" width="300" src="public/ludo512.png" alt="LudoApp Logo" />
 </p>
 
 <!--

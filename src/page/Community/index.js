@@ -11,6 +11,7 @@ import UserAvatar from "../../components/UserAvatar";
 import Comments from "../../components/Comments";
 import PersonAvatar from "../../components/PersonAvatar";
 import CommentInput from "../../components/CommentInput";
+import { ApolloClient, InMemoryCache } from '@apollo/client';
 
 const Community = () => {
         const componentClasses = useStyles();
@@ -18,6 +19,11 @@ const Community = () => {
         const [communityList, setCommumnityList] = useState();
 
         const communityListItems = () => {
+            const client = new ApolloClient({
+                uri: 'http://localhost:8080/graphql',
+                cache: new InMemoryCache()
+            });
+
             return firebase.firestore().collection('matches')
                 .get()
                 .then(dataCommunitySnapShot => {
@@ -25,7 +31,7 @@ const Community = () => {
                     dataCommunitySnapShot.forEach(doc => {
                         list = [...list, {id: doc.id, ...doc.data()}];
                     });
-
+console.log(list);
                     return list;
                 });
         };

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.2.5",
     "@material-ui/core": "^4.9.12",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.51",
@@ -11,6 +12,7 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "firebase": "^7.14.2",
+    "graphql": "^15.4.0",
     "i18next": "^19.4.4",
     "react": "^16.13.1",
     "react-devtools": "^4.6.0",

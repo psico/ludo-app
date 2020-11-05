@@ -46,8 +46,7 @@ const Community = () => {
                 `
             })
             .then(result => {
-                console.log("deu certo");
-                console.log(result)
+                return result.data.matches;
             })
             .catch(result => {
                 console.log("deu erro");
@@ -70,7 +69,7 @@ const Community = () => {
 
         useEffect(() => {
             communityListItems().then(data => {
-                // setCommumnityList(data);
+                setCommumnityList(data);
             });
         }, [setCommumnityList]);
 

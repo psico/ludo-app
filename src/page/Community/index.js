@@ -10,8 +10,8 @@ import UserAvatar from "../../components/UserAvatar";
 import Comments from "../../components/Comments";
 import PersonAvatar from "../../components/PersonAvatar";
 import CommentInput from "../../components/CommentInput";
-import { ApolloClient, InMemoryCache } from '@apollo/client';
-import { gql } from '@apollo/client';
+import {ApolloClient, InMemoryCache} from '@apollo/client';
+import {gql} from '@apollo/client';
 
 const Community = () => {
         const componentClasses = useStyles();
@@ -30,13 +30,9 @@ const Community = () => {
                 query: gql`
                     query {
                         matches {
-                            uid,
                             game {
                                 name
-                                objectId
-                                yearPublished
                             }
-                            gameMoment
                             players {
                                 name
                             }
@@ -51,7 +47,6 @@ const Community = () => {
                 console.log("deu erro");
                 console.log(result)
             });
-
 
 
 //             return firebase.firestore().collection('matches')

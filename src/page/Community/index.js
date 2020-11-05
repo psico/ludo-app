@@ -20,6 +20,7 @@ const Community = () => {
         const [communityList, setCommumnityList] = useState();
 
         const communityListItems = () => {
+
             const client = new ApolloClient({
                 uri: 'http://localhost:8080/graphql',
                 cache: new InMemoryCache()
@@ -28,7 +29,7 @@ const Community = () => {
             return client
             .query({
                 query: gql`
-                    query qualeur {
+                    query {
                         matches {
                             uid,
                             game {
@@ -69,7 +70,7 @@ const Community = () => {
 
         useEffect(() => {
             communityListItems().then(data => {
-                setCommumnityList(data);
+                // setCommumnityList(data);
             });
         }, [setCommumnityList]);
 

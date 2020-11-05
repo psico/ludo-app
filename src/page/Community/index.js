@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import firebase from "../../firebase";
 import useStyles from "./css";
 import Grid from '@material-ui/core/Grid';
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";

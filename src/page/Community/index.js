@@ -44,8 +44,8 @@ const Community = () => {
                 return result.data.matches;
             })
             .catch(result => {
-                console.log("deu erro");
-                console.log(result)
+                alert("Sorry but we have internal server erro");
+                console.log(result);
             });
 
 

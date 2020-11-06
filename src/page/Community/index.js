@@ -47,18 +47,6 @@ const Community = () => {
                 alert("Sorry but we have internal server erro");
                 console.log(result);
             });
-
-
-//             return firebase.firestore().collection('matches')
-//                 .get()
-//                 .then(dataCommunitySnapShot => {
-//                     let list = [];
-//                     dataCommunitySnapShot.forEach(doc => {
-//                         list = [...list, {id: doc.id, ...doc.data()}];
-//                     });
-// console.log(list);
-//                     return list;
-//                 });
         };
 
         useEffect(() => {

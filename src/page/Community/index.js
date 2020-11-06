@@ -12,6 +12,8 @@ import PersonAvatar from "../../components/PersonAvatar";
 import CommentInput from "../../components/CommentInput";
 import {ApolloClient, InMemoryCache} from '@apollo/client';
 import {gql} from '@apollo/client';
+import dotenv from 'dotenv';
+
 
 const Community = () => {
         const componentClasses = useStyles();
@@ -19,6 +21,9 @@ const Community = () => {
         const [communityList, setCommumnityList] = useState();
 
         const communityListItems = () => {
+            const env = dotenv.config().parsed;
+            console.log(env);
+
 
             const client = new ApolloClient({
                 uri: 'http://localhost:8080/graphql',

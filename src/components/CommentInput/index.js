@@ -6,6 +6,8 @@ import MessageIcon from '@material-ui/icons/Message';
 import firebase from "../../firebase";
 import ShowSnackbar from "../ShowSnackbar";
 import {AuthContext} from "../../App";
+import {ApolloClient, gql, InMemoryCache} from "@apollo/client";
+const {REACT_APP_API_URL} = process.env;
 
 const CommentInput = (props) => {
     const componentClasses = useStyles();
@@ -18,10 +20,41 @@ const CommentInput = (props) => {
         e.preventDefault();
 
         if (comment !== "") {
+            const client = new ApolloClient({
+                uri: `${REACT_APP_API_URL}/graphql`,
+                cache: new InMemoryCache()
+            });
+
+            let doc1 = await client
+            .query({
+                query: gql`
+                    query {
+                        matches {
+                            game {
+                                name
+                            }
+                            players {
+                                name
+                            }
+                        }
+                    }
+                `
+            })
+            .then(result => {
+                return result.data.matches;
+            })
+            .catch(result => {
+                alert("Sorry but we have internal server erro");
+                console.log(result);
+            });
+
+            console.log(doc1);
+
             const matchesRef = await firebase.firestore()
                 .collection("matches")
                 .doc(props.match);
             const doc = await matchesRef.get();
+            console.log(doc);
 
             let arrComment;
             if (doc.data().comments) {

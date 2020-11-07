@@ -2,6 +2,9 @@
   "name": "ludo-app",
   "version": "0.1.0",
   "private": true,
+  "author": "João Gabriel dos Santos Rodrigues",
+  "license": "MIT",
+  "description": "Project to build social network for boardgames, register matches and challenge yourself in search of achievements",
   "dependencies": {
     "@apollo/client": "^3.2.5",
     "@material-ui/core": "^4.11.0",

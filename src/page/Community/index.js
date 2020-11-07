@@ -12,7 +12,6 @@ import PersonAvatar from "../../components/PersonAvatar";
 import CommentInput from "../../components/CommentInput";
 import {ApolloClient, InMemoryCache} from '@apollo/client';
 import {gql} from '@apollo/client';
-import dotenv from 'dotenv';
 const { REACT_APP_API_URL } = process.env;
 
 const Community = () => {

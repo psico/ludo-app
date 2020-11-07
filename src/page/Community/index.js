@@ -13,7 +13,7 @@ import CommentInput from "../../components/CommentInput";
 import {ApolloClient, InMemoryCache} from '@apollo/client';
 import {gql} from '@apollo/client';
 import dotenv from 'dotenv';
-
+const { REACT_APP_API_URL } = process.env;
 
 const Community = () => {
         const componentClasses = useStyles();
@@ -22,7 +22,7 @@ const Community = () => {
 
         const communityListItems = () => {
             const env = dotenv.config().parsed;
-            console.log(env);
+            console.log(REACT_APP_API_URL);
 
 
             const client = new ApolloClient({

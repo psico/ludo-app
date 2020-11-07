@@ -21,10 +21,6 @@ const Community = () => {
         const [communityList, setCommumnityList] = useState();
 
         const communityListItems = () => {
-            const env = dotenv.config().parsed;
-            console.log(REACT_APP_API_URL);
-
-
             const client = new ApolloClient({
                 uri: `${REACT_APP_API_URL}/graphql`,
                 cache: new InMemoryCache()

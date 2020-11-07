@@ -26,7 +26,7 @@ const Community = () => {
 
 
             const client = new ApolloClient({
-                uri: 'http://localhost:8080/graphql',
+                uri: `${REACT_APP_API_URL}/graphql`,
                 cache: new InMemoryCache()
             });
 

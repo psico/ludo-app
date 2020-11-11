@@ -20,64 +20,63 @@ const CommentInput = (props) => {
         e.preventDefault();
 
         if (comment !== "") {
-            const client = new ApolloClient({
-                uri: `${REACT_APP_API_URL}/graphql`,
-                cache: new InMemoryCache()
-            });
 
-            let doc1 = await client
-            .query({
-                query: gql`
-                    query {
-                        matches {
-                            game {
-                                name
-                            }
-                            players {
-                                name
-                            }
-                        }
-                    }
-                `
-            })
-            .then(result => {
-                return result.data.matches;
-            })
-            .catch(result => {
-                alert("Sorry but we have internal server erro");
-                console.log(result);
-            });
 
-            console.log(doc1);
+            // const client = new ApolloClient({
+            //     uri: `${REACT_APP_API_URL}/graphql`,
+            //     cache: new InMemoryCache()
+            // });
+            //
+            // let doc1 = await client
+            // .query({
+            //     mutation: gql`
+            //         mutation createMatch($comment: CommentInput){
+            //             createComment(comment:$comment) {
+            //                 uid
+            //                 name
+            //                 comment
+            //             }
+            //         }
+            //     `
+            // })
+            // .then(result => {
+            //     return result.data.matches;
+            // })
+            // .catch(result => {
+            //     alert("Sorry but we have internal server erro");
+            //     console.log(result);
+            // });
 
-            const matchesRef = await firebase.firestore()
-                .collection("matches")
-                .doc(props.match);
-            const doc = await matchesRef.get();
-            console.log(doc);
-
-            let arrComment;
-            if (doc.data().comments) {
-                arrComment = [
-                    ...doc.data().comments,
-                    {
-                        uid: userInfo.uid,
-                        name: userInfo.displayName,
-                        comment: comment
-                    }
-                ];
-            } else {
-                arrComment = [{
-                    uid: userInfo.uid,
-                    name: userInfo.displayName,
-                    comment: comment
-                }];
-            }
-
-            await matchesRef.set({
-                ...doc.data(),
-                comments: arrComment
-            });
+            // console.log(doc1);
+            //
+            // const matchesRef = await firebase.firestore()
+            //     .collection("matches")
+            //     .doc(props.match);
+            // const doc = await matchesRef.get();
+            // console.log(doc);
+            //
+            // let arrComment;
+            // if (doc.data().comments) {
+            //     arrComment = [
+            //         ...doc.data().comments,
+            //         {
+            //             uid: userInfo.uid,
+            //             name: userInfo.displayName,
+            //             comment: comment
+            //         }
+            //     ];
+            // } else {
+            //     arrComment = [{
+            //         uid: userInfo.uid,
+            //         name: userInfo.displayName,
+            //         comment: comment
+            //     }];
+            // }
+            //
+            // await matchesRef.set({
+            //     ...doc.data(),
+            //     comments: arrComment
+            // });
 
             snackbarRef.current.handleClick(t('comment-saved'), 'success');
             setComment("");

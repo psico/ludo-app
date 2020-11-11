@@ -10,21 +10,44 @@ import UserAvatar from "../../components/UserAvatar";
 import Comments from "../../components/Comments";
 import PersonAvatar from "../../components/PersonAvatar";
 import CommentInput from "../../components/CommentInput";
-import {ApolloClient, InMemoryCache} from '@apollo/client';
-import {gql} from '@apollo/client';
+// import {ApolloClient, InMemoryCache} from '@apollo/client';
+// import {gql} from '@apollo/client';
+import gql from 'graphql-tag';
+// import { Query } from 'react-apollo';
 
 const { REACT_APP_API_URL } = process.env;
 
-const Community = () => {
+const Community = ({ client, component }) => {
         const componentClasses = useStyles();
         const {t} = useTranslation();
         const [communityList, setCommumnityList] = useState();
 
         const communityListItems = () => {
-            const client = new ApolloClient({
-                uri: `${REACT_APP_API_URL}/graphql`,
-                cache: new InMemoryCache()
-            });
+            // const GET_REPOSITORIES_OF_ORGANIZATION = gql`
+            //     {
+            //         organization(login: "the-road-to-learn-react") {
+            //             repositories(first: 20) {
+            //                 edges {
+            //                     node {
+            //                         id
+            //                         name
+            //                         url
+            //                         viewerHasStarred
+            //                     }
+            //                 }
+            //             }
+            //         }
+            //     }
+            // `;
+
+
+            // const client = new ApolloClient({
+            //     uri: `${REACT_APP_API_URL}/graphql`,
+            //     cache: new InMemoryCache()
+            // });
+            //
+
+            console.log(client);
 
             return client
             .query({

@@ -10,9 +10,10 @@ import UserAvatar from "../../components/UserAvatar";
 import Comments from "../../components/Comments";
 import PersonAvatar from "../../components/PersonAvatar";
 import CommentInput from "../../components/CommentInput";
+import makeApolloClient from '../../apollo';
 // import {ApolloClient, InMemoryCache} from '@apollo/client';
-// import {gql} from '@apollo/client';
-import gql from 'graphql-tag';
+import {gql} from '@apollo/client';
+// import gql from 'graphql-tag';
 // import { Query } from 'react-apollo';
 
 const { REACT_APP_API_URL } = process.env;
@@ -47,7 +48,8 @@ const Community = ({ client, component }) => {
             // });
             //
 
-            console.log(client);
+            // console.log(client);
+            const client = makeApolloClient();
 
             return client
             .query({

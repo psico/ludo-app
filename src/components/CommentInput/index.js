@@ -3,14 +3,10 @@ import useStyles from "./css";
 import {useTranslation} from "react-i18next";
 import Input from '@material-ui/core/Input';
 import MessageIcon from '@material-ui/icons/Message';
-import firebase from "../../firebase";
 import ShowSnackbar from "../ShowSnackbar";
 import {AuthContext} from "../../App";
-import {ApolloClient, gql, InMemoryCache} from "@apollo/client";
+import {gql} from "@apollo/client";
 import makeApolloClient from '../../apollo';
-// import {gql} from '@apollo/client';
-
-const {REACT_APP_API_URL} = process.env;
 
 const CommentInput = (props) => {
     const componentClasses = useStyles();
@@ -23,16 +19,9 @@ const CommentInput = (props) => {
         e.preventDefault();
 
         if (comment !== "") {
-
-
-            // const client = new ApolloClient({
-            //     uri: `${REACT_APP_API_URL}/graphql`,
-            //     cache: new InMemoryCache()
-            // });
-            //
             const client = makeApolloClient();
             let doc1 = await client
-            .query({
+            .mutate({
                 mutation: gql`
                     mutation createMatch($comment: CommentInput){
                         createComment(comment:$comment) {

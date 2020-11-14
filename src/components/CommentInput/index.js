@@ -7,6 +7,9 @@ import firebase from "../../firebase";
 import ShowSnackbar from "../ShowSnackbar";
 import {AuthContext} from "../../App";
 import {ApolloClient, gql, InMemoryCache} from "@apollo/client";
+import makeApolloClient from '../../apollo';
+// import {gql} from '@apollo/client';
+
 const {REACT_APP_API_URL} = process.env;
 
 const CommentInput = (props) => {
@@ -27,27 +30,28 @@ const CommentInput = (props) => {
             //     cache: new InMemoryCache()
             // });
             //
-            // let doc1 = await client
-            // .query({
-            //     mutation: gql`
-            //         mutation createMatch($comment: CommentInput){
-            //             createComment(comment:$comment) {
-            //                 uid
-            //                 name
-            //                 comment
-            //             }
-            //         }
-            //     `
-            // })
-            // .then(result => {
-            //     return result.data.matches;
-            // })
-            // .catch(result => {
-            //     alert("Sorry but we have internal server erro");
-            //     console.log(result);
-            // });
+            const client = makeApolloClient();
+            let doc1 = await client
+            .query({
+                mutation: gql`
+                    mutation createMatch($comment: CommentInput){
+                        createComment(comment:$comment) {
+                            uid
+                            name
+                            comment
+                        }
+                    }
+                `
+            })
+            .then(result => {
+                return result.data.matches;
+            })
+            .catch(result => {
+                alert("Sorry but we have internal server erro");
+                console.log(result);
+            });
 
-            // console.log(doc1);
+            console.log(doc1);
             //
             // const matchesRef = await firebase.firestore()
             //     .collection("matches")

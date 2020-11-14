@@ -8,9 +8,10 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import routes from "./routes";
 import protectedRoutes from "./protectedRoutes";
-import {ApolloClient} from "apollo-client";
-import {InMemoryCache} from "apollo-cache-inmemory";
-import {HttpLink} from "apollo-link-http";
+// import makeApolloClient from '../apollo';
+// import {ApolloClient} from "apollo-client";
+// import {InMemoryCache} from "apollo-cache-inmemory";
+// import {HttpLink} from "apollo-link-http";
 
 
 export const AuthContext = React.createContext({
@@ -26,18 +27,19 @@ const App = () => {
     const [userInfo, setUserInfo] = useState(false);
     const classes = useStyles();
 
-    const { REACT_APP_API_URL } = process.env;
-    const cache = new InMemoryCache();
-    const GITHUB_BASE_URL = `${REACT_APP_API_URL}/graphql`
+    // const { REACT_APP_API_URL } = process.env;
+    // const cache = new InMemoryCache();
+    // const GITHUB_BASE_URL = `${REACT_APP_API_URL}/graphql`
 
-    const httpLink = new HttpLink({
-        uri: GITHUB_BASE_URL,
-    });
+    // const httpLink = new HttpLink({
+    //     uri: GITHUB_BASE_URL,
+    // });
 
-    const client = new ApolloClient({
-        link: httpLink,
-        cache,
-    });
+    // const client = new ApolloClient({
+    //     link: httpLink,
+    //     cache,
+    // });
+    // console.log(client);
 
     return (
         <AuthContext.Provider value={{userInfo, setUserInfo}}>

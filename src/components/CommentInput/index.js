@@ -33,7 +33,7 @@ const CommentInput = (props) => {
                 variables: {
                     comment: {
                         "uid": userInfo.uid,
-                        "matchId": "0PBMQ61uXloiS8AnpCFp",
+                        "matchId": props.match,
                         "comment": comment
                     }
                 }

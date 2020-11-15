@@ -5,8 +5,8 @@ import Input from '@material-ui/core/Input';
 import MessageIcon from '@material-ui/icons/Message';
 import ShowSnackbar from "../ShowSnackbar";
 import {AuthContext} from "../../App";
-import {gql} from "@apollo/client";
-import makeApolloClient from '../../apollo';
+// import {gql} from "@apollo/client";
+// import makeApolloClient, { useMutation } from '../../apollo';
 
 const CommentInput = (props) => {
     const componentClasses = useStyles();
@@ -15,32 +15,52 @@ const CommentInput = (props) => {
     const snackbarRef = React.createRef();
     const [comment, setComment] = useState("");
 
+    // const ADD_TODO = gql`
+    //     mutation createMatch($comment: CommentInput){
+    //         createComment(comment:$comment) {
+    //             uid
+    //             name
+    //             comment
+    //         }
+    //     }
+    // `;
+    // const [addTodo, { data }] = useMutation(ADD_TODO);
+
+
     const handleForm = async e => {
         e.preventDefault();
 
+        console.log(props);
+        console.log(props.match);
         if (comment !== "") {
-            const client = makeApolloClient();
-            let doc1 = await client
-            .mutate({
-                mutation: gql`
-                    mutation createMatch($comment: CommentInput){
-                        createComment(comment:$comment) {
-                            uid
-                            name
-                            comment
-                        }
-                    }
-                `
-            })
-            .then(result => {
-                return result.data.matches;
-            })
-            .catch(result => {
-                alert("Sorry but we have internal server erro");
-                console.log(result);
-            });
+            // const client = makeApolloClient();
+            // let doc1 = await client
+            // .mutate({
+            //     mutation: gql`
+            //         mutation createMatch($comment: CommentInput){
+            //             createComment(comment:$comment) {
+            //                 uid
+            //                 name
+            //                 comment
+            //             }
+            //         }
+            //     `
+            // })
+            // .then(result => {
+            //     return result.data.matches;
+            // })
+            // .catch(result => {
+            //     alert("Sorry but we have internal server erro");
+            //     console.log(result);
+            // });
 
-            console.log(doc1);
+
+
+
+
+            // await addTodo({variables: {comment: comment}});
+
+            // console.log(addTodo);
             //
             // const matchesRef = await firebase.firestore()
             //     .collection("matches")

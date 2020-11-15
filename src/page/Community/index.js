@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import useStyles from "./css";
 import Grid from '@material-ui/core/Grid';
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
@@ -10,47 +10,84 @@ import UserAvatar from "../../components/UserAvatar";
 import Comments from "../../components/Comments";
 import PersonAvatar from "../../components/PersonAvatar";
 import CommentInput from "../../components/CommentInput";
-import makeApolloClient from '../../apollo';
-import {gql} from '@apollo/client';
+import {AuthContext} from "../../App";
+import {useQuery, gql} from "@apollo/client";
+// import makeApolloClient from '../../apollo';
+// import {gql} from '@apollo/client';
 
-const Community = ({ client, component }) => {
+const EXCHANGE_RATES = gql`
+    query {
+        matches {
+            game {
+                name
+            }
+            players {
+                name
+            }
+        }
+    }
+`;
+
+function Community() {
         const componentClasses = useStyles();
         const {t} = useTranslation();
+        const { loading, error, data } = useQuery(EXCHANGE_RATES);
         const [communityList, setCommumnityList] = useState();
 
         const communityListItems = () => {
-            const client = makeApolloClient();
+            // const client = makeApolloClient();
 
-            return client
-            .query({
-                query: gql`
-                    query {
-                        matches {
-                            game {
-                                name
-                            }
-                            players {
-                                name
-                            }
-                        }
-                    }
-                `
-            })
-            .then(result => {
-                return result.data.matches;
-            })
-            .catch(result => {
-                alert("Sorry but we have internal server erro");
-                console.log(result);
-            });
+
+            // if (loading) return <p>Loading...</p>;
+            // if (error) return <p>Error :(</p>;
+
+            // console.log(data);
+            //
+            // return data;
+        //     return client
+        //     .query({
+        //         query: gql`
+        //             query {
+        //                 matches {
+        //                     game {
+        //                         name
+        //                     }
+        //                     players {
+        //                         name
+        //                     }
+        //                 }
+        //             }
+        //         `
+        //     })
+        //     .then(result => {
+        //         return result.data.matches;
+        //     })
+        //     .catch(result => {
+        //         alert("Sorry but we have internal server erro");
+        //         console.log(result);
+        //     });
         };
 
         useEffect(() => {
-            communityListItems().then(data => {
-                setCommumnityList(data);
-            });
-        }, [setCommumnityList]);
-
+            if (loading) return ;
+            if (error) return ;
+            console.log(data.matches);
+            setCommumnityList(data.matches);
+            // communityListItems().then(data => {
+            //     setCommumnityList(data);
+            // });
+        }, [data,setCommumnityList]);
+    // if (loading) return <p>Loading...</p>;
+    // if (error) return <p>Error :(</p>;
+    // console.log(data);
+    // setCommumnityList(data);
+    // return data.matches.map((data) => (
+    //     <div>
+    //         <p>
+    //             {console.log(data)}
+    //         </p>
+    //     </div>
+    // ));
         return (
             <div className={componentClasses.root}>
                 {communityList &&

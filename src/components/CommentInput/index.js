@@ -7,6 +7,17 @@ import ShowSnackbar from "../ShowSnackbar";
 import {AuthContext} from "../../App";
 // import {gql} from "@apollo/client";
 // import makeApolloClient, { useMutation } from '../../apollo';
+import {useMutation, gql} from "@apollo/client";
+
+const graphql = gql`
+    mutation createMatch($comment: CommentInput){
+        createComment(comment:$comment) {
+            uid
+            name
+            comment
+        }
+    }
+`;
 
 const CommentInput = (props) => {
     const componentClasses = useStyles();
@@ -14,6 +25,10 @@ const CommentInput = (props) => {
     const {userInfo} = useContext(AuthContext);
     const snackbarRef = React.createRef();
     const [comment, setComment] = useState("");
+    // const { loading, error, data } = useMutation(graphql);
+    const [addComment, { data }] = useMutation(graphql);
+
+
 
     // const ADD_TODO = gql`
     //     mutation createMatch($comment: CommentInput){
@@ -32,7 +47,13 @@ const CommentInput = (props) => {
 
         console.log(props);
         console.log(props.match);
+        console.log(comment);
         if (comment !== "") {
+            addComment({ variables: { comment: {
+                        "uid": userInfo.uid,
+                        "matchId": "0PBMQ61uXloiS8AnpCFp",
+                        "comment": comment
+                    } } });
             // const client = makeApolloClient();
             // let doc1 = await client
             // .mutate({

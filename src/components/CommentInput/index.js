@@ -5,8 +5,6 @@ import Input from '@material-ui/core/Input';
 import MessageIcon from '@material-ui/icons/Message';
 import ShowSnackbar from "../ShowSnackbar";
 import {AuthContext} from "../../App";
-// import {gql} from "@apollo/client";
-// import makeApolloClient, { useMutation } from '../../apollo';
 import {useMutation, gql} from "@apollo/client";
 
 const graphql = gql`
@@ -25,92 +23,21 @@ const CommentInput = (props) => {
     const {userInfo} = useContext(AuthContext);
     const snackbarRef = React.createRef();
     const [comment, setComment] = useState("");
-    // const { loading, error, data } = useMutation(graphql);
-    const [addComment, { data }] = useMutation(graphql);
-
-
-
-    // const ADD_TODO = gql`
-    //     mutation createMatch($comment: CommentInput){
-    //         createComment(comment:$comment) {
-    //             uid
-    //             name
-    //             comment
-    //         }
-    //     }
-    // `;
-    // const [addTodo, { data }] = useMutation(ADD_TODO);
-
+    const [addComment, {data}] = useMutation(graphql);
 
     const handleForm = async e => {
         e.preventDefault();
 
-        console.log(props);
-        console.log(props.match);
-        console.log(comment);
         if (comment !== "") {
-            addComment({ variables: { comment: {
+            addComment({
+                variables: {
+                    comment: {
                         "uid": userInfo.uid,
                         "matchId": "0PBMQ61uXloiS8AnpCFp",
                         "comment": comment
-                    } } });
-            // const client = makeApolloClient();
-            // let doc1 = await client
-            // .mutate({
-            //     mutation: gql`
-            //         mutation createMatch($comment: CommentInput){
-            //             createComment(comment:$comment) {
-            //                 uid
-            //                 name
-            //                 comment
-            //             }
-            //         }
-            //     `
-            // })
-            // .then(result => {
-            //     return result.data.matches;
-            // })
-            // .catch(result => {
-            //     alert("Sorry but we have internal server erro");
-            //     console.log(result);
-            // });
-
-
-
-
-
-            // await addTodo({variables: {comment: comment}});
-
-            // console.log(addTodo);
-            //
-            // const matchesRef = await firebase.firestore()
-            //     .collection("matches")
-            //     .doc(props.match);
-            // const doc = await matchesRef.get();
-            // console.log(doc);
-            //
-            // let arrComment;
-            // if (doc.data().comments) {
-            //     arrComment = [
-            //         ...doc.data().comments,
-            //         {
-            //             uid: userInfo.uid,
-            //             name: userInfo.displayName,
-            //             comment: comment
-            //         }
-            //     ];
-            // } else {
-            //     arrComment = [{
-            //         uid: userInfo.uid,
-            //         name: userInfo.displayName,
-            //         comment: comment
-            //     }];
-            // }
-            //
-            // await matchesRef.set({
-            //     ...doc.data(),
-            //     comments: arrComment
-            // });
+                    }
+                }
+            });
 
             snackbarRef.current.handleClick(t('comment-saved'), 'success');
             setComment("");

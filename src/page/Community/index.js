@@ -12,7 +12,7 @@ import PersonAvatar from "../../components/PersonAvatar";
 import CommentInput from "../../components/CommentInput";
 import {useQuery, gql} from "@apollo/client";
 
-const EXCHANGE_RATES = gql`
+const graphql = gql`
     query {
         matches {
             game {
@@ -28,13 +28,12 @@ const EXCHANGE_RATES = gql`
 function Community() {
         const componentClasses = useStyles();
         const {t} = useTranslation();
-        const { loading, error, data } = useQuery(EXCHANGE_RATES);
+        const { loading, error, data } = useQuery(graphql);
         const [communityList, setCommumnityList] = useState();
 
         useEffect(() => {
             if (loading) return ;
             if (error) return ;
-            console.log(data.matches);
             setCommumnityList(data.matches);
         }, [data,setCommumnityList]);
 

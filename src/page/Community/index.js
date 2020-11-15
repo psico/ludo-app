@@ -15,6 +15,7 @@ import {useQuery, gql} from "@apollo/client";
 const graphql = gql`
     query {
         matches {
+            docId
             game {
                 name
             }

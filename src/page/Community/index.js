@@ -10,10 +10,7 @@ import UserAvatar from "../../components/UserAvatar";
 import Comments from "../../components/Comments";
 import PersonAvatar from "../../components/PersonAvatar";
 import CommentInput from "../../components/CommentInput";
-import {AuthContext} from "../../App";
 import {useQuery, gql} from "@apollo/client";
-// import makeApolloClient from '../../apollo';
-// import {gql} from '@apollo/client';
 
 const EXCHANGE_RATES = gql`
     query {
@@ -34,60 +31,13 @@ function Community() {
         const { loading, error, data } = useQuery(EXCHANGE_RATES);
         const [communityList, setCommumnityList] = useState();
 
-        const communityListItems = () => {
-            // const client = makeApolloClient();
-
-
-            // if (loading) return <p>Loading...</p>;
-            // if (error) return <p>Error :(</p>;
-
-            // console.log(data);
-            //
-            // return data;
-        //     return client
-        //     .query({
-        //         query: gql`
-        //             query {
-        //                 matches {
-        //                     game {
-        //                         name
-        //                     }
-        //                     players {
-        //                         name
-        //                     }
-        //                 }
-        //             }
-        //         `
-        //     })
-        //     .then(result => {
-        //         return result.data.matches;
-        //     })
-        //     .catch(result => {
-        //         alert("Sorry but we have internal server erro");
-        //         console.log(result);
-        //     });
-        };
-
         useEffect(() => {
             if (loading) return ;
             if (error) return ;
             console.log(data.matches);
             setCommumnityList(data.matches);
-            // communityListItems().then(data => {
-            //     setCommumnityList(data);
-            // });
         }, [data,setCommumnityList]);
-    // if (loading) return <p>Loading...</p>;
-    // if (error) return <p>Error :(</p>;
-    // console.log(data);
-    // setCommumnityList(data);
-    // return data.matches.map((data) => (
-    //     <div>
-    //         <p>
-    //             {console.log(data)}
-    //         </p>
-    //     </div>
-    // ));
+
         return (
             <div className={componentClasses.root}>
                 {communityList &&

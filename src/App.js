@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import routes from "./routes";
 import protectedRoutes from "./protectedRoutes";
+import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 
 export const AuthContext = React.createContext({
     displayName: null,
@@ -22,46 +23,54 @@ const App = () => {
     const [userInfo, setUserInfo] = useState(false);
     const classes = useStyles();
 
+    const { REACT_APP_API_URL } = process.env;
+    const client = new ApolloClient({
+        uri: `${REACT_APP_API_URL}/graphql`,
+        cache: new InMemoryCache()
+    });
+
     return (
         <AuthContext.Provider value={{userInfo, setUserInfo}}>
-            <BrowserRouter>
-                <Grid container className={classes.root}>
-                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                        <Header/>
-                    </Grid>
-                    <Grid container
-                          direction="column"
-                          justify="center"
-                          alignItems="center">
+            <ApolloProvider client={client}>
+                <BrowserRouter>
+                    <Grid container className={classes.root}>
                         <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                            <Switch>
-                                {protectedRoutes.map(route => (
-                                    <ProtectedRouteHoc
-                                        key={route.path}
-                                        isLoggedIn={userInfo.isLoggedIn}
-                                        path={route.path}
-                                        component={route.main}
-                                        exact={route.exact}
-                                        public={route.public}
-                                    />
-                                ))}
-                                {routes.map(route => (
-                                    <Route
-                                        key={route.path}
-                                        path={route.path}
-                                        exact={route.exact}
-                                        component={route.main}
-                                    />
-                                ))}
-                            </Switch>
+                            <Header/>
+                        </Grid>
+                        <Grid container
+                              direction="column"
+                              justify="center"
+                              alignItems="center">
+                            <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                                <Switch>
+                                    {protectedRoutes.map(route => (
+                                        <ProtectedRouteHoc
+                                            key={route.path}
+                                            isLoggedIn={userInfo.isLoggedIn}
+                                            path={route.path}
+                                            component={route.main}
+                                            exact={route.exact}
+                                            public={route.public}
+                                        />
+                                    ))}
+                                    {routes.map(route => (
+                                        <Route
+                                            key={route.path}
+                                            path={route.path}
+                                            exact={route.exact}
+                                            component={route.main}
+                                        />
+                                    ))}
+                                </Switch>
+                            </Grid>
+                        </Grid>
+                        <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={classes.footer}>
+                            <Footer/>
                         </Grid>
                     </Grid>
-                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={classes.footer}>
-                        <Footer/>
-                    </Grid>
-                </Grid>
-            </BrowserRouter>
+                </BrowserRouter>
 
+            </ApolloProvider>
         </AuthContext.Provider>
     );
 };

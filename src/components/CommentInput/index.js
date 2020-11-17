@@ -17,7 +17,7 @@ const graphql = gql`
     }
 `;
 
-const CommentInput = (props) => {
+const CommentInput = ({matchId}) => {
     const componentClasses = useStyles();
     const {t} = useTranslation();
     const {userInfo} = useContext(AuthContext);
@@ -29,11 +29,13 @@ const CommentInput = (props) => {
         e.preventDefault();
 
         if (comment !== "") {
+            console.log(matchId);
+
             addComment({
                 variables: {
                     comment: {
                         "uid": userInfo.uid,
-                        "matchId": props.match,
+                        "matchId": matchId,
                         "comment": comment
                     }
                 }

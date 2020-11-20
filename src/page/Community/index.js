@@ -36,7 +36,7 @@ function Community() {
             if (loading) return ;
             if (error) return ;
             setCommumnityList(data.matches);
-        }, [data,setCommumnityList]);
+        }, [data, error, loading, setCommumnityList]);
 
         return (
             <div className={componentClasses.root}>

@@ -34,7 +34,7 @@ const graphql = gql`
 function Community() {
         const componentClasses = useStyles();
         const {t} = useTranslation();
-        const { loading, error, data } = useQuery(graphql,{
+        const { loading, error, data, refetch } = useQuery(graphql,{
             pollInterval: 500,
         });
         const [communityList, setCommumnityList] = useState();

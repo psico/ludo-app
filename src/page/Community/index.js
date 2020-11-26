@@ -34,12 +34,13 @@ const graphql = gql`
 function Community() {
         const componentClasses = useStyles();
         const {t} = useTranslation();
-        const { loading, error, data } = useQuery(graphql);
+        const { loading, error, data, refetch } = useQuery(graphql);
         const [communityList, setCommumnityList] = useState();
 
         useEffect(() => {
             if (loading) return ;
             if (error) return ;
+            refetch();
             setCommumnityList(data.matches);
         }, [data, error, loading, setCommumnityList]);
 

@@ -40,6 +40,7 @@ function Community() {
         const [communityList, setCommumnityList] = useState();
 
         useEffect(() => {
+            refetch();
             if (loading) return ;
             if (error) return ;
             setCommumnityList(data.matches);

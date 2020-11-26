@@ -23,7 +23,7 @@ const CommentInput = ({matchId}) => {
     const {userInfo} = useContext(AuthContext);
     const snackbarRef = React.createRef();
     const [comment, setComment] = useState("");
-    const [addComment] = useMutation(graphql);
+    const [addComment, {data}] = useMutation(graphql);
 
     const handleForm = async e => {
         e.preventDefault();

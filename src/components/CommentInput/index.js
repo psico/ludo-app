@@ -29,8 +29,6 @@ const CommentInput = ({matchId}) => {
         e.preventDefault();
 
         if (comment !== "") {
-            console.log(matchId);
-
             addComment({
                 variables: {
                     comment: {

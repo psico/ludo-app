@@ -35,6 +35,7 @@ function Community() {
         const componentClasses = useStyles();
         const {t} = useTranslation();
         const { loading, error, data, refetch } = useQuery(graphql,{
+            fetchPolicy: "network-only",
             pollInterval: 500,
         });
         const [communityList, setCommumnityList] = useState();
@@ -44,7 +45,7 @@ function Community() {
             if (loading) return ;
             if (error) return ;
             setCommumnityList(data.matches);
-        }, [data, error, loading, setCommumnityList]);
+        }, [data, error, loading, setCommumnityList, refetch]);
 
         return (
             <div className={componentClasses.root}>

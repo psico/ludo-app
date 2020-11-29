@@ -8,6 +8,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import routes from "./routes";
 import protectedRoutes from "./protectedRoutes";
+import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
+import {createHttpLink} from "apollo-link-http";
 
 export const AuthContext = React.createContext({
     displayName: null,
@@ -18,12 +20,23 @@ export const AuthContext = React.createContext({
     isLoggedIn: false
 });
 
+const { REACT_APP_API_URL } = process.env;
+const httpLink = createHttpLink({
+    uri: `${REACT_APP_API_URL}/graphql`
+})
+
+const client = new ApolloClient({
+    link: httpLink,
+    cache: new InMemoryCache()
+})
+
 const App = () => {
     const [userInfo, setUserInfo] = useState(false);
     const classes = useStyles();
 
     return (
         <AuthContext.Provider value={{userInfo, setUserInfo}}>
+            <ApolloProvider client={client}>
                 <BrowserRouter>
                     <Grid container className={classes.root}>
                         <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
@@ -62,6 +75,7 @@ const App = () => {
                     </Grid>
                 </BrowserRouter>
 
+            </ApolloProvider>
         </AuthContext.Provider>
     );
 };

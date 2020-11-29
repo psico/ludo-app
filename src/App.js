@@ -25,7 +25,7 @@ const httpLink = createHttpLink({
     uri: `${REACT_APP_API_URL}/graphql`
 })
 
-const client = new ApolloClient({
+export const client = new ApolloClient({
     link: httpLink,
     cache: new InMemoryCache()
 })

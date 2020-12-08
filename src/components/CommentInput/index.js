@@ -29,7 +29,7 @@ const CommentInput = ({matchId}) => {
         e.preventDefault();
 
         if (comment !== "") {
-            const  result = await addComment({
+            addComment({
                 variables: {
                     commentInput: {
                         "uid": userInfo.uid,
@@ -37,9 +37,7 @@ const CommentInput = ({matchId}) => {
                         "comment": comment
                     }
                 }
-            });
-
-            console.log(result);
+            }).then(() => {});
 
             snackbarRef.current.handleClick(t('comment-saved'), 'success');
             setComment("");

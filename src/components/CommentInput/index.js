@@ -29,7 +29,7 @@ const CommentInput = ({matchId}) => {
         e.preventDefault();
 
         if (comment !== "") {
-            addComment({
+            await addComment({
                 variables: {
                     comment: {
                         "uid": userInfo.uid,

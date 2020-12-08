@@ -9,7 +9,7 @@ import {useMutation, gql} from "@apollo/client";
 
 const graphql = gql`
     mutation createMatch($commentInput: CommentInput){
-        createComment(comment:$commentInput) {
+        createComment(commentInput:$commentInput) {
             uid
             name
             comment
@@ -29,15 +29,17 @@ const CommentInput = ({matchId}) => {
         e.preventDefault();
 
         if (comment !== "") {
-            await addComment({
+            const  result = await addComment({
                 variables: {
-                    comment: {
+                    commentInput: {
                         "uid": userInfo.uid,
                         "matchId": matchId,
                         "comment": comment
                     }
                 }
             });
+
+            console.log(result);
 
             snackbarRef.current.handleClick(t('comment-saved'), 'success');
             setComment("");

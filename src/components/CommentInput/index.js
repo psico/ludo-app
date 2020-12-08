@@ -8,8 +8,8 @@ import {AuthContext} from "../../App";
 import {useMutation, gql} from "@apollo/client";
 
 const graphql = gql`
-    mutation createMatch($comment: CommentInput){
-        createComment(comment:$comment) {
+    mutation createMatch($commentInput: CommentInput){
+        createComment(comment:$commentInput) {
             uid
             name
             comment

@@ -15,7 +15,7 @@ import {useQuery, gql} from "@apollo/client";
 const graphql = gql`
     query {
         matches {
-            docId
+            idDoc
             game {
                 name
             }
@@ -95,7 +95,7 @@ function Community() {
                                         <ShareIcon/> Share
                                     </Grid>
                                     <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                                        <CommentInput matchId={value.docId}/>
+                                        <CommentInput matchId={value.idDoc}/>
                                     </Grid>
                                 </Grid>
                             </Grid>

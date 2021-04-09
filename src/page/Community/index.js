@@ -13,7 +13,7 @@ import CommentInput from "../../components/CommentInput";
 import {useQuery, gql} from "@apollo/client";
 
 const graphql = gql`
-    query {
+    query matches{
         matches {
             idDoc
             game {
@@ -34,23 +34,20 @@ const graphql = gql`
 function Community() {
         const componentClasses = useStyles();
         const {t} = useTranslation();
-        const { loading, error, data, refetch } = useQuery(graphql,{
-            fetchPolicy: "network-only",
-            pollInterval: 500,
-        });
-        const [communityList, setCommumnityList] = useState();
+        const { loading, error, data, refetch } = useQuery(graphql);
+        // const [communityList, setCommumnityList] = useState();
 
-        useEffect(() => {
-            refetch();
-            if (loading) return ;
-            if (error) return ;
-            setCommumnityList(data.matches);
-        }, [data, error, loading, setCommumnityList, refetch]);
+        // useEffect(() => {
+        //     refetch();
+        //     if (loading) return ;
+        //     if (error) return ;
+        //     setCommumnityList(data.matches);
+        // }, [data, loading, error, setCommumnityList]);
 
         return (
             <div className={componentClasses.root}>
-                {communityList &&
-                communityList.map((value, index) => {
+                {data &&
+                data.matches.map((value, index) => {
                     return (
                         <Paper className={componentClasses.paper} key={"community_" + index}>
                             <Grid item xs={12} sm={12} md={12} lg={12} xl={12}

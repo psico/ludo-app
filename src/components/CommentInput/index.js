@@ -19,7 +19,7 @@ import {useMutation, gql} from "@apollo/client";
 
 const graphql = gql`
     mutation addComment {
-        addComment(text: "1", idDoc: "1", uid: "1") {
+        addComment(text: comment, idDoc: matchId, uid: uid) {
             players {
                 uid
                 name
@@ -49,7 +49,10 @@ const CommentInput = ({matchId}) => {
             //         }
             //     }
             // }).then(() => {});
-            await addComment(comment, matchId, userInfo.uid).then(() => { });
+            await addComment(comment, matchId, userInfo.uid).then(() => {
+                console.log("======================");
+                console.log(userInfo);
+            });
 
             snackbarRef.current.handleClick(t('comment-saved'), 'success');
             setComment("");

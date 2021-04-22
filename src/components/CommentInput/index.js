@@ -18,8 +18,8 @@ import {useMutation, gql} from "@apollo/client";
 // `;
 
 const graphql = gql`
-    mutation addComment {
-        addComment(text: comment, idDoc: matchId, uid: uid) {
+    mutation addComment($CommentInput: CommentInput){
+        addComment(input:$CommentInput) {
             players {
                 uid
                 name
@@ -27,6 +27,17 @@ const graphql = gql`
         }
     }
 `;
+
+// const graphql = gql`
+//     mutation addComment {
+//         addComment(text: $comment, idDoc: $matchId, uid: $uid) {
+//             players {
+//                 uid
+//                 name
+//             }
+//         }
+//     }
+// `;
 
 const CommentInput = ({matchId}) => {
     const componentClasses = useStyles();
@@ -49,10 +60,19 @@ const CommentInput = ({matchId}) => {
             //         }
             //     }
             // }).then(() => {});
-            await addComment(comment, matchId, userInfo.uid).then(() => {
-                console.log("======================");
-                console.log(userInfo);
-            });
+            addComment({
+                variables: {
+                    CommentInput: {
+                        "uid": userInfo.uid,
+                        "idDoc": matchId,
+                        "text": comment
+                    }
+                }
+            }).then(() => {});
+            // await addComment(comment, matchId, userInfo.uid).then(() => {
+            //     console.log("======================");
+            //     console.log(userInfo);
+            // });
 
             snackbarRef.current.handleClick(t('comment-saved'), 'success');
             setComment("");

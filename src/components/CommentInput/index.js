@@ -19,7 +19,7 @@ import {useMutation, gql} from "@apollo/client";
 
 const graphql = gql`
     mutation addComment($CommentInput: CommentInput){
-        addComment(input:$CommentInput) {
+        addComment(CommentInput:$CommentInput) {
             players {
                 uid
                 name

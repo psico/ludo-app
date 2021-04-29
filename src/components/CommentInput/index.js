@@ -7,16 +7,6 @@ import ShowSnackbar from "../ShowSnackbar";
 import {AuthContext} from "../../App";
 import {useMutation, gql} from "@apollo/client";
 
-// const graphql = gql`
-//     mutation addComment($commentInput: CommentInput){
-//         addComment(commentInput:$commentInput) {
-//             uid
-//             name
-//             comment
-//         }
-//     }
-// `;
-
 const graphql = gql`
     mutation addComment($CommentInput: CommentInput){
         addComment(CommentInput:$CommentInput) {
@@ -27,17 +17,6 @@ const graphql = gql`
         }
     }
 `;
-
-// const graphql = gql`
-//     mutation addComment {
-//         addComment(text: $comment, idDoc: $matchId, uid: $uid) {
-//             players {
-//                 uid
-//                 name
-//             }
-//         }
-//     }
-// `;
 
 const CommentInput = ({matchId}) => {
     const componentClasses = useStyles();
@@ -51,15 +30,6 @@ const CommentInput = ({matchId}) => {
         e.preventDefault();
 
         if (comment !== "") {
-            // addComment({
-            //     variables: {
-            //         commentInput: {
-            //             "uid": userInfo.uid,
-            //             "matchId": matchId,
-            //             "comment": comment
-            //         }
-            //     }
-            // }).then(() => {});
             addComment({
                 variables: {
                     CommentInput: {
@@ -68,11 +38,7 @@ const CommentInput = ({matchId}) => {
                         "text": comment
                     }
                 }
-            }).then(() => {});
-            // await addComment(comment, matchId, userInfo.uid).then(() => {
-            //     console.log("======================");
-            //     console.log(userInfo);
-            // });
+            });
 
             snackbarRef.current.handleClick(t('comment-saved'), 'success');
             setComment("");

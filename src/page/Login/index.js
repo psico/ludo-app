@@ -3,9 +3,9 @@ import useStyles from "./css";
 import Grid from "@material-ui/core/Grid";
 import Button from '@material-ui/core/Button';
 import {AuthContext} from "../../App";
-// import firebase from "../../firebase";
+import firebase from "../../firebase";
 import {withRouter} from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 import LoginGoogle from "../../components/LoginGoogle";
 import LoginFacebook from "../../components/LoginFacebook";
 import LoginTwitter from "../../components/LoginTwitter";
@@ -16,9 +16,13 @@ async function loginUser(credentials) {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(credentials)
-    })
-        .then(data => console.log(data.json()))
+        body: JSON.stringify({
+            user: {
+                name: "John",
+                email: "john@example.com"
+            }
+        })
+    });
 }
 
 const Login = ({history}) => {
@@ -28,19 +32,41 @@ const Login = ({history}) => {
     const [password, setPassword] = useState("");
     const [token, setToken] = useState("");
     const [error, setErrors] = useState("");
-    const { t } = useTranslation();
+    const {t} = useTranslation();
 
     const Auth = useContext(AuthContext);
 
     const handleForm = async e => {
         e.preventDefault();
 
-        e.preventDefault();
-        const token = await loginUser({
+        // const token = await loginUser({
+        //     email,
+        //     password
+        // });
+        // setToken(token);
+
+        loginUser({
             email,
             password
+        }).then(result => {
+            console.log("resultado: ");
+            console.log(result);
+
+            if (!result.user.email.isEmpty) {
+                Auth.setUserInfo({
+                    displayName: result.user.displayName ? result.user.displayName : result.user.email,
+                    email: result.user.email,
+                    emailVerified: result.user.emailVerified,
+                    uid: result.user.uid,
+                    photoURL: result.user.photoURL,
+                    isLoggedIn: true,
+                });
+                setToken(result.user.token);
+                history.push('/community');
+            }
+        }).catch(e => {
+            setErrors(e.message);
         });
-        setToken(token);
 
         // firebase
         //     .auth()
@@ -50,6 +76,9 @@ const Login = ({history}) => {
         //             .auth()
         //             .signInWithEmailAndPassword(email, password)
         //             .then(result => {
+        //                 console.log("resultado: ");
+        //                 console.log(result);
+        //
         //                 if (!result.user.email.isEmpty) {
         //                     Auth.setUserInfo({
         //                         displayName: result.user.displayName ? result.user.displayName : result.user.email,
@@ -100,7 +129,7 @@ const Login = ({history}) => {
                     />
 
                     <Button variant="contained" color="primary" type="submit">{t('login')}</Button>
-                    <Button variant="contained" color="primary" type="button" onClick={(e)=>{
+                    <Button variant="contained" color="primary" type="button" onClick={(e) => {
                         e.preventDefault();
                         history.push('/join');
                     }}>{t('join')}</Button>

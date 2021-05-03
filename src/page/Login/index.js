@@ -11,14 +11,14 @@ import LoginFacebook from "../../components/LoginFacebook";
 import LoginTwitter from "../../components/LoginTwitter";
 
 async function loginUser(credentials) {
-    return fetch('http://localhost:8080/login', {
+    return fetch('http://localhost:4000/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(credentials)
     })
-        .then(data => data.json())
+        .then(data => console.log(data.json()))
 }
 
 const Login = ({history}) => {

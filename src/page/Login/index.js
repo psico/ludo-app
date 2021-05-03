@@ -3,50 +3,69 @@ import useStyles from "./css";
 import Grid from "@material-ui/core/Grid";
 import Button from '@material-ui/core/Button';
 import {AuthContext} from "../../App";
-import firebase from "../../firebase";
+// import firebase from "../../firebase";
 import {withRouter} from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import LoginGoogle from "../../components/LoginGoogle";
 import LoginFacebook from "../../components/LoginFacebook";
 import LoginTwitter from "../../components/LoginTwitter";
 
+async function loginUser(credentials) {
+    return fetch('http://localhost:8080/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(credentials)
+    })
+        .then(data => data.json())
+}
+
 const Login = ({history}) => {
     const componentClasses = useStyles();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [token, setToken] = useState("");
     const [error, setErrors] = useState("");
     const { t } = useTranslation();
 
     const Auth = useContext(AuthContext);
 
-    const handleForm = e => {
+    const handleForm = async e => {
         e.preventDefault();
 
-        firebase
-            .auth()
-            .setPersistence(firebase.auth.Auth.Persistence.SESSION)
-            .then(() => {
-                firebase
-                    .auth()
-                    .signInWithEmailAndPassword(email, password)
-                    .then(result => {
-                        if (!result.user.email.isEmpty) {
-                            Auth.setUserInfo({
-                                displayName: result.user.displayName ? result.user.displayName : result.user.email,
-                                email: result.user.email,
-                                emailVerified: result.user.emailVerified,
-                                uid: result.user.uid,
-                                photoURL: result.user.photoURL,
-                                isLoggedIn: true
-                            });
-                            history.push('/community');
-                        }
-                    })
-                    .catch(e => {
-                        setErrors(e.message);
-                    });
-            });
+        e.preventDefault();
+        const token = await loginUser({
+            email,
+            password
+        });
+        setToken(token);
+
+        // firebase
+        //     .auth()
+        //     .setPersistence(firebase.auth.Auth.Persistence.SESSION)
+        //     .then(() => {
+        //         firebase
+        //             .auth()
+        //             .signInWithEmailAndPassword(email, password)
+        //             .then(result => {
+        //                 if (!result.user.email.isEmpty) {
+        //                     Auth.setUserInfo({
+        //                         displayName: result.user.displayName ? result.user.displayName : result.user.email,
+        //                         email: result.user.email,
+        //                         emailVerified: result.user.emailVerified,
+        //                         uid: result.user.uid,
+        //                         photoURL: result.user.photoURL,
+        //                         isLoggedIn: true
+        //                     });
+        //                     history.push('/community');
+        //                 }
+        //             })
+        //             .catch(e => {
+        //                 setErrors(e.message);
+        //             });
+        //     });
     };
 
     return (

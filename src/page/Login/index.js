@@ -29,7 +29,7 @@ const Login = ({history}) => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [setToken] = useState("");
+    const [token, setToken] = useState("");
     const [error, setErrors] = useState("");
     const {t} = useTranslation();
 

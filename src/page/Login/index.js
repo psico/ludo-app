@@ -3,7 +3,6 @@ import useStyles from "./css";
 import Grid from "@material-ui/core/Grid";
 import Button from '@material-ui/core/Button';
 import {AuthContext} from "../../App";
-// import firebase from "../../firebase";
 import {withRouter} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
 import LoginGoogle from "../../components/LoginGoogle";
@@ -30,7 +29,7 @@ const Login = ({history}) => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [token, setToken] = useState("");
+    const [setToken] = useState("");
     const [error, setErrors] = useState("");
     const {t} = useTranslation();
 
@@ -39,23 +38,10 @@ const Login = ({history}) => {
     const handleForm = async e => {
         e.preventDefault();
 
-        // const token = await loginUser({
-        //     email,
-        //     password
-        // });
-        // setToken(token);
-
         loginUser({
             email,
             password
         }).then(async result => {
-            console.log("resultado: ");
-            console.log(result);
-            // console.log(result.user);
-            // console.log(result.data);
-            // console.log(result.body);
-            // console.log(result.formData());
-
             if (result.user) {
                 Auth.setUserInfo({
                     displayName: result.user.displayName ? result.user.displayName : result.user.email,
@@ -71,34 +57,6 @@ const Login = ({history}) => {
         }).catch(e => {
             setErrors(e.message);
         });
-
-        // firebase
-        //     .auth()
-        //     .setPersistence(firebase.auth.Auth.Persistence.SESSION)
-        //     .then(() => {
-        //         firebase
-        //             .auth()
-        //             .signInWithEmailAndPassword(email, password)
-        //             .then(result => {
-        //                 console.log("resultado: ");
-        //                 console.log(result);
-        //
-        //                 if (!result.user.email.isEmpty) {
-        //                     Auth.setUserInfo({
-        //                         displayName: result.user.displayName ? result.user.displayName : result.user.email,
-        //                         email: result.user.email,
-        //                         emailVerified: result.user.emailVerified,
-        //                         uid: result.user.uid,
-        //                         photoURL: result.user.photoURL,
-        //                         isLoggedIn: true
-        //                     });
-        //                     history.push('/community');
-        //                 }
-        //             })
-        //             .catch(e => {
-        //                 setErrors(e.message);
-        //             });
-        //     });
     };
 
     return (

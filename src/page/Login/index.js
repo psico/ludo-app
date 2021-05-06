@@ -22,7 +22,7 @@ async function loginUser(credentials) {
                 password: credentials.password
             }
         })
-    });
+    }).then(data => data.json());
 }
 
 const Login = ({history}) => {
@@ -48,11 +48,15 @@ const Login = ({history}) => {
         loginUser({
             email,
             password
-        }).then(result => {
+        }).then(async result => {
             console.log("resultado: ");
             console.log(result);
+            // console.log(result.user);
+            // console.log(result.data);
+            // console.log(result.body);
+            // console.log(result.formData());
 
-            if (!result.user.email.isEmpty) {
+            if (result.user) {
                 Auth.setUserInfo({
                     displayName: result.user.displayName ? result.user.displayName : result.user.email,
                     email: result.user.email,

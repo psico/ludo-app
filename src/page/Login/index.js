@@ -29,7 +29,7 @@ const Login = ({history}) => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [token, setToken] = useState("");
+    // const [token, setToken] = useState("");
     const [error, setErrors] = useState("");
     const {t} = useTranslation();
 
@@ -61,7 +61,7 @@ const Login = ({history}) => {
                     isLoggedIn: true,
                     token: result.user.token
                 }));
-                setToken(result.user.token);
+                // setToken(result.user.token);
                 history.push('/community');
             }
         }).catch(e => {

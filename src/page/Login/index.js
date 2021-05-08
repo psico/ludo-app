@@ -50,7 +50,17 @@ const Login = ({history}) => {
                     uid: result.user.uid,
                     photoURL: result.user.photoURL,
                     isLoggedIn: true,
+                    token: result.user.token
                 });
+                localStorage.setItem("userInfo", JSON.stringify({
+                    displayName: result.user.displayName ? result.user.displayName : result.user.email,
+                    email: result.user.email,
+                    emailVerified: result.user.emailVerified,
+                    uid: result.user.uid,
+                    photoURL: result.user.photoURL,
+                    isLoggedIn: true,
+                    token: result.user.token
+                }));
                 setToken(result.user.token);
                 history.push('/community');
             }

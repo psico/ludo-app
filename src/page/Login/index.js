@@ -24,6 +24,16 @@ async function loginUser(credentials) {
     }).then(data => data.json());
 }
 
+export function verifyToken(idToken) {
+    return fetch('http://localhost:4000/verifyToken', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({idToken})
+    }).then(data => data.json());
+}
+
 const Login = ({history}) => {
     const componentClasses = useStyles();
 

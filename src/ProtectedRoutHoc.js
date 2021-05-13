@@ -3,16 +3,15 @@ import {Route, Redirect, withRouter} from 'react-router-dom';
 import {bool, any, object} from 'prop-types';
 
 const ProtectedRouteHoc = ({component: Component, isLoggedIn, ...rest}) => {
-    const storage = JSON.parse(localStorage.getItem("userInfo"));
+    const idToken = localStorage.getItem("idToken");
+    console.log("idtoken", idToken);
 
     fetch('http://localhost:4000/verifyToken', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-            idToken: storage.token
-        })
+        body: JSON.stringify({ idToken })
     }).then(data => data.json())
 
     if (isLoggedIn || rest.public) {

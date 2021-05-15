@@ -34,14 +34,15 @@ export function verifyToken(idToken) {
     }).then(data => data.json());
 }
 
-export function getCurrentUser() {
+export async function getCurrentUser() {
     console.log("Trying to get current user...");
-    return fetch('http://localhost:4000/currentUser', {
+    const data = await fetch('http://localhost:4000/currentUser', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         }
-    }).then(data => data.json());
+    });
+    return data.json();
 }
 
 const Login = ({history}) => {

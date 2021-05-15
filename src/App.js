@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import useStyles from "./css";
 import Grid from '@material-ui/core/Grid';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
@@ -10,6 +10,7 @@ import routes from "./routes";
 import protectedRoutes from "./protectedRoutes";
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 import {createHttpLink} from "apollo-link-http";
+import {getCurrentUser} from "./page/Login";
 
 export const AuthContext = React.createContext({
     displayName: null,
@@ -33,6 +34,25 @@ export const client = new ApolloClient({
 const App = () => {
     const [userInfo, setUserInfo] = useState(false);
     const classes = useStyles();
+
+    const Auth = useContext(AuthContext);
+    console.log("Here -> ", Auth.isLoggedIn);
+    if (!Auth.isLoggedIn) {
+        const result = async () => {
+            const result = await getCurrentUser();
+            if (result) {
+                Auth.setUserInfo({
+                    displayName: result.user.displayName ? result.user.displayName : result.user.email,
+                    email: result.user.email,
+                    emailVerified: result.user.emailVerified,
+                    uid: result.user.uid,
+                    photoURL: result.user.photoURL,
+                    isLoggedIn: true,
+                    token: result.user.token
+                });
+            }
+        };
+    }
 
     return (
         <AuthContext.Provider value={{userInfo, setUserInfo}}>

@@ -35,6 +35,7 @@ export function verifyToken(idToken) {
 }
 
 export function getCurrentUser() {
+    console.log("Trying to get current user...");
     return fetch('http://localhost:4000/currentUser', {
         method: 'POST',
         headers: {

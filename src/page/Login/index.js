@@ -34,6 +34,15 @@ export function verifyToken(idToken) {
     }).then(data => data.json());
 }
 
+export function getCurrentUser() {
+    return fetch('http://localhost:4000/currentUser', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(data => data.json());
+}
+
 const Login = ({history}) => {
     const componentClasses = useStyles();
 
@@ -62,7 +71,7 @@ const Login = ({history}) => {
                     isLoggedIn: true,
                     token: result.user.token
                 });
-                localStorage.setItem("idToken", result.user.token);
+                // localStorage.setItem("idToken", result.user.token);
                 // setToken(result.user.token);
                 history.push('/community');
             }

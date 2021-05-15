@@ -36,7 +36,7 @@ const App = () => {
     const classes = useStyles();
 
     const Auth = useContext(AuthContext);
-    console.log("Here -> ", Auth.isLoggedIn);
+
     if (!Auth.isLoggedIn) {
         const result = async () => {
             const result = await getCurrentUser();

@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import useStyles from "./css";
 import Grid from '@material-ui/core/Grid';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
@@ -10,7 +10,7 @@ import routes from "./routes";
 import protectedRoutes from "./protectedRoutes";
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 import {createHttpLink} from "apollo-link-http";
-// import {getCurrentUser} from "./page/Login";
+import {getCurrentUser} from "./page/Login";
 
 export const AuthContext = React.createContext({
     displayName: null,
@@ -32,7 +32,8 @@ export const client = new ApolloClient({
 })
 
 const App = () => {
-    const [userInfo, setUserInfo] = useState(false);
+    const [userInfo, setUserInfo] = useState();
+    const [state, setState] = useState(false);
     const classes = useStyles();
 
     // const Auth = useContext(AuthContext);
@@ -54,50 +55,87 @@ const App = () => {
     //     };
     // }
 
-    return (
-        <AuthContext.Provider value={{userInfo, setUserInfo}}>
-            <ApolloProvider client={client}>
-                <BrowserRouter>
-                    <Grid container className={classes.root}>
-                        <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                            <Header/>
-                        </Grid>
-                        <Grid container
-                              direction="column"
-                              justify="center"
-                              alignItems="center">
+    // const Auth = useContext(AuthContext);
+    useEffect(() => {
+        // if (!Auth.isLoggedIn) {
+        //     return async () => {
+        console.log("test 000");
+        const result = getCurrentUser().then(result => {
+            if (result) {
+                // Auth.setUserInfo({
+                //     displayName: result.user.displayName ? result.user.displayName : result.user.email,
+                //     email: result.user.email,
+                //     emailVerified: result.user.emailVerified,
+                //     uid: result.user.uid,
+                //     photoURL: result.user.photoURL,
+                //     isLoggedIn: true,
+                //     token: result.user.token
+                // });
+               setUserInfo({
+                    displayName: result.user.displayName ? result.user.displayName : result.user.email,
+                    email: result.user.email,
+                    emailVerified: result.user.emailVerified,
+                    uid: result.user.uid,
+                    photoURL: result.user.photoURL,
+                    isLoggedIn: true,
+                    token: result.user.token
+                });
+            }
+            console.log("aaaadddd ", result);
+        setState(true);
+        });
+        console.log("test ", result);
+    }, [state]);
+console.log("state", state);
+    if(state === false) {
+        return <p>wait a minute</p>;
+    } else {
+        console.log("final");
+        return (
+            <AuthContext.Provider value={{userInfo, setUserInfo}}>
+                <ApolloProvider client={client}>
+                    <BrowserRouter>
+                        <Grid container className={classes.root}>
                             <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                                <Switch>
-                                    {protectedRoutes.map(route => (
-                                        <ProtectedRouteHoc
-                                            key={route.path}
-                                            isLoggedIn={userInfo.isLoggedIn}
-                                            path={route.path}
-                                            component={route.main}
-                                            exact={route.exact}
-                                            public={route.public}
-                                        />
-                                    ))}
-                                    {routes.map(route => (
-                                        <Route
-                                            key={route.path}
-                                            path={route.path}
-                                            exact={route.exact}
-                                            component={route.main}
-                                        />
-                                    ))}
-                                </Switch>
+                                <Header/>
+                            </Grid>
+                            <Grid container
+                                  direction="column"
+                                  justify="center"
+                                  alignItems="center">
+                                <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                                    <Switch>
+                                        {protectedRoutes.map(route => (
+                                            <ProtectedRouteHoc
+                                                key={route.path}
+                                                isLoggedIn={userInfo.isLoggedIn}
+                                                path={route.path}
+                                                component={route.main}
+                                                exact={route.exact}
+                                                public={route.public}
+                                            />
+                                        ))}
+                                        {routes.map(route => (
+                                            <Route
+                                                key={route.path}
+                                                path={route.path}
+                                                exact={route.exact}
+                                                component={route.main}
+                                            />
+                                        ))}
+                                    </Switch>
+                                </Grid>
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={classes.footer}>
+                                <Footer/>
                             </Grid>
                         </Grid>
-                        <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={classes.footer}>
-                            <Footer/>
-                        </Grid>
-                    </Grid>
-                </BrowserRouter>
+                    </BrowserRouter>
 
-            </ApolloProvider>
-        </AuthContext.Provider>
-    );
+                </ApolloProvider>
+            </AuthContext.Provider>
+        );
+    }
 };
 
 export default App;

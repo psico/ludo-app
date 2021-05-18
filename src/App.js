@@ -8,7 +8,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import routes from "./routes";
 import protectedRoutes from "./protectedRoutes";
-import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
+import {ApolloProvider, ApolloClient, InMemoryCache} from '@apollo/client';
 import {createHttpLink} from "apollo-link-http";
 import {getCurrentUser} from "./page/Login";
 
@@ -21,7 +21,7 @@ export const AuthContext = React.createContext({
     isLoggedIn: false
 });
 
-const { REACT_APP_API_URL } = process.env;
+const {REACT_APP_API_URL} = process.env;
 const httpLink = createHttpLink({
     uri: `${REACT_APP_API_URL}/graphql`
 })
@@ -36,42 +36,12 @@ const App = () => {
     const [state, setState] = useState(false);
     const classes = useStyles();
 
-    // const Auth = useContext(AuthContext);
-    //
-    // if (!Auth.isLoggedIn) {
-    //     const result = async () => {
-    //         const result = await getCurrentUser();
-    //         if (result) {
-    //             Auth.setUserInfo({
-    //                 displayName: result.user.displayName ? result.user.displayName : result.user.email,
-    //                 email: result.user.email,
-    //                 emailVerified: result.user.emailVerified,
-    //                 uid: result.user.uid,
-    //                 photoURL: result.user.photoURL,
-    //                 isLoggedIn: true,
-    //                 token: result.user.token
-    //             });
-    //         }
-    //     };
-    // }
-
-    // const Auth = useContext(AuthContext);
     useEffect(() => {
-        // if (!Auth.isLoggedIn) {
-        //     return async () => {
-        console.log("test 000");
+        c
         const result = getCurrentUser().then(result => {
+            console.log("Returning current user");
             if (result) {
-                // Auth.setUserInfo({
-                //     displayName: result.user.displayName ? result.user.displayName : result.user.email,
-                //     email: result.user.email,
-                //     emailVerified: result.user.emailVerified,
-                //     uid: result.user.uid,
-                //     photoURL: result.user.photoURL,
-                //     isLoggedIn: true,
-                //     token: result.user.token
-                // });
-               setUserInfo({
+                setUserInfo({
                     displayName: result.user.displayName ? result.user.displayName : result.user.email,
                     email: result.user.email,
                     emailVerified: result.user.emailVerified,
@@ -81,16 +51,12 @@ const App = () => {
                     token: result.user.token
                 });
             }
-            console.log("aaaadddd ", result);
-        setState(true);
+            setState(true);
         });
-        console.log("test ", result);
     }, [state]);
-console.log("state", state);
-    if(state === false) {
+    if (state === false) {
         return <p>wait a minute</p>;
     } else {
-        console.log("final");
         return (
             <AuthContext.Provider value={{userInfo, setUserInfo}}>
                 <ApolloProvider client={client}>

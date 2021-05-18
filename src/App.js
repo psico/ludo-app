@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import useStyles from "./css";
 import Grid from '@material-ui/core/Grid';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
@@ -37,7 +37,7 @@ const App = () => {
     const classes = useStyles();
 
     useEffect(() => {
-        c
+
         const result = getCurrentUser().then(result => {
             console.log("Returning current user");
             if (result) {

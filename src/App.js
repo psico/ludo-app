@@ -32,15 +32,24 @@ export const client = new ApolloClient({
 })
 
 const App = () => {
-    const [userInfo, setUserInfo] = useState();
+    const [userInfo, setUserInfo] = useState({
+        displayName: null,
+        email: null,
+        emailVerified: null,
+        uid: null,
+        photoURL: null,
+        isLoggedIn: false,
+        token: null
+    });
     const [state, setState] = useState(false);
     const classes = useStyles();
 
     useEffect(() => {
 
         const result = getCurrentUser().then(result => {
-            console.log("Returning current user");
+            console.log("Returning current user", result);
             if (result) {
+                console.log("Returddddddddddr", result);
                 setUserInfo({
                     displayName: result.user.displayName ? result.user.displayName : result.user.email,
                     email: result.user.email,
@@ -51,6 +60,7 @@ const App = () => {
                     token: result.user.token
                 });
             }
+            console.log("ffffffffffffffffffffff", result);
             setState(true);
         });
     }, [state]);

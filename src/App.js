@@ -46,10 +46,9 @@ const App = () => {
 
     useEffect(() => {
 
-        const result = getCurrentUser().then(result => {
+        getCurrentUser().then(result => {
             console.log("Returning current user", result);
             if (result) {
-                console.log("Returddddddddddr", result);
                 setUserInfo({
                     displayName: result.user.displayName ? result.user.displayName : result.user.email,
                     email: result.user.email,
@@ -60,7 +59,6 @@ const App = () => {
                     token: result.user.token
                 });
             }
-            console.log("ffffffffffffffffffffff", result);
             setState(true);
         });
     }, [state]);

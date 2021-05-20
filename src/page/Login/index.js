@@ -42,7 +42,11 @@ export async function getCurrentUser() {
             'Content-Type': 'application/json'
         }
     });
-    return data.json();
+
+    if (data.status === 200) {
+        return data.json();
+    }
+    return null;
 }
 
 const Login = ({history}) => {

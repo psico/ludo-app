@@ -93,8 +93,6 @@ const Login = ({history}) => {
                     isLoggedIn: true,
                     token: result.user.token
                 });
-                // localStorage.setItem("idToken", result.user.token);
-                // setToken(result.user.token);
                 history.push('/community');
             }
         }).catch(e => {

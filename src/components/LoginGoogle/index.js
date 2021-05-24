@@ -22,7 +22,7 @@ const LoginGoogle = ({history}) => {
         firebase.auth()
             .signInWithPopup(provider)
             .then((result) => {
-                loginCredential(result.credential).then(async result => {
+                loginCredential(result).then(async result => {
                     console.log("testing back result ", result.user);
                     if (result.user) {
                         Auth.setUserInfo({

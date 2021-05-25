@@ -25,19 +25,24 @@ async function loginUser(credentials) {
 }
 
 export async function loginCredential(credential) {
-    console.log("request login provider...")
-    let data = await fetch('http://localhost:4000/loginCredential', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            credential
-        })
-    });
+    try {
+        console.log("request login provider...")
+        const data = await fetch('http://localhost:4000/loginCredential', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                credential
+            })
+        });
 
-    console.log("result login credential")
-    return data.json();
+        console.log("result login credential")
+        return data.json();
+    }
+    catch (error) {
+        console.error("Error with login credentials", error.message());
+    }
 }
 
 export function verifyToken(idToken) {

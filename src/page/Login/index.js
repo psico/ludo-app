@@ -70,18 +70,23 @@ export async function verifyToken(idToken) {
 }
 
 export async function getCurrentUser() {
-    console.log("Trying to get current user...");
-    const data = await fetch('http://localhost:4000/currentUser', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
+    try {
+        console.log("Trying to get current user...");
+        const data = await fetch('http://localhost:4000/currentUser', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
 
-    if (data.status === 200) {
-        return data.json();
+        if (data.status === 200) {
+            return data.json();
+        }
+        return null;
+    } catch (error) {
+        console.error("Error with request current user", error.message());
+        return null;
     }
-    return null;
 }
 
 const Login = ({history}) => {

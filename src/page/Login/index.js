@@ -52,14 +52,21 @@ export async function loginCredential(credential) {
     }
 }
 
-export function verifyToken(idToken) {
-    return fetch('http://localhost:4000/verifyToken', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({idToken})
-    }).then(data => data.json());
+export async function verifyToken(idToken) {
+    try {
+        console.log("request verify token...")
+        const data = await fetch('http://localhost:4000/verifyToken', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({idToken})
+        });
+
+        return data.json();
+    } catch (error) {
+        console.error("Error with request verify token", error.message());
+    }
 }
 
 export async function getCurrentUser() {

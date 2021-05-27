@@ -39,9 +39,7 @@ export async function loginCredential(credential) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                credential
-            })
+            body: JSON.stringify(credential)
         });
 
         console.log("result login credential")

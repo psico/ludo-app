@@ -10,7 +10,7 @@ import routes from "./routes";
 import protectedRoutes from "./protectedRoutes";
 import {ApolloProvider, ApolloClient, InMemoryCache} from '@apollo/client';
 import {createHttpLink} from "apollo-link-http";
-import {formatUserInfo, getCurrentUser} from "./page/Login";
+import {getCurrentUser} from "./page/Login";
 
 export const AuthContext = React.createContext({
     displayName: null,
@@ -46,10 +46,10 @@ const App = () => {
 
     useEffect(() => {
 
-        getCurrentUser().then(result => {
-            console.log("Returning current user", result);
-            if (result) {
-                setUserInfo(formatUserInfo(result.user));
+        getCurrentUser().then(userInfo => {
+            console.log("Returning current user", userInfo);
+            if (userInfo) {
+                setUserInfo(userInfo);
             }
             setState(true);
         });

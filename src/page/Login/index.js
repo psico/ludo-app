@@ -25,7 +25,7 @@ async function loginUser(credentials) {
             })
         })
 
-        return data.json();
+        return formatUserInfo((await data.json()).user);
     } catch (error) {
         console.error("Error with user login", error.message());
     }
@@ -77,7 +77,7 @@ export async function getCurrentUser() {
         });
 
         if (data.status === 200) {
-            return data.json();
+            return formatUserInfo((await data.json()).user);
         }
         return null;
     } catch (error) {
@@ -112,9 +112,9 @@ const Login = ({history}) => {
         try {
             e.preventDefault();
 
-            const result = await loginUser({email, password});
-            if (result.user) {
-                Auth.setUserInfo(formatUserInfo(result.user));
+            const userInfo = await loginUser({email, password});
+            if (userInfo) {
+                Auth.setUserInfo(userInfo);
                 history.push('/community');
             }
         }

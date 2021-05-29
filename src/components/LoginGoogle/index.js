@@ -12,26 +12,32 @@ const LoginGoogle = ({history}) => {
 
     const componentClasses = useStyles();
 
-    const [error, setErrors] = useState("");
+    const [error, setErrors] = useState();
     const Auth = useContext(AuthContext);
     const {t} = useTranslation();
 
     const signInWithGoogle = async () => {
-        const provider = new firebase.auth.GoogleAuthProvider();
-        const credential = await firebase.auth().signInWithPopup(provider);
-        const result = await loginCredential(credential);
+        try {
+            const provider = new firebase.auth.GoogleAuthProvider();
+            const credential = await firebase.auth().signInWithPopup(provider);
+            const result = await loginCredential(credential);
 
-        if (result.user) {
-            Auth.setUserInfo({
-                displayName: result.user.displayName ? result.user.displayName : result.user.email,
-                email: result.user.email,
-                emailVerified: result.user.emailVerified,
-                uid: result.user.uid,
-                photoURL: result.user.photoURL,
-                isLoggedIn: true,
-                token: result.user.token
-            });
-            history.push('/community');
+            if (result.user) {
+                Auth.setUserInfo({
+                    displayName: result.user.displayName ? result.user.displayName : result.user.email,
+                    email: result.user.email,
+                    emailVerified: result.user.emailVerified,
+                    uid: result.user.uid,
+                    photoURL: result.user.photoURL,
+                    isLoggedIn: true,
+                    token: result.user.token
+                });
+                history.push('/community');
+            }
+        }
+        catch (error) {
+            setErrors(error);
+            console.error("Error on try loggin with Google");
         }
     };
 

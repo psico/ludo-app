@@ -43,9 +43,8 @@ export async function loginCredential(credential) {
         });
 
         console.log("result login credential")
-        return data.json();
-    }
-    catch (error) {
+        return formatUserInfo((await data.json()).user);
+    } catch (error) {
         console.error("Error with login credentials", error.message());
     }
 }
@@ -87,39 +86,42 @@ export async function getCurrentUser() {
     }
 }
 
+export function formatUserInfo(user) {
+    return {
+        displayName: user.displayName ? user.displayName : user.email,
+        email: user.email,
+        emailVerified: user.emailVerified,
+        uid: user.uid,
+        photoURL: user.photoURL,
+        isLoggedIn: true,
+        token: user.token
+    }
+}
+
 const Login = ({history}) => {
     const componentClasses = useStyles();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    // const [token, setToken] = useState("");
     const [error, setErrors] = useState("");
     const {t} = useTranslation();
 
     const Auth = useContext(AuthContext);
 
     const handleForm = async e => {
-        e.preventDefault();
+        try {
+            e.preventDefault();
 
-        loginUser({
-            email,
-            password
-        }).then(async result => {
+            const result = await loginUser({email, password});
             if (result.user) {
-                Auth.setUserInfo({
-                    displayName: result.user.displayName ? result.user.displayName : result.user.email,
-                    email: result.user.email,
-                    emailVerified: result.user.emailVerified,
-                    uid: result.user.uid,
-                    photoURL: result.user.photoURL,
-                    isLoggedIn: true,
-                    token: result.user.token
-                });
+                Auth.setUserInfo(formatUserInfo(result.user));
                 history.push('/community');
             }
-        }).catch(e => {
-            setErrors(e.message);
-        });
+        }
+        catch (error) {
+            console.error("Error on login: ", error);
+            setErrors(error);
+        }
     };
 
     return (

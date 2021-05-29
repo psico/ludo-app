@@ -20,18 +20,10 @@ const LoginGoogle = ({history}) => {
         try {
             const provider = new firebase.auth.GoogleAuthProvider();
             const credential = await firebase.auth().signInWithPopup(provider);
-            const result = await loginCredential(credential);
+            const user = await loginCredential(credential);
 
-            if (result.user) {
-                Auth.setUserInfo({
-                    displayName: result.user.displayName ? result.user.displayName : result.user.email,
-                    email: result.user.email,
-                    emailVerified: result.user.emailVerified,
-                    uid: result.user.uid,
-                    photoURL: result.user.photoURL,
-                    isLoggedIn: true,
-                    token: result.user.token
-                });
+            if (user) {
+                Auth.setUserInfo(user);
                 history.push('/community');
             }
         }

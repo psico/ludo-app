@@ -27,7 +27,7 @@ async function loginUser(credentials) {
 
         return formatUserInfo((await data.json()).user);
     } catch (error) {
-        console.error("Error with user login", error.message());
+        console.error("Error with user login: ", error);
     }
 }
 
@@ -45,7 +45,7 @@ export async function loginCredential(credential) {
         console.log("result login credential")
         return formatUserInfo((await data.json()).user);
     } catch (error) {
-        console.error("Error with login credentials", error.message());
+        console.error("Error with login credentials: ", error);
     }
 }
 
@@ -62,7 +62,7 @@ export async function verifyToken(idToken) {
 
         return data.json();
     } catch (error) {
-        console.error("Error with request verify token", error.message());
+        console.error("Error with request verify token: ", error);
     }
 }
 
@@ -81,7 +81,7 @@ export async function getCurrentUser() {
         }
         return null;
     } catch (error) {
-        console.error("Error with request current user", error.message());
+        console.error("Error with request current user: ", error);
         return null;
     }
 }

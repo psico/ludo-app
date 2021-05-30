@@ -18,6 +18,8 @@ const LoginGoogle = ({history}) => {
 
     const signInWithGoogle = async () => {
         try {
+            console.info("Google credential is requesting...");
+
             const provider = new firebase.auth.GoogleAuthProvider();
             const credential = await firebase.auth().signInWithPopup(provider);
             const userInfo = await loginCredential(credential);
@@ -26,9 +28,8 @@ const LoginGoogle = ({history}) => {
                 Auth.setUserInfo(userInfo);
                 history.push('/community');
             }
-        }
-        catch (error) {
-            setErrors(error);
+        } catch (error) {
+            // setErrors(error);
             console.error("Error on try loggin with Google");
         }
     };

@@ -18,6 +18,8 @@ const LoginFacebook = ({history}) => {
 
     const signInWithFacebook = async () => {
         try {
+            console.log("Facebook credential is requesting... ");
+
             const provider = new firebase.auth.FacebookAuthProvider();
             const credential = await firebase.auth().signInWithPopup(provider);
             const userInfo = await loginCredential(credential);
@@ -26,29 +28,9 @@ const LoginFacebook = ({history}) => {
                 Auth.setUserInfo(userInfo);
                 history.push('/community');
             }
-            // firebase
-            //     .auth()
-            //     .setPersistence(firebase.auth.Auth.Persistence.SESSION)
-            //     .then(() => {
-            //         firebase
-            //             .auth()
-            //             .signInWithPopup(provider)
-            //             .then(result => {
-            //                 Auth.setUserInfo({
-            //                     displayName: result.user.displayName,
-            //                     email: result.user.email,
-            //                     emailVerified: result.user.emailVerified,
-            //                     uid: result.user.uid,
-            //                     photoURL: result.user.photoURL,
-            //                     isLoggedIn: true
-            //                 });
-            //                 history.push('/community');
-            //             })
-            //             .catch(e => setErrors(e.message))
-            //     })
         } catch (error) {
             console.error("Error on try loggin with Facebook, ", error);
-            setErrors(error);
+            // setErrors(error);
             history.push('/')
         }
     };

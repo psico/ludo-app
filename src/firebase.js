@@ -5,7 +5,6 @@ import 'firebase/auth';
 import 'firebase/firestore';
 
 const {
-    REACT_APP_API_URL,
     FIREBASE_API_KEY,
     FIREBASE_AUTH_DOMAIN,
     FIREBASE_DATABASE_URL,

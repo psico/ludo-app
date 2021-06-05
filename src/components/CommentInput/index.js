@@ -33,7 +33,6 @@ const CommentInput = ({matchId}) => {
             addComment({
                 variables: {
                     CommentInput: {
-                        "uid": userInfo.uid,
                         "idDoc": matchId,
                         "text": comment
                     }

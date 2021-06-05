@@ -1,10 +1,9 @@
-import React, {useContext, useState} from "react";
+import React, {useState} from "react";
 import useStyles from "./css";
 import {useTranslation} from "react-i18next";
 import Input from '@material-ui/core/Input';
 import MessageIcon from '@material-ui/icons/Message';
 import ShowSnackbar from "../ShowSnackbar";
-import {AuthContext} from "../../App";
 import {useMutation, gql} from "@apollo/client";
 
 const graphql = gql`
@@ -21,7 +20,6 @@ const graphql = gql`
 const CommentInput = ({matchId}) => {
     const componentClasses = useStyles();
     const {t} = useTranslation();
-    const {userInfo} = useContext(AuthContext);
     const snackbarRef = React.createRef();
     const [comment, setComment] = useState("");
     const [addComment] = useMutation(graphql);
@@ -30,7 +28,8 @@ const CommentInput = ({matchId}) => {
         e.preventDefault();
 
         if (comment !== "") {
-            addComment({
+            snackbarRef.current.handleClick(t('comment-saved'), 'success');
+            await addComment({
                 variables: {
                     CommentInput: {
                         "idDoc": matchId,
@@ -38,8 +37,6 @@ const CommentInput = ({matchId}) => {
                     }
                 }
             });
-
-            snackbarRef.current.handleClick(t('comment-saved'), 'success');
             setComment("");
         } else {
             snackbarRef.current.handleClick(t('write-a-comment'), 'warning');

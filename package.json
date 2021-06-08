@@ -19,7 +19,6 @@
     "apollo-link-http": "^1.5.17",
     "axios": "^0.19.2",
     "browserslist": "^4.14.7",
-    "caniuse-lite": "^1.0.30001161",
     "firebase": "^7.24.0",
     "graphql": "^15.4.0",
     "graphql-tag": "^2.11.0",

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import useStyles from "./css";
 import Grid from '@material-ui/core/Grid';
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
@@ -34,12 +34,11 @@ const graphql = gql`
 function Community() {
     const componentClasses = useStyles();
     const {t} = useTranslation();
-    // const {data} = useQuery(graphql);
-    const [data, setData] = useState();
+    const {data} = useQuery(graphql);
 
-    useEffect(() => {
-        setData(useQuery(graphql));
-    })
+    const refreshUseQuery= () => {
+        console.log("hello test");
+    };
 
     return (
         <div className={componentClasses.root}>
@@ -89,7 +88,7 @@ function Community() {
                                     <ShareIcon/> Share
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                                    <CommentInput matchId={value.idDoc}/>
+                                    <CommentInput matchId={value.idDoc} refreshUseQuery={refreshUseQuery}/>
                                 </Grid>
                             </Grid>
                         </Grid>

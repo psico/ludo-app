@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import useStyles from "./css";
 import Grid from '@material-ui/core/Grid';
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
@@ -34,7 +34,12 @@ const graphql = gql`
 function Community() {
     const componentClasses = useStyles();
     const {t} = useTranslation();
-    const {data} = useQuery(graphql);
+    // const {data} = useQuery(graphql);
+    const [data, setData] = useState();
+
+    useEffect(() => {
+        setData(useQuery(graphql));
+    })
 
     return (
         <div className={componentClasses.root}>

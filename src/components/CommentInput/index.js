@@ -17,7 +17,7 @@ const graphql = gql`
     }
 `;
 
-const CommentInput = ({matchId}) => {
+const CommentInput = ({matchId, refreshUseQuery}) => {
     const componentClasses = useStyles();
     const {t} = useTranslation();
     const snackbarRef = React.createRef();
@@ -37,6 +37,8 @@ const CommentInput = ({matchId}) => {
                     }
                 }
             });
+            console.log("hello comment");
+            refreshUseQuery();
             setComment("");
         } else {
             snackbarRef.current.handleClick(t('write-a-comment'), 'warning');

@@ -37,7 +37,6 @@ function Community() {
     const {data, refetch} = useQuery(graphql);
 
     const refreshUseQuery = async () => {
-        console.log("hello test");
         await refetch();
     };
 

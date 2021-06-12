@@ -36,9 +36,9 @@ function Community() {
     const {t} = useTranslation();
     const {data, refetch} = useQuery(graphql);
 
-    const refreshUseQuery= () => {
+    const refreshUseQuery = async () => {
         console.log("hello test");
-        refetch();
+        await refetch();
     };
 
     return (

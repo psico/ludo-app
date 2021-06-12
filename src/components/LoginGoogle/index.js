@@ -29,7 +29,7 @@ const LoginGoogle = ({history}) => {
                 history.push('/community');
             }
         } catch (error) {
-            // setErrors(error);
+            setErrors("Error on try loggin with Google");
             console.error("Error on try loggin with Google");
         }
     };

@@ -30,7 +30,7 @@ const LoginFacebook = ({history}) => {
             }
         } catch (error) {
             console.error("Error on try loggin with Facebook, ", error);
-            // setErrors(error);
+            setErrors("Error on try loggin with Facebook");
             history.push('/')
         }
     };

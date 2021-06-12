@@ -34,10 +34,11 @@ const graphql = gql`
 function Community() {
     const componentClasses = useStyles();
     const {t} = useTranslation();
-    const {data} = useQuery(graphql);
+    const {data, refetch} = useQuery(graphql);
 
     const refreshUseQuery= () => {
         console.log("hello test");
+        refetch();
     };
 
     return (

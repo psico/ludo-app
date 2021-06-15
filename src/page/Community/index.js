@@ -23,6 +23,7 @@ const graphql = gql`
                 uid
                 name
                 comment
+                photoURL
             }
             players {
                 name

@@ -37,7 +37,7 @@ const CommentInput = ({matchId, refreshUseQuery}) => {
                     }
                 }
             });
-            console.log("hello comment");
+
             refreshUseQuery();
             setComment("");
         } else {

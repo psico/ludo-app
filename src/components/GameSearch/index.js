@@ -5,10 +5,22 @@ import TextField from "@material-ui/core/TextField";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import {xml2js} from "xml-js";
+import {gql, useQuery} from "@apollo/client";
+
+const graphql = gql`
+    query games{
+        games {
+            name,
+            objectId,
+            yearPublished
+        }
+    }
+`;
 
 const GameSearch = ({ parentCallback }) => {
     const [open, setOpen] = useState(false);
     const [options, setOptions] = useState([]);
+    const {data, refetch} = useQuery(graphql);
     const loading = open && options.length === 0;
 
     const {t} = useTranslation();

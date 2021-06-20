@@ -33,12 +33,12 @@ const GameSearch = ({ parentCallback }) => {
         }
 
         (async () => {
-            const response = await fetch('https://boardgamegeek.com/xmlapi/search?search=catan');
-            const boardgamesXml = await response.text();
-            const boardgames = xml2js(boardgamesXml, {compact: true, spaces: 4});
-
+            // const response = await fetch('https://boardgamegeek.com/xmlapi/search?search=catan');
+            // const boardgamesXml = await response.text();
+            // const boardgames = xml2js(boardgamesXml, {compact: true, spaces: 4});
+            console.log("data -> ",data.games);
             if (active) {
-                setOptions(Object.keys(boardgames.boardgames.boardgame).map((key) => boardgames.boardgames.boardgame[key]));
+                setOptions(Object.keys(data.games).map((key) => data.games[key]));
             }
         })();
 

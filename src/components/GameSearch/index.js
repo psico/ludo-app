@@ -20,15 +20,15 @@ const graphql = gql`
 const GameSearch = ({ parentCallback }) => {
     const [open, setOpen] = useState(false);
     const [options, setOptions] = useState([]);
-    const {data, refetch} = useQuery(graphql);
-    const loading = open && options.length === 0;
+    const {data, refetch, loading} = useQuery(graphql);
+    // const loading = open && options.length === 0;
 
     const {t} = useTranslation();
 
     useEffect(() => {
         let active = true;
 
-        if (!loading) {
+        if (loading) {
             return undefined;
         }
 
@@ -36,8 +36,10 @@ const GameSearch = ({ parentCallback }) => {
             // const response = await fetch('https://boardgamegeek.com/xmlapi/search?search=catan');
             // const boardgamesXml = await response.text();
             // const boardgames = xml2js(boardgamesXml, {compact: true, spaces: 4});
-            console.log("data -> ",data.games);
-            if (active) {
+            console.log("loading -> ", loading);
+            if (!loading) {
+                console.log("data games =============> ",data);
+                setOpen(true);
                 setOptions(Object.keys(data.games).map((key) => data.games[key]));
             }
         })();
@@ -47,28 +49,27 @@ const GameSearch = ({ parentCallback }) => {
         };
     }, [loading]);
 
-    useEffect(() => {
-        if (!open) {
-            setOptions([]);
-        }
-    }, [open]);
+    // useEffect(() => {
+    //     if (!open) {
+    //         setOptions([]);
+    //     }
+    // }, [open]);
 
     return (
         <Autocomplete
             id="asynchronous-game-search"
             style={{width: 300}}
-            open={open}
+            open={!loading}
             onOpen={() => {
                 setOpen(true);
             }}
             onClose={() => {
                 setOpen(false);
-
             }}
             onChange={(event, values) => {
                 parentCallback(values);
             }}
-            getOptionLabel={(option) => option.name._text}
+            getOptionLabel={(option) => option.name}
             options={options}
             loading={loading}
             renderInput={(params) => (

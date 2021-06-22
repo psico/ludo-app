@@ -38,7 +38,7 @@ const GameSearch = ({ parentCallback }) => {
             // const boardgames = xml2js(boardgamesXml, {compact: true, spaces: 4});
             // console.log("loading -> ", loading);
             if (!loading) {
-                // console.log("data games =============> ",data);
+                console.log("data games =============> ",data);
                 // setOpen(true);
                 setOptions(Object.keys(data.games).map((key) => data.games[key]));
             }
@@ -58,7 +58,6 @@ const GameSearch = ({ parentCallback }) => {
     return (
         <Autocomplete
             id="asynchronous-game-search"
-            style={{width: 300}}
             // open={!loading}
             // onOpen={() => {
             //     setOpen(true);
@@ -69,8 +68,9 @@ const GameSearch = ({ parentCallback }) => {
             // onChange={(event, values) => {
             //     parentCallback(values);
             // }}
-            getOptionLabel={(option) => option.name}
             options={options}
+            getOptionLabel={(option) => option.name}
+            fullWidth={true}
             renderInput={(params) => (
                 <TextField
                     required

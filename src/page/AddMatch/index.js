@@ -59,9 +59,9 @@ const AddMatch = ({history}) => {
         setMatch({
             ...match,
             "game": {
-                "name": gameData.name._text,
-                "yearPublished": gameData.yearpublished._text,
-                "objectId": gameData._attributes.objectid
+                "name": gameData.name,
+                "yearPublished": gameData.yearPublished,
+                "objectId": gameData.objectId
             }
         });
     }

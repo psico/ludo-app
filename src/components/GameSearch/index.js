@@ -65,9 +65,9 @@ const GameSearch = ({ parentCallback }) => {
             // onClose={() => {
             //     setOpen(false);
             // }}
-            // onChange={(event, values) => {
-            //     parentCallback(values);
-            // }}
+            onChange={(event, values) => {
+                parentCallback(values);
+            }}
             options={options}
             getOptionLabel={(option) => option.name}
             fullWidth={true}

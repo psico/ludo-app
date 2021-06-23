@@ -38,7 +38,7 @@ const GameSearch = ({ parentCallback }) => {
             // const boardgames = xml2js(boardgamesXml, {compact: true, spaces: 4});
             // console.log("loading -> ", loading);
             if (!loading) {
-                console.log("data games =============> ",data);
+                // console.log("data games =============> ",data);
                 // setOpen(true);
                 setOptions(Object.keys(data.games).map((key) => data.games[key]));
             }
@@ -67,6 +67,9 @@ const GameSearch = ({ parentCallback }) => {
             // }}
             onChange={(event, values) => {
                 parentCallback(values);
+            }}
+            onInputChange={()=> {
+                console.log("value change?");
             }}
             options={options}
             getOptionLabel={(option) => option.name}

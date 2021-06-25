@@ -9,7 +9,7 @@ import {gql, useQuery} from "@apollo/client";
 
 const graphql = gql`
     query games{
-        games {
+        games(gameName: "zombie") {
             name,
             objectId,
             yearPublished

@@ -8,8 +8,8 @@ import {xml2js} from "xml-js";
 import {gql, useQuery} from "@apollo/client";
 
 const graphql = gql`
-    query games{
-        games(gameName: "zombie") {
+    query games($gameInput: GameInput){
+        games(GameInput: $gameInput) {
             name,
             objectId,
             yearPublished
@@ -20,7 +20,13 @@ const graphql = gql`
 const GameSearch = ({ parentCallback }) => {
     // const [open, setOpen] = useState(false);
     const [options, setOptions] = useState([]);
-    const {data, refetch, loading} = useQuery(graphql);
+    const {data, refetch, loading} = useQuery(graphql, {
+        variables: {
+            "gameInput": {
+                "name": "street"
+            }
+        },
+    });
     // const loading = open && options.length === 0;
 
     const {t} = useTranslation();

@@ -1,10 +1,8 @@
 import React, {useState, useEffect } from "react";
-import {withRouter} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
 import TextField from "@material-ui/core/TextField";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import {xml2js} from "xml-js";
 import {gql, useQuery} from "@apollo/client";
 
 const graphql = gql`
@@ -73,12 +71,16 @@ const GameSearch = ({ parentCallback }) => {
             //     setOpen(false);
             // }}
             onChange={(event, values) => {
-                parentCallback(values);
+                if (!loading) {
+                    parentCallback(values);
+                }
             }}
             onInputChange={async (inputValue)=> {
                 console.log("value change? ", inputValue.target.valueOf().value);
-                setInputValue(inputValue.target.valueOf().value);
-                await refetch();
+                if (inputValue.target.valueOf().value !== 0) {
+                    setInputValue(inputValue.target.valueOf().value);
+                    await refetch();
+                }
             }}
             options={options}
             getOptionLabel={(option) => option.name}

@@ -1,4 +1,5 @@
-import React, {useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
+import {withRouter} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
 import TextField from "@material-ui/core/TextField";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -15,7 +16,7 @@ const graphql = gql`
     }
 `;
 
-const GameSearch = ({ parentCallback }) => {
+const GameSearch = ({parentCallback}) => {
     // const [open, setOpen] = useState(false);
     const [options, setOptions] = useState([]);
     const [inputValue, setInputValue] = useState("");
@@ -26,56 +27,27 @@ const GameSearch = ({ parentCallback }) => {
             }
         },
     });
-    // const loading = open && options.length === 0;
 
     const {t} = useTranslation();
 
     useEffect(() => {
-        // let active = true;
-
-        // if (loading) {
-        //     return undefined;
-        // }
-
         (async () => {
-            // const response = await fetch('https://boardgamegeek.com/xmlapi/search?search=catan');
-            // const boardgamesXml = await response.text();
-            // const boardgames = xml2js(boardgamesXml, {compact: true, spaces: 4});
-            // console.log("loading -> ", loading);
             if (!loading) {
-                // console.log("data games =============> ",data);
-                // setOpen(true);
                 setOptions(Object.keys(data.games).map((key) => data.games[key]));
             }
         })();
-
-        // return () => {
-        //     active = false;
-        // };
     }, [data, loading]);
-
-    // useEffect(() => {
-    //     if (!open) {
-    //         setOptions([]);
-    //     }
-    // }, [open]);
 
     return (
         <Autocomplete
             id="asynchronous-game-search"
-            // open={!loading}
-            // onOpen={() => {
-            //     setOpen(true);
-            // }}
-            // onClose={() => {
-            //     setOpen(false);
-            // }}
+            open={!loading}
             onChange={(event, values) => {
                 if (!loading) {
                     parentCallback(values);
                 }
             }}
-            onInputChange={async (inputValue)=> {
+            onInputChange={async (inputValue) => {
                 console.log("value change? ", inputValue.target.valueOf().value);
                 if (inputValue.target.valueOf().value !== 0) {
                     setInputValue(inputValue.target.valueOf().value);

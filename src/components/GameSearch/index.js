@@ -20,10 +20,11 @@ const graphql = gql`
 const GameSearch = ({ parentCallback }) => {
     // const [open, setOpen] = useState(false);
     const [options, setOptions] = useState([]);
+    const [inputValue, setInputValue] = useState("");
     const {data, refetch, loading} = useQuery(graphql, {
         variables: {
             "gameInput": {
-                "name": "street"
+                "name": inputValue
             }
         },
     });
@@ -74,8 +75,10 @@ const GameSearch = ({ parentCallback }) => {
             onChange={(event, values) => {
                 parentCallback(values);
             }}
-            onInputChange={()=> {
-                console.log("value change?");
+            onInputChange={async (inputValue)=> {
+                console.log("value change? ", inputValue.target.valueOf().value);
+                setInputValue(inputValue.target.valueOf().value);
+                await refetch();
             }}
             options={options}
             getOptionLabel={(option) => option.name}

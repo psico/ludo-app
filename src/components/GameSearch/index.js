@@ -41,9 +41,9 @@ const GameSearch = ({parentCallback}) => {
     return (
         <Autocomplete
             id="asynchronous-game-search"
-            open={!loading}
             onChange={(event, values) => {
                 if (!loading) {
+                    console.log("onChange => ", values);
                     parentCallback(values);
                 }
             }}

@@ -17,7 +17,6 @@ const graphql = gql`
 `;
 
 const GameSearch = ({parentCallback}) => {
-    // const [open, setOpen] = useState(false);
     const [options, setOptions] = useState([]);
     const [inputValue, setInputValue] = useState("");
     const {data, refetch, loading} = useQuery(graphql, {
@@ -48,7 +47,6 @@ const GameSearch = ({parentCallback}) => {
                 }
             }}
             onInputChange={async (inputValue) => {
-                console.log("value change? ", inputValue.target.valueOf().value);
                 if (inputValue.target.valueOf().value !== 0) {
                     setInputValue(inputValue.target.valueOf().value);
                     await refetch();

@@ -15,7 +15,7 @@ import PlayersSearch from "../../components/PlayerSearch";
 import {AuthContext} from "../../App";
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 import ShowSnackbar from "../../components/ShowSnackbar";
-import {gql} from "@apollo/client";
+import {gql, useMutation} from "@apollo/client";
 
 const graphql = gql`
     mutation createMatch($matchInput: MatchInput){
@@ -43,6 +43,7 @@ const AddMatch = ({history}) => {
         "game": null
     });
     const [readyForm, setReadyForm] = React.useState(false);
+    const [createMatch] = useMutation(graphql);
     const snackbarRef = React.createRef();
 
     const toggleChange = (event, newGameMoment) => {
@@ -65,7 +66,17 @@ const AddMatch = ({history}) => {
             //
             // await matches.set(match, {merge: true});
 
-            // snackbarRef.current.handleClick(t('successfully-registered-match'), 'success');
+            snackbarRef.current.handleClick(t('successfully-registered-match'), 'success');
+
+            await createMatch({
+                variables: {
+                    matchInput: {
+                        "gameMoment": match.gameMoment,
+                        "gameObjectId": match.game.objectId
+                    }
+                }
+            });
+
             history.push('/community');
         } else {
             snackbarRef.current.handleClick(t('fill-in-the-required-fields'), 'warning');

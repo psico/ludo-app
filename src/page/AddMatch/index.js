@@ -56,16 +56,6 @@ const AddMatch = ({history}) => {
     const handleForm = async e => {
         e.preventDefault();
         if (readyForm === true) {
-            // let matches = await firebase.firestore().collection("matches").doc();
-            //
-            // match.uid = userInfo.uid;
-            //
-            // setMatch({
-            //     ...match
-            // })
-            //
-            // await matches.set(match, {merge: true});
-
             snackbarRef.current.handleClick(t('successfully-registered-match'), 'success');
 
             await createMatch({

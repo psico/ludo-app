@@ -15,6 +15,23 @@ import PlayersSearch from "../../components/PlayerSearch";
 import {AuthContext} from "../../App";
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 import ShowSnackbar from "../../components/ShowSnackbar";
+import {gql} from "@apollo/client";
+
+const graphql = gql`
+    mutation createMatch($matchInput: MatchInput){
+        createMatch(MatchInput:$matchInput) {
+            idDoc,
+            uid,
+            gameMoment,
+            game {
+                name
+                objectId
+                yearPublished
+                description
+            }
+        }
+    }
+`;
 
 const AddMatch = ({history}) => {
     const componentClasses = useStyles();
@@ -38,15 +55,15 @@ const AddMatch = ({history}) => {
     const handleForm = async e => {
         e.preventDefault();
         if (readyForm === true) {
-            let matches = await firebase.firestore().collection("matches").doc();
-
-            match.uid = userInfo.uid;
-
-            setMatch({
-                ...match
-            })
-
-            await matches.set(match, {merge: true});
+            // let matches = await firebase.firestore().collection("matches").doc();
+            //
+            // match.uid = userInfo.uid;
+            //
+            // setMatch({
+            //     ...match
+            // })
+            //
+            // await matches.set(match, {merge: true});
 
             // snackbarRef.current.handleClick(t('successfully-registered-match'), 'success');
             history.push('/community');

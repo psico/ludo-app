@@ -26,8 +26,6 @@ const graphql = gql`
             game {
                 name
                 objectId
-                yearPublished
-                description
             }
         }
     }
@@ -38,9 +36,8 @@ const AddMatch = ({history}) => {
     const {t} = useTranslation();
     const {userInfo} = useContext(AuthContext);
     const [match, setMatch] = React.useState({
-        "uid": null,
         "gameMoment": "play-now",
-        "game": null
+        "gameObjectId": null
     });
     const [readyForm, setReadyForm] = React.useState(false);
     const [createMatch] = useMutation(graphql);
@@ -60,10 +57,7 @@ const AddMatch = ({history}) => {
 
             await createMatch({
                 variables: {
-                    matchInput: {
-                        "gameMoment": match.gameMoment,
-                        "gameObjectId": match.game.objectId
-                    }
+                    matchInput: match
                 }
             });
 
@@ -76,11 +70,7 @@ const AddMatch = ({history}) => {
     let gameCallback = (gameData) => {
         setMatch({
             ...match,
-            "game": {
-                "name": gameData.name,
-                "yearPublished": gameData.yearPublished,
-                "objectId": gameData.objectId
-            }
+            "gameObjectId": gameData.objectId
         });
     }
 
@@ -95,7 +85,7 @@ const AddMatch = ({history}) => {
         const formValidation = () => {
             let boolValidation = true;
 
-            if (match.game === null) {
+            if (match.gameObjectId === null) {
                 boolValidation = false;
             }
             if (match.gameMoment === null) {

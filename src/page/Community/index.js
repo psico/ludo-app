@@ -5,7 +5,6 @@ import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 import ShareIcon from '@material-ui/icons/Share';
 import Paper from '@material-ui/core/Paper';
 import {useTranslation} from "react-i18next";
-import zombicide from "../../temp-images/zombicide.jpg";
 import UserAvatar from "../../components/UserAvatar";
 import Comments from "../../components/Comments";
 import PersonAvatar from "../../components/PersonAvatar";
@@ -18,6 +17,7 @@ const graphql = gql`
             idDoc
             game {
                 name
+                imageUrl
             }
             comments {
                 uid
@@ -73,7 +73,7 @@ function Community() {
                             </Grid>
                             <Grid container className={componentClasses.hLine}>
                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                                    <img src={zombicide} alt={t('logo-ludoapp')} height="300"/>
+                                    <img src={value.game.imageUrl || "https://s3-us-west-1.amazonaws.com/5cc.images/games/empty+box.jpg"} alt={t('logo-ludoapp')} height="300"/>
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                                     <Grid container spacing={0} item xs={12} sm={12} md={6} lg={6} xl={6}>

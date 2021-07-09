@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import useStyles from "./css";
 import Grid from '@material-ui/core/Grid';
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
@@ -38,8 +38,13 @@ function Community() {
     const {data, refetch} = useQuery(graphql);
 
     const refreshUseQuery = async () => {
+        console.log("refresho============")
         await refetch();
     };
+
+    useEffect(() => {
+        refreshUseQuery();
+    }, []);
 
     return (
         <div className={componentClasses.root}>

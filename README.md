@@ -38,6 +38,8 @@ Project to build social network for boardgames, register matches and challenge y
 
 Creating issues and steps...
 
+## Backend Repository
+* https://github.com/psico/ludo-app-backend
 
 ## Available Scripts
 

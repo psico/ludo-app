@@ -23,8 +23,12 @@ const useStyles = makeStyles(theme => ({
   },
   item: {
     textAlign: 'left',
+    // justifyContent: "center",
     alignItems: "center",
     paddingBottom: '10px'
+  },
+  vl: {
+    borderRight: "1px solid gray",
   }
 }));
 

@@ -3,23 +3,18 @@ import useStyles from './css';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { withRouter } from 'react-router-dom/cjs/react-router-dom';
+import UserAvatar from '../../components/UserAvatar';
 
 const Profile = () => {
   const componentClasses = useStyles();
 
   return (
     <div className={componentClasses.root}>
-      <Grid container spacing={0}>
-        <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={componentClasses.item}>
-          <Paper className={componentClasses.paper}>
-            <Grid container spacing={0}>
-              <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                <h1>Hello profile</h1>
-               </Grid>
-            </Grid>
-          </Paper>
+      <Paper className={componentClasses.paper}>
+        <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
+          <UserAvatar showName={false}/>
         </Grid>
-      </Grid>
+      </Paper>
     </div>
   );
 };

@@ -18,12 +18,12 @@ const useStyles = makeStyles(theme => ({
   },
   paper: {
     padding: theme.spacing(1),
-    textAlign: 'center',
+    textAlign: 'left',
     width: "921px"
   },
   item: {
     textAlign: 'left',
-    // justifyContent: "center",
+    justifyContent: "center",
     alignItems: "center",
     paddingBottom: '10px'
   },

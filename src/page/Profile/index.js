@@ -14,12 +14,18 @@ const Profile = () => {
   return (
     <div className={componentClasses.root}>
       <Paper className={componentClasses.paper}>
-        <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
-          <Avatar variant="circle" alt={userInfo.displayName} src={userInfo.photoURL} />
-          <text>{userInfo.displayName}</text>
-        </Grid>
-        <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
-          <Button variant="contained" >Follow</Button>
+        <Grid container>
+          <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+            <Avatar variant="rounded" alt={userInfo.displayName} src={userInfo.photoURL} />
+            <text>{userInfo.displayName}</text>
+            <div>
+              <Button variant="contained" >Follow</Button>
+            </div>
+          </Grid>
+          <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+            <Avatar variant="rounded" alt={userInfo.displayName} src={userInfo.photoURL} />
+            <text>{userInfo.displayName}</text>
+          </Grid>
         </Grid>
       </Paper>
     </div>

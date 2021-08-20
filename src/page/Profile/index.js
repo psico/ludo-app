@@ -6,25 +6,55 @@ import { withRouter } from 'react-router-dom/cjs/react-router-dom';
 import { AuthContext } from '../../App';
 import Avatar from '@material-ui/core/Avatar';
 import { Button } from '@material-ui/core';
+import lvl from '../../temp-images/lvl-coronel.png';
+import xp from '../../temp-images/experience.png';
+import { useTranslation } from 'react-i18next';
+import { lighten, withStyles } from '@material-ui/core/styles';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 const Profile = () => {
   const componentClasses = useStyles();
-  const {userInfo} = useContext(AuthContext);
+  const { userInfo } = useContext(AuthContext);
+  const { t } = useTranslation();
+
+  const BorderLinearProgress = withStyles({
+    root: {
+      height: 10,
+      borderRadius: 2,
+      backgroundColor: lighten('#ff6c5c', 0.5),
+    },
+    bar: {
+      borderRadius: 3,
+      backgroundColor: '#ff6c5c',
+    },
+  })(LinearProgress);
 
   return (
     <div className={componentClasses.root}>
       <Paper className={componentClasses.paper}>
         <Grid container>
           <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-            <Avatar variant="rounded" alt={userInfo.displayName} src={userInfo.photoURL} />
+            <Avatar variant="rounded" alt={userInfo.displayName} src={userInfo.photoURL}/>
             <text>{userInfo.displayName}</text>
             <div>
-              <Button variant="contained" >Follow</Button>
+              <Button variant="contained">Follow</Button>
             </div>
           </Grid>
           <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-            <Avatar variant="rounded" alt={userInfo.displayName} src={userInfo.photoURL} />
-            <text>{userInfo.displayName}</text>
+            <div>
+              <img src={lvl} alt={t('user-level')} height="25"/>
+              <text>{t('colonel')}</text>
+            </div>
+            <div>
+              <img src={xp} alt={t('experience')} height="25"/>
+              <text>Level 30 - Dice Explorer {userInfo.isLoggedIn}</text>
+              <BorderLinearProgress
+                className={componentClasses.margin}
+                variant="determinate"
+                color="secondary"
+                value={30}
+              />
+            </div>
           </Grid>
         </Grid>
       </Paper>

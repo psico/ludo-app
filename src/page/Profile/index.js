@@ -74,6 +74,13 @@ const Profile = () => {
           </Grid>
         </Grid>
       </Paper>
+      <Paper className={componentClasses.paper}>
+        <Grid container>
+          <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+            <h2>{t('last-matches')}</h2>
+          </Grid>
+        </Grid>
+      </Paper>
     </div>
   );
 };

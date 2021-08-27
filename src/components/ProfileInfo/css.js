@@ -23,13 +23,14 @@ const useStyles = makeStyles(theme => ({
     width: "921px"
   },
   item: {
-    textAlign: 'left',
+    textAlign: 'center',
     justifyContent: "center",
     alignItems: "center",
     paddingBottom: '10px'
   },
-  vl: {
-    borderRight: "1px solid gray",
+  avatar: {
+    width: theme.spacing(20),
+    height: theme.spacing(20),
   }
 }));
 

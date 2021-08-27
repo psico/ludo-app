@@ -32,8 +32,8 @@ const ProfileInfo = ({
   return (
     <Paper className={componentClasses.paper}>
       <Grid container>
-        <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-          <Avatar alt={displayName} variant="rounded" alt={displayName} src={photoURL}/>
+        <Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>
+          <Avatar variant="rounded" alt={displayName} src={photoURL} className={componentClasses.avatar}/>
           <text>{displayName}</text>
           <div>
             <Button variant="contained">Follow</Button>

@@ -45,14 +45,19 @@ const ProfileInfo = ({
             <text>{t('colonel')}</text>
           </div>
           <div>
-            <img src={xp} alt={t('experience')} height="25"/>
-            <text>Level 30 - Dice Explorer</text>
-            <BorderLinearProgress
-              className={componentClasses.margin}
-              variant="determinate"
-              color="secondary"
-              value={30}
-            />
+            <Grid container>
+              <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
+                <img src={xp} alt={t('experience')} height="25"/>
+              </Grid>
+              <Grid item xs={11} sm={11} md={11} lg={11} xl={11}>
+                <text>Level 30 - Dice Explorer</text>
+                <BorderLinearProgress
+                  variant="determinate"
+                  color="secondary"
+                  value={30}
+                />
+              </Grid>
+            </Grid>
           </div>
           <div>
             <Grid container>

@@ -40,10 +40,14 @@ const ProfileInfo = ({
           </div>
         </Grid>
         <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-          <div>
-            <img src={lvl} alt={t('user-level')} height="25"/>
-            <text>{t('colonel')}</text>
-          </div>
+          <Grid container>
+            <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
+              <img src={lvl} alt={t('user-level')} height="25"/>
+            </Grid>
+            <Grid item xs={11} sm={11} md={11} lg={11} xl={11}>
+              <text>{t('colonel')}</text>
+            </Grid>
+          </Grid>
           <div>
             <Grid container>
               <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>

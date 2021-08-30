@@ -15,6 +15,9 @@ const useStyles = makeStyles(theme => ({
     alignItems: "center",
     fontFamily: "sans-serif"
   },
+  grider: {
+    marginBottom: "15px"
+  },
   avatar: {
     width: theme.spacing(20),
     height: theme.spacing(20),

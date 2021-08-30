@@ -32,13 +32,13 @@ const ProfileInfo = ({
   return (
     <Paper className={componentClasses.paper}>
       <Grid container>
+
         <Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>
           <Avatar variant="rounded" alt={displayName} src={photoURL} className={componentClasses.avatar}/>
           <text>{displayName}</text>
-          <div>
-            <Button variant="contained">Follow</Button>
-          </div>
+          <Button variant="contained">Follow</Button>
         </Grid>
+
         <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
           <Grid container>
             <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
@@ -47,39 +47,35 @@ const ProfileInfo = ({
             <Grid item xs={11} sm={11} md={11} lg={11} xl={11}>
               <text>{t('colonel')}</text>
             </Grid>
+            <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
+              <img src={xp} alt={t('experience')} height="25"/>
+            </Grid>
+            <Grid item xs={11} sm={11} md={11} lg={11} xl={11}>
+              <text>Level 30 - Dice Explorer</text>
+              <BorderLinearProgress
+                variant="determinate"
+                color="secondary"
+                value={30}
+              />
+            </Grid>
           </Grid>
-          <div>
-            <Grid container>
-              <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
-                <img src={xp} alt={t('experience')} height="25"/>
-              </Grid>
-              <Grid item xs={11} sm={11} md={11} lg={11} xl={11}>
-                <text>Level 30 - Dice Explorer</text>
-                <BorderLinearProgress
-                  variant="determinate"
-                  color="secondary"
-                  value={30}
-                />
-              </Grid>
+
+          <Grid container>
+            <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
+              <div>{t('matches')}</div>
+              <div>7</div>
             </Grid>
-          </div>
-          <div>
-            <Grid container>
-              <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
-                <div>{t('matches')}</div>
-                <div>7</div>
-              </Grid>
-              <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
-                <div>{t('following')}</div>
-                <div>5</div>
-              </Grid>
-              <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
-                <div>{t('followers')}</div>
-                <div>3</div>
-              </Grid>
+            <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
+              <div>{t('following')}</div>
+              <div>5</div>
             </Grid>
-          </div>
+            <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
+              <div>{t('followers')}</div>
+              <div>3</div>
+            </Grid>
+          </Grid>
         </Grid>
+
       </Grid>
     </Paper>
   );

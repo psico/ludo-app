@@ -40,13 +40,15 @@ const ProfileInfo = ({
         </Grid>
 
         <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-          <Grid container>
+          <Grid container className={componentClasses.grider}>
             <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
               <img src={lvl} alt={t('user-level')} height="25"/>
             </Grid>
             <Grid item xs={11} sm={11} md={11} lg={11} xl={11}>
               <text>{t('colonel')}</text>
             </Grid>
+          </Grid>
+          <Grid container className={componentClasses.grider}>
             <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
               <img src={xp} alt={t('experience')} height="25"/>
             </Grid>
@@ -60,7 +62,7 @@ const ProfileInfo = ({
             </Grid>
           </Grid>
 
-          <Grid container>
+          <Grid container className={componentClasses.grider}>
             <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
               <div>{t('matches')}</div>
               <div>7</div>

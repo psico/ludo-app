@@ -19,8 +19,8 @@ const useStyles = makeStyles(theme => ({
     marginBottom: "15px"
   },
   avatar: {
-    width: theme.spacing(20),
-    height: theme.spacing(20),
+    width: theme.spacing(15),
+    height: theme.spacing(15),
     marginBottom: "15px"
   }
 }));

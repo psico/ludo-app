@@ -33,13 +33,13 @@ const ProfileInfo = ({
     <Paper className={componentClasses.paper}>
       <Grid container>
 
-        <Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>
+        <Grid item xs={3} sm={3} md={3} lg={3} xl={3} className={componentClasses.item}>
           <Avatar variant="rounded" alt={displayName} src={photoURL} className={componentClasses.avatar}/>
           <text className={componentClasses.grider}>{displayName}</text>
           <Button variant="contained">Follow</Button>
         </Grid>
 
-        <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+        <Grid item xs={9} sm={9} md={9} lg={9} xl={9}>
           <Grid container className={componentClasses.grider}>
             <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
               <img src={lvl} alt={t('user-level')} height="25"/>

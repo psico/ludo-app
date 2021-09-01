@@ -35,7 +35,7 @@ const ProfileInfo = ({
 
         <Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={componentClasses.item}>
           <Avatar variant="rounded" alt={displayName} src={photoURL} className={componentClasses.avatar}/>
-          <text>{displayName}</text>
+          <text className={componentClasses.grider}>{displayName}</text>
           <Button variant="contained">Follow</Button>
         </Grid>
 
@@ -64,16 +64,16 @@ const ProfileInfo = ({
 
           <Grid container className={componentClasses.grider}>
             <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
-              <div>{t('matches')}</div>
-              <div>7</div>
+              <div style={{textAlign: 'center'}}>{t('matches')}</div>
+              <div style={{textAlign: 'center'}}>7</div>
             </Grid>
             <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
-              <div>{t('following')}</div>
-              <div>5</div>
+              <div style={{textAlign: 'center'}}>{t('following')}</div>
+              <div style={{textAlign: 'center'}}>5</div>
             </Grid>
             <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
-              <div>{t('followers')}</div>
-              <div>3</div>
+              <div style={{textAlign: 'center'}}>{t('followers')}</div>
+              <div style={{textAlign: 'center'}}>3</div>
             </Grid>
           </Grid>
         </Grid>

@@ -10,37 +10,15 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { lighten, withStyles } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import {useQuery, gql} from "@apollo/client";
 
-const graphql = gql`
-  query userInfo {
-    userInfo(uid: "0IhNFZFa7QMwBY6yZT8l24L1AX32") {
-      uid
-      name
-      numberOfMatches
-      following {
-        uid
-        name
-      }
-      followers {
-        uid
-        name
-      }
-      friends {
-        uid
-        name
-      }
-    }
-  }
-`;
 
 const ProfileInfo = ({
+  userInfo,
   displayName,
   photoURL
 }) => {
   const componentClasses = useStyles();
   const { t } = useTranslation();
-  const {data, refetch} = useQuery(graphql);
 
   const BorderLinearProgress = withStyles({
     root: {
@@ -53,57 +31,60 @@ const ProfileInfo = ({
       backgroundColor: '#ff6c5c',
     },
   })(LinearProgress);
+  console.log("userInfo => ", userInfo?.name);
 
   return (
     <Paper className={componentClasses.paper}>
-      <Grid container>
+      {userInfo ?
+        <Grid container>
 
-        <Grid item xs={3} sm={3} md={3} lg={3} xl={3} className={componentClasses.item}>
-          <Avatar variant="rounded" alt={displayName} src={photoURL} className={componentClasses.avatar}/>
-          <text className={componentClasses.grider}>{displayName}</text>
-          <Button variant="contained">Follow</Button>
+          <Grid item xs={3} sm={3} md={3} lg={3} xl={3} className={componentClasses.item}>
+            <Avatar variant="rounded" alt={userInfo?.name} src={photoURL} className={componentClasses.avatar}/>
+            <text className={componentClasses.grider}>{userInfo?.name}</text>
+            <Button variant="contained">Follow</Button>
+          </Grid>
+
+          <Grid item xs={9} sm={9} md={9} lg={9} xl={9}>
+            <Grid container className={componentClasses.grider}>
+              <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
+                <img src={lvl} alt={t('user-level')} height="25"/>
+              </Grid>
+              <Grid item xs={11} sm={11} md={11} lg={11} xl={11}>
+                <text>{t('colonel')}</text>
+              </Grid>
+            </Grid>
+            <Grid container className={componentClasses.grider}>
+              <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
+                <img src={xp} alt={t('experience')} height="25"/>
+              </Grid>
+              <Grid item xs={11} sm={11} md={11} lg={11} xl={11}>
+                <text>Level 30 - Dice Explorer</text>
+                <BorderLinearProgress
+                  variant="determinate"
+                  color="secondary"
+                  value={30}
+                />
+              </Grid>
+            </Grid>
+
+            <Grid container className={componentClasses.grider}>
+              <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
+                <div style={{ textAlign: 'center' }}>{t('matches')}</div>
+                <div style={{ textAlign: 'center' }}>7</div>
+              </Grid>
+              <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
+                <div style={{ textAlign: 'center' }}>{t('following')}</div>
+                <div style={{ textAlign: 'center' }}>5</div>
+              </Grid>
+              <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
+                <div style={{ textAlign: 'center' }}>{t('followers')}</div>
+                <div style={{ textAlign: 'center' }}>3</div>
+              </Grid>
+            </Grid>
+          </Grid>
+
         </Grid>
-
-        <Grid item xs={9} sm={9} md={9} lg={9} xl={9}>
-          <Grid container className={componentClasses.grider}>
-            <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
-              <img src={lvl} alt={t('user-level')} height="25"/>
-            </Grid>
-            <Grid item xs={11} sm={11} md={11} lg={11} xl={11}>
-              <text>{t('colonel')}</text>
-            </Grid>
-          </Grid>
-          <Grid container className={componentClasses.grider}>
-            <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
-              <img src={xp} alt={t('experience')} height="25"/>
-            </Grid>
-            <Grid item xs={11} sm={11} md={11} lg={11} xl={11}>
-              <text>Level 30 - Dice Explorer</text>
-              <BorderLinearProgress
-                variant="determinate"
-                color="secondary"
-                value={30}
-              />
-            </Grid>
-          </Grid>
-
-          <Grid container className={componentClasses.grider}>
-            <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
-              <div style={{textAlign: 'center'}}>{t('matches')}</div>
-              <div style={{textAlign: 'center'}}>7</div>
-            </Grid>
-            <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
-              <div style={{textAlign: 'center'}}>{t('following')}</div>
-              <div style={{textAlign: 'center'}}>5</div>
-            </Grid>
-            <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
-              <div style={{textAlign: 'center'}}>{t('followers')}</div>
-              <div style={{textAlign: 'center'}}>3</div>
-            </Grid>
-          </Grid>
-        </Grid>
-
-      </Grid>
+      : null}
     </Paper>
   );
 };

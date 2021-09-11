@@ -10,6 +10,29 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { lighten, withStyles } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import {useQuery, gql} from "@apollo/client";
+
+const graphql = gql`
+  query userInfo {
+    userInfo(uid: "0IhNFZFa7QMwBY6yZT8l24L1AX32") {
+      uid
+      name
+      numberOfMatches
+      following {
+        uid
+        name
+      }
+      followers {
+        uid
+        name
+      }
+      friends {
+        uid
+        name
+      }
+    }
+  }
+`;
 
 const ProfileInfo = ({
   displayName,
@@ -17,6 +40,8 @@ const ProfileInfo = ({
 }) => {
   const componentClasses = useStyles();
   const { t } = useTranslation();
+  const {data, refetch} = useQuery(graphql);
+
   const BorderLinearProgress = withStyles({
     root: {
       height: 10,

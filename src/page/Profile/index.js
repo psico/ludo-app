@@ -6,15 +6,39 @@ import { withRouter } from 'react-router-dom/cjs/react-router-dom';
 import { AuthContext } from '../../App';
 import { useTranslation } from 'react-i18next';
 import ProfileInfo from '../../components/ProfileInfo';
+import {useQuery, gql} from "@apollo/client";
+
+const graphql = gql`
+  query userInfo {
+    userInfo(uid: "0IhNFZFa7QMwBY6yZT8l24L1AX32") {
+      uid
+      name
+      numberOfMatches
+      following {
+        uid
+        name
+      }
+      followers {
+        uid
+        name
+      }
+      friends {
+        uid
+        name
+      }
+    }
+  }
+`;
 
 const Profile = () => {
   const componentClasses = useStyles();
   const { userInfo } = useContext(AuthContext);
   const { t } = useTranslation();
+  const {data, refetch} = useQuery(graphql);
 
   return (
     <div className={componentClasses.root}>
-      <ProfileInfo displayName={userInfo.displayName}
+      <ProfileInfo userInfo={data ? data.userInfo : null}
                    photoURL={userInfo.photoURL}
                    showName={userInfo.showName}>
 

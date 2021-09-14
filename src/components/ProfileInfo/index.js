@@ -69,7 +69,7 @@ const ProfileInfo = ({
             <Grid container className={componentClasses.grider}>
               <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
                 <div style={{ textAlign: 'center' }}>{t('matches')}</div>
-                <div style={{ textAlign: 'center' }}>7</div>
+                <div style={{ textAlign: 'center' }}>{userInfo.numberOfMatches}</div>
               </Grid>
               <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
                 <div style={{ textAlign: 'center' }}>{t('following')}</div>
@@ -77,7 +77,7 @@ const ProfileInfo = ({
               </Grid>
               <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
                 <div style={{ textAlign: 'center' }}>{t('followers')}</div>
-                <div style={{ textAlign: 'center' }}>3</div>
+                <div style={{ textAlign: 'center' }}>{userInfo.followers.length}</div>
               </Grid>
             </Grid>
           </Grid>

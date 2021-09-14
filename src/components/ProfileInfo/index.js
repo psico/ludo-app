@@ -73,7 +73,7 @@ const ProfileInfo = ({
               </Grid>
               <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
                 <div style={{ textAlign: 'center' }}>{t('following')}</div>
-                <div style={{ textAlign: 'center' }}>5</div>
+                <div style={{ textAlign: 'center' }}>{userInfo.following.length}</div>
               </Grid>
               <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
                 <div style={{ textAlign: 'center' }}>{t('followers')}</div>

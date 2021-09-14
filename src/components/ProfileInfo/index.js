@@ -14,7 +14,6 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 
 const ProfileInfo = ({
   userInfo,
-  displayName,
   photoURL
 }) => {
   const componentClasses = useStyles();
@@ -31,7 +30,7 @@ const ProfileInfo = ({
       backgroundColor: '#ff6c5c',
     },
   })(LinearProgress);
-  console.log("userInfo => ", userInfo?.name);
+  console.log("userInfo => ", userInfo);
 
   return (
     <Paper className={componentClasses.paper}>
@@ -40,7 +39,7 @@ const ProfileInfo = ({
 
           <Grid item xs={3} sm={3} md={3} lg={3} xl={3} className={componentClasses.item}>
             <Avatar variant="rounded" alt={userInfo?.name} src={photoURL} className={componentClasses.avatar}/>
-            <text className={componentClasses.grider}>{userInfo?.name}</text>
+            <div className={componentClasses.grider}>{userInfo?.name}</div>
             <Button variant="contained">Follow</Button>
           </Grid>
 
@@ -50,7 +49,7 @@ const ProfileInfo = ({
                 <img src={lvl} alt={t('user-level')} height="25"/>
               </Grid>
               <Grid item xs={11} sm={11} md={11} lg={11} xl={11}>
-                <text>{t('colonel')}</text>
+                <div>{t('colonel')}</div>
               </Grid>
             </Grid>
             <Grid container className={componentClasses.grider}>
@@ -58,7 +57,7 @@ const ProfileInfo = ({
                 <img src={xp} alt={t('experience')} height="25"/>
               </Grid>
               <Grid item xs={11} sm={11} md={11} lg={11} xl={11}>
-                <text>Level 30 - Dice Explorer</text>
+                <div>Level 30 - Dice Explorer</div>
                 <BorderLinearProgress
                   variant="determinate"
                   color="secondary"

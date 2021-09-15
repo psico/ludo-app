@@ -7,9 +7,11 @@ const resources = {
     en: {
         translation: {
             //One word
+            "colonel": "Colonel",
             "community": "Community",
             "dashboard": "Dashboard",
             "email": "E-Mail",
+            "follow": "Follow",
             "friends": "Friends",
             "game": "Game",
             "join": "Join",

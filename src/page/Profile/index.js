@@ -9,7 +9,7 @@ import { useQuery, gql } from '@apollo/client';
 import ProfileInfo from '../../components/ProfileInfo';
 import LastMatches from '../../components/LastMatches';
 
-const graphql = gql`
+const graphqlUserInfo = gql`
   query userInfo {
     userInfo(uid: "0IhNFZFa7QMwBY6yZT8l24L1AX32") {
       uid
@@ -31,14 +31,53 @@ const graphql = gql`
   }
 `;
 
+const graphqlMatches = gql`
+  query matches {
+    matches {
+      idDoc
+      uid
+      gameMoment
+      createdAt
+      game {
+        name
+        objectId
+        yearPublished
+        description
+        imageUrl
+      }
+      comments {
+        uid
+        name
+        comment
+        photoURL
+      }
+      players {
+        uid
+        name
+        friends {
+          uid
+          name
+        }
+        numberOfMatches
+        following {
+          uid
+          name
+        }
+        followers {
+          uid
+          name
+        }
+      }
+    }
+  }
+`;
+
 const Profile = () => {
   const componentClasses = useStyles();
   const { userInfo } = useContext(AuthContext);
   const { t } = useTranslation();
-  const {
-    data,
-    refetch
-  } = useQuery(graphql);
+  const { data, refetch } = useQuery(graphqlUserInfo);
+  const { dataMatches = data, refetchMatches = refetch } = useQuery(graphqlMatches);
 
   return (
     <div className={componentClasses.root}>

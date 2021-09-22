@@ -28,11 +28,7 @@ const graphqlUserInfo = gql`
         name
       }
     }
-  }
-`;
-
-const graphqlMatches = gql`
-  query matches {
+    
     matches {
       idDoc
       uid
@@ -72,12 +68,59 @@ const graphqlMatches = gql`
   }
 `;
 
+// const graphqlMatches = gql`
+//   query matches {
+//     matches {
+//       idDoc
+//       uid
+//       gameMoment
+//       createdAt
+//       game {
+//         name
+//         objectId
+//         yearPublished
+//         description
+//         imageUrl
+//       }
+//       comments {
+//         uid
+//         name
+//         comment
+//         photoURL
+//       }
+//       players {
+//         uid
+//         name
+//         friends {
+//           uid
+//           name
+//         }
+//         numberOfMatches
+//         following {
+//           uid
+//           name
+//         }
+//         followers {
+//           uid
+//           name
+//         }
+//       }
+//     }
+//   }
+// `;
+
 const Profile = () => {
   const componentClasses = useStyles();
   const { userInfo } = useContext(AuthContext);
   const { t } = useTranslation();
-  const { data, refetch } = useQuery(graphqlUserInfo);
-  const { dataMatches = data, refetchMatches = refetch } = useQuery(graphqlMatches);
+  const {
+    data,
+    refetch
+  } = useQuery(graphqlUserInfo);
+  // const {
+  //   dataMatches = data,
+  //   refetchMatches = refetch
+  // } = useQuery(graphqlMatches);
 
   return (
     <div className={componentClasses.root}>
@@ -86,9 +129,7 @@ const Profile = () => {
                    showName={userInfo.showName}>
 
       </ProfileInfo>
-      <LastMatches>
-
-      </LastMatches>
+      <LastMatches matches={data.matches}></LastMatches>
       <Paper className={componentClasses.paper}>
         <Grid container>
           <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>

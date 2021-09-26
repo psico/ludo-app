@@ -32,6 +32,7 @@ const resources = {
             "last-matches": "Last matches",
             "logo-ludoapp": "Logo LudoApp",
             "my-profile": "My Profile",
+            "most-played": "Most Played",
             "no-data": "No data",
             "play-match": "Play match",
             "play-now": "Play now",

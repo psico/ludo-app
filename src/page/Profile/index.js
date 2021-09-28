@@ -124,7 +124,7 @@ const Profile = () => {
 
   return (
     <div className={componentClasses.root}>
-      <ProfileInfo userInfo={data ? data.userInfo : null}
+      <ProfileInfo userInfo={data?.userInfo}
                    photoURL={userInfo.photoURL}
                    showName={userInfo.showName}>
 

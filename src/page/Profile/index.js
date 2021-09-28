@@ -129,7 +129,7 @@ const Profile = () => {
                    showName={userInfo.showName}>
 
       </ProfileInfo>
-      <LastMatches matches={data.matches}></LastMatches>
+      <LastMatches matches={data?.matches}></LastMatches>
       <Paper className={componentClasses.paper}>
         <Grid container>
           <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>

@@ -12,7 +12,7 @@ const LastMatches = ({ matches }) => {
 
   return (
     <Paper className={componentClasses.paper}>
-      <p>{t('last-matches')}</p>
+      <h2>{t('last-matches')}</h2>
       <Grid container>
       {
         matches ? matches.map((match) =>

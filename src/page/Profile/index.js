@@ -68,47 +68,6 @@ const graphqlUserInfo = gql`
   }
 `;
 
-// const graphqlMatches = gql`
-//   query matches {
-//     matches {
-//       idDoc
-//       uid
-//       gameMoment
-//       createdAt
-//       game {
-//         name
-//         objectId
-//         yearPublished
-//         description
-//         imageUrl
-//       }
-//       comments {
-//         uid
-//         name
-//         comment
-//         photoURL
-//       }
-//       players {
-//         uid
-//         name
-//         friends {
-//           uid
-//           name
-//         }
-//         numberOfMatches
-//         following {
-//           uid
-//           name
-//         }
-//         followers {
-//           uid
-//           name
-//         }
-//       }
-//     }
-//   }
-// `;
-
 const Profile = () => {
   const componentClasses = useStyles();
   const { userInfo } = useContext(AuthContext);
@@ -117,10 +76,6 @@ const Profile = () => {
     data,
     refetch
   } = useQuery(graphqlUserInfo);
-  // const {
-  //   dataMatches = data,
-  //   refetchMatches = refetch
-  // } = useQuery(graphqlMatches);
 
   return (
     <div className={componentClasses.root}>

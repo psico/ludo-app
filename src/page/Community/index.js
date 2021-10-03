@@ -33,17 +33,18 @@ const graphql = gql`
 `;
 
 function Community() {
+    const defaultImg = 'https://s3-us-west-1.amazonaws.com/5cc.images/games/empty+box.jpg';
     const componentClasses = useStyles();
     const {t} = useTranslation();
     const {data, refetch} = useQuery(graphql);
 
-    const refreshUseQuery = async () => {
+    const refreshUseQuery = useCallback(async () => {
         await refetch();
-    };
+    });
 
     useEffect(() => {
         refreshUseQuery();
-    }, []);
+    }, [refreshUseQuery]);
 
     return (
         <div className={componentClasses.root}>
@@ -77,7 +78,7 @@ function Community() {
                             </Grid>
                             <Grid container className={componentClasses.hLine}>
                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                                    <img src={value.game.imageUrl || "https://s3-us-west-1.amazonaws.com/5cc.images/games/empty+box.jpg"} alt={t('logo-ludoapp')} height="300"/>
+                                    <img src={value.game.imageUrl || defaultImg} alt={t('logo-ludoapp')} height="300"/>
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                                     <Grid container spacing={0} item xs={12} sm={12} md={6} lg={6} xl={6}>

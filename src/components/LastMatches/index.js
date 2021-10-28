@@ -9,7 +9,6 @@ const LastMatches = ({ matches }) => {
   const defaultImg = 'https://s3-us-west-1.amazonaws.com/5cc.images/games/empty+box.jpg';
   const componentClasses = useStyles();
   const { t } = useTranslation();
-  console.log('matches ==> ', matches);
 
   return (
     <Paper className={componentClasses.paper}>

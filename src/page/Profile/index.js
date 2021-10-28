@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import useStyles from './css';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import { withRouter } from 'react-router-dom/cjs/react-router-dom';
+import { withRouter, useParams } from 'react-router-dom/cjs/react-router-dom';
 import { AuthContext } from '../../App';
 import { useTranslation } from 'react-i18next';
 import { useQuery, gql } from '@apollo/client';
@@ -29,7 +29,7 @@ const graphqlUserInfo = gql`
       }
     }
     
-    matches {
+    matches(uid: "0IhNFZFa7QMwBY6yZT8l24L1AX32") {
       idDoc
       uid
       gameMoment
@@ -73,10 +73,9 @@ const Profile = () => {
   const { userInfo } = useContext(AuthContext);
   const { t } = useTranslation();
   const {
-    data,
-    refetch
+    data
   } = useQuery(graphqlUserInfo);
-
+console.log(" useParams() => ",  useParams());
   return (
     <div className={componentClasses.root}>
       <ProfileInfo userInfo={data?.userInfo}

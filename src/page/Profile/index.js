@@ -75,7 +75,7 @@ const Profile = () => {
   const {
     loading, error, data
   } = useQuery(graphqlUserInfo, {
-    variables: { uid: "0IhNFZFa7QMwBY6yZT8l24L1AX32" }
+    variables: { uid: useParams().id }
   });
 // console.log("data => ",  useParams().id);
   if (loading) return null;

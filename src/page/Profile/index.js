@@ -10,8 +10,8 @@ import ProfileInfo from '../../components/ProfileInfo';
 import LastMatches from '../../components/LastMatches';
 
 const graphqlUserInfo = gql`
-  query userInfo($idUser: String!) {
-    userInfo(uid: $idUser) {
+  query userInfo($uid: ID!) {
+    userInfo(uid: $uid) {
       uid
       name
       numberOfMatches
@@ -29,7 +29,7 @@ const graphqlUserInfo = gql`
       }
     }
     
-    matches(uid: $idUser) {
+    matches(uid: $uid) {
       idDoc
       uid
       gameMoment
@@ -73,11 +73,14 @@ const Profile = () => {
   const { userInfo } = useContext(AuthContext);
   const { t } = useTranslation();
   const {
-    data
+    loading, error, data
   } = useQuery(graphqlUserInfo, {
-    variables: { idUser: useParams().id },
+    variables: { uid: "0IhNFZFa7QMwBY6yZT8l24L1AX32" }
   });
-console.log(" useParams().id => ",  useParams().id);
+// console.log("data => ",  useParams().id);
+  if (loading) return null;
+  if (error) return `Error! ${error}`;
+
   return (
     <div className={componentClasses.root}>
       <ProfileInfo userInfo={data?.userInfo}

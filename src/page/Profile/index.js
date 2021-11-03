@@ -77,9 +77,6 @@ const Profile = () => {
   } = useQuery(graphqlUserInfo, {
     variables: { uid: useParams().id }
   });
-// console.log("data => ",  useParams().id);
-  if (loading) return null;
-  if (error) return `Error! ${error}`;
 
   return (
     <div className={componentClasses.root}>

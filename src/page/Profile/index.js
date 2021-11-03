@@ -72,9 +72,7 @@ const Profile = () => {
   const componentClasses = useStyles();
   const { userInfo } = useContext(AuthContext);
   const { t } = useTranslation();
-  const {
-    loading, error, data
-  } = useQuery(graphqlUserInfo, {
+  const { data } = useQuery(graphqlUserInfo, {
     variables: { uid: useParams().id }
   });
 

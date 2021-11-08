@@ -79,8 +79,8 @@ const Profile = () => {
   return (
     <div className={componentClasses.root}>
       <ProfileInfo userInfo={data?.userInfo}
-                   photoURL={userInfo.photoURL}
-                   showName={userInfo.showName}>
+                   photoURL={data?.userInfo.photoURL}
+                   showName={data?.userInfo.showName}>
 
       </ProfileInfo>
       <LastMatches matches={data?.matches}></LastMatches>

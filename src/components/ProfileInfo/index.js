@@ -18,7 +18,7 @@ const ProfileInfo = ({
   photoURL
 }) => {
   const componentClasses = useStyles();
-  const { userLogInInfo } = useContext(AuthContext);
+  const { userinfo: userLogInInfo } = useContext(AuthContext);
   const { t } = useTranslation();
 
   const BorderLinearProgress = withStyles({

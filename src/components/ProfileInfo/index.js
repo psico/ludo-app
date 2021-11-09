@@ -33,9 +33,14 @@ const ProfileInfo = ({
     },
   })(LinearProgress);
   console.log("userInfo => ", userInfo);
+  console.log("userLogInInfo => ", userLogInInfo);
 
   function followCondicional() {
-    return "true";
+    if (userLogInInfo?.uid === userInfo?.uid) {
+      return "true";
+    }
+
+    return "";
   }
 
   return (

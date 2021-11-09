@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import useStyles from './css';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+// import Grid from '@material-ui/core/Grid';
+// import Paper from '@material-ui/core/Paper';
 import { withRouter, useParams } from 'react-router-dom/cjs/react-router-dom';
 import { AuthContext } from '../../App';
 import { useTranslation } from 'react-i18next';
@@ -70,8 +70,7 @@ const graphqlUserInfo = gql`
 
 const Profile = () => {
   const componentClasses = useStyles();
-  const { userInfo } = useContext(AuthContext);
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const { data } = useQuery(graphqlUserInfo, {
     variables: { uid: useParams().id }
   });

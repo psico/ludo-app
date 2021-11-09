@@ -6,10 +6,11 @@ import Avatar from '@material-ui/core/Avatar';
 import { Button } from '@material-ui/core';
 import lvl from '../../temp-images/lvl-coronel.png';
 import xp from '../../temp-images/experience.png';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { lighten, withStyles } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import { AuthContext } from '../../App';
 
 
 const ProfileInfo = ({
@@ -17,6 +18,7 @@ const ProfileInfo = ({
   photoURL
 }) => {
   const componentClasses = useStyles();
+  const { userLogInInfo } = useContext(AuthContext);
   const { t } = useTranslation();
 
   const BorderLinearProgress = withStyles({
@@ -32,6 +34,10 @@ const ProfileInfo = ({
   })(LinearProgress);
   console.log("userInfo => ", userInfo);
 
+  function followCondicional() {
+    return "true";
+  }
+
   return (
     <Paper className={componentClasses.paper}>
       {userInfo ?
@@ -40,7 +46,7 @@ const ProfileInfo = ({
           <Grid item xs={3} sm={3} md={3} lg={3} xl={3} className={componentClasses.item}>
             <Avatar variant="rounded" alt={userInfo?.name} src={photoURL} className={componentClasses.avatar}/>
             <div className={componentClasses.grider}>{userInfo?.name}</div>
-            <Button variant="contained" disabled>{t('follow')}</Button>
+            <Button variant="contained" disabled={followCondicional()}>{t('follow')}</Button>
           </Grid>
 
           <Grid item xs={9} sm={9} md={9} lg={9} xl={9}>

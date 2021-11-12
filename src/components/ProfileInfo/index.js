@@ -14,11 +14,11 @@ import { AuthContext } from '../../App';
 
 
 const ProfileInfo = ({
-  userInfo,
+  userInfo: userInfoData,
   photoURL
 }) => {
   const componentClasses = useStyles();
-  const { userinfo: userLogInInfo } = useContext(AuthContext);
+  const { userInfo } = useContext(AuthContext);
   const { t } = useTranslation();
 
   const BorderLinearProgress = withStyles({
@@ -32,11 +32,11 @@ const ProfileInfo = ({
       backgroundColor: '#ff6c5c',
     },
   })(LinearProgress);
+  console.log("userInfoData => ", userInfoData);
   console.log("userInfo => ", userInfo);
-  console.log("userLogInInfo => ", userLogInInfo);
 
   function followCondicional() {
-    if (userLogInInfo?.uid === userInfo?.uid) {
+    if (userInfo?.uid === userInfoData?.uid) {
       return "true";
     }
 
@@ -45,12 +45,12 @@ const ProfileInfo = ({
 
   return (
     <Paper className={componentClasses.paper}>
-      {userInfo ?
+      {userInfoData ?
         <Grid container>
 
           <Grid item xs={3} sm={3} md={3} lg={3} xl={3} className={componentClasses.item}>
-            <Avatar variant="rounded" alt={userInfo?.name} src={photoURL} className={componentClasses.avatar}/>
-            <div className={componentClasses.grider}>{userInfo?.name}</div>
+            <Avatar variant="rounded" alt={userInfoData?.name} src={photoURL} className={componentClasses.avatar}/>
+            <div className={componentClasses.grider}>{userInfoData?.name}</div>
             <Button variant="contained" disabled={followCondicional()}>{t('follow')}</Button>
           </Grid>
 
@@ -80,15 +80,15 @@ const ProfileInfo = ({
             <Grid container className={componentClasses.grider}>
               <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
                 <div style={{ textAlign: 'center' }}>{t('matches')}</div>
-                <div style={{ textAlign: 'center' }}>{userInfo.numberOfMatches}</div>
+                <div style={{ textAlign: 'center' }}>{userInfoData.numberOfMatches}</div>
               </Grid>
               <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
                 <div style={{ textAlign: 'center' }}>{t('following')}</div>
-                <div style={{ textAlign: 'center' }}>{userInfo.following.length}</div>
+                <div style={{ textAlign: 'center' }}>{userInfoData.following.length}</div>
               </Grid>
               <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
                 <div style={{ textAlign: 'center' }}>{t('followers')}</div>
-                <div style={{ textAlign: 'center' }}>{userInfo.followers.length}</div>
+                <div style={{ textAlign: 'center' }}>{userInfoData.followers.length}</div>
               </Grid>
             </Grid>
           </Grid>

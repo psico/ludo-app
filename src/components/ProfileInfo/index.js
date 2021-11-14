@@ -32,8 +32,6 @@ const ProfileInfo = ({
       backgroundColor: '#ff6c5c',
     },
   })(LinearProgress);
-  console.log("userInfoData => ", userInfoData);
-  console.log("userInfo => ", userInfo);
 
   function followCondicional() {
     if (userInfo?.uid === userInfoData?.uid) {

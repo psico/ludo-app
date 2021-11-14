@@ -49,7 +49,7 @@ const ProfileInfo = ({
           <Grid item xs={3} sm={3} md={3} lg={3} xl={3} className={componentClasses.item}>
             <Avatar variant="rounded" alt={userInfoData?.name} src={photoURL} className={componentClasses.avatar}/>
             <div className={componentClasses.grider}>{userInfoData?.name}</div>
-            <Button variant="contained" disabled={followCondicional()}>{t('follow')}</Button>
+            <Button variant="contained" disabled={followCondicional()} onClick={() => alert("hello")}>{t('follow')}</Button>
           </Grid>
 
           <Grid item xs={9} sm={9} md={9} lg={9} xl={9}>

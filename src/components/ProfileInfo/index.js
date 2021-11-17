@@ -12,7 +12,6 @@ import { lighten, withStyles } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { AuthContext } from '../../App';
 
-
 const ProfileInfo = ({
   userInfo: userInfoData,
   photoURL
@@ -33,12 +32,16 @@ const ProfileInfo = ({
     },
   })(LinearProgress);
 
-  function followCondicional() {
+  function followCondicional () {
     if (userInfo?.uid === userInfoData?.uid) {
-      return "true";
+      return 'true';
     }
 
-    return "";
+    return '';
+  }
+
+  function toFollow () {
+    alert('hello');
   }
 
   return (
@@ -49,7 +52,7 @@ const ProfileInfo = ({
           <Grid item xs={3} sm={3} md={3} lg={3} xl={3} className={componentClasses.item}>
             <Avatar variant="rounded" alt={userInfoData?.name} src={photoURL} className={componentClasses.avatar}/>
             <div className={componentClasses.grider}>{userInfoData?.name}</div>
-            <Button variant="contained" disabled={followCondicional()} onClick={() => alert("hello")}>{t('follow')}</Button>
+            <Button variant="contained" disabled={followCondicional()} onClick={toFollow}>{t('follow')}</Button>
           </Grid>
 
           <Grid item xs={9} sm={9} md={9} lg={9} xl={9}>
@@ -92,7 +95,7 @@ const ProfileInfo = ({
           </Grid>
 
         </Grid>
-      : null}
+        : null}
     </Paper>
   );
 };

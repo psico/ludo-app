@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback } from 'react';
 import useStyles from "./css";
 import Grid from '@material-ui/core/Grid';
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
@@ -42,9 +42,9 @@ function Community() {
         await refetch();
     });
 
-    useEffect(() => {
-        refreshUseQuery();
-    }, [refreshUseQuery]);
+    // useEffect(() => {
+    //     refreshUseQuery().then(r => {});
+    // }, [refreshUseQuery]);
 
     return (
         <div className={componentClasses.root}>

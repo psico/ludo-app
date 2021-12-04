@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import useStyles from './css';
 import { withRouter, useParams } from 'react-router-dom/cjs/react-router-dom';
 import { useQuery, gql } from '@apollo/client';

@@ -77,7 +77,7 @@ const Profile = () => {
                    showName={data?.userInfo.showName}>
 
       </ProfileInfo>
-      <LastMatches matches={data?.matches}></LastMatches>
+      <LastMatches matches={data?.matches}/>
     </div>
   );
 };

@@ -34,10 +34,10 @@ const ProfileInfo = ({
 
   function followCondicional () {
     if (userInfo?.uid === userInfoData?.uid) {
-      return 'true';
+      return true;
     }
 
-    return '';
+    return false;
   }
 
   function toFollow () {

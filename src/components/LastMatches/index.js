@@ -15,8 +15,9 @@ const LastMatches = ({ matches }) => {
       <h2>{t('last-matches')}</h2>
       <Grid container>
       {
-        matches ? matches.map((match) =>
-            <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
+        matches ? matches.map((match, index) =>
+            <Grid item xs={2} sm={2} md={2} lg={2} xl={2}
+                  key={"match_" + index}>>
               <p>{match.game.name}</p>
               <img src={match.game.imageUrl || defaultImg }
                    alt={match.game.name} height="80"/>

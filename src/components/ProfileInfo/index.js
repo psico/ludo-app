@@ -1,5 +1,5 @@
 import useStyles from './css';
-import { withRouter } from 'react-router-dom/cjs/react-router-dom';
+import { useParams, withRouter } from 'react-router-dom/cjs/react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Avatar from '@material-ui/core/Avatar';
@@ -11,6 +11,16 @@ import { useTranslation } from 'react-i18next';
 import { lighten, withStyles } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { AuthContext } from '../../App';
+import { gql, useQuery } from '@apollo/client';
+
+const graphqlFollowUser = gql`
+mutation {
+  follow(followUid: "Pr5X0qk6DeYut8paQ8hQ5s7kb8F3") {
+    uid,
+    name
+  }
+}
+`;
 
 const ProfileInfo = ({
   userInfo: userInfoData,
@@ -19,6 +29,9 @@ const ProfileInfo = ({
   const componentClasses = useStyles();
   const { userInfo } = useContext(AuthContext);
   const { t } = useTranslation();
+  const { data } = useQuery(graphqlFollowUser, {
+    variables: { followUid: useParams().id }
+  });
 
   const BorderLinearProgress = withStyles({
     root: {

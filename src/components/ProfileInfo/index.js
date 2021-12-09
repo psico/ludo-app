@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 import { lighten, withStyles } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { AuthContext } from '../../App';
-import { gql, useQuery } from '@apollo/client';
+import { gql, useMutation } from '@apollo/client';
 
 const graphqlFollowUser = gql`
 mutation {
@@ -23,13 +23,13 @@ mutation {
 `;
 
 const ProfileInfo = ({
-  userInfo: userInfoData,
+  userInfo: userProfileInfoData,
   photoURL
 }) => {
   const componentClasses = useStyles();
   const { userInfo } = useContext(AuthContext);
   const { t } = useTranslation();
-  const { data } = useQuery(graphqlFollowUser, {
+  const [follow] = useMutation(graphqlFollowUser, {
     variables: { followUid: useParams().id }
   });
 
@@ -46,11 +46,7 @@ const ProfileInfo = ({
   })(LinearProgress);
 
   function followCondicional () {
-    if (userInfo?.uid === userInfoData?.uid) {
-      return true;
-    }
-
-    return false;
+    return userInfo?.uid === userProfileInfoData?.uid;
   }
 
   function toFollow () {
@@ -59,12 +55,12 @@ const ProfileInfo = ({
 
   return (
     <Paper className={componentClasses.paper}>
-      {userInfoData ?
+      {userProfileInfoData ?
         <Grid container>
 
           <Grid item xs={3} sm={3} md={3} lg={3} xl={3} className={componentClasses.item}>
-            <Avatar variant="rounded" alt={userInfoData?.name} src={photoURL} className={componentClasses.avatar}/>
-            <div className={componentClasses.grider}>{userInfoData?.name}</div>
+            <Avatar variant="rounded" alt={userProfileInfoData?.name} src={photoURL} className={componentClasses.avatar}/>
+            <div className={componentClasses.grider}>{userProfileInfoData?.name}</div>
             <Button variant="contained" disabled={followCondicional()} onClick={toFollow}>{t('follow')}</Button>
           </Grid>
 
@@ -94,15 +90,15 @@ const ProfileInfo = ({
             <Grid container className={componentClasses.grider}>
               <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
                 <div style={{ textAlign: 'center' }}>{t('matches')}</div>
-                <div style={{ textAlign: 'center' }}>{userInfoData.numberOfMatches}</div>
+                <div style={{ textAlign: 'center' }}>{userProfileInfoData.numberOfMatches}</div>
               </Grid>
               <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
                 <div style={{ textAlign: 'center' }}>{t('following')}</div>
-                <div style={{ textAlign: 'center' }}>{userInfoData.following.length}</div>
+                <div style={{ textAlign: 'center' }}>{userProfileInfoData.following.length}</div>
               </Grid>
               <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
                 <div style={{ textAlign: 'center' }}>{t('followers')}</div>
-                <div style={{ textAlign: 'center' }}>{userInfoData.followers.length}</div>
+                <div style={{ textAlign: 'center' }}>{userProfileInfoData.followers.length}</div>
               </Grid>
             </Grid>
           </Grid>

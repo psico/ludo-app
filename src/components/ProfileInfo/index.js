@@ -49,13 +49,21 @@ const ProfileInfo = ({
     return userInfo?.uid === userProfileInfoData?.uid;
   }
 
-  async function toFollow (followUid) {
+  const toFollow = (followUid) => {
     alert('hello');
-    await follow({
+    follow({
       variables: {
         followUid: followUid
       }
-    });
+    })
+      .then((result) => {
+        console.log('result follow => ', result);
+      })
+      .catch((error) => {
+        console.log('error follow => ', error);
+      });
+
+    return undefined;
   }
 
   return (

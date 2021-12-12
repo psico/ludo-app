@@ -49,8 +49,9 @@ const ProfileInfo = ({
     return userInfo?.uid === userProfileInfoData?.uid;
   }
 
-  function toFollow () {
+  async function toFollow () {
     alert('hello');
+    await follow({ followUid: "Pr5X0qk6DeYut8paQ8hQ5s7kb8F3" });
   }
 
   return (

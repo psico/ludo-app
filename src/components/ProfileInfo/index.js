@@ -50,21 +50,17 @@ const ProfileInfo = ({
   }
 
   const toFollow = (followUid) => {
-    console.log('hello');
     follow({
       variables: {
         followUid: followUid
       }
     })
-      .then((result) => {
-        console.log('result follow => ', result);
-      })
       .catch((error) => {
-        console.log('error follow => ', error);
+        console.log('error to follow => ', error);
       });
 
     return undefined;
-  }
+  };
 
   return (
     <Paper className={componentClasses.paper}>
@@ -72,9 +68,11 @@ const ProfileInfo = ({
         <Grid container>
 
           <Grid item xs={3} sm={3} md={3} lg={3} xl={3} className={componentClasses.item}>
-            <Avatar variant="rounded" alt={userProfileInfoData?.name} src={photoURL} className={componentClasses.avatar}/>
+            <Avatar variant="rounded" alt={userProfileInfoData?.name} src={photoURL}
+                    className={componentClasses.avatar}/>
             <div className={componentClasses.grider}>{userProfileInfoData?.name}</div>
-            <Button variant="contained" disabled={followCondicional()} onClick={() => toFollow(userProfileInfoData?.uid)}>{t('follow')}</Button>
+            <Button variant="contained" disabled={followCondicional()}
+                    onClick={() => toFollow(userProfileInfoData?.uid)}>{t('follow')}</Button>
           </Grid>
 
           <Grid item xs={9} sm={9} md={9} lg={9} xl={9}>

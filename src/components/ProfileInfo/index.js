@@ -50,7 +50,7 @@ const ProfileInfo = ({
   }
 
   const toFollow = (followUid) => {
-    alert('hello');
+    console.log('hello');
     follow({
       variables: {
         followUid: followUid

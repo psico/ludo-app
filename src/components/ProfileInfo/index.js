@@ -46,9 +46,8 @@ const ProfileInfo = ({
   })(LinearProgress);
 
   function followCondicional () {
-    console.log("userProfileInfoData => ", userProfileInfoData);
     const followed = userProfileInfoData.followers.some((follower) => follower.uid === userInfo?.uid);
-    console.log("111111111 => ", userInfo?.uid === userProfileInfoData?.uid || followed);
+
     return userInfo?.uid === userProfileInfoData?.uid || followed;
   }
 

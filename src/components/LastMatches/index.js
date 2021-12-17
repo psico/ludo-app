@@ -17,7 +17,7 @@ const LastMatches = ({ matches }) => {
       {
         matches ? matches.map((match, index) =>
             <Grid item xs={2} sm={2} md={2} lg={2} xl={2}
-                  key={"match_" + index}>>
+                  key={"match_" + index}>
               <p>{match.game.name}</p>
               <img src={match.game.imageUrl || defaultImg }
                    alt={match.game.name} height="80"/>

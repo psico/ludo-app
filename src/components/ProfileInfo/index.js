@@ -57,7 +57,6 @@ const ProfileInfo = ({
         followUid: followUid
       }
     }).then((result)=> {
-      console.log("data =", result.data.follow)
       if (result.data.follow) {
         window.location.reload();
       }

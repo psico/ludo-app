@@ -56,8 +56,11 @@ const ProfileInfo = ({
       variables: {
         followUid: followUid
       }
-    }).then(()=> {
-      window.location.reload();
+    }).then((result)=> {
+      console.log("data =", result.data.follow)
+      if (result.data.follow) {
+        window.location.reload();
+      }
     })
       .catch((error) => {
         console.log('error to follow => ', error);

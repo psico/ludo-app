@@ -14,8 +14,8 @@ import { AuthContext } from '../../App';
 import { gql, useMutation } from '@apollo/client';
 
 const graphqlFollowUser = gql`
-mutation {
-  follow(followUid: "Pr5X0qk6DeYut8paQ8hQ5s7kb8F3") {
+mutation follow($followUid: ID!) {
+  follow(followUid: $followUid) {
     uid,
     name
   }

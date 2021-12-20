@@ -26,6 +26,7 @@ const graphql = gql`
                 photoURL
             }
             players {
+                uid
                 name
             }
         }
@@ -61,7 +62,7 @@ function Community() {
                             </Grid>
                             <Grid container className={componentClasses.hLine}>
                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                                    <UserAvatar showName={true}/>
+                                    <UserAvatar uid={value.uid} displayName={value.displayName} showName={true}/>
                                     {/*<PersonAvatar displayName={value.uid} showName={true}/>*/}
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6} container>

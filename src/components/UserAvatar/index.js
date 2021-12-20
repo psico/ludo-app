@@ -7,9 +7,9 @@ const UserAvatar = (props) => {
 
     return (
         <PersonAvatar
-            displayName={userInfo.displayName}
-            photoURL={userInfo.photoURL}
-            showName={props.showName}
+            displayName={props.displayName || userInfo.displayName}
+            photoURL={props.photoURL || userInfo.photoURL}
+            showName={props.showName || userInfo.showName}
         />
     )
 };

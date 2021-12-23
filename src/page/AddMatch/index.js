@@ -20,7 +20,11 @@ const graphql = gql`
     mutation createMatch($matchInput: MatchInput){
         createMatch(MatchInput:$matchInput) {
             idDoc,
-            uid,
+            matchOwner {
+              uid
+              name
+              photoURL
+            },
             gameMoment,
             game {
                 name

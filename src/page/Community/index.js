@@ -15,6 +15,11 @@ const graphql = gql`
     query matches{
         matches {
             idDoc
+            matchOwner {
+              uid
+              name
+              photoURL
+            }
             game {
                 name
                 imageUrl
@@ -51,6 +56,7 @@ function Community() {
         <div className={componentClasses.root}>
             {data &&
             data.matches.map((value, index) => {
+                console.log("===================================", value)
                 return (
                     <Paper className={componentClasses.paper} key={"community_" + index}>
                         <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
@@ -62,7 +68,7 @@ function Community() {
                             </Grid>
                             <Grid container className={componentClasses.hLine}>
                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                                    <UserAvatar photoURL={value.photoURL} displayName={value.displayName} showName={true}/>
+                                    <UserAvatar photoURL={value?.matchOwner?.photoURL} displayName={value?.matchOwner?.name || 'Unknown'} showName={true}/>
                                     {/*<PersonAvatar displayName={value.uid} showName={true}/>*/}
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6} container>

@@ -68,7 +68,7 @@ function Community() {
                             </Grid>
                             <Grid container className={componentClasses.hLine}>
                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                                    <UserAvatar photoURL={value?.matchOwner?.photoURL} displayName={value?.matchOwner?.name || 'Unknown'} showName={true}/>
+                                    <UserAvatar photoURL={value?.matchOwner?.photoURL} displayName={value?.matchOwner?.name} showName={true}/>
                                     {/*<PersonAvatar displayName={value.uid} showName={true}/>*/}
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6} container>

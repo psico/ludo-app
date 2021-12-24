@@ -6,7 +6,7 @@ const UserAvatar = (props) => {
         <PersonAvatar
             displayName={props.displayName || 'Unknown'}
             photoURL={props.photoURL || 'Unknown'}
-            showName={props.showName || 'Unknown'}
+            showName={props.showName || false}
         />
     )
 };

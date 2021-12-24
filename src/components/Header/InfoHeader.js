@@ -30,7 +30,10 @@ const InfoHeader = () => {
         <span>
         {userInfo.isLoggedIn ?
             <div className={classes.infoHeader}>
-                <UserAvatar showName={false}/>
+                <UserAvatar
+                  photoURL={userInfo.photoURL}
+                  displayName={userInfo.displayName}
+                  showName={false}/>
                 <img src={lvl} alt={t('user-level')} height="25"/>
                 <h5>
                     <div>Level 30 - Dice Explorer {userInfo.isLoggedIn}</div>

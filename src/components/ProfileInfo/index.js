@@ -123,7 +123,7 @@ const ProfileInfo = ({
           </Grid>
 
         </Grid>
-        : null}
+        : <div>{t('nothing-to-show')}</div>}
     </Paper>
   );
 };

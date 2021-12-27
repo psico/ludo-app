@@ -123,7 +123,7 @@ const AddMatch = ({history}) => {
                                             InputProps={{
                                                 readOnly: true,
                                                 startAdornment: (
-                                                    <UserAvatar showName={false}/>
+                                                    <UserAvatar displayName={userInfo.displayName} photoURL={userInfo.photoURL} showName={false}/>
                                                 ),
                                             }}
                                             defaultValue={userInfo.displayName}

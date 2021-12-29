@@ -75,6 +75,7 @@ const ProfileInfo = ({
 
           <Grid item xs={3} sm={3} md={3} lg={3} xl={3} className={componentClasses.item}>
             <Avatar variant="rounded"
+                    displayName={userProfileInfoData?.name}
                     alt={userProfileInfoData?.name}
                     src={photoURL}
                     className={componentClasses.avatar}/>

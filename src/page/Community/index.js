@@ -38,7 +38,7 @@ const graphql = gql`
     }
 `;
 
-function Community() {
+function Community({history}) {
     const defaultImg = 'https://s3-us-west-1.amazonaws.com/5cc.images/games/empty+box.jpg';
     const componentClasses = useStyles();
     const {t} = useTranslation();
@@ -67,7 +67,7 @@ function Community() {
                             </Grid>
                             <Grid container className={componentClasses.hLine}>
                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                                    <div onClick={() => alert("test")}>
+                                    <div onClick={() => { history.push('/profile/' + value?.matchOwner?.uid);}}>
                                         <UserAvatar photoURL={value?.matchOwner?.photoURL} displayName={value?.matchOwner?.name} showName={true}/>
                                         {/*<PersonAvatar displayName={value.uid} showName={true}/>*/}
                                     </div>

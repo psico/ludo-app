@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import {Home, Group, Dashboard, AccountCircle, AddCircleOutline} from '@material-ui/icons';
+import {Home, Dashboard, AccountCircle, AddCircleOutline} from '@material-ui/icons';
 import useStyles from "./css";
 import {AuthContext} from "../../App";
 import {useTranslation} from 'react-i18next';
@@ -32,21 +32,26 @@ const Footer = ({history}) => {
                                         classes={{
                                             selected: componentClasses.selected
                                         }}/>
-                <BottomNavigationAction label={t('friends')} value="friends"
-                                        icon={<Group htmlColor="white"/>}
-                                        classes={{
-                                            selected: componentClasses.selected
-                                        }}/>
-                <BottomNavigationAction label={t('add-match')} value="addMatch"
-                                        icon={<AddCircleOutline fontSize="default" htmlColor="white"/>}
-                                        classes={{
-                                            selected: componentClasses.selected
-                                        }}/>
                 <BottomNavigationAction label={t('dashboard')} value="dashboard"
                                         icon={<Dashboard htmlColor="white"/>}
                                         classes={{
                                             selected: componentClasses.selected
                                         }}/>
+                {/*<BottomNavigationAction label={t('friends')} value="friends"*/}
+                {/*                        icon={<Group htmlColor="white"/>}*/}
+                {/*                        classes={{*/}
+                {/*                            selected: componentClasses.selected*/}
+                {/*                        }}/>*/}
+                <BottomNavigationAction label={t('add-match')} value="addMatch"
+                                        icon={<AddCircleOutline fontSize="default" htmlColor="white"/>}
+                                        classes={{
+                                            selected: componentClasses.selected
+                                        }}/>
+                {/*<BottomNavigationAction label={t('dashboard')} value="dashboard"*/}
+                {/*                        icon={<Dashboard htmlColor="white"/>}*/}
+                {/*                        classes={{*/}
+                {/*                            selected: componentClasses.selected*/}
+                {/*                        }}/>*/}
                 <BottomNavigationAction label={t('my-profile')} value={`profile/${userInfo.uid}`}
                                         icon={<AccountCircle htmlColor="white"/>}
                                         classes={{

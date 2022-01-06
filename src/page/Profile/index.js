@@ -68,7 +68,7 @@ const Profile = () => {
   const { data } = useQuery(graphqlUserInfo, {
     variables: { uid: useParams().id }
   });
-console.log("data ==> ", data);
+
   return (
     <div className={componentClasses.root}>
       <ProfileInfo userInfo={data?.userInfo}

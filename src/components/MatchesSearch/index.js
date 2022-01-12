@@ -6,7 +6,11 @@ import { withRouter } from 'react-router-dom/cjs/react-router-dom';
 const MatchesSearch = () => {
   const componentClasses = useStyles();
 
-  return <Paper className={componentClasses.paper}>Matches Search</Paper>
-}
+  return (
+    <Paper className={componentClasses.paper}>
+      <h2>Matches Search</h2>
+    </Paper>
+  );
+};
 
 export default withRouter(MatchesSearch);

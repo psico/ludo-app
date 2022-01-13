@@ -6,7 +6,11 @@ import { withRouter } from 'react-router-dom/cjs/react-router-dom';
 const UsersSearch = () => {
   const componentClasses = useStyles();
 
-  return <Paper className={componentClasses.paper}>Users Search</Paper>
-}
+  return (
+    <Paper className={componentClasses.paper}>
+      <h2>Users Search</h2>
+    </Paper>
+  );
+};
 
 export default withRouter(UsersSearch);

@@ -15,7 +15,7 @@ const UsersSearch = () => {
         <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
           <UserAvatar
             photoURL="https://lh6.googleusercontent.com/-6tboY56uBbQ/AAAAAAAAAAI/AAAAAAAAAAA/AAKWJJNh23LmB2ElsqSlf7PDZ9kmTvaehQ/photo.jpg"
-            displayName="João Gabriel" showName={true}
+            displayName="João Gabriel" showName={false}
           />
         </Grid>
       </Grid>

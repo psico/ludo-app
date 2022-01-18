@@ -37,8 +37,10 @@ const UsersSearch = () => {
           />
           <p>João Gabriel</p>
         </Grid>
-        <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+        <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
           <img src={lvl} alt={t('user-level')} height="25"/>
+        </Grid>
+        <Grid item xs={10} sm={10} md={10} lg={10} xl={10}>
           <h5>
             <div>Level 30 - Dice Explorer {/** userInfo.isLoggedIn**/}</div>
             <BorderLinearProgress

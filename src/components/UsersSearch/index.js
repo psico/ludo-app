@@ -30,12 +30,14 @@ const UsersSearch = () => {
     <Paper className={componentClasses.paper}>
       <h2>Users Search</h2>
       <Grid container>
-        <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
+        <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
           <UserAvatar
             photoURL="https://lh6.googleusercontent.com/-6tboY56uBbQ/AAAAAAAAAAI/AAAAAAAAAAA/AAKWJJNh23LmB2ElsqSlf7PDZ9kmTvaehQ/photo.jpg"
             displayName="João Gabriel" showName={false}
           />
           <p>João Gabriel</p>
+        </Grid>
+        <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
           <img src={lvl} alt={t('user-level')} height="25"/>
           <h5>
             <div>Level 30 - Dice Explorer {/** userInfo.isLoggedIn**/}</div>

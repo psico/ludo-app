@@ -41,13 +41,14 @@ const MatchesSearch = () => {
         {data &&
           data.matches.map((value, index) =>
             <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
-
               <img src={value.game.imageUrl}
-                   alt={value.game.name} height="80"/>
+                   alt={value.game.name}
+                   height="80"/>
               <p>{value.game.name}</p>
               <UserAvatar
-                photoURL={value.matchOwner.photoURL}
-                displayName={value.matchOwner.name}  showName={true}
+                photoURL={value.matchOwner?.photoURL}
+                displayName={value.matchOwner?.name}
+                showName={true}
               />
             </Grid>
           )

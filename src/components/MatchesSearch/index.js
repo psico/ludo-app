@@ -41,11 +41,11 @@ const MatchesSearch = () => {
             <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
 
               <img src="https://cdn.shopify.com/s/files/1/0513/4077/1515/products/catan-board-game.jpg?v=1609629082"
-                   alt="game" height="80"/>
-              <p>game</p>
+                   alt={value.game.name} height="80"/>
+              <p>{value.game.name}</p>
               <UserAvatar
-                photoURL="https://lh6.googleusercontent.com/-6tboY56uBbQ/AAAAAAAAAAI/AAAAAAAAAAA/AAKWJJNh23LmB2ElsqSlf7PDZ9kmTvaehQ/photo.jpg"
-                displayName="João Gabriel" showName={true}
+                photoURL={value.matchOwner.name}
+                displayName={value.matchOwner.name}  showName={true}
               />
             </Grid>
           )

@@ -4,9 +4,27 @@ import Paper from '@material-ui/core/Paper';
 import { withRouter } from 'react-router-dom/cjs/react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import UserAvatar from '../UserAvatar';
+import { gql, useQuery } from '@apollo/client';
+
+const graphql = gql`
+    query games($gameInput: GameInput){
+        games(GameInput: $gameInput) {
+            name,
+            objectId,
+            yearPublished
+        }
+    }
+`;
 
 const MatchesSearch = () => {
   const componentClasses = useStyles();
+  const {data, refetch, loading} = useQuery(graphql, {
+    variables: {
+      "gameInput": {
+        "name": inputValue
+      }
+    },
+  });
 
   return (
     <Paper className={componentClasses.paper}>

@@ -13,12 +13,14 @@ query matches{
     matchOwner {
       uid
       name
+      photoURL
     }
     gameMoment
     game {
       name
       objectId
       description
+      imageUrl
     }
   }
 }
@@ -40,11 +42,11 @@ const MatchesSearch = () => {
           data.matches.map((value, index) =>
             <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
 
-              <img src="https://cdn.shopify.com/s/files/1/0513/4077/1515/products/catan-board-game.jpg?v=1609629082"
+              <img src={value.game.imageUrl}
                    alt={value.game.name} height="80"/>
               <p>{value.game.name}</p>
               <UserAvatar
-                photoURL={value.matchOwner.name}
+                photoURL={value.matchOwner.photoURL}
                 displayName={value.matchOwner.name}  showName={true}
               />
             </Grid>

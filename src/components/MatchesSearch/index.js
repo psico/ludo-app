@@ -7,24 +7,26 @@ import UserAvatar from '../UserAvatar';
 import { gql, useQuery } from '@apollo/client';
 
 const graphql = gql`
-    query games($gameInput: GameInput){
-        games(GameInput: $gameInput) {
-            name,
-            objectId,
-            yearPublished
-        }
+query matches{
+  matches(uid: null, textSearch: "catan") {
+    idDoc
+    matchOwner {
+      uid
+      name
     }
+    gameMoment
+    game {
+      name
+      objectId
+      description
+    }
+  }
+}
 `;
 
 const MatchesSearch = () => {
   const componentClasses = useStyles();
-  const {data, refetch, loading} = useQuery(graphql, {
-    variables: {
-      "gameInput": {
-        "name": inputValue
-      }
-    },
-  });
+  const {data, refetch, loading} = useQuery(graphql);
 
   return (
     <Paper className={componentClasses.paper}>

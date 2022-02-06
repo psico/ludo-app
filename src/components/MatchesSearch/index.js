@@ -8,7 +8,7 @@ import { gql, useQuery } from '@apollo/client';
 
 const graphql = gql`
 query matches{
-  matches(uid: null, textSearch: "catan") {
+  matches(uid: null, textSearch: "ab") {
     idDoc
     matchOwner {
       uid

@@ -1,7 +1,7 @@
 import React from 'react';
 import useStyles from '../ProfileInfo/css';
 import Paper from '@material-ui/core/Paper';
-import { withRouter } from 'react-router-dom/cjs/react-router-dom';
+import { useParams, withRouter } from 'react-router-dom/cjs/react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import UserAvatar from '../UserAvatar';
 import { gql, useQuery } from '@apollo/client';
@@ -32,7 +32,9 @@ const MatchesSearch = () => {
     data,
     refetch,
     loading
-  } = useQuery(graphql);
+  } = useQuery(graphql, {
+    variables: { textSearch: useParams().search }
+  });
 
   return (
     <Paper className={componentClasses.paper}>

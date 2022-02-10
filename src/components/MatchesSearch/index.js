@@ -7,7 +7,7 @@ import UserAvatar from '../UserAvatar';
 import { gql, useQuery } from '@apollo/client';
 
 const graphql = gql`
-query matches(textSearch: String){
+query matches($textSearch: String) {
   matches(uid: null, textSearch: $textSearch) {
     idDoc
     matchOwner {

@@ -39,6 +39,7 @@ const LogoHeader = (props) => {
                                     input: classes.inputInput,
                                 }}
                                 inputProps={{'aria-label': 'search'}}
+                                onKeyPress={() => alert("testing")}
                             />
                         </div>
                         : <span/>

@@ -12,6 +12,12 @@ const LogoHeader = (props) => {
     const {t} = useTranslation();
     const {userInfo} = useContext(AuthContext);
 
+    const handleSubmit = (event) => {
+        alert("test");
+        console.log('Value: ' + event);
+        event.preventDefault();
+    }
+
     return (
         <HideOnScroll {...props}>
             <AppBar>
@@ -28,7 +34,7 @@ const LogoHeader = (props) => {
                         LudoApp
                     </Typography>
                     {userInfo.isLoggedIn ?
-                        <div className={classes.search}>
+                        <form className={classes.search} onSubmit={(event)=> handleSubmit(event)}>
                             <div className={classes.searchIcon}>
                                 <SearchIcon/>
                             </div>
@@ -39,9 +45,9 @@ const LogoHeader = (props) => {
                                     input: classes.inputInput,
                                 }}
                                 inputProps={{'aria-label': 'search'}}
-                                onKeyPress={() => alert("testing")}
+                                onS
                             />
-                        </div>
+                        </form>
                         : <span/>
                     }
                     <div className={classes.grow}/>

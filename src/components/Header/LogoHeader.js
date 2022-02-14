@@ -14,7 +14,6 @@ const LogoHeader = (props) => {
 
     const handleSubmit = (event) => {
         alert("test");
-        console.log('Value: ' + event);
         event.preventDefault();
     }
 

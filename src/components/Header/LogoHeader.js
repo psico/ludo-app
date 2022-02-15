@@ -6,6 +6,7 @@ import InfoHeader from "./InfoHeader";
 import React, {useContext} from "react";
 import {AuthContext} from "../../App";
 import {useTranslation} from "react-i18next";
+import { Redirect } from 'react-router-dom';
 
 const LogoHeader = (props) => {
     const classes = componentStyles();
@@ -13,7 +14,7 @@ const LogoHeader = (props) => {
     const {userInfo} = useContext(AuthContext);
 
     const handleSubmit = (event) => {
-        alert("test");
+        return <Redirect to='/search/teste'/>
         event.preventDefault();
     }
 

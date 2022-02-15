@@ -15,7 +15,6 @@ const LogoHeader = (props) => {
     const history = useHistory();
 
     const handleSubmit = (event) => {
-        // return <Redirect to='/search/teste'/>;
         event.preventDefault();
         history.push("/search/teste");
     }
@@ -47,7 +46,6 @@ const LogoHeader = (props) => {
                                     input: classes.inputInput,
                                 }}
                                 inputProps={{'aria-label': 'search'}}
-                                onS
                             />
                         </form>
                         : <span/>

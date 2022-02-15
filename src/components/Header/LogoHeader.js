@@ -3,7 +3,7 @@ import {AppBar, IconButton, InputBase, Slide, Toolbar, Typography, useScrollTrig
 import logo from "./ludo192.png";
 import {Search as SearchIcon} from "@material-ui/icons";
 import InfoHeader from "./InfoHeader";
-import React, { useContext, useState } from 'react';
+import React, {useContext} from "react";
 import {AuthContext} from "../../App";
 import {useTranslation} from "react-i18next";
 import { useHistory  } from "react-router-dom";
@@ -12,12 +12,11 @@ const LogoHeader = (props) => {
     const classes = componentStyles();
     const {t} = useTranslation();
     const {userInfo} = useContext(AuthContext);
-    const [textSearch, setTextSearch] = useState(null);
     const history = useHistory();
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        history.push(`/search/${textSearch}`);
+        history.push("/search/teste");
     }
 
     return (
@@ -46,12 +45,6 @@ const LogoHeader = (props) => {
                                     root: classes.inputRoot,
                                     input: classes.inputInput,
                                 }}
-                                onChange={
-                                (event) => {
-                                    console.log("here => ", event.target.value);
-                                    setTextSearch(event.target.value);
-                                }
-                            }
                                 inputProps={{'aria-label': 'search'}}
                             />
                         </form>

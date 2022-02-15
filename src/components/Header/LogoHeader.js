@@ -6,16 +6,18 @@ import InfoHeader from "./InfoHeader";
 import React, {useContext} from "react";
 import {AuthContext} from "../../App";
 import {useTranslation} from "react-i18next";
-import { Redirect } from 'react-router-dom';
+import { useHistory  } from "react-router-dom";
 
 const LogoHeader = (props) => {
     const classes = componentStyles();
     const {t} = useTranslation();
     const {userInfo} = useContext(AuthContext);
+    const history = useHistory();
 
     const handleSubmit = (event) => {
-        return <Redirect to='/search/teste'/>
+        // return <Redirect to='/search/teste'/>;
         event.preventDefault();
+        history.push("/search/teste");
     }
 
     return (

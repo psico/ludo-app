@@ -5,6 +5,7 @@ import { useParams, withRouter } from 'react-router-dom/cjs/react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import UserAvatar from '../UserAvatar';
 import { gql, useQuery } from '@apollo/client';
+import { useTranslation } from 'react-i18next';
 
 const graphql = gql`
 query matches($textSearch: String) {
@@ -28,6 +29,7 @@ query matches($textSearch: String) {
 
 const MatchesSearch = () => {
   const componentClasses = useStyles();
+  const { t } = useTranslation();
   const {
     data,
     refetch,
@@ -55,6 +57,7 @@ const MatchesSearch = () => {
             </Grid>
           ) :
           <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+            <p>{t('no-results')}</p>
           </Grid>
         }
       </Grid>

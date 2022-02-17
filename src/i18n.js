@@ -36,6 +36,7 @@ const resources = {
             "no-data": "No data",
             "play-match": "Play match",
             "play-now": "Play now",
+            "no-results": "No results",
             "user-level": "User level",
 
 

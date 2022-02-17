@@ -40,7 +40,7 @@ const MatchesSearch = () => {
     <Paper className={componentClasses.paper}>
       <h2>Matches Search</h2>
       <Grid container>
-        {data &&
+        {data ?
           data.matches.map((value, index) =>
             <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
               <img src={value.game.imageUrl}
@@ -53,7 +53,9 @@ const MatchesSearch = () => {
                 showName={true}
               />
             </Grid>
-          )
+          ) :
+          <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+          </Grid>
         }
       </Grid>
     </Paper>

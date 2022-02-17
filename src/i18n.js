@@ -34,9 +34,9 @@ const resources = {
       'my-profile': 'My Profile',
       'most-played': 'Most Played',
       'no-data': 'No data',
+      'no-results': 'No results',
       'play-match': 'Play match',
       'play-now': 'Play now',
-      'no-results': 'No results',
       'user-level': 'User level',
 
       //Three words

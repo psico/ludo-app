@@ -37,12 +37,13 @@ const MatchesSearch = () => {
   } = useQuery(graphql, {
     variables: { textSearch: useParams().search }
   });
+  console.log("data => ", data);
 
   return (
     <Paper className={componentClasses.paper}>
       <h2>Matches Search</h2>
       <Grid container>
-        {data ?
+        {data?.length > 0 ?
           data.matches.map((value, index) =>
             <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
               <img src={value.game.imageUrl}

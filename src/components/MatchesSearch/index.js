@@ -40,7 +40,7 @@ const MatchesSearch = () => {
     <Paper className={componentClasses.paper}>
       <h2>Matches Search</h2>
       <Grid container>
-        {data?.length > 0 ?
+        {data?.matches?.length > 0 ?
           data.matches.map((value) =>
             <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
               <img src={value.game.imageUrl}

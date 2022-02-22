@@ -9,6 +9,26 @@ import { lighten, withStyles } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { useTranslation } from 'react-i18next';
 
+const graphql = gql`
+query matches($textSearch: String) {
+  matches(uid: null, textSearch: $textSearch) {
+    idDoc
+    matchOwner {
+      uid
+      name
+      photoURL
+    }
+    gameMoment
+    game {
+      name
+      objectId
+      description
+      imageUrl
+    }
+  }
+}
+`;
+
 const UsersSearch = () => {
   const componentClasses = useStyles();
   const { t } = useTranslation();

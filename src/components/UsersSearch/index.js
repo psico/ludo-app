@@ -33,6 +33,11 @@ const UsersSearch = () => {
   const componentClasses = useStyles();
   const { t } = useTranslation();
   const [completed] = React.useState(30);
+const {
+    data
+  } = useQuery(graphql, {
+    variables: { textSearch: useParams().search }
+  });
 
   const BorderLinearProgress = withStyles({
     root: {

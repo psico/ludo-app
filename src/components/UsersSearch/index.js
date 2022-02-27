@@ -8,6 +8,9 @@ import lvl from '../../temp-images/lvl-coronel.png';
 import { lighten, withStyles } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { useTranslation } from 'react-i18next';
+import { useQuery } from 'react-apollo';
+import { useParams } from 'react-router-dom';
+import { gql } from '@apollo/client';
 
 const graphql = gql`
 query matches($textSearch: String) {

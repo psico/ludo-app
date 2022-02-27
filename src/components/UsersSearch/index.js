@@ -36,7 +36,7 @@ const UsersSearch = () => {
   const componentClasses = useStyles();
   const { t } = useTranslation();
   const [completed] = React.useState(30);
-const {
+  const {
     data
   } = useQuery(graphql, {
     variables: { textSearch: useParams().search }
@@ -68,12 +68,12 @@ const {
         <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
           <img src={lvl} alt={t('user-level')} height="25"/>
           <span>Level 30 - Dice Explorer {/** userInfo.isLoggedIn**/}
-          <BorderLinearProgress
-            className={componentClasses.margin}
-            variant="determinate"
-            color="secondary"
-            value={completed}
-          />
+            <BorderLinearProgress
+              className={componentClasses.margin}
+              variant="determinate"
+              color="secondary"
+              value={completed}
+            />
             </span>
         </Grid>
       </Grid>

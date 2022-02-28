@@ -12,20 +12,23 @@ import { useParams } from 'react-router-dom';
 import { gql, useQuery } from '@apollo/client';
 
 const graphql = gql`
-query matches($textSearch: String) {
-  matches(uid: null, textSearch: $textSearch) {
-    idDoc
-    matchOwner {
+query usersInfo($textSearch: String) {
+  usersInfo(textSearch: $textSearch) {
+    uid
+    name
+    photoURL
+    friends {
       uid
       name
-      photoURL
     }
-    gameMoment
-    game {
+    numberOfMatches
+    following {
+      uid
       name
-      objectId
-      description
-      imageUrl
+    }
+    followers {
+      uid
+      name
     }
   }
 }

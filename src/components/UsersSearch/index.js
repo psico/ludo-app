@@ -59,8 +59,10 @@ const UsersSearch = () => {
   return (
     <Paper className={componentClasses.paper}>
       <h2>Users Search</h2>
-      {data?.usersInfo && data.usersInfo.map(userInfo =>
+
       <Grid container>
+        {data?.usersInfo && data.usersInfo.map(userInfo =>
+            <span>
         <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
           <UserAvatar
             photoURL={userInfo.photoURL}
@@ -69,19 +71,20 @@ const UsersSearch = () => {
           />
           <p>{userInfo.name}</p>
         </Grid>
-        {/*<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>*/}
-        {/*  <img src={lvl} alt={t('user-level')} height="25"/>*/}
-        {/*  <span>Level 30 - Dice Explorer /!** userInfo.isLoggedIn**!/*/}
-        {/*    <BorderLinearProgress*/}
-        {/*      className={componentClasses.margin}*/}
-        {/*      variant="determinate"*/}
-        {/*      color="secondary"*/}
-        {/*      value={completed}*/}
-        {/*    />*/}
-        {/*    </span>*/}
-        {/*</Grid>*/}
+              {/*<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>*/}
+              {/*  <img src={lvl} alt={t('user-level')} height="25"/>*/}
+              {/*  <span>Level 30 - Dice Explorer /!** userInfo.isLoggedIn**!/*/}
+              {/*    <BorderLinearProgress*/}
+              {/*      className={componentClasses.margin}*/}
+              {/*      variant="determinate"*/}
+              {/*      color="secondary"*/}
+              {/*      value={completed}*/}
+              {/*    />*/}
+              {/*    </span>*/}
+              {/*</Grid>*/}
+            </span>
+        )}
       </Grid>
-      )}
     </Paper>
   );
 };

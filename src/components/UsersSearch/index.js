@@ -43,6 +43,7 @@ const UsersSearch = () => {
   } = useQuery(graphql, {
     variables: { textSearch: useParams().search }
   });
+  console.log("data=> ", data);
 
   const BorderLinearProgress = withStyles({
     root: {
@@ -59,6 +60,7 @@ const UsersSearch = () => {
   return (
     <Paper className={componentClasses.paper}>
       <h2>Users Search</h2>
+      {data?.usersInfo && data.usersInfo.map(userInfo =>
       <Grid container>
         <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
           <UserAvatar
@@ -79,6 +81,7 @@ const UsersSearch = () => {
             </span>
         </Grid>
       </Grid>
+      )}
     </Paper>
   );
 };

@@ -64,10 +64,11 @@ const UsersSearch = () => {
       <Grid container>
         <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
           <UserAvatar
-            photoURL="https://lh6.googleusercontent.com/-6tboY56uBbQ/AAAAAAAAAAI/AAAAAAAAAAA/AAKWJJNh23LmB2ElsqSlf7PDZ9kmTvaehQ/photo.jpg"
-            displayName="João Gabriel" showName={false}
+            photoURL={userInfo.photoURL}
+            displayName={userInfo.name}
+            showName={false}
           />
-          <p>João Gabriel</p>
+          <p>{userInfo.name}</p>
         </Grid>
         <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
           <img src={lvl} alt={t('user-level')} height="25"/>

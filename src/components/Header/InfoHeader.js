@@ -9,7 +9,7 @@ import {useTranslation} from "react-i18next";
 import { gql, useQuery } from '@apollo/client';
 
 const graphql = gql`
-    query userExperienceInfo($uid: uid){
+    query userExperienceInfo($uid: ID!){
         userExperienceInfo(uid: $uid) {
             totalExperience
             level
@@ -25,7 +25,7 @@ const InfoHeader = () => {
     const {userInfo} = useContext(AuthContext);
     const {data} = useQuery(graphql, {
         variables: {
-            "uid": "0IhNFZFa7QMwBY6yZT8l24L1AX32",
+            "uid": "0IhNFZFa7QMwBY6yZT8l24L1AX32"
         }
     });
 
@@ -54,7 +54,7 @@ const InfoHeader = () => {
                   showName={false}/>
                 <img src={lvl} alt={t('user-level')} height="25"/>
                 <h5>
-                    <div>Level {console.log("data => ", data)} - Dice Explorer {userInfo.isLoggedIn}</div>
+                    <div>Level {data?.userExperienceInfo?.level} - Dice Explorer {userInfo.isLoggedIn}</div>
                     <BorderLinearProgress
                         className={classes.margin}
                         variant="determinate"

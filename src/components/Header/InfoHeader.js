@@ -21,7 +21,7 @@ const graphql = gql`
 const InfoHeader = () => {
     const classes = componentStyles();
     const {t} = useTranslation();
-    const [completed] = React.useState(30);
+    const [completed, setCompleted] = React.useState(0);
     const {userInfo} = useContext(AuthContext);
     const {data} = useQuery(graphql, {
         variables: {
@@ -29,8 +29,13 @@ const InfoHeader = () => {
         }
     });
 
+    const calculatePercentBar = (() => {
+        setCompleted((100*data?.userExperienceInfo?.nextLevelExperience)/data?.userExperienceInfo?.totalExperience);
+    });
+
     useEffect(() => {
-    }, [data]);
+        calculatePercentBar();
+    }, [calculatePercentBar, data]);
 
     const BorderLinearProgress = withStyles({
         root: {

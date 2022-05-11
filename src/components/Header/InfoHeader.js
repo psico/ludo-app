@@ -30,7 +30,6 @@ const InfoHeader = () => {
     });
 
     const calculatePercentBar = (() => {
-        console.log("==>", data?.userExperienceInfo?.nextLevelExperience, (100*data?.userExperienceInfo?.nextLevelExperience)/data?.userExperienceInfo?.totalExperience)
         setCompleted((100*data?.userExperienceInfo?.nextLevelExperience)/data?.userExperienceInfo?.totalExperience);
     });
 

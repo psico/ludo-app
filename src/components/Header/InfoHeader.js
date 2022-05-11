@@ -57,7 +57,7 @@ const InfoHeader = () => {
                   photoURL={userInfo.photoURL}
                   displayName={userInfo.displayName}
                   showName={false}/>
-                <img src={lvl} alt={t('user-level')} height="25"/>
+                {/*<img src={lvl} alt={t('user-level')} height="25"/>*/}
                 <h5>
                     <div>Level {data?.userExperienceInfo?.level} - Dice Explorer {userInfo.isLoggedIn}</div>
                     <BorderLinearProgress

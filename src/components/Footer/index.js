@@ -47,11 +47,6 @@ const Footer = ({history}) => {
                                         classes={{
                                             selected: componentClasses.selected
                                         }}/>
-                <BottomNavigationAction label={t('search')} value="search"
-                                        icon={<Search htmlColor="white"/>}
-                                        classes={{
-                                            selected: componentClasses.selected
-                                        }}/>
                 <BottomNavigationAction label={t('my-profile')} value={`profile/${userInfo.uid}`}
                                         icon={<AccountCircle htmlColor="white"/>}
                                         classes={{

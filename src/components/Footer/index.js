@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import { Home, Dashboard, AccountCircle, AddCircleOutline, Search } from '@material-ui/icons';
+import { Home, AccountCircle, AddCircleOutline } from '@material-ui/icons';
 import useStyles from "./css";
 import {AuthContext} from "../../App";
 import {useTranslation} from 'react-i18next';

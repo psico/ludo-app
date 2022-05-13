@@ -32,11 +32,11 @@ const Footer = ({history}) => {
                                         classes={{
                                             selected: componentClasses.selected
                                         }}/>
-                <BottomNavigationAction label={t('dashboard')} value="dashboard"
-                                        icon={<Dashboard htmlColor="white"/>}
-                                        classes={{
-                                            selected: componentClasses.selected
-                                        }}/>
+                {/*<BottomNavigationAction label={t('dashboard')} value="dashboard"*/}
+                {/*                        icon={<Dashboard htmlColor="white"/>}*/}
+                {/*                        classes={{*/}
+                {/*                            selected: componentClasses.selected*/}
+                {/*                        }}/>*/}
                 {/*<BottomNavigationAction label={t('friends')} value="friends"*/}
                 {/*                        icon={<Group htmlColor="white"/>}*/}
                 {/*                        classes={{*/}

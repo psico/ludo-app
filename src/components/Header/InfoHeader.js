@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from 'react';
 import componentStyles from "./css";
-import lvl from "../../temp-images/lvl-coronel.png";
 import LinearProgress from '@material-ui/core/LinearProgress';
 import {lighten, withStyles} from '@material-ui/core/styles';
 import UserAvatar from "../UserAvatar";

@@ -19,7 +19,6 @@ const graphql = gql`
 
 const InfoHeader = () => {
     const classes = componentStyles();
-    const {t} = useTranslation();
     const [completed, setCompleted] = React.useState(0);
     const {userInfo} = useContext(AuthContext);
     const {data} = useQuery(graphql, {

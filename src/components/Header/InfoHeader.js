@@ -4,7 +4,6 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import {lighten, withStyles} from '@material-ui/core/styles';
 import UserAvatar from "../UserAvatar";
 import {AuthContext} from "../../App";
-import {useTranslation} from "react-i18next";
 import { gql, useQuery } from '@apollo/client';
 
 const graphql = gql`

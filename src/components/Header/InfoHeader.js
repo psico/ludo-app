@@ -5,6 +5,7 @@ import {lighten, withStyles} from '@material-ui/core/styles';
 import UserAvatar from "../UserAvatar";
 import {AuthContext} from "../../App";
 import { gql, useQuery } from '@apollo/client';
+import { useParams } from 'react-router-dom/cjs/react-router-dom';
 
 const graphql = gql`
     query userExperienceInfo($uid: ID!){
@@ -22,7 +23,7 @@ const InfoHeader = () => {
     const {userInfo} = useContext(AuthContext);
     const {data} = useQuery(graphql, {
         variables: {
-            "uid": "0IhNFZFa7QMwBY6yZT8l24L1AX32"
+            uid: useParams().id
         }
     });
 

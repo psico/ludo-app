@@ -6,7 +6,7 @@ import Avatar from '@material-ui/core/Avatar';
 import { Button } from '@material-ui/core';
 import lvl from '../../temp-images/lvl-coronel.png';
 import xp from '../../temp-images/experience.png';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { lighten, withStyles } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
@@ -39,12 +39,14 @@ const ProfileInfo = ({
   const componentClasses = useStyles();
   const { userInfo } = useContext(AuthContext);
   const { t } = useTranslation();
+  const [completed, setCompleted] = React.useState(0);
   const [follow] = useMutation(graphqlFollowUser, {
     variables: { followUid: useParams().id }
   });
+
   const { data } = useQuery(graphql, {
     variables: {
-      'uid': '0IhNFZFa7QMwBY6yZT8l24L1AX32'
+      uid: '0IhNFZFa7QMwBY6yZT8l24L1AX32'
     }
   });
 
@@ -83,6 +85,14 @@ const ProfileInfo = ({
     return undefined;
   };
 
+  const calculatePercentBar = (() => {
+    setCompleted((100*data?.userExperienceInfo?.nextLevelExperience)/data?.userExperienceInfo?.totalExperience);
+  });
+
+  useEffect(() => {
+    calculatePercentBar();
+  }, [calculatePercentBar, data]);
+
   return (
     <Paper className={componentClasses.paper}>
       {userProfileInfoData ?
@@ -113,11 +123,11 @@ const ProfileInfo = ({
                 <img src={xp} alt={t('experience')} height="25"/>
               </Grid>
               <Grid item xs={11} sm={11} md={11} lg={11} xl={11}>
-                <div>Level 30 - Dice Explorer</div>
+                <div>Level {data?.userExperienceInfo?.level} - Dice Explorer {userInfo.isLoggedIn}</div>
                 <BorderLinearProgress
                   variant="determinate"
                   color="secondary"
-                  value={30}
+                  value={completed}
                 />
               </Grid>
             </Grid>

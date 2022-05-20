@@ -60,6 +60,12 @@ const graphqlUserInfo = gql`
         }
       }
     }
+    
+    userExperienceInfo(uid: $uid) {
+            totalExperience
+            level
+            nextLevelExperience
+    }
   }
 `;
 

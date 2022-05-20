@@ -46,7 +46,7 @@ const ProfileInfo = ({
 
   const { data } = useQuery(graphql, {
     variables: {
-      uid: '0IhNFZFa7QMwBY6yZT8l24L1AX32'
+      uid: userProfileInfoData?.uid
     }
   });
 

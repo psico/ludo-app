@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 import { lighten, withStyles } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { AuthContext } from '../../App';
-import { gql, useMutation } from '@apollo/client';
+import { gql, useMutation, useQuery } from '@apollo/client';
 
 const graphqlFollowUser = gql`
 mutation follow($followUid: ID!) {
@@ -20,6 +20,16 @@ mutation follow($followUid: ID!) {
     name
   }
 }
+`;
+
+const graphql = gql`
+    query userExperienceInfo($uid: ID!){
+        userExperienceInfo(uid: $uid) {
+            totalExperience
+            level
+            nextLevelExperience
+        }
+    }
 `;
 
 const ProfileInfo = ({
@@ -31,6 +41,11 @@ const ProfileInfo = ({
   const { t } = useTranslation();
   const [follow] = useMutation(graphqlFollowUser, {
     variables: { followUid: useParams().id }
+  });
+  const { data } = useQuery(graphql, {
+    variables: {
+      'uid': '0IhNFZFa7QMwBY6yZT8l24L1AX32'
+    }
   });
 
   const BorderLinearProgress = withStyles({

@@ -22,15 +22,15 @@ const InfoHeader = () => {
     const [completed, setCompleted] = React.useState(0);
     const {userInfo} = useContext(AuthContext);
     const {data} = useQuery(graphql, {
-        variables: { uid: useParams()?.id }
+        variables: { uid: useParams()?.id || "" }
     });
 
     const calculatePercentBar = (() => {
-        setCompleted((100*data?.userExperienceInfo?.nextLevelExperience)/data?.userExperienceInfo?.totalExperience);
+        setCompleted((100 * data?.userExperienceInfo?.nextLevelExperience) / data?.userExperienceInfo?.totalExperience);
     });
 
     useEffect(() => {
-        console.log("here ==========>  ")
+        console.log("here ==========>  ", data)
         calculatePercentBar();
     }, [calculatePercentBar, data]);
 

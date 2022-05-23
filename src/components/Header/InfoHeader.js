@@ -30,7 +30,7 @@ const InfoHeader = () => {
     });
 
     useEffect(() => {
-        console.log("useParams()?.id ==> ", useParams)
+        console.log("here ==========>  ")
         calculatePercentBar();
     }, [calculatePercentBar, data]);
 

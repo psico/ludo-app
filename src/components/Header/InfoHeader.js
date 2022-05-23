@@ -22,9 +22,7 @@ const InfoHeader = () => {
     const [completed, setCompleted] = React.useState(0);
     const {userInfo} = useContext(AuthContext);
     const {data} = useQuery(graphql, {
-        variables: {
-            uid: useParams().id
-        }
+        variables: { uid: useParams()?.id }
     });
 
     const calculatePercentBar = (() => {
@@ -32,6 +30,7 @@ const InfoHeader = () => {
     });
 
     useEffect(() => {
+        console.log("useParams()?.id ==> ", useParams)
         calculatePercentBar();
     }, [calculatePercentBar, data]);
 

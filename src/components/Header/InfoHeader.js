@@ -29,7 +29,6 @@ const InfoHeader = () => {
     });
 
     useEffect(() => {
-        console.log("here ==========>  ", data)
         calculatePercentBar();
     }, [calculatePercentBar, data]);
 

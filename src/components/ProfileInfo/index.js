@@ -88,7 +88,8 @@ const ProfileInfo = ({
   });
 
   useEffect(() => {
-  }, [calculatePercentBar, data]);
+    calculatePercentBar();
+  }, [calculatePercentBar]);
 
   return (
     <Paper className={componentClasses.paper}>

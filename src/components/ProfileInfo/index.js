@@ -88,7 +88,6 @@ const ProfileInfo = ({
   });
 
   useEffect(() => {
-    calculatePercentBar();
   }, [calculatePercentBar, data]);
 
   return (

@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react';
 import useStyles from "./css";
 import Grid from '@material-ui/core/Grid';
-import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 import ShareIcon from '@material-ui/icons/Share';
 import Paper from '@material-ui/core/Paper';
 import {useTranslation} from "react-i18next";
@@ -10,6 +9,7 @@ import Comments from "../../components/Comments";
 import PersonAvatar from "../../components/PersonAvatar";
 import CommentInput from "../../components/CommentInput";
 import {useQuery, gql} from "@apollo/client";
+import Like from '../../components/Like';
 
 const graphql = gql`
     query matches{
@@ -96,7 +96,7 @@ function Community({history}) {
                             </Grid>
                             <Grid container>
                                 <Grid item xs={6} sm={6} md={3} lg={3} xl={3}>
-                                    <ThumbUpAltIcon/> Like
+                                    <Like/>
                                 </Grid>
                                 <Grid item xs={6} sm={6} md={3} lg={3} xl={3}>
                                     <ShareIcon/> Share

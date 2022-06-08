@@ -1,9 +1,9 @@
 import { withRouter } from 'react-router-dom';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
-import React from '@types/react';
+import React from 'react';
 
 const Like = () => {
-  return <div>
+  return <div onClick={() => alert("test")}>
     <ThumbUpAltIcon/> Like
   </div>;
 };

@@ -3,7 +3,9 @@ import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import React from 'react';
 
 const Like = () => {
-  return <div onClick={() => alert("test")}>
+  const likeAction = () => alert("like it");
+
+  return <div onClick={likeAction()}>
     <ThumbUpAltIcon/> Like
   </div>;
 };

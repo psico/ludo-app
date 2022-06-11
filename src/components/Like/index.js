@@ -5,7 +5,7 @@ import React from 'react';
 const Like = () => {
   const likeAction = () => alert("like it");
 
-  return <div onClick={likeAction()}>
+  return <div onClick={() => likeAction()}>
     <ThumbUpAltIcon/> Like
   </div>;
 };

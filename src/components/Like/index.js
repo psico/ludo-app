@@ -1,8 +1,7 @@
 import { withRouter } from 'react-router-dom';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
-import React from 'react';
-import { useState } from '@types/react';
+import React, { useState } from 'react';
 
 const Like = () => {
   const [atLeastOneLike] = useState(false);

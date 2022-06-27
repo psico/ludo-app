@@ -2,6 +2,16 @@ import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
+import { gql } from '@apollo/client';
+
+const graphql = gql`
+    mutation likeIt {
+        likeIt(idDoc: "G8Qiso06m9Gw94NtvQ33") {
+            idDoc
+            createdAt
+          }
+    }
+`;
 
 const Like = () => {
   const [atLeastOneLike] = useState(false);

@@ -5,8 +5,8 @@ import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
 import { gql, useMutation } from '@apollo/client';
 
 const graphql = gql`
-    mutation likeIt {
-        likeIt(idDoc: "G8Qiso06m9Gw94NtvQ33") {
+    mutation likeIt($idDoc: ID!) {
+        likeIt(idDoc: $idDoc) {
             idDoc
             createdAt
           }

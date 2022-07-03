@@ -16,13 +16,13 @@ const graphql = gql`
 const Like = ({ idDoc }) => {
   const [atLeastOneLike, setAtLeastOneLike] = useState(false);
   const [likeIt] = useMutation(graphql);
-  const likeAction = () => alert('like it');
+  const likeAction = () => setAtLeastOneLike(true);
 
   likeIt({
     variables: {
       'idDoc': idDoc,
     }
-  }).then(() => setAtLeastOneLike(true));
+  }).then(() => ({}));
 
   return <div onClick={() => likeAction()}>
     {atLeastOneLike ?

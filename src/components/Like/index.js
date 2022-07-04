@@ -29,8 +29,6 @@ const Like = ({ idDoc }) => {
       <span><ThumbUpAltIcon/> Like</span> :
       <span><ThumbUpOutlinedIcon/> Like</span>
     }
-
-
   </div>;
 };
 

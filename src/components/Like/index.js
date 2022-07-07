@@ -28,8 +28,8 @@ const Like = ({ idDoc }) => {
 
   return <div onClick={() => likeAction()}>
     {atLeastOneLike ?
-      <span><ThumbUpAltIcon/> Like</span> :
-      <span><ThumbUpOutlinedIcon/> Like</span>
+      <span><ThumbUpAltIcon/> {t("Like")}</span> :
+      <span><ThumbUpOutlinedIcon/> {t("Like")}</span>
     }
   </div>;
 };

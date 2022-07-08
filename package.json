@@ -6,7 +6,7 @@
   "license": "MIT",
   "description": "Project to build social network for boardgames, register matches and challenge yourself in search of achievements",
   "dependencies": {
-    "@apollo/client": "^3.6.5",
+    "@apollo/client": "^3.6.9",
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
     "@material-ui/lab": "^4.0.0-alpha.61",
@@ -24,7 +24,6 @@
     "graphql-tag": "^2.12.6",
     "i18next": "^19.9.2",
     "react": "^16.14.0",
-    "react-apollo": "^3.1.5",
     "react-devtools": "^4.24.6",
     "react-dom": "^16.14.0",
     "react-i18next": "^11.16.9",

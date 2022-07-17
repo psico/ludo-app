@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import useStyles from "./css";
 import Grid from '@material-ui/core/Grid';
 import ShareIcon from '@material-ui/icons/Share';
@@ -44,9 +44,12 @@ function Community({history}) {
     const {t} = useTranslation();
     const {data, refetch} = useQuery(graphql);
 
-    const refreshUseQuery = useCallback(async () => {
-        await refetch();
-    });
+    // const refreshUseQuery = useCallback(async () => {
+    //     await refetch();
+    // });
+
+    const refreshUseQuery = () => refetch();
+
 
     // useEffect(() => {
     //     refreshUseQuery().then(r => {});

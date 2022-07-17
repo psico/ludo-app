@@ -28,9 +28,9 @@ const InfoHeader = () => {
         setCompleted((100 * data?.userExperienceInfo?.nextLevelExperience) / data?.userExperienceInfo?.totalExperience);
     });
 
-    useEffect(() => {
-        calculatePercentBar();
-    }, [calculatePercentBar, data]);
+    // useEffect(() => {
+    //     calculatePercentBar();
+    // },[calculatePercentBar,data] );
 
     const BorderLinearProgress = withStyles({
         root: {

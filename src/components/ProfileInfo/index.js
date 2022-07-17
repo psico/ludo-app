@@ -87,9 +87,9 @@ const ProfileInfo = ({
     setCompleted((100*data?.userExperienceInfo?.nextLevelExperience)/data?.userExperienceInfo?.totalExperience);
   });
 
-  useEffect(() => {
-    calculatePercentBar();
-  }, [calculatePercentBar]);
+  // useEffect(() => {
+  //   calculatePercentBar();
+  // },[calculatePercentBar,data]);
 
   return (
     <Paper className={componentClasses.paper}>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect }  from 'react';
 import useStyles from "./css";
 import Grid from '@material-ui/core/Grid';
 import ShareIcon from '@material-ui/icons/Share';
@@ -50,7 +50,6 @@ function Community({history}) {
 
     const refreshUseQuery = () => refetch();
 
-
     // useEffect(() => {
     //     refreshUseQuery().then(r => {});
     // }, [refreshUseQuery]);
@@ -99,7 +98,7 @@ function Community({history}) {
                             </Grid>
                             <Grid container>
                                 <Grid item xs={6} sm={6} md={3} lg={3} xl={3}>
-                                    <Like/>
+                        {/*            <Like/>*/}
                                 </Grid>
                                 <Grid item xs={6} sm={6} md={3} lg={3} xl={3}>
                                     <ShareIcon/> Share

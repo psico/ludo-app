@@ -48,8 +48,6 @@ function Community({history}) {
         await refetch();
     });
 
-    // const refreshUseQuery = () => refetch();
-
     useEffect(() => {
         refreshUseQuery().then(r => {});
     }, [refreshUseQuery]);

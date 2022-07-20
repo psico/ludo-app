@@ -18,13 +18,18 @@ const Like = ({ idDoc }) => {
   const {t} = useTranslation();
   const [atLeastOneLike, setAtLeastOneLike] = useState(false);
   const [likeIt] = useMutation(graphql);
-  const likeAction = () => setAtLeastOneLike(true);
 
-  // likeIt({
-  //   variables: {
-  //     'idDoc': idDoc,
-  //   }
-  // }).then(() => ({}));
+  const likeAction = () => {
+    setAtLeastOneLike(true);
+
+    likeIt({
+      variables: {
+        'idDoc': idDoc,
+      }
+    }).then(() => ({}));
+  }
+
+
 
   return <div onClick={() => likeAction()}>
     {atLeastOneLike ?

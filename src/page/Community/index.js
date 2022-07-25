@@ -96,7 +96,7 @@ function Community({history}) {
                             </Grid>
                             <Grid container>
                                 <Grid item xs={6} sm={6} md={3} lg={3} xl={3}>
-                                    <Like/>
+                                    <Like idDoc={value.idDoc}/>
                                 </Grid>
                                 <Grid item xs={6} sm={6} md={3} lg={3} xl={3}>
                                     <ShareIcon/> Share

@@ -21,8 +21,8 @@ const Like = ({ idDoc }) => {
 
   const likeAction = () => {
     setAtLeastOneLike(true);
+    console.log('Here ======> ', idDoc);
 
-    console.log("Here ===> ", idDoc);
     likeIt({
       variables: {
         'idDoc': idDoc,

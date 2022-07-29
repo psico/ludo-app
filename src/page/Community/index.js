@@ -44,6 +44,7 @@ function Community({history}) {
     const {t} = useTranslation();
     const {data, refetch} = useQuery(graphql);
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const refreshUseQuery = useCallback(async () => {
         await refetch();
     });

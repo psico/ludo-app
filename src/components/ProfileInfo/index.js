@@ -83,6 +83,7 @@ const ProfileInfo = ({
     return undefined;
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const calculatePercentBar = (() => {
     setCompleted((100*data?.userExperienceInfo?.nextLevelExperience)/data?.userExperienceInfo?.totalExperience);
   });

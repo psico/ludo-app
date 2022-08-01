@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useContext, useEffect } from 'react';
 import useStyles from "./css";
 import Grid from '@material-ui/core/Grid';
 import ShareIcon from '@material-ui/icons/Share';
@@ -10,6 +10,7 @@ import PersonAvatar from "../../components/PersonAvatar";
 import CommentInput from "../../components/CommentInput";
 import {useQuery, gql} from "@apollo/client";
 import Like from '../../components/Like';
+import { AuthContext } from '../../App';
 
 const graphql = gql`
     query matches{
@@ -42,6 +43,7 @@ function Community({history}) {
     const defaultImg = 'https://s3-us-west-1.amazonaws.com/5cc.images/games/empty+box.jpg';
     const componentClasses = useStyles();
     const {t} = useTranslation();
+    const {userInfo} = useContext(AuthContext);
     const {data, refetch} = useQuery(graphql);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps

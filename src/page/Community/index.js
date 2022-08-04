@@ -35,6 +35,10 @@ const graphql = gql`
                 uid
                 name
             }
+            likes {
+                uid
+                name            
+            }
         }
     }
 `;

@@ -9,7 +9,10 @@ const graphql = gql`
     mutation likeIt($idDoc: String) {
         likeIt(idDoc: $idDoc) {
             idDoc
-            createdAt
+            likes {
+              uid
+              name
+            }
           }
     }
 `;

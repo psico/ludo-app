@@ -10,8 +10,8 @@ const graphql = gql`
         likeIt(idDoc: $idDoc) {
             idDoc
             likes {
-              uid
-              name
+                uid
+                name
             }
           }
     }

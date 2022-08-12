@@ -32,9 +32,6 @@ const Like = ({ idDoc, likes }) => {
         'idDoc': idDoc,
       }
     }).then((result) => {
-      // console.log("Here ===========? ", result.data.likeIt);
-      console.log("Here ============> ", userInfo.uid, result.data?.likeIt?.likes?.find((like) => like.uid === userInfo.uid));
-
       if (result.data?.likeIt?.likes?.find((like) => like.uid === userInfo.uid)) {
         setAtLeastOneLike(true);
       } else {

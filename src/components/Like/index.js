@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
 import { gql, useMutation } from '@apollo/client';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 import { AuthContext } from '../../App';
 
 const graphql = gql`
@@ -18,27 +18,31 @@ const graphql = gql`
     }
 `;
 
-const Like = ({ idDoc, likes }) => {
-  const {t} = useTranslation();
+const Like = ({
+  idDoc,
+  likes
+}) => {
+  const { t } = useTranslation();
   const { userInfo } = useContext(AuthContext);
   const [atLeastOneLike, setAtLeastOneLike] = useState(false);
   const [likeIt] = useMutation(graphql);
 
-  const likeAction = () => {
+  const likeAction = async () => {
     setAtLeastOneLike(true);
 
-    likeIt({
+    const result = await likeIt({
       variables: {
         'idDoc': idDoc,
       }
-    }).then((result) => {
-      if (result.data?.likeIt?.likes?.find((like) => like.uid === userInfo.uid)) {
-        setAtLeastOneLike(true);
-      } else {
-        setAtLeastOneLike(false);
-      }
     });
-  }
+
+    if (result.data?.likeIt?.likes?.find((like) => like.uid === userInfo.uid)) {
+      setAtLeastOneLike(true);
+    } else {
+      setAtLeastOneLike(false);
+    }
+
+  };
 
   useEffect(() => {
     if (likes?.find((like) => like.uid === userInfo.uid)) {
@@ -46,14 +50,12 @@ const Like = ({ idDoc, likes }) => {
     } else {
       setAtLeastOneLike(false);
     }
-  },[]);
-
-
+  }, []);
 
   return <div onClick={() => likeAction()}>
     {atLeastOneLike ?
-      <span><ThumbUpAltIcon/> {t("Like")}</span> :
-      <span><ThumbUpOutlinedIcon/> {t("Like")}</span>
+      <span><ThumbUpAltIcon/> {t('Like')}</span> :
+      <span><ThumbUpOutlinedIcon/> {t('Like')}</span>
     }
   </div>;
 };

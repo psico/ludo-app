@@ -31,8 +31,15 @@ const Like = ({ idDoc }) => {
       variables: {
         'idDoc': idDoc,
       }
-    }).then((likeData) => {
-      console.log("Here ============> ", userInfo.uid, likeData.likes.find((like) => like.uid === userInfo.uid));
+    }).then((result) => {
+      // console.log("Here ===========? ", result.data.likeIt);
+      console.log("Here ============> ", userInfo.uid, result.data?.likeIt?.likes?.find((like) => like.uid === userInfo.uid));
+
+      if (result.data?.likeIt?.likes?.find((like) => like.uid === userInfo.uid)) {
+        setAtLeastOneLike(true);
+      } else {
+        setAtLeastOneLike(false);
+      }
     });
   }
 

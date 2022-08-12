@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
@@ -18,7 +18,7 @@ const graphql = gql`
     }
 `;
 
-const Like = ({ idDoc }) => {
+const Like = ({ idDoc, likes }) => {
   const {t} = useTranslation();
   const { userInfo } = useContext(AuthContext);
   const [atLeastOneLike, setAtLeastOneLike] = useState(false);
@@ -42,6 +42,14 @@ const Like = ({ idDoc }) => {
       }
     });
   }
+
+  useEffect(() => {
+    if (likes?.find((like) => like.uid === userInfo.uid)) {
+      setAtLeastOneLike(true);
+    } else {
+      setAtLeastOneLike(false);
+    }
+  },[]);
 
 
 

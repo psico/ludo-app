@@ -48,7 +48,7 @@ const Like = ({
     } else {
       setAtLeastOneLike(false);
     }
-  }, []);
+  }, [userInfo, likes]);
 
   return <div onClick={() => likeAction()}>
     {atLeastOneLike ?

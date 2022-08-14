@@ -28,8 +28,6 @@ const Like = ({
   const [likeIt] = useMutation(graphql);
 
   const likeAction = async () => {
-    setAtLeastOneLike(true);
-
     const result = await likeIt({
       variables: {
         'idDoc': idDoc,

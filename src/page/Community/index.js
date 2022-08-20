@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import useStyles from './css';
 import Grid from '@material-ui/core/Grid';
 import ShareIcon from '@material-ui/icons/Share';
@@ -57,7 +57,7 @@ function Community ({ history }) {
   });
 
   useEffect(() => {
-    refreshUseQuery().then(r => {
+    refreshUseQuery().then(() => {
     });
   }, [refreshUseQuery]);
 

@@ -47,7 +47,6 @@ function Community ({ history }) {
   const defaultImg = 'https://s3-us-west-1.amazonaws.com/5cc.images/games/empty+box.jpg';
   const componentClasses = useStyles();
   const { t } = useTranslation();
-  const { userInfo } = useContext(AuthContext);
   const {
     data,
     refetch

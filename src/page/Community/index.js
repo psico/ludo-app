@@ -10,7 +10,6 @@ import PersonAvatar from '../../components/PersonAvatar';
 import CommentInput from '../../components/CommentInput';
 import { useQuery, gql } from '@apollo/client';
 import Like from '../../components/Like';
-import { AuthContext } from '../../App';
 
 const graphql = gql`
     query matches{

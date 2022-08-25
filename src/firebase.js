@@ -1,8 +1,8 @@
 // import firebase from "firebase";
 import firebase from "firebase/compat/app";
-import 'firebase/database';
-import 'firebase/auth';
-import 'firebase/firestore';
+import 'firebase/compat/database';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
 
 const {
     REACT_APP_FIREBASE_API_KEY,

@@ -2512,8 +2512,6 @@
     return I18n;
   }(EventEmitter);
 
-  var i18next = new I18n();
-
-  return i18next;
+  return new I18n();
 
 }));

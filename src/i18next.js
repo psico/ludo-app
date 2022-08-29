@@ -2174,18 +2174,18 @@
     }, {
       key: "loadResources",
       value: function loadResources(language) {
-        var _this3 = this;
+        const _this3 = this;
 
-        var usedCallback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : noop;
-        var usedLng = typeof language === 'string' ? language : this.language;
+        let usedCallback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : noop;
+        const usedLng = typeof language === 'string' ? language : this.language;
         if (typeof language === 'function') usedCallback = language;
 
         if (!this.options.resources || this.options.partialBundledLanguages) {
           if (usedLng && usedLng.toLowerCase() === 'cimode') return usedCallback(); // avoid loading resources for cimode
 
-          var toLoad = [];
+          const toLoad = [];
 
-          var append = function append(lng) {
+          const append = function append (lng) {
             if (!lng) return;
 
             var lngs = _this3.services.languageUtils.toResolveHierarchy(lng);
@@ -2197,7 +2197,7 @@
 
           if (!usedLng) {
             // at least load fallbacks in this case
-            var fallbacks = this.services.languageUtils.getFallbackCodes(this.options.fallbackLng);
+            const fallbacks = this.services.languageUtils.getFallbackCodes(this.options.fallbackLng);
             fallbacks.forEach(function (l) {
               return append(l);
             });

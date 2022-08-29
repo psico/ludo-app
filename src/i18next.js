@@ -2,7 +2,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
   (global = global || self, global.i18next = factory());
-}(this, function () { 
+}(this, function () {
 
   function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
 
@@ -2176,8 +2176,7 @@
       value: function loadResources(language) {
         var _this3 = this;
 
-        var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : noop;
-        var usedCallback = callback;
+        var usedCallback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : noop;
         var usedLng = typeof language === 'string' ? language : this.language;
         if (typeof language === 'function') usedCallback = language;
 

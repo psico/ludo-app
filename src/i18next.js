@@ -2,7 +2,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
   (global = global || self, global.i18next = factory());
-}(this, function () { 'use strict';
+}(this, function () { 
 
   function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
 
@@ -2158,7 +2158,7 @@
             deferred.resolve(t); // not rejecting on err (as err is only a loading translation failed warning)
 
             callback(err, t);
-          });
+          }).then(r => null);
         };
 
         if (this.options.resources || !this.options.initImmediate) {
@@ -2277,7 +2277,7 @@
             _this4.language = l;
             _this4.languages = _this4.services.languageUtils.toResolveHierarchy(l);
 
-            _this4.translator.changeLanguage(l);
+            _this4.translator.changeLanguage(l).then(r => null);
 
             _this4.isLanguageChangingTo = undefined;
 
@@ -2303,7 +2303,7 @@
               _this4.languages = _this4.services.languageUtils.toResolveHierarchy(l);
             }
 
-            if (!_this4.translator.language) _this4.translator.changeLanguage(l);
+            if (!_this4.translator.language) _this4.translator.changeLanguage(l).then(r => null);
             if (_this4.services.languageDetector) _this4.services.languageDetector.cacheUserLanguage(l);
           }
 

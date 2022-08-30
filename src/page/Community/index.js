@@ -116,7 +116,7 @@ function Community ({ history }) {
                         title: 'MDN',
                         text: 'Aprenda desenvolvimento web no MDN!',
                         url: 'https://developer.mozilla.org',
-                      })
+                      }).then(() => null)
                     }}/> Share
                   </Grid>
                   <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>

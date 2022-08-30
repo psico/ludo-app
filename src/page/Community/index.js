@@ -111,7 +111,13 @@ function Community ({ history }) {
                     <Like idDoc={value.idDoc} likes={value.likes}/>
                   </Grid>
                   <Grid item xs={6} sm={6} md={3} lg={3} xl={3}>
-                    <ShareIcon/> Share
+                    <ShareIcon onClick={() => {
+                      navigator.share({
+                        title: 'MDN',
+                        text: 'Aprenda desenvolvimento web no MDN!',
+                        url: 'https://developer.mozilla.org',
+                      })
+                    }}/> Share
                   </Grid>
                   <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                     <CommentInput matchId={value.idDoc} refreshUseQuery={refreshUseQuery}/>

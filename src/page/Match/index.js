@@ -1,4 +1,4 @@
-import React, {useContext, useEffect } from "react";
+import React, {useContext } from "react";
 import useStyles from "./css";
 import {withRouter} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
@@ -69,13 +69,13 @@ const Match = () => {
     const {t} = useTranslation();
     const {userInfo} = useContext(AuthContext);
 
-    const { data } = useQuery(graphqlUserInfo, {
-        variables: { uid: useParams().id }
-    });
+    // const { data } = useQuery(graphqlUserInfo, {
+    //     variables: { uid: useParams().id }
+    // });
 
     return (
         <div className={componentClasses.root}>
-
+            Match
         </div>
     );
 };

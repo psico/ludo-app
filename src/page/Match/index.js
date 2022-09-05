@@ -1,8 +1,7 @@
-import React, {useContext } from "react";
+import React from "react";
 import useStyles from "./css";
 import {withRouter} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
-import {AuthContext} from "../../App";
 import { gql, useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom/cjs/react-router-dom';
 import Paper from '@material-ui/core/Paper';

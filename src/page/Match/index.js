@@ -5,6 +5,7 @@ import {useTranslation} from 'react-i18next';
 import {AuthContext} from "../../App";
 import { gql, useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom/cjs/react-router-dom';
+import Paper from '@material-ui/core/Paper';
 
 const graphqlUserInfo = gql`
 query getMatch($idDoc: ID!) {
@@ -44,9 +45,11 @@ const Match = () => {
     });
 
     return (
+      <Paper className={componentClasses.paper}>
         <div className={componentClasses.root}>
             Match
         </div>
+      </Paper>
     );
 };
 

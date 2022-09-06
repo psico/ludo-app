@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { gql, useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom/cjs/react-router-dom';
 import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 
 const graphqlUserInfo = gql`
 query getMatch($idDoc: ID!) {
@@ -46,11 +47,13 @@ const Match = () => {
 
   return (
     <Paper className={componentClasses.paper}>
-      {data ?
-        <div className={componentClasses.root}>
-          Match
-        </div>
-        : <h5>{t('nothing-to-show')}</h5>}
+      <Grid container>
+        {data ?
+          <div className={componentClasses.root}>
+            Match
+          </div>
+          : <h5>{t('nothing-to-show')}</h5>}
+      </Grid>
     </Paper>
   );
 };

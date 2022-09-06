@@ -43,7 +43,7 @@ const Match = () => {
   const { data } = useQuery(graphqlUserInfo, {
     variables: { idDoc: useParams().id }
   });
-  console.log('data ==> ', data);
+  console.log('data ==> ', data?.getMatch, data?.match);
 
   return (
     <Paper className={componentClasses.paper}>

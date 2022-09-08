@@ -8,7 +8,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
 const graphqlUserInfo = gql`
-query getMatch($idDoc: ID!) {
+query getMatch($idDoc: String!) {
   match(idDoc: $idDoc) {
     idDoc
     matchOwner {

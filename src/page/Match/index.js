@@ -55,31 +55,31 @@ const Match = ({ history }) => {
   const refreshUseQuery = useCallback(async () => {
     await refetch();
   });
-  console.log('data ==> ', data?.getMatch, data?.match[0]);
+  console.log('data ==> ', data?.getMatch, data?.match);
 
   return (
-    <Paper className={componentClasses.paper} key={'community_' + data?.match[0]?.matchOwner?.uid}>
+    <Paper className={componentClasses.paper} key={'community_' + data?.match?.matchOwner?.uid}>
       <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
             className={componentClasses.item}
             container
             spacing={0}>
         <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-          {data?.match[0].game ? data?.match[0].game.name : ''}
+          {data?.match?.game ? data?.match.game.name : ''}
         </Grid>
         <Grid container className={componentClasses.hLine}>
           <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
             <div onClick={() => {
-              history.push('/profile/' + data?.match[0]?.matchOwner?.uid);
+              history.push('/profile/' + data?.match?.matchOwner?.uid);
             }}>
-              <UserAvatar photoURL={data?.match[0]?.matchOwner?.photoURL} displayName={data?.match[0]?.matchOwner?.name}
+              <UserAvatar photoURL={data?.match?.matchOwner?.photoURL} displayName={data?.match?.matchOwner?.name}
                           showName={true}/>
-              {/*<PersonAvatar displayName={data?.match[0].uid} showName={true}/>*/}
+              {/*<PersonAvatar displayName={data?.match.uid} showName={true}/>*/}
             </div>
           </Grid>
           <Grid item xs={12} sm={12} md={6} lg={6} xl={6} container>
             {
-              data?.match[0].players &&
-              data?.match[0].players.map((player, index) =>
+              data?.match.players &&
+              data?.match.players.map((player, index) =>
                 <PersonAvatar
                   key={'person_' + index}
                   displayName={player.name}
@@ -90,17 +90,17 @@ const Match = ({ history }) => {
         </Grid>
         <Grid container className={componentClasses.hLine}>
           <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-            <img src={data?.match[0].game.imageUrl || defaultImg} alt={t('logo-ludoapp')} height="300"/>
+            <img src={data?.match.game.imageUrl || defaultImg} alt={t('logo-ludoapp')} height="300"/>
           </Grid>
           <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
             <Grid container spacing={0} item xs={12} sm={12} md={6} lg={6} xl={6}>
-              <Comments arrComments={data?.match[0].comments}/>
+              <Comments arrComments={data?.match.comments}/>
             </Grid>
           </Grid>
         </Grid>
         <Grid container>
           <Grid item xs={6} sm={6} md={3} lg={3} xl={3}>
-            <Like idDoc={data?.match[0].idDoc} likes={data?.match[0].likes}/>
+            <Like idDoc={data?.match.idDoc} likes={data?.match.likes}/>
           </Grid>
           <Grid item xs={6} sm={6} md={3} lg={3} xl={3}>
             <ShareIcon onClick={() => {
@@ -112,7 +112,7 @@ const Match = ({ history }) => {
             }}/> Share
           </Grid>
           <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-            <CommentInput matchId={data?.match[0].idDoc} refreshUseQuery={refreshUseQuery}/>
+            <CommentInput matchId={data?.match.idDoc} refreshUseQuery={refreshUseQuery}/>
           </Grid>
         </Grid>
       </Grid>

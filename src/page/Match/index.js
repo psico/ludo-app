@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import useStyles from './css';
 import { withRouter } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -43,11 +43,17 @@ query getMatch($idDoc: String!) {
 `;
 
 const Match = () => {
+  const defaultImg = 'https://s3-us-west-1.amazonaws.com/5cc.images/games/empty+box.jpg';
   const componentClasses = useStyles();
   const { t } = useTranslation();
 
   const { data } = useQuery(graphqlUserInfo, {
     variables: { idDoc: useParams().id }
+  });
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const refreshUseQuery = useCallback(async () => {
+    await refetch();
   });
   console.log('data ==> ', data?.getMatch, data?.match[0]);
 

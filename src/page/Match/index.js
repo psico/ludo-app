@@ -47,7 +47,7 @@ const Match = () => {
   const componentClasses = useStyles();
   const { t } = useTranslation();
 
-  const { data } = useQuery(graphqlUserInfo, {
+  const { data, refetch } = useQuery(graphqlUserInfo, {
     variables: { idDoc: useParams().id }
   });
 
@@ -58,7 +58,7 @@ const Match = () => {
   console.log('data ==> ', data?.getMatch, data?.match[0]);
 
   return (
-    <Paper className={componentClasses.paper} key={'community_' + index}>
+    <Paper className={componentClasses.paper} key={'community_' + data?.match[0]?.matchOwner?.uid}>
       <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
             className={componentClasses.item}
             container

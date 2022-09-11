@@ -113,8 +113,8 @@ function Community ({ history }) {
                   <Grid item xs={6} sm={6} md={3} lg={3} xl={3}>
                     <ShareIcon onClick={() => {
                       navigator.share({
-                        title: 'MDN',
-                        text: 'Aprenda desenvolvimento web no MDN!',
+                        title: value.game ? value.game.name : '',
+                        text: value.game ? value.game.name : '',
                         url: `./match/${value.idDoc}`,
                       }).then(() => null)
                     }}/> Share

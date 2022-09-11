@@ -115,7 +115,7 @@ function Community ({ history }) {
                       navigator.share({
                         title: value.game ? value.game.name : '',
                         text: value.game ? value.game.name : '',
-                        url: `./match/${value.idDoc}`,
+                        url: `./showMatch/${value.idDoc}`,
                       }).then(() => null)
                     }}/> Share
                   </Grid>

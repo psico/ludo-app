@@ -25,6 +25,7 @@ query getMatch($idDoc: String!) {
     gameMoment
     game {
       name
+      imageUrl
     }
     comments {
       uid
@@ -55,7 +56,7 @@ const Match = ({ history }) => {
   const refreshUseQuery = useCallback(async () => {
     await refetch();
   });
-  console.log('data ==> ', data?.getMatch, data?.match);
+  console.log('data ==> ', data?.match, data?.match?.gameMoment);
 
   return (
     <Paper className={componentClasses.paper} key={'community_' + data?.match?.matchOwner?.uid}>
@@ -100,7 +101,7 @@ const Match = ({ history }) => {
         </Grid>
         <Grid container>
           <Grid item xs={6} sm={6} md={3} lg={3} xl={3}>
-            <Like idDoc={data?.match.idDoc} likes={data?.match.likes}/>
+            <Like idDoc={useParams().id} likes={data?.match.likes}/>
           </Grid>
           <Grid item xs={6} sm={6} md={3} lg={3} xl={3}>
             <ShareIcon onClick={() => {
@@ -112,7 +113,7 @@ const Match = ({ history }) => {
             }}/> Share
           </Grid>
           <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-            <CommentInput matchId={data?.match.idDoc} refreshUseQuery={refreshUseQuery}/>
+            <CommentInput matchId={useParams().id} refreshUseQuery={refreshUseQuery}/>
           </Grid>
         </Grid>
       </Grid>

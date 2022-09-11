@@ -115,7 +115,7 @@ function Community ({ history }) {
                       navigator.share({
                         title: 'MDN',
                         text: 'Aprenda desenvolvimento web no MDN!',
-                        url: 'https://developer.mozilla.org',
+                        url: `./match/${value.idDoc}`,
                       }).then(() => null)
                     }}/> Share
                   </Grid>

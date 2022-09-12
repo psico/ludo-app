@@ -7,10 +7,17 @@ import Like from '../Like';
 import { useParams } from 'react-router-dom/cjs/react-router-dom';
 import ShareIcon from '@material-ui/icons/Share';
 import CommentInput from '../CommentInput';
-import React from 'react';
+import React, { useCallback } from 'react';
 import { withRouter } from 'react-router-dom';
+import useStyles from '../../page/ShowMatch/css';
+import { useTranslation } from 'react-i18next';
+import { useQuery } from '@apollo/client';
 
-const Match = ({ history }) => {
+const Match = ({data, refetch, history }) => {
+  const defaultImg = 'https://s3-us-west-1.amazonaws.com/5cc.images/games/empty+box.jpg';
+  const componentClasses = useStyles();
+  const { t } = useTranslation();
+
   return (
     <Paper className={componentClasses.paper} key={'community_' + data?.match?.matchOwner?.uid}>
       <Grid item xs={12} sm={12} md={12} lg={12} xl={12}

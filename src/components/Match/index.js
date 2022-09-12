@@ -11,7 +11,6 @@ import React, { useCallback } from 'react';
 import { withRouter } from 'react-router-dom';
 import useStyles from '../../page/ShowMatch/css';
 import { useTranslation } from 'react-i18next';
-import { useQuery } from '@apollo/client';
 
 const Match = ({data, refetch, history }) => {
   const defaultImg = 'https://s3-us-west-1.amazonaws.com/5cc.images/games/empty+box.jpg';

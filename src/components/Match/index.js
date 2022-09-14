@@ -12,7 +12,7 @@ import { withRouter } from 'react-router-dom';
 import useStyles from '../../page/ShowMatch/css';
 import { useTranslation } from 'react-i18next';
 
-const Match = ({match, refreshUseQuery, history }) => {
+const Match = ({matchData, refreshUseQuery, history }) => {
   const defaultImg = 'https://s3-us-west-1.amazonaws.com/5cc.images/games/empty+box.jpg';
   const componentClasses = useStyles();
   const { t } = useTranslation();
@@ -22,31 +22,31 @@ const Match = ({match, refreshUseQuery, history }) => {
   //   });
   // }, [refreshUseQuery]);
 
-  console.log('match 2 ==> ', match, refreshUseQuery, history);
+  console.log('matchData 2 ==> ', matchData, refreshUseQuery, history);
 
   return (
-    <Paper className={componentClasses.paper} key={'community_' + match?.match?.matchOwner?.uid}>
+    <Paper className={componentClasses.paper} key={'community_' + matchData?.match?.matchOwner?.uid}>
       <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
             className={componentClasses.item}
             container
             spacing={0}>
         <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-          {match?.match?.game ? match?.match.game.name : ''}
+          {matchData?.match?.game ? matchData?.match.game.name : ''}
         </Grid>
         <Grid container className={componentClasses.hLine}>
           <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
             <div onClick={() => {
-              history.push('/profile/' + match?.match?.matchOwner?.uid);
+              history.push('/profile/' + matchData?.match?.matchOwner?.uid);
             }}>
-              <UserAvatar photoURL={match?.match?.matchOwner?.photoURL} displayName={match?.match?.matchOwner?.name}
+              <UserAvatar photoURL={matchData?.match?.matchOwner?.photoURL} displayName={matchData?.match?.matchOwner?.name}
                           showName={true}/>
-              {/*<PersonAvatar displayName={match?.match.uid} showName={true}/>*/}
+              {/*<PersonAvatar displayName={matchData?.match.uid} showName={true}/>*/}
             </div>
           </Grid>
           <Grid item xs={12} sm={12} md={6} lg={6} xl={6} container>
             {
-              match?.match.players &&
-              match?.match.players.map((player, index) =>
+              matchData?.match.players &&
+              matchData?.match.players.map((player, index) =>
                 <PersonAvatar
                   key={'person_' + index}
                   displayName={player.name}
@@ -57,17 +57,17 @@ const Match = ({match, refreshUseQuery, history }) => {
         </Grid>
         <Grid container className={componentClasses.hLine}>
           <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-            <img src={match?.match.game.imageUrl || defaultImg} alt={t('logo-ludoapp')} height="300"/>
+            <img src={matchData?.match.game.imageUrl || defaultImg} alt={t('logo-ludoapp')} height="300"/>
           </Grid>
           <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
             <Grid container spacing={0} item xs={12} sm={12} md={6} lg={6} xl={6}>
-              <Comments arrComments={match?.match.comments}/>
+              <Comments arrComments={matchData?.match.comments}/>
             </Grid>
           </Grid>
         </Grid>
         <Grid container>
           <Grid item xs={6} sm={6} md={3} lg={3} xl={3}>
-            <Like idDoc={useParams().id} likes={match?.match.likes}/>
+            <Like idDoc={useParams().id} likes={matchData?.match.likes}/>
           </Grid>
           <Grid item xs={6} sm={6} md={3} lg={3} xl={3}>
             <ShareIcon onClick={() => {

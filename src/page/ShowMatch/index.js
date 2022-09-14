@@ -63,10 +63,10 @@ const ShowMatch = ({ history }) => {
   // useEffect(() => {
   //   refreshUseQuery().then(() => {
   //   });
-  // }, [refreshUseQuery]);
+  // }, [refreshUseQuery, data]);
 
   return (
-    <Match match={data?.match} refreshUseQuery={refreshUseQuery}></Match>
+    <Match refreshUseQuery={refreshUseQuery} matchData={data?.match} />
   );
 
   // return (

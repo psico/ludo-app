@@ -22,31 +22,31 @@ const Match = ({matchData, refreshUseQuery, history }) => {
   //   });
   // }, [refreshUseQuery]);
 
-  console.log('matchData 2 ==> ', matchData, refreshUseQuery, history);
+  console.log('matchData 2 ==> ', matchData?.matchOwner, refreshUseQuery, history);
 
   return (
-    <Paper className={componentClasses.paper} key={'community_' + matchData?.match?.matchOwner?.uid}>
+    <Paper className={componentClasses.paper} key={'community_' + matchData?.matchOwner?.uid}>
       <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
             className={componentClasses.item}
             container
             spacing={0}>
         <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-          {matchData?.match?.game ? matchData?.match.game.name : ''}
+          {matchData?.game ? matchData?.game.name : ''}
         </Grid>
         <Grid container className={componentClasses.hLine}>
           <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
             <div onClick={() => {
-              history.push('/profile/' + matchData?.match?.matchOwner?.uid);
+              history.push('/profile/' + matchData?.matchOwner?.uid);
             }}>
-              <UserAvatar photoURL={matchData?.match?.matchOwner?.photoURL} displayName={matchData?.match?.matchOwner?.name}
+              <UserAvatar photoURL={matchData?.matchOwner?.photoURL} displayName={matchData?.matchOwner?.name}
                           showName={true}/>
-              {/*<PersonAvatar displayName={matchData?.match.uid} showName={true}/>*/}
+              {/*<PersonAvatar displayName={matchData?.uid} showName={true}/>*/}
             </div>
           </Grid>
           <Grid item xs={12} sm={12} md={6} lg={6} xl={6} container>
             {
-              matchData?.match.players &&
-              matchData?.match.players.map((player, index) =>
+              matchData?.players &&
+              matchData?.players.map((player, index) =>
                 <PersonAvatar
                   key={'person_' + index}
                   displayName={player.name}
@@ -57,17 +57,17 @@ const Match = ({matchData, refreshUseQuery, history }) => {
         </Grid>
         <Grid container className={componentClasses.hLine}>
           <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-            <img src={matchData?.match.game.imageUrl || defaultImg} alt={t('logo-ludoapp')} height="300"/>
+            <img src={matchData?.game.imageUrl || defaultImg} alt={t('logo-ludoapp')} height="300"/>
           </Grid>
           <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
             <Grid container spacing={0} item xs={12} sm={12} md={6} lg={6} xl={6}>
-              <Comments arrComments={matchData?.match.comments}/>
+              <Comments arrComments={matchData?.comments}/>
             </Grid>
           </Grid>
         </Grid>
         <Grid container>
           <Grid item xs={6} sm={6} md={3} lg={3} xl={3}>
-            <Like idDoc={useParams().id} likes={matchData?.match.likes}/>
+            <Like idDoc={useParams().id} likes={matchData?.likes}/>
           </Grid>
           <Grid item xs={6} sm={6} md={3} lg={3} xl={3}>
             <ShareIcon onClick={() => {

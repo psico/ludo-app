@@ -59,12 +59,6 @@ const ShowMatch = ({ history }) => {
   });
   console.log('data 1 ==> ', data?.match);
 
-
-  // useEffect(() => {
-  //   refreshUseQuery().then(() => {
-  //   });
-  // }, [refreshUseQuery, data]);
-
   return (
     <Match refreshUseQuery={refreshUseQuery} matchData={data?.match} />
   );

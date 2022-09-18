@@ -14,21 +14,24 @@ const useStyles = makeStyles(theme => ({
     margin: 0,
     paddingTop: "115px",
     paddingBottom: "50px",
-    fontFamily: "sans-serif"
+    fontFamily: "sans-serif",
+    background: "#dfdfdf",
   },
   paper: {
     padding: theme.spacing(1),
-    textAlign: 'center',
-    width: "921px"
+    marginBottom: "15px",
+    textAlign: 'center'
   },
   item: {
-    textAlign: 'left',
-    // justifyContent: "center",
-    alignItems: "center",
-    paddingBottom: '10px'
+    paddingBottom: "10px"
   },
-  vl: {
-    borderRight: "1px solid gray",
+  vLine: {
+    borderRight: "1px solid #eee",
+    padding: "5px"
+  },
+  hLine: {
+    borderBottom: "1px solid #eee",
+    padding: "5px"
   }
 }));
 

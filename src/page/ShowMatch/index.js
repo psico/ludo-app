@@ -4,14 +4,6 @@ import { withRouter } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { gql, useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom/cjs/react-router-dom';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import UserAvatar from '../../components/UserAvatar';
-import PersonAvatar from '../../components/PersonAvatar';
-import Comments from '../../components/Comments';
-import Like from '../../components/Like';
-import ShareIcon from '@material-ui/icons/Share';
-import CommentInput from '../../components/CommentInput';
 import Match from '../../components/Match';
 
 const graphqlUserInfo = gql`
@@ -44,10 +36,8 @@ query getMatch($idDoc: String!) {
 }
 `;
 
-const ShowMatch = ({ history }) => {
-  const defaultImg = 'https://s3-us-west-1.amazonaws.com/5cc.images/games/empty+box.jpg';
+const ShowMatch = () => {
   const componentClasses = useStyles();
-  const { t } = useTranslation();
 
   const {
     data,
@@ -60,7 +50,6 @@ const ShowMatch = ({ history }) => {
   const refreshUseQuery = useCallback(async () => {
     await refetch();
   });
-  console.log('data 1 ==> ', data?.match);
 
   return (
     <div className={componentClasses.root}>

@@ -49,7 +49,10 @@ const ShowMatch = ({ history }) => {
   const componentClasses = useStyles();
   const { t } = useTranslation();
 
-  const { data, refetch } = useQuery(graphqlUserInfo, {
+  const {
+    data,
+    refetch
+  } = useQuery(graphqlUserInfo, {
     variables: { idDoc: useParams().id }
   });
 
@@ -60,7 +63,9 @@ const ShowMatch = ({ history }) => {
   console.log('data 1 ==> ', data?.match);
 
   return (
-    <Match refreshUseQuery={refreshUseQuery} matchData={data?.match} />
+    <div className={componentClasses.root}>
+      <Match refreshUseQuery={refreshUseQuery} matchData={data?.match}/>
+    </div>
   );
 };
 

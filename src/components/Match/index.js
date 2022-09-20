@@ -72,14 +72,14 @@ const Match = ({matchData, refreshUseQuery, history }) => {
           <Grid item xs={6} sm={6} md={3} lg={3} xl={3}>
             <ShareIcon onClick={() => {
               navigator.share({
-                title: 'MDN',
-                text: 'Aprenda desenvolvimento web no MDN!',
-                url: 'https://developer.mozilla.org',
+                title: matchData.game ? matchData.game.name : '',
+                text: matchData.game ? matchData.game.name : '',
+                url: `./showMatch/${matchData?.idDoc}`,
               }).then(() => null);
             }}/> Share
           </Grid>
           <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-            <CommentInput matchId={useParams().id} refreshUseQuery={refreshUseQuery}/>
+            <CommentInput matchId={matchData?.idDoc} refreshUseQuery={refreshUseQuery}/>
           </Grid>
         </Grid>
       </Grid>

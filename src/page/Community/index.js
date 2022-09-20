@@ -129,7 +129,7 @@ function Community ({ history }) {
           // );
           return (
             <div className={componentClasses.paper} key={'community_' + index}>
-            <Match refreshUseQuery={refreshUseQuery} matchData={value}/>
+              <Match refreshUseQuery={refreshUseQuery} matchData={value}/>
             </div>);
         })
       }

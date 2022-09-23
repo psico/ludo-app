@@ -9,7 +9,7 @@ import ShareIcon from '@material-ui/icons/Share';
 import CommentInput from '../CommentInput';
 import React, { useCallback, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
-import useStyles from '../../page/ShowMatch/css';
+import useStyles from './css';
 import { useTranslation } from 'react-i18next';
 
 const Match = ({matchData, refreshUseQuery, history }) => {

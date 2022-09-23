@@ -127,10 +127,7 @@ function Community ({ history }) {
           //     </Grid>
           //   </Paper>
           // );
-          return (
-            <div className={componentClasses.paper} key={'community_' + index}>
-              <Match refreshUseQuery={refreshUseQuery} matchData={value}/>
-            </div>);
+          return (<Match refreshUseQuery={refreshUseQuery} matchData={value}/>);
         })
       }
     </div>

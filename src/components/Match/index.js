@@ -12,7 +12,11 @@ import { withRouter } from 'react-router-dom';
 import useStyles from './css';
 import { useTranslation } from 'react-i18next';
 
-const Match = ({matchData, refreshUseQuery, history }) => {
+const Match = ({
+  matchData,
+  refreshUseQuery,
+  history
+}) => {
   const defaultImg = 'https://s3-us-west-1.amazonaws.com/5cc.images/games/empty+box.jpg';
   const componentClasses = useStyles();
   const { t } = useTranslation();

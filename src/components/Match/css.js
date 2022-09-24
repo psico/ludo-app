@@ -10,14 +10,6 @@ const useStyles = makeStyles(theme => ({
   },
   item: {
     paddingBottom: '10px'
-  },
-  vLine: {
-    borderRight: '1px solid #eee',
-    padding: '5px'
-  },
-  hLine: {
-    borderBottom: '1px solid #eee',
-    padding: '5px'
   }
 }));
 

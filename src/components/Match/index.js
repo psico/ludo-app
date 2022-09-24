@@ -7,7 +7,7 @@ import Like from '../Like';
 import { useParams } from 'react-router-dom/cjs/react-router-dom';
 import ShareIcon from '@material-ui/icons/Share';
 import CommentInput from '../CommentInput';
-import React, { useCallback, useEffect } from 'react';
+import React from 'react';
 import { withRouter } from 'react-router-dom';
 import useStyles from './css';
 import { useTranslation } from 'react-i18next';
@@ -16,13 +16,6 @@ const Match = ({matchData, refreshUseQuery, history }) => {
   const defaultImg = 'https://s3-us-west-1.amazonaws.com/5cc.images/games/empty+box.jpg';
   const componentClasses = useStyles();
   const { t } = useTranslation();
-
-  // useEffect(() => {
-  //   refreshUseQuery().then(() => {
-  //   });
-  // }, [refreshUseQuery]);
-
-  console.log('matchData 2 ==> ', matchData?.matchOwner, refreshUseQuery, history);
 
   return (
     <Paper className={componentClasses.paper} key={'community_' + matchData?.matchOwner?.uid}>

@@ -34,6 +34,7 @@ const graphql = gql`
             players {
                 uid
                 name
+                photoURL
             }
             likes {
                 uid

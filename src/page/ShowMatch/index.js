@@ -15,7 +15,6 @@ query getMatch($idDoc: String!) {
       name
       photoURL
     }
-    gameMoment
     game {
       name
       imageUrl
@@ -30,6 +29,10 @@ query getMatch($idDoc: String!) {
       uid
       name
       photoURL
+    }
+    likes {
+        uid
+        name            
     }
     
   }

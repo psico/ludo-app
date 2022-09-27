@@ -1,12 +1,13 @@
 import React from "react";
 import PersonAvatar from "../PersonAvatar";
 
-const UserAvatar = (props) => {
+const UserAvatar = ({ displayName, photoURL, showName }) => {
+    console.log("showName ==> ", showName, showName || false)
     return (
         <PersonAvatar
-            displayName={props.displayName || 'Unknown'}
-            photoURL={props.photoURL || 'Unknown'}
-            showName={props.showName || false}
+            displayName={displayName || 'Unknown'}
+            photoURL={photoURL || 'Unknown'}
+            showName={!!showName}
         />
     )
 };

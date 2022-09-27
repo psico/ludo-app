@@ -10,6 +10,7 @@ const graphqlUserInfo = gql`
     userInfo(uid: $uid) {
       uid
       name
+      photoURL
       numberOfMatches
       following {
         uid

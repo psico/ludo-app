@@ -99,9 +99,8 @@ const ProfileInfo = ({
 
           <Grid item xs={3} sm={3} md={3} lg={3} xl={3} className={componentClasses.item}>
             <Avatar variant="rounded"
+                    photoURL={photoURL}
                     displayName={userProfileInfoData?.name}
-                    alt={userProfileInfoData?.name}
-                    src={photoURL}
                     className={componentClasses.avatar}/>
             <div className={componentClasses.grider}>{userProfileInfoData?.name}</div>
             <Button variant="contained" disabled={followCondicional()}

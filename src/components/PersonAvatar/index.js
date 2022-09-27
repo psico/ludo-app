@@ -2,13 +2,12 @@ import React from "react";
 import Avatar from '@material-ui/core/Avatar';
 import componentStyles from "./css";
 
-const PersonAvatar = (props) => {
+const PersonAvatar = ({
+    showName,
+    displayName,
+    photoURL
+}) => {
     const classes = componentStyles();
-    const {
-        showName,
-        displayName,
-        photoURL
-    } = props;
 
     return (
         <div className={classes.root}>

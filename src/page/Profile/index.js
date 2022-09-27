@@ -75,7 +75,6 @@ const Profile = () => {
       <ProfileInfo userInfo={data?.userInfo}
                    photoURL={data?.userInfo.photoURL}
                    showName={data?.userInfo.showName}>
-
       </ProfileInfo>
       <LastMatches matches={data?.matches}/>
     </div>

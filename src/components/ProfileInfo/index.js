@@ -2,7 +2,6 @@ import useStyles from './css';
 import { useParams, withRouter } from 'react-router-dom/cjs/react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Avatar from '@material-ui/core/Avatar';
 import { Button } from '@material-ui/core';
 import lvl from '../../temp-images/lvl-coronel.png';
 import xp from '../../temp-images/experience.png';

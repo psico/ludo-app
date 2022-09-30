@@ -103,7 +103,7 @@ const ProfileInfo = ({
             {/*        photoURL={photoURL}*/}
             {/*        displayName={userProfileInfoData?.name}*/}
             {/*        className={componentClasses.avatar}/>*/}
-            <Avatar variant="rounded" alt={userProfileInfoData?.name} src={photoURL} />
+            <UserAvatar displayName={userProfileInfoData?.name} photoURL={photoURL} showName={false} photoSize="large"/>
             <div className={componentClasses.grider}>{userProfileInfoData?.name}</div>
             <Button variant="contained" disabled={followCondicional()}
                     onClick={() => toFollow(userProfileInfoData?.uid)}>{t('follow')}</Button>

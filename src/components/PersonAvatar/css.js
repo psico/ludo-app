@@ -16,6 +16,14 @@ const componentStyles = makeStyles(theme => ({
         width: theme.spacing(3),
         height: theme.spacing(3),
     },
+    medium: {
+        width: theme.spacing(7),
+        height: theme.spacing(7),
+    },
+    large: {
+        width: theme.spacing(15),
+        height: theme.spacing(15),
+    },
 }));
 
 export default componentStyles;

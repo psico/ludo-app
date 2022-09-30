@@ -10,7 +10,6 @@ const PersonAvatar = ({
 }) => {
     const classes = componentStyles();
     photoSize = photoSize ? classes[photoSize]: classes.small;
-    console.log("photoSize ===> ", photoSize );
 
     return (
         <div className={classes.root}>

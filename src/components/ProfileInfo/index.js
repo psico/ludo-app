@@ -12,6 +12,7 @@ import { lighten, withStyles } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { AuthContext } from '../../App';
 import { gql, useMutation, useQuery } from '@apollo/client';
+import UserAvatar from '../UserAvatar';
 
 const graphqlFollowUser = gql`
 mutation follow($followUid: ID!) {
@@ -98,10 +99,11 @@ const ProfileInfo = ({
         <Grid container>
 
           <Grid item xs={3} sm={3} md={3} lg={3} xl={3} className={componentClasses.item}>
-            <Avatar variant="rounded"
-                    photoURL={photoURL}
-                    displayName={userProfileInfoData?.name}
-                    className={componentClasses.avatar}/>
+            {/*<Avatar variant="rounded"*/}
+            {/*        photoURL={photoURL}*/}
+            {/*        displayName={userProfileInfoData?.name}*/}
+            {/*        className={componentClasses.avatar}/>*/}
+            <Avatar variant="rounded" alt={userProfileInfoData?.name} src={photoURL} />
             <div className={componentClasses.grider}>{userProfileInfoData?.name}</div>
             <Button variant="contained" disabled={followCondicional()}
                     onClick={() => toFollow(userProfileInfoData?.uid)}>{t('follow')}</Button>

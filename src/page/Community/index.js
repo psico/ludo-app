@@ -54,7 +54,11 @@ function Community () {
 
   return (
     <div className={componentClasses.root}>
-      {data && data.matches.map((value) => <Match refreshUseQuery={refreshUseQuery} matchData={value}/>)}
+      {data && data.matches.map((value) =>
+        <div key={'community_' + value.idDoc}>
+          <Match refreshUseQuery={refreshUseQuery} matchData={value}/>
+        </div>
+      )}
     </div>
   );
 }

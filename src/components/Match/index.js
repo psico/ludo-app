@@ -22,7 +22,7 @@ const Match = ({
   const { t } = useTranslation();
 
   return (
-    <Paper className={componentClasses.paper} key={'community_' + matchData?.matchOwner?.uid}>
+    <Paper className={componentClasses.paper} key={'match_' + matchData?.idDoc}>
       <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
             className={componentClasses.item}
             container

@@ -43,7 +43,7 @@ const Footer = ({history}) => {
                 {/*                            selected: componentClasses.selected*/}
                 {/*                        }}/>*/}
                 <BottomNavigationAction label={t('add-match')} value="addMatch"
-                                        icon={<AddCircleOutline fontSize="default" htmlColor="white"/>}
+                                        icon={<AddCircleOutline fontSize="medium" htmlColor="white"/>}
                                         classes={{
                                             selected: componentClasses.selected
                                         }}/>

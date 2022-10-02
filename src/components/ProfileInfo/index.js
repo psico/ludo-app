@@ -45,7 +45,7 @@ const ProfileInfo = ({
   });
 
   const { data } = useQuery(graphql, {
-    variables: { uid: userProfileInfoData?.uid }
+    variables: { uid: userProfileInfoData?.uid || "" }
   });
 
   const BorderLinearProgress = withStyles({

@@ -13,7 +13,7 @@ const PersonAvatar = ({
 
     return (
         <div className={classes.root}>
-            <Avatar variant="rounded" alt={displayName} src={require(photoURL)} className={photoSize}>
+            <Avatar variant="rounded" alt={displayName} src={photoURL} className={photoSize}>
                 {displayName.substring(0,1)}
             </Avatar>
             {showName === true && <div className={classes.textAvatar}>{displayName}</div>}

@@ -23,6 +23,7 @@ query matches($textSearch: String) {
       description
       imageUrl
     }
+    createdAt
   }
 }
 `;

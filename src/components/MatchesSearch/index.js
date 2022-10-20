@@ -47,7 +47,7 @@ const MatchesSearch = () => {
               <img src={value.game.imageUrl}
                    alt={value.game.name}
                    height="80"/>
-              <p>{value.game.name}</p>
+              <p><strong>{t("game")}</strong>: {value.game.name}</p>
               <UserAvatar
                 photoURL={value.matchOwner?.photoURL}
                 displayName={value.matchOwner?.name}

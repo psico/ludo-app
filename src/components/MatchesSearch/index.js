@@ -47,7 +47,7 @@ const MatchesSearch = () => {
       <Grid container>
         {data?.matches?.length > 0 ?
           data.matches.map((value) =>
-            <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
+            <Grid key={value.idDoc} item xs={2} sm={2} md={2} lg={2} xl={2}>
               <img src={value.game.imageUrl}
                    alt={value.game.name}
                    height="80"/>

@@ -38,7 +38,7 @@ const MatchesSearch = () => {
   });
 
   const formatDate = (timestamp) => {
-    return Date(timestamp);
+    return Date(timestamp).toLocaleString();
   }
 
   return (

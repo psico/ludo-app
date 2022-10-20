@@ -37,6 +37,10 @@ const MatchesSearch = () => {
     variables: { textSearch: useParams().search }
   });
 
+  const formatDate = (timestamp) => {
+    return Date(timestamp);
+  }
+
   return (
     <Paper className={componentClasses.paper}>
       <h2>Matches Search</h2>
@@ -48,6 +52,7 @@ const MatchesSearch = () => {
                    alt={value.game.name}
                    height="80"/>
               <p><strong>{t("game")}</strong>: {value.game.name}</p>
+              <p><strong>{t("match-date")}</strong>: {formatDate(value.createdAt)}</p>
               <UserAvatar
                 photoURL={value.matchOwner?.photoURL}
                 displayName={value.matchOwner?.name}

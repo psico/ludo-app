@@ -31,6 +31,7 @@ const resources = {
       'friends-list': 'Friends list',
       'last-matches': 'Last matches',
       'logo-ludoapp': 'Logo LudoApp',
+      'match-date': 'Match date',
       'my-profile': 'My Profile',
       'most-played': 'Most Played',
       'no-data': 'No data',

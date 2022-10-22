@@ -28,6 +28,7 @@
     "graphql": "^15.8.0",
     "graphql-tag": "^2.12.6",
     "i18next": "^21.10.0",
+    "moment": "^2.29.4",
     "react": "^17.0.2",
     "react-devtools": "^4.26.1",
     "react-dom": "^17.0.2",

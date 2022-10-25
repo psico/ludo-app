@@ -52,8 +52,8 @@ const MatchesSearch = () => {
               <img src={value.game.imageUrl}
                    alt={value.game.name}
                    height="80"/>
-              <p><strong>{t("game")}</strong>: {value.game.name} {value.createdAt._seconds}</p>
-              <p><strong>{t("match-date")}</strong>: {moment(value.createdAt._seconds * 1000).format('LLL')}</p>
+              <p><strong>{t("game")}</strong>: {value.game.name}</p>
+              <p><strong>{t("match-date")}</strong>: {(new Date(value.createdAt._seconds * 1000)).toLocaleString()}</p>
               <UserAvatar
                 photoURL={value.matchOwner?.photoURL}
                 displayName={value.matchOwner?.name}

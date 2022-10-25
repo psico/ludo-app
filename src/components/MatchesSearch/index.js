@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import UserAvatar from '../UserAvatar';
 import { gql, useQuery } from '@apollo/client';
 import { useTranslation } from 'react-i18next';
+import moment from 'moment';
 
 const graphql = gql`
 query matches($textSearch: String) {
@@ -51,8 +52,8 @@ const MatchesSearch = () => {
               <img src={value.game.imageUrl}
                    alt={value.game.name}
                    height="80"/>
-              <p><strong>{t("game")}</strong>: {value.game.name}</p>
-              <p><strong>{t("match-date")}</strong>: {formatDate(value.createdAt)}</p>
+              <p><strong>{t("game")}</strong>: {value.game.name} {value.createdAt._seconds}</p>
+              <p><strong>{t("match-date")}</strong>: {moment(value.createdAt._seconds * 1000).format('LLL')}</p>
               <UserAvatar
                 photoURL={value.matchOwner?.photoURL}
                 displayName={value.matchOwner?.name}

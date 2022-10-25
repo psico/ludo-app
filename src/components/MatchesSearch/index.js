@@ -6,7 +6,6 @@ import Grid from '@material-ui/core/Grid';
 import UserAvatar from '../UserAvatar';
 import { gql, useQuery } from '@apollo/client';
 import { useTranslation } from 'react-i18next';
-import moment from 'moment';
 
 const graphql = gql`
 query matches($textSearch: String) {

@@ -37,10 +37,6 @@ const MatchesSearch = () => {
     variables: { textSearch: useParams().search }
   });
 
-  const formatDate = (timestamp) => {
-    return Date(timestamp).toLocaleString();
-  }
-
   return (
     <Paper className={componentClasses.paper}>
       <h2>Matches Search</h2>

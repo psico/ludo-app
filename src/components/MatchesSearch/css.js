@@ -8,6 +8,9 @@ const useStyles = makeStyles(theme => ({
     marginBottom: "15px",
     textAlign: 'left',
     width: "921px"
+  },
+  gridStyle: {
+    paddingBottom: "300px"
   }
 }));
 

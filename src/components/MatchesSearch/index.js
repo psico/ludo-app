@@ -43,17 +43,17 @@ const MatchesSearch = () => {
       <Grid container>
         {data?.matches?.length > 0 ?
           data.matches.map((value) =>
-            <Grid key={value.idDoc} item xs={2} sm={2} md={2} lg={2} xl={2}>
+            <Grid key={value.idDoc} item xs={3} sm={3} md={3} lg={3} xl={3}>
+              <p><strong>{t("game")}</strong>: {value.game.name}</p>
               <img src={value.game.imageUrl}
                    alt={value.game.name}
                    height="80"/>
-              <p><strong>{t("game")}</strong>: {value.game.name}</p>
-              <p><strong>{t("match-date")}</strong>: {(new Date(value.createdAt._seconds * 1000)).toLocaleString()}</p>
               <UserAvatar
                 photoURL={value.matchOwner?.photoURL}
                 displayName={value.matchOwner?.name}
                 showName={true}
               />
+              <p><strong>{t("match-date")}</strong>: {(new Date(value.createdAt._seconds * 1000)).toLocaleString()}</p>
             </Grid>
           ) :
           <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>

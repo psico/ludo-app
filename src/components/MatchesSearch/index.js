@@ -53,7 +53,7 @@ const MatchesSearch = () => {
                 displayName={value.matchOwner?.name}
                 showName={true}
               />
-              <p><strong>{t("match-date")}</strong>: {(new Date(value.createdAt._seconds * 1000)).toLocaleString()}</p>
+              <div><strong>{t("match-date")}</strong>: {(new Date(value.createdAt._seconds * 1000)).toLocaleString()}</div>
             </Grid>
           ) :
           <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>

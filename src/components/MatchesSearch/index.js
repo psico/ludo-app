@@ -58,7 +58,16 @@ const MatchesSearch = () => {
                 displayName={value.matchOwner?.name}
                 showName={true}
               />
-              <div><strong>{t("match-date")}</strong>: {(new Date(value.createdAt._seconds * 1000)).toLocaleString()}</div>
+              <div>
+                <strong>{t("match-date")}</strong>: {(new Date(value.createdAt._seconds * 1000)).toLocaleString()}
+              </div>
+              <div>
+                <strong>{t("players")}</strong>: {value.players.map((player) => <UserAvatar
+                photoURL={player.photoURL}
+                displayName={player.name}
+                showName={false}
+              /> )}
+              </div>
             </Grid>
           ) :
           <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>

@@ -17,6 +17,11 @@ query matches($textSearch: String) {
       photoURL
     }
     gameMoment
+    players {
+      uid
+      name
+      photoURL
+    }
     game {
       name
       objectId

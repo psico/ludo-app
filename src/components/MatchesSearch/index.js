@@ -66,7 +66,7 @@ const MatchesSearch = () => {
                 value.players.map((player) => <UserAvatar
                   photoURL={player.photoURL}
                   displayName={player.name}
-                  showName={false}
+                  showName={true}
                 />)}
               </div>
             </Grid>

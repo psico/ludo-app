@@ -49,7 +49,7 @@ const MatchesSearch = () => {
         {data?.matches?.length > 0 ?
           data.matches.map((value) =>
             <Grid key={value.idDoc} item xs={3} sm={3} md={3} lg={3} xl={3} className={componentClasses.gridStyle}>
-              <p><strong>{t("game")}</strong>: {value.game.name}</p>
+              <p><strong>{t('game')}</strong>: {value.game.name}</p>
               <img src={value.game.imageUrl}
                    alt={value.game.name}
                    height="80"/>
@@ -59,14 +59,15 @@ const MatchesSearch = () => {
                 showName={true}
               />
               <div>
-                <strong>{t("match-date")}</strong>: {(new Date(value.createdAt._seconds * 1000)).toLocaleString()}
+                <strong>{t('match-date')}</strong>: {(new Date(value.createdAt._seconds * 1000)).toLocaleString()}
               </div>
               <div>
-                <strong>{t("players")}</strong>: {value.players.map((player) => <UserAvatar
-                photoURL={player.photoURL}
-                displayName={player.name}
-                showName={false}
-              /> )}
+                <strong>{t('players')}</strong>: {
+                value.players.map((player) => <UserAvatar
+                  photoURL={player.photoURL}
+                  displayName={player.name}
+                  showName={false}
+                />)}
               </div>
             </Grid>
           ) :

@@ -50,9 +50,11 @@ const MatchesSearch = () => {
           data.matches.map((value) =>
             <Grid key={value.idDoc} item xs={3} sm={3} md={3} lg={3} xl={3} className={componentClasses.gridStyle}>
               <div><strong>{t('game')}</strong>: {value.game.name}</div>
-              <img src={value.game.imageUrl}
-                   alt={value.game.name}
-                   height="80"/>
+              <div>
+                <img src={value.game.imageUrl}
+                     alt={value.game.name}
+                     height="80"/>
+              </div>
               <UserAvatar
                 photoURL={value.matchOwner?.photoURL}
                 displayName={value.matchOwner?.name}

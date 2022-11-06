@@ -62,7 +62,7 @@ const MatchesSearch = () => {
               />
               <div>
                 <strong>{t('match-date')}</strong>:
-                <div>{(new Date(value.createdAt._seconds * 1000)).toLocaleString()}</div>
+                <div className={componentClasses.textDate}>{(new Date(value.createdAt._seconds * 1000)).toLocaleString()}</div>
               </div>
               <div>
                 <strong>{t('players')}</strong>: {

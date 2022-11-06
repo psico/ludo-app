@@ -11,6 +11,10 @@ const useStyles = makeStyles(theme => ({
   },
   gridStyle: {
     paddingBottom: "300px"
+  },
+  textDate: {
+    fontFamily: "sans-serif",
+    fontSize: "8px",
   }
 }));
 

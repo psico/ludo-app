@@ -1,5 +1,5 @@
 import React from 'react';
-import useStyles from '../ProfileInfo/css';
+import useStyles from './css';
 import Paper from '@material-ui/core/Paper';
 import { useParams, withRouter } from 'react-router-dom/cjs/react-router-dom';
 import Grid from '@material-ui/core/Grid';

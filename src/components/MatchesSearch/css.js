@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
   },
   textDate: {
     fontFamily: "sans-serif",
-    fontSize: "8px",
+    fontSize: "12px",
   }
 }));
 

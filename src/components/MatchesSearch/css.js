@@ -15,6 +15,7 @@ const useStyles = makeStyles(theme => ({
   textDate: {
     fontFamily: "sans-serif",
     fontSize: "12px",
+    paddingLeft: "8px",
   }
 }));
 

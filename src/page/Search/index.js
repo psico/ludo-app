@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom/cjs/react-router-dom';
 import useStyles from '../Profile/css';
 import MatchesSearch from '../../components/MatchesSearch';
 import UsersSearch from '../../components/UsersSearch';
-// import BoardgameSearch from '../../components/BoardgameSearch';
+import BoardgameSearch from '../../components/BoardgameSearch';
 
 const Search = () => {
   const componentClasses = useStyles();
@@ -12,7 +12,7 @@ const Search = () => {
     <div className={componentClasses.root}>
       <MatchesSearch />
       <UsersSearch />
-      {/*<BoardgameSearch />*/}
+      <BoardgameSearch />
     </div>
 )
 }

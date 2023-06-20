@@ -8,10 +8,10 @@ Desenvolvido por João Gabriel - Github [psico](https://github.com/psico)
 
 ![Image](public/ludo512.png)
 
-# Descrição
+## Descrição
 Projeto para construir uma rede social para jogos de tabuleiro, cadastrar partidas e se desafiar em busca de conquistas
 
-# Objetivos principais
+## Objetivos principais
 * Registrar partida
 * Nível do jogador
 * Integração social

@@ -20,7 +20,7 @@ Projeto para construir uma rede social para jogos de tabuleiro, cadastrar partid
 
 Criando issues e etapas...
 
-## Repositõrio do Backend
+## Repositório do Backend
 * https://github.com/psico/ludo-app-backend
 
 ## Scripts Disponíveis

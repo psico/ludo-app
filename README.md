@@ -2,8 +2,6 @@
 Developed by João Gabriel - Github [psico](https://github.com/psico)
 **Data:** 7 de maio de 2026
 
-
-
 [![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white)](https://github.com/psico/ludo-app)
 [![React Badge](https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=react&logoColor=black)]()
 [![Material-UI Badge](https://img.shields.io/badge/-Material--UI-0081CB?style=flat-square&logo=material-ui&logoColor=white)]()
